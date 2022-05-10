@@ -279,12 +279,27 @@ inline Real K2 () const {return  Value(2);};
 ///  @param _c Concentração do soluto.
 ///  @return Valor da quantidade de sorção no equilíbrio.    
 ///  @exception _c < 0.    
-    virtual Real Qe (const Real&, const Real& = 0) const;
+  
+    
+    [[nodiscard]]  
+    Real Qe (const Real&, const Real&) const;
 
-    virtual ValenzuelaMyers* clone() const override
+    [[nodiscard]] 
+    inline Real Qe   (   const Real& _c
+    ) const override
+    {
+        return Qe(_c, 0);
+    }
+
+
+
+    [[nodiscard]] 
+    virtual ValenzuelaMyers* CloneImplementation() const override
     {
         return new ValenzuelaMyers(*this);
-    } 
+    }
+
+    
 };
 
 IST_NAMESPACE_CLOSE

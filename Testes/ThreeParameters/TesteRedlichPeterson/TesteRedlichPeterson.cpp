@@ -36,6 +36,7 @@
 // include da isotherm
 //==============================================================================
 
+#include <Misc/Misc.h>                                      // PrintLine
 #include <Isotherm/ThreeParameters/RedlichPeterson.h>
 
 

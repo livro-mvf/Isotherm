@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe com as equações da isoterma de MacMillan - Teller.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -282,11 +282,24 @@ inline Real K2 () const {return  Value(2);};
 ///  @param _c Concentração do soluto.
 ///  @return Valor da quantidade de sorção no equilíbrio.    
 ///  @exception _c < 0.    
-    virtual Real Qe (const Real&, const Real& = 0) const;
-    virtual MacMillanTeller* clone() const override
+     [[nodiscard]] Real Qe (const Real&, const Real&) const;
+
+    
+    [[nodiscard]] 
+    inline Real Qe   (   const Real& _c
+    ) const override
+    {
+        return Qe(_c, 0);
+    }
+
+
+
+    [[nodiscard]] 
+    virtual MacMillanTeller* CloneImplementation() const override
     {
         return new MacMillanTeller(*this);
-    } 
+    }
+
 
 };
 

@@ -273,12 +273,25 @@ inline Real K3 () const {return  Value(2);};
 /// </example>
 ///  @param _c Concentração do soluto.
 ///  @return Valor da quantidade de sorção no equilíbrio.    
-///  @exception _c < 0.    
-    virtual Real Qe (const Real&, const Real& = 0) const;
-    virtual RedlichPeterson* clone() const override
+///  @exception _c < 0.   
+    
+    [[nodiscard]]  Real Qe (const Real&, const Real&) const;    
+    
+    [[nodiscard]] 
+    inline Real Qe   (   const Real& _c
+    ) const override
+    {
+        return Qe(_c, 0);
+    }
+
+
+
+    [[nodiscard]] 
+    virtual RedlichPeterson* CloneImplementation() const override
     {
         return new RedlichPeterson(*this);
-    } 
+    }
+
 };
 
 IST_NAMESPACE_CLOSE

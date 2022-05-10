@@ -272,7 +272,7 @@ inline Real K2 () const {return  Value(2);};
 ///  @param _c Concentração do soluto.
 ///  @return Valor da quantidade de sorção no equilíbrio.
 ///  @exception _c < 0.
-    virtual Real Qe (const Real&, const Real&) const;
+    [[nodiscard]]  Real Qe (const Real&, const Real&) const;
 
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c
