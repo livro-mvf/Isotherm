@@ -40,8 +40,8 @@
 ///  \copyright GNU Public License.
         
 
-#ifndef FOURPARAMETERS_H
-#define FOURPARAMETERS_H
+#ifndef __FOURPARAMETERS_H__
+#define __FOURPARAMETERS_H__
 
 
 //==============================================================================
@@ -52,50 +52,50 @@
 
 IST_NAMESPACE_OPEN
 
-class FourParameters : public Isotherm {
-//
-////==============================================================================
-//// ID da classe
-////==============================================================================
-//
-//public:
-//
-//    DefineIdentity  (   "FourParameters"
-//                    ,   ID::FourParameters
-//                    );
-//
-//
-////==============================================================================
-//// Construtores / Destrutora
-////==============================================================================
-//
-//protected:
-//
-//    FourParameters() : FourParameters (0, 0, 0, 0) {};
-//    FourParameters(const FourParameters&) = default;
-//    virtual ~FourParameters() = default;
-//
-//
-//    FourParameters  (   const Real&
-//                    ,   const Real&
-//                    ,   const Real&
-//                    ,   const Real&
-//                    );
-//
-//
-////==============================================================================
-//// Sobrecarga de operadores
-////==============================================================================
-//
-//protected:
-//
-//    FourParameters& operator = ( const FourParameters& ) = default;
-//
+class FourParameters : public virtual Isotherm {
+
+//==============================================================================
+// ID da classe
+//==============================================================================
+
+public:
+
+    DefineIdentity  (   "FourParameters"
+                    ,   ID::FourParameters
+                    );
+
+
+//==============================================================================
+// Construtores / Destrutora
+//==============================================================================
+
+protected:
+
+    FourParameters() : FourParameters (0, 0, 0, 0) {};
+    FourParameters(const FourParameters&) = default;
+    virtual ~FourParameters() = default;
+
+
+    FourParameters  (   const Real&
+                    ,   const Real&
+                    ,   const Real&
+                    ,   const Real&
+                    );
+
+
+//==============================================================================
+// Sobrecarga de operadores
+//==============================================================================
+
+protected:
+
+    FourParameters& operator = ( const FourParameters& ) = default;
+
 };
 
 IST_NAMESPACE_CLOSE
 
-#endif /* FOURPARAMETERS_H */
+#endif /* __FOURPARAMETERS_H__ */
 
 /** @} */ 
         

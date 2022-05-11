@@ -55,48 +55,48 @@ IST_NAMESPACE_OPEN
 
 class FiveParameters : public virtual Isotherm {
     
-//
-////==============================================================================
-//// ID da classe
-////==============================================================================
-//
-//public:
-//
-//    DefineIdentity  (   "FiveParameters"
-//                    ,   ID::FiveParameters
-//                    );
-//
-////==============================================================================
-//// Construtores / Destrutora
-////==============================================================================
-//
-//protected:
-//
-//    FiveParameters() : FiveParameters ( 0, 0, 0, 0, 0) {};
-//
-//    FiveParameters(const FiveParameters&) = default;
-//    virtual ~FiveParameters() = default;
-//
-//    FiveParameters  (   const Real&
-//                    ,   const Real&
-//                    ,   const Real&
-//                    ,   const Real&
-//                    ,   const Real&
-//                    );
-//
-//
-////==============================================================================
-//// Sobrecarga de operadores
-////==============================================================================
-//
-//protected:
-//
-//    FiveParameters& operator = (const FiveParameters& ) = default;
-//
-//
-//public:
-//
-//
+
+//==============================================================================
+// ID da classe
+//==============================================================================
+
+public:
+
+    DefineIdentity  (   "FiveParameters"
+                    ,   ID::FiveParameters
+                    );
+
+//==============================================================================
+// Construtores / Destrutora
+//==============================================================================
+
+protected:
+
+    FiveParameters() : FiveParameters ( 0, 0, 0, 0, 0) {};
+
+    FiveParameters(const FiveParameters&) = default;
+    virtual ~FiveParameters() = default;
+
+    FiveParameters  (   const Real&
+                    ,   const Real&
+                    ,   const Real&
+                    ,   const Real&
+                    ,   const Real&
+                    );
+
+
+//==============================================================================
+// Sobrecarga de operadores
+//==============================================================================
+
+protected:
+
+    FiveParameters& operator = (const FiveParameters& ) = default;
+
+
+public:
+
+
 
 
 }; 

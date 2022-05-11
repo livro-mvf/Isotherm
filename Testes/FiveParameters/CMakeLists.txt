@@ -1,0 +1,4 @@
+add_subdirectory(TesteFritzSchlunderV)
+add_subdirectory(TesteFrenkelHalseyHill)
+
+

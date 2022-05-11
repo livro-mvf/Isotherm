@@ -1,11 +1,11 @@
 //==============================================================================
-// Name        : TesteFritzSchlunderIV.cpp
+// Name        : TesteTesteFrenkelHalseyHill.cpp
 // Authors     : Lara Botelho Brum
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
 // Description : Programa para testar a classe com as 
-//               equações da isoterma de Fritz - Schlunder IV.
+//               equações da isoterma de Frenkel-Halsey-Hill.
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -32,7 +32,7 @@
 //==============================================================================
 
 #include <Misc/Misc.h>                                      // PrintLine
-#include <Isotherm/FourParameters/FritzSchlunderIV.h>
+#include <Isotherm/FiveParameters/FrenkelHalseyHill.h>
 
 //==============================================================================
 // include da lib c++ 
@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
 //==============================================================================
     
     PrintLine(std::cout);    
-    std::cout << "Teste da classe Fritz-Schlunder IV\n";
+    std::cout << "Teste da classe Fritz - Schlunder - V\n";
     PrintLine(std::cout);    
 
 //==============================================================================
@@ -67,31 +67,35 @@ const Real          QMAX(10.0);
 const Real          K1(1000.0); 
 const Real          K2(1.0);
 const Real          K3(0.5);
+const Real          K4(0.5);
 
-ist::FritzSchlunderIV     f1;                 //Construtora default    
+ist::FrenkelHalseyHill     f1;                 //Construtora default    
     assert (f1.K1() == 0); 
     assert (f1.K2() == 0); 
-    assert (f1.K3() == 0);     
+    assert (f1.K3() == 0);
+    assert (f1.K4() == 0);     
     assert (f1.Qmax() == 0); 
 
     std::cout << "\nImprimindo a variavel f1: " 
               << f1 
               << std::endl;
     
-ist::FritzSchlunderIV     f2( QMAX, K1, K2, K3);     // Construtora com 3 parâmetros; 
+ist::FrenkelHalseyHill     f2( QMAX, K1, K2, K3, K4 );     // Construtora com 3 parâmetros; 
     assert (f2.K1() == K1); 
     assert (f2.K2() == K2);
     assert (f2.K3() == K3);
+    assert (f2.K4() == K4);
     assert (f2.Qmax() == QMAX);
     
     std::cout << "\nImprimindo a variavel f2: " 
               << f2 
               << std::endl;
 
-ist::FritzSchlunderIV     f3(f2);             // Construtoa de cópia
+ist::FrenkelHalseyHill     f3(f2);             // Construtoa de cópia
     assert (f2.K1() == f3.K1()); 
     assert (f2.K2() == f3.K2());
     assert (f2.K3() == f3.K3());
+    assert (f2.K4() == f3.K4());
     assert (f2.Qmax() == f3.Qmax());
     
     std::cout << "\nImprimindo a variavel f3: " 
@@ -111,6 +115,7 @@ ist::FritzSchlunderIV     f3(f2);             // Construtoa de cópia
     assert (f1.K1() == f3.K1()); 
     assert (f1.K2() == f3.K2());
     assert (f2.K3() == f3.K3());
+    assert (f2.K4() == f3.K4());
     assert (f1.Qmax() == f3.Qmax());
     
     std::cout << "\nImprimindo a variavel f1: " << f1 << std::endl;
@@ -119,11 +124,13 @@ const Real QMAX1 (778.0);
 const Real K11 (45.0);
 const Real K22 (1.5);
 const Real K33 (0.3);
+const Real K44 (0.2);
 
-ist::FritzSchlunderIV     f4 = ist::FritzSchlunderIV(QMAX1, K11, K22, K33);
+ist::FrenkelHalseyHill     f4 = ist::FrenkelHalseyHill(QMAX1, K11, K22, K33, K44);
     assert (f4.K1() == K11); 
     assert (f4.K2() == K22);
     assert (f4.K3() == K33);
+    assert (f4.K4() == K44);
     assert (f4.Qmax() == QMAX1);
     
 
@@ -162,6 +169,12 @@ ist::FritzSchlunderIV     f4 = ist::FritzSchlunderIV(QMAX1, K11, K22, K33);
                 << std::fixed
                 << f1.K3() 
                 << std::endl;
+
+    std::cout   << "K4:\t" 
+                << std::setw(12)
+                << std::fixed
+                << f1.K4() 
+                << std::endl;
         
     std::cout << "QMAX:\t" 
               << std::setw(12) 
@@ -169,7 +182,7 @@ ist::FritzSchlunderIV     f4 = ist::FritzSchlunderIV(QMAX1, K11, K22, K33);
               << f1.Qmax() 
               << std::endl;
         
-    std::cout   << "\nAlterando K1  , K2  , K3  e  QMAX separadamente\n";    
+    std::cout   << "\nAlterando K1  , K2  , K3  , K4  e  QMAX separadamente\n";    
     std::cout << "Imprimindo f1 modificado: \n" << f1 << std::endl;
     
     f1.K1(K11);
@@ -179,7 +192,10 @@ ist::FritzSchlunderIV     f4 = ist::FritzSchlunderIV(QMAX1, K11, K22, K33);
     assert (f1.K2() == K22); 
 
     f1.K3(K33);
-    assert (f1.K3() == K33);   
+    assert (f1.K3() == K33);
+
+    f1.K4(K44);
+    assert (f1.K4() == K44);   
       
     f1.Qmax(QMAX1);
     assert (f1.Qmax() == QMAX1); 
@@ -193,16 +209,17 @@ const Real                      CE(1.6);
 const Real                      K1_QE(1432e-3);
 const Real                      K2_QE(23.72e-2);
 const Real                      K3_QE(7.865e-1);
+const Real                      K4_QE(52.26e-3);
 const Real                      QMAX_QE(4.897e-1);
-const ist::FritzSchlunderIV     var_FSIV(QMAX_QE, K1_QE, K2_QE, K3_QE);
+const ist::FrenkelHalseyHill           var_FSV(QMAX_QE, K1_QE, K2_QE, K3_QE, K4_QE);
 const Real                      QEANALITICO(0.423087468);
-const Real                      QeNumerico(var_FSIV.Qe(CE));
+const Real                      QeNumerico(var_FSV.Qe(CE));
 const Real                      DiffQe = fabs(QeNumerico - QEANALITICO) / QEANALITICO;
 const Real                      DQMIN(1e-06);
 
 
        std::cout   << "\n\nImprimindo isoterma para o cálculo de Qe: \n" 
-                << var_FSIV
+                << var_FSV
                 << std::endl; 
        
        
@@ -228,7 +245,7 @@ const Real                      DQMIN(1e-06);
                     << "\n";
         
         
-  //assert (DiffQe <= DQMIN); 
+  assert (DiffQe <= DQMIN); 
     
     
    
@@ -242,7 +259,7 @@ const Real                      DQMIN(1e-06);
     std::cout << "Teste do acesso as informações sobre as constantes\n";
     PrintLine(std::cout);
     
-    assert (f1.NumberConst() == 4);
+    assert (f1.NumberConst() == 5);
     std::cout   << "Numero de constantes de f1: " 
                 << f1.NumberConst() 
                 << std::endl;
@@ -289,23 +306,24 @@ const Real                      CE_Errado(3.16227766);
 const Real                      K1_Errado(0.4);
 const Real                      K2_Errado(0.5);
 const Real                      K3_Errado(0.2);
+const Real                      K4_Errado(0.5);
 const Real                      QMAX_Errado(0.7);
 
-ist::FritzSchlunderIV     f6 ( - QMAX_Errado,    K1_Errado,    K2_Errado,    K3_Errado);            // Teste ok   
+ist::FrenkelHalseyHill     f6 ( - QMAX_Errado,    K1_Errado,    K2_Errado,    K3_Errado,    K4_Errado);            // Teste ok   
 
-ist::FritzSchlunderIV     f7 (   QMAX_Errado,  - K1_Errado,    K2_Errado,    K3_Errado);            // Teste ok   
+ist::FrenkelHalseyHill     f7 (   QMAX_Errado,  - K1_Errado,    K2_Errado,    K3_Errado,    K4_Errado);            // Teste ok   
 
-ist::FritzSchlunderIV     f8 (   QMAX_Errado,    K1_Errado,  - K2_Errado,    K3_Errado);            // Teste ok   
+ist::FrenkelHalseyHill     f8 (   QMAX_Errado,    K1_Errado,  - K2_Errado,    K3_Errado,    K4_Errado);            // Teste ok   
 
-ist::FritzSchlunderIV     f91 (   QMAX_Errado,    K1_Errado,   K2_Errado,    -K3_Errado);            // Teste ok
+ist::FrenkelHalseyHill     f91 (   QMAX_Errado,    K1_Errado,   K2_Errado,    -K3_Errado,    K4_Errado );            // Teste ok
 
-ist::FritzSchlunderIV     f10 (   QMAX_Errado,    K1_Errado,   K2_Errado,    K3_Errado);            // Teste ok
+ist::FrenkelHalseyHill     f10 (   QMAX_Errado,    K1_Errado,   K2_Errado,    K3_Errado,    -K4_Errado );            // Teste ok
 
     std::cout   << "Imprimindo Qe com C errada = " 
                 << f1.Qe( - CE_Errado ) 
                 << std::endl;                                // Teste ok
     
-ist::FritzSchlunderIV     f9;    
+ist::FrenkelHalseyHill     f9;    
     
     std::cout   << "Imprimindo Qe sem coeficientes = " 
                 << f9.Qe( CE ) 
@@ -318,6 +336,8 @@ ist::FritzSchlunderIV     f9;
     f1.K2(-K22);                                        // Teste ok
   
     f1.K3(-K33);                                        // Teste ok
+
+    f1.K4(-K44);                                        // Teste ok
    return EXIT_FAILURE; 
 
 }

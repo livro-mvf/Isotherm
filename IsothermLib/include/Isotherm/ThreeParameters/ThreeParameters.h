@@ -43,8 +43,8 @@
 ///
 
 
-#ifndef THREEPARAMETERS_H
-#define THREEPARAMETERS_H
+#ifndef __THREEPARAMETERS_H__
+#define __THREEPARAMETERS_H__
 
 //#define __THREEPARAMETERS_DEBUG_H__
 
@@ -75,7 +75,10 @@ protected:
     ThreeParameters (const ThreeParameters&) = default;
     virtual ~ThreeParameters() = default;
 
-    ThreeParameters (const Real&, const Real&, const Real&);
+    ThreeParameters     (   const Real&
+                        ,   const Real&
+                        ,   const Real&
+                        );
 
 
 //==============================================================================
@@ -91,6 +94,6 @@ protected:
 
 IST_NAMESPACE_CLOSE
 
-#endif /* THREEPARAMETERS_H */
+#endif /* __THREEPARAMETERS_H__ */
 
 /** @} */
