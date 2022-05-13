@@ -5,9 +5,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Dubinin-Radushkevich
+// Description : Classe com as equacoes da isoterma de Dubinin-Radushkevich
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,26 +26,26 @@
 
 /** @defgroup DubininRadushkevich Dubinin-Radushkevich
  *  @ingroup Two_Parameters
- *  Classe DubininRadushkevich contém as equações da isoterma de Dubinin Radushkevich.
+ *  Classe DubininRadushkevich contem as equacoes da isoterma de Dubinin Radushkevich.
  *  @{
  */
 
 /// <summary>
-/// Classe com as equações da isoterma de Dubinin-Radushkevich
+/// Classe com as equacoes da isoterma de Dubinin-Radushkevich
 /// </summary>
-///  Isoterma com dois parâmetros, \f$ q_{max} \f$ e \f$ K_1 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com dois parametros, \f$ q_{max} \f$ e \f$ K_1 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     Q_e (C_e, T) &= q_{max} \exp( -K_1 \epsilon^2 ) \hfil  \\\ \\\
 ///     \epsilon &= R T \ln \left(1 + \frac{1}{C_e} \right)
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1021/cr60204a006).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1021/cr60204a006).
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -53,7 +53,7 @@
 #define	__DUBININ_RADUSHKEVICH_H__
 
 //==============================================================================
-// include da isotherm++
+// include da isothermlib
 //==============================================================================
 
 #include <Isotherm/TwoParameters/TwoParameters.h>
@@ -73,14 +73,14 @@ public:
 
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
     DefineIdentity  (   "DubininRadushkevich"
                     ,   ID::DubininRadushkevich
                     );
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -94,11 +94,11 @@ public:
 ///     DubininRadushkevich  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     DubininRadushkevich() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -107,7 +107,7 @@ public:
 ///     DubininRadushkevich  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo DubininRadushkevich original.
+/// @param  _orig Variavel do tipo DubininRadushkevich original.
     DubininRadushkevich ( const DubininRadushkevich& _orig) = default;
 
 /// <summary>
@@ -116,7 +116,7 @@ public:
     virtual ~DubininRadushkevich()  = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de DubininRadushkevich.
+/// Construtora com os parametros que definem a isoterma de DubininRadushkevich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -128,9 +128,9 @@ public:
 ///     DubininRadushkevich  var2(q1, k1, RGAS);        // Constante dos gases modificada
 /// @endcode
 /// </example>
-///  @param _qmax Constante de equilíbrio de Dubinin-Radushkevich.
-///  @param  _k1 Coeficiente associado a energia de adsorção.
-///  @param _rgas Valor da constante universal dos gases diferente do padrão.
+///  @param _qmax Constante de equilibrio de Dubinin-Radushkevich.
+///  @param  _k1 Coeficiente associado a energia de adsorcao.
+///  @param _rgas Valor da constante universal dos gases diferente do padrao.
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _rgas <= 0.
@@ -156,8 +156,8 @@ public:
 ///     DubininRadushkevich  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo DubininRadushkevich original.
-///  @return Cópia de _orig.
+///  @param _orig Variavel do tipo DubininRadushkevich original.
+///  @return Copia de _orig.
     DubininRadushkevich& operator = (const DubininRadushkevich& _orig) = default;
 
 //==============================================================================
@@ -165,7 +165,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da constante de equilíbrio de Dubinin-Radushkevich.
+/// Funcao que informa o valor da constante de equilibrio de Dubinin-Radushkevich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -174,15 +174,15 @@ public:
 ///     Real q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  constante de equilíbrio de Dubinin-Radushkevich.
+///  @param " " Nao ha parametros.
+///  @return Valor da  constante de equilibrio de Dubinin-Radushkevich.
 [[nodiscard]] inline Real Qmax () const
 {
     return  Value(0);
 };
 
 /// <summary>
-/// Função que retorna o coeficiente associado a energia de adsorção.
+/// Funcao que retorna o coeficiente associado a energia de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -191,8 +191,8 @@ public:
 ///     Real vk1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a energia de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente associado a energia de adsorcao.
 [[nodiscard]] inline Real K1 () const
 {
     return  Value(1);
@@ -200,7 +200,7 @@ public:
 
 
 /// <summary>
-/// Função que retorna o valor da constante universal dos gases.
+/// Funcao que retorna o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -209,7 +209,7 @@ public:
 ///     Real rg = var1.Rgas();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante universal dos gases.
 [[maybe_unused]] [[nodiscard]] inline Real Rgas () const
 {
@@ -222,7 +222,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a constante de equilíbrio de Dubinin-Radushkevich.
+/// Funcao para alterar  a constante de equilibrio de Dubinin-Radushkevich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -232,7 +232,7 @@ public:
 ///     var1.Qmax(vq1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da constante de equilíbrio de Dubinin-Radushkevich.
+///  @param _qmax Novo valor da constante de equilibrio de Dubinin-Radushkevich.
 ///  @exception _qmax <= 0.
 inline void Qmax (const Real& _qmax)
 {
@@ -243,7 +243,7 @@ inline void Qmax (const Real& _qmax)
 
 
 /// <summary>
-/// Função que altera o coeficiente associado a energia de adsorção.
+/// Funcao que altera o coeficiente associado a energia de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -253,7 +253,7 @@ inline void Qmax (const Real& _qmax)
 ///     var1.K1(vk1);
 /// @endcode
 /// </example>
-///  @param _k1 Novo valor do coeficiente associado a energia de adsorção.
+///  @param _k1 Novo valor do coeficiente associado a energia de adsorcao.
 ///  @exception _k1 <= 0.
 inline  void K1 (const Real& _k1)
 {
@@ -263,7 +263,7 @@ inline  void K1 (const Real& _k1)
 };
 
 /// <summary>
-/// Função para alterar o valor da constante universal dos gases.
+/// Funcao para alterar o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -289,7 +289,7 @@ inline  void K1 (const Real& _k1)
 //==============================================================================
 //
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -300,17 +300,18 @@ inline  void K1 (const Real& _k1)
 ///     Real qe = var1.Qe(ce, tempK);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
+///  @param _c Concentracao do soluto.
 ///  @param _temp Temperatura em K.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c <= 0.
 ///  @exception _temp <= 0.
-    virtual Real Qe         (   const Real& _c
-                            ,   const Real& _temp
-                            ) const;
+    [[nodiscard]]  
+    Real Qe     (   const Real& _c
+                ,   const Real& _temp
+                ) const;
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -320,8 +321,8 @@ inline  void K1 (const Real& _k1)
 ///     Real qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c <= 0.
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c

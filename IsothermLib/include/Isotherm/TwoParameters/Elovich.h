@@ -5,9 +5,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Elovich
+// Description : Classe com as equacoes da isoterma de Elovich
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,31 +26,31 @@
 
 /** @defgroup Elovich  Elovich
  *  @ingroup Two_Parameters
- *  Classe Elovich contém a equação da isoterma de Elovich.
+ *  Classe Elovich contem a equacao da isoterma de Elovich.
  *  @{
  */
 
 /// <summary>
-/// Classe com as equações da isoterma de Elovich
+/// Classe com as equacoes da isoterma de Elovich
 /// </summary>
-///  Isoterma com dois parâmetros, \f$ K_1 \f$ e \f$ q_{max} \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com dois parametros, \f$ K_1 \f$ e \f$ q_{max} \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     Q_e (C_e) &= q_{max} \theta \hfil  \\\ \\\
 ///     \theta &= K_1 C_e e^{-\theta}
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1007/BF00908016).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1007/BF00908016).
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
-#ifndef ELOVICH_H
-#define	ELOVICH_H
+#ifndef __ISO_ELOVICH_H__
+#define	__ISO_ELOVICH_H__
 
 //==============================================================================
 // include da isotherm++
@@ -76,7 +76,7 @@ class Elovich :  public virtual TwoParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
     DefineIdentity  (   "Elovich"
                     ,   ID::Elovich
@@ -84,7 +84,7 @@ public:
  
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -98,11 +98,11 @@ public:
 ///     Elovich  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Elovich() = default;
     
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -111,7 +111,7 @@ public:
 ///     Elovich  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Elovich original.
+/// @param  _orig Variavel do tipo Elovich original.
     Elovich(const Elovich& _orig) = default;
     
 /// <summary>
@@ -120,7 +120,7 @@ public:
     ~Elovich() override = default;
     
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Elovich.
+/// Construtora com os parametros que definem a isoterma de Elovich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -130,7 +130,7 @@ public:
 ///     Elovich var1(qmax, k1);              
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade máxima de adsorção.    
+///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param  _k1 Constante da isoterma de Elovich. 
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
@@ -155,8 +155,8 @@ public:
 ///     Elovich  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Elovich original.
-///  @return Cópia de _orig.   
+///  @param _orig Variavel do tipo Elovich original.
+///  @return Copia de _orig.   
     Elovich& operator = (const Elovich& _orig) = default;
 
 //==============================================================================
@@ -164,7 +164,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade máxima de adsorção em [M /M ].
+/// Funcao que informa o valor da capacidade maxima de adsorcao em [M /M ].
 /// </summary>
 /// <example>
 /// Uso:
@@ -173,8 +173,8 @@ public:
 ///     Real q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente de distribuição em [M /M ].
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente de distribuicao em [M /M ].
 [[nodiscard]] inline Real Qmax () const
 {
     return  Value(0);
@@ -182,7 +182,7 @@ public:
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de equilibrio de Elovich.
+/// Funcao que retorna o coeficiente associado a constante de equilibrio de Elovich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -191,7 +191,7 @@ public:
 ///     Real k2 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de equilibrio de Elovich.    
 [[nodiscard]] inline Real K1 () const
 {
@@ -203,7 +203,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar a capacidade máxima de adsorção em [M /M ].   .
+/// Funcao para alterar a capacidade maxima de adsorcao em [M /M ].   .
 /// </summary>
 /// <example>
 /// Uso:
@@ -213,7 +213,7 @@ public:
 ///     var1.Qmax(q2);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade máxima de adsorção em [M /M ].   .
+///  @param _qmax Novo valor da capacidade maxima de adsorcao em [M /M ].   .
 ///  @exception _qmax <= 0.   
 inline void Qmax (  const Real& _qmax)  
 {
@@ -222,7 +222,7 @@ inline void Qmax (  const Real& _qmax)
 
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de equilibrio de Elovich.
+/// Funcao que altera o coeficiente associado a constante de equilibrio de Elovich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -294,6 +294,6 @@ private:
 IST_NAMESPACE_CLOSE
         
 
-#endif	/* ELOVICH_H */
+#endif	/* __ISO_ELOVICH_H__ */
 
 /** @} */ 

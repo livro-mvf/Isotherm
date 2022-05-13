@@ -5,9 +5,9 @@
 //               Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Halsey
+// Description : Classe com as equacoes da isoterma de Halsey
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -45,7 +45,7 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsHalsey
@@ -53,7 +53,7 @@ VecPairString       detailsHalsey
         PairString  ( "K1"
                     , "Constante da isoterma de Halsey")
     ,   PairString  ( "K2"
-                    , "Constante de ligação de equilíbrio isotérmica")
+                    , "Constante de ligacao de equiibrio isotérmica")
     };
 
 template<>
@@ -119,7 +119,8 @@ Real    value;
         abort();
     }
 
-    return  value;
+    return  (value >= ZERO ? value : 0.0);
+
 
 }
 

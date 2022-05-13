@@ -3,9 +3,9 @@
 // Author      : Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Freundlich
+// Description : Classe com as equacoes da isoterma de Freundlich
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -42,22 +42,22 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsFreundlich
     {
         PairString  ( "K1"
-                    , "Coeficiente de distribuição")
+                    , "Coeficiente de distribuicao")
     ,   PairString  ( "K2"
-                    , "Fator de correção")};
+                    , "Fator de correcao")};
 
 template<>
 VecPairString IsothermTemplate < Freundlich >::infoIsotherm = detailsFreundlich;
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -101,14 +101,15 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
     }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equiibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real Qe (const Real&, const Real& = 0) const"
 Real
 Freundlich ::  Qe   (   const Real&         _ce
-                    ,   const Real&             ) const
+                    ,   const Real&            
+                    ) const
 {
 #ifdef __FREUNDLICH_DEBUG_H__
 std::cout << "Entrei: " << __FUNCT__ << "\n";

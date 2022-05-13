@@ -5,9 +5,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Dubinin-Radushkevich
+// Description : Classe com as equacoes da isoterma de Dubinin-Radushkevich
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,24 +26,24 @@
 
 /** @defgroup Temkin Temkin
  *  @ingroup Two_Parameters
- *  Classe Temkin é uma classe de dois parâmetros.
+ *  Classe Temkin e uma classe de dois parametros.
  */
 
 /// <summary>
-/// Classe com as equações da isoterma de Temkin.
+/// Classe com as equacoes da isoterma de Temkin.
 /// </summary>
-///  Isoterma com dois parâmetros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com dois parametros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     Q_e(C_e, T) = \frac{R T}{K_2}ln(K_1 C_e )
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/0167-4838(95)00006-G).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/0167-4838(95)00006-G).
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -72,13 +72,13 @@ public:
 
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
     DefineIdentity ("Temkin", ID::Temkin);
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -92,11 +92,11 @@ public:
 ///     Temkin  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Temkin() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -105,7 +105,7 @@ public:
 ///     Temkin  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Temkin original.
+/// @param  _orig Variavel do tipo Temkin original.
     Temkin(const Temkin& _orig) = default;
 
 /// <summary>
@@ -114,7 +114,7 @@ public:
     virtual ~Temkin() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Temkin.
+/// Construtora com os parametros que definem a isoterma de Temkin.
 /// </summary>
 /// <example>
 /// Uso:
@@ -127,8 +127,8 @@ public:
 /// @endcode
 /// </example>
 ///  @param _k1 Constante da isoterma de Temkin.
-///  @param  _k2 Constante de ligação de equilíbrio isotérmica.
-///  @param _rgas Valor da constante universal dos gases diferente do padrão.
+///  @param  _k2 Constante de ligacao de equilibrio isotermica.
+///  @param _rgas Valor da constante universal dos gases diferente do padrao.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
 ///  @exception _rgas <= 0.
@@ -151,8 +151,8 @@ public:
 ///     Temkin  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Temkin original.
-///  @return Cópia de _orig.
+///  @param _orig Variavel do tipo Temkin original.
+///  @return Copia de _orig.
     Temkin& operator = (const Temkin& _orig) = default;
 
 //==============================================================================
@@ -160,7 +160,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da constante da isoterma de Temkin.
+/// Funcao que informa o valor da constante da isoterma de Temkin.
 /// </summary>
 /// <example>
 /// Uso:
@@ -169,12 +169,12 @@ public:
 ///     Real _k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da  constante da isoterma de Temkin.
     inline Real K1 () const {return  Value(0);};
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de ligação de equilíbrio isotérmica.
+/// Funcao que retorna o coeficiente associado a constante de ligacao de equilibrio isotermica.
 /// </summary>
 /// <example>
 /// Uso:
@@ -183,13 +183,13 @@ public:
 ///     Real _k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de ligação de equilíbrio isotérmica.
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente associado a constante de ligacao de equilibrio isotermica.
     inline Real K2 () const {return  Value(1);};
 
 
 /// <summary>
-/// Função que retorna o valor da constante universal dos gases.
+/// Funcao que retorna o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -198,7 +198,7 @@ public:
 ///     Real rg = var1.Rgas();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante universal dos gases.
     inline Real Rgas () const {return  RGAS;};
 
@@ -208,7 +208,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar a constante da isoterma de Temkin.
+/// Funcao para alterar a constante da isoterma de Temkin.
 /// </summary>
 /// <example>
 /// Uso:
@@ -224,7 +224,7 @@ public:
 
 
 /// <summary>
-/// Função que alterao o coeficiente associado a constante de ligação de equilíbrio isotérmica.
+/// Funcao que alterao o coeficiente associado a constante de ligacao de equilibrio isotermica.
 /// </summary>
 /// <example>
 /// Uso:
@@ -234,12 +234,12 @@ public:
 ///     var1.K2(_k2);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor do coeficiente associado a constante de ligação de equilíbrio isotérmica.
+///  @param _k2 Novo valor do coeficiente associado a constante de ligacao de equilibrio isotermica.
 ///  @exception _k2 <= 0.
     void K2 (const Real& _k2)  {*this = Temkin(Value(0), _k2);};
 
 /// <summary>
-/// Função para alterar o valor da constante universal dos gases.
+/// Funcao para alterar o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -254,11 +254,11 @@ public:
     void Rgas (const Real& _rgas) {*this = Temkin(Value(0), Value(1), _rgas);};
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -268,11 +268,12 @@ public:
 ///     Real qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
+///  @param _c Concentracao do soluto.
 ///  @param _temp Temperatura em K.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c k1 < 1.
-    virtual Real Qe (const Real& _c, const Real& _temp) const;
+    [[nodiscard]] 
+    Real Qe (const Real& _c, const Real& _temp) const;
     
     
     [[nodiscard]] 
@@ -292,7 +293,7 @@ Real                    RGAS = Isotherm::RGASCONST;      /// Valor default da co
 
 
 /// \example TesteTemkin.cpp
-///Este é um arquivo com exemplos de aplicação da classe Temkin.
+///Este e um arquivo com exemplos de aplicacao da classe Temkin.
 
 
 IST_NAMESPACE_CLOSE

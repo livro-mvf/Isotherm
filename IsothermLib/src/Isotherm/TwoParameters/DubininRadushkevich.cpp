@@ -4,7 +4,7 @@
 //               Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Dubinin-Radushkevich
+// Description : Classe com as equacoes da isoterma de Dubinin-Radushkevich
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -27,8 +27,8 @@
 // includes lib c++
 //==============================================================================
 
-//#include <cmath>
-//#include <iostream>
+#include <cmath>                    // Para o log
+#include <iostream>                 // Para o std::cout
 
 //==============================================================================
 // includes da lib IsothermLib
@@ -38,21 +38,21 @@
 #include <Isotherm/TwoParameters/DubininRadushkevich.h>
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsDubininRadushkevich                      /* NOLINT */
     {
         PairString  ( "Qmax"
-                    , "Constante de equilíbrio de Dubinin-Radushkevich")
+                    , "Constante de equiibrio de Dubinin-Radushkevich")
     ,   PairString  ( "K1"
-                    , "Coeficiente associado a energia de adsorção")};
+                    , "Coeficiente associado a energia de adsorçao")};
 
 template<>
 VecPairString IsothermTemplate < DubininRadushkevich >::infoIsotherm = detailsDubininRadushkevich; /* NOLINT */
@@ -63,74 +63,78 @@ VecPairString IsothermTemplate < DubininRadushkevich >::infoIsotherm = detailsDu
 //==============================================================================
 
 
-
+#undef  __FUNCT__
+#define __FUNCT__ "Langmuir :: Langmuir (const Real&, const Real&)"
 DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
                                             ,   const Real&         _k1
                                             ,   const Real&         _rgas)
                                             :   TwoParameters ( _qmax,  _k1 )
                                             ,   RGAS (_rgas )
 {
-//
-//    try {
-//
-//        if (_qmax <= 0.0) {
-//            throw IsoException(IST_LOC, className(), BadQmaxLEZero);
-//        }
-//
-//        if (_k1 <= 0.0) {
-//            throw IsoException(IST_LOC, className(), BadK1LEZero);
-//        }
-//
-//        if (_rgas <= 0.0) {
-//            throw IsoException(IST_LOC, className(), BadRGasLEZero);
-//        }
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout   << _isoExcept;
-//        abort();
-//
-//    }
-//
-//    setup = true;
-//
+
+    try {
+
+        if (_qmax <= 0.0) {
+            throw IsoException(IST_LOC, className(), BadQmaxLEZero);
+        }
+
+        if (_k1 <= 0.0) {
+            throw IsoException(IST_LOC, className(), BadK1LEZero);
+        }
+
+        if (_rgas <= 0.0) {
+            throw IsoException(IST_LOC, className(), BadRGasLEZero);
+        }
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout   << _isoExcept;
+        abort();
+
+    }
+
+    setup = true;
+
 }
 
 //==============================================================================
-// Concentração de equilibro Qe
+// Concentraçao de equilibro Qe
 //==============================================================================
 
+#undef  __FUNCT__
+#define __FUNCT__ "Langmuir :: Langmuir (const Real&, const Real&)"
 Real
 DubininRadushkevich ::  Qe  (   const Real&     _ce
                             ,   const Real&     _temp) const
 {
 
-//    try {
-//
-//        if (!setup) {
-//            throw IsoException(IST_LOC, className(), BadCoefficient);
-//        }
-//
-//        if (_ce <= 0.0) {
-//            throw IsoException(IST_LOC, className(), BadCeLEZero);
-//        }
-//
-//        if (_temp <= 0.0) {
-//            throw IsoException(IST_LOC, className(), BadTempLEZero);
-//        }
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//        abort();
-//
-//    }
-//
-//auto    ptrValue    = std::begin(coeffValue);
-//auto    eps         = RGAS * _temp * log(1.0 + (1.0 / _ce));
-//
-//    return  *ptrValue * exp( - (*(ptrValue + 1) * eps * eps));
-    return 0;
+    try {
+
+        if (!setup) {
+            throw IsoException(IST_LOC, className(), BadCoefficient);
+        }
+
+        if (_ce <= 0.0) {
+            throw IsoException(IST_LOC, className(), BadCeLEZero);
+        }
+
+        if (_temp <= 0.0) {
+            throw IsoException(IST_LOC, className(), BadTempLEZero);
+        }
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout << _isoExcept << "\n";
+        abort();
+
+    }
+
+auto    ptrValue    = std::begin(coeffValue);
+auto    eps         = RGAS * _temp * log(1.0 + (1.0 / _ce));
+auto    value       = *ptrValue * exp( - (*(ptrValue + 1) * eps * eps));
+
+    return  (value >= ZERO ? value : 0.0);
+
 }
 
 IST_NAMESPACE_CLOSE

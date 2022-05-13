@@ -4,9 +4,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com 2 parâmetros
+// Description : Classe base para as isotermas com 2 parametros
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -25,25 +25,25 @@
 
 /** @defgroup TwoParameters
  *  @ingroup Base
- *  Classe base das isotermas com dois parâmetro.
+ *  Classe base das isotermas com dois parametro.
  *  @{
  */
 
 
 ///  <summary>
-///  Classe base para todas as classes com dois parâmetros.
+///  Classe base para todas as classes com dois parametros.
 /// </summary>
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha� bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
-#ifndef TWOPARAMETERS_H
-#define TWOPARAMETERS_H
+#ifndef __ISO__TWOPARAMETERS_H__
+#define __ISO__TWOPARAMETERS_H__
 
 
 //==============================================================================
@@ -98,7 +98,7 @@ protected:
 
 IST_NAMESPACE_CLOSE
 
-#endif /* TWOPARAMETERS_H */
+#endif /* __ISO__TWOPARAMETERS_H__ */
 
 /** @} */
 

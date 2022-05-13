@@ -5,7 +5,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Halsey
+// Description : Classe com as equacoes da isoterma de Halsey
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -26,25 +26,25 @@
 
 /** @defgroup Halsey Isoterma de Helsey
  *  @ingroup Two_Parameters
- *  Classe Halsey contém a equação da isoterma de Halsey.
+ *  Classe Halsey contem a equacao da isoterma de Halsey.
  *  @{
  */
 
 /// <summary>
-/// Classe com as equações da isoterma de Halsey
+/// Classe com as equacoes da isoterma de Halsey
 /// </summary>
-///  Isoterma com dois parâmetros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com dois parametros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     ln(Q_e(C_e)) = \frac{1}{K_2}ln\left(\frac{K_1}{C_e}\right)
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
 ///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -52,7 +52,7 @@
 #define __HALSEY_H__
 
 //==============================================================================
-// include da isotherm++
+// include da isothermlib
 //==============================================================================
 
 #include <Error/IsoException.h>
@@ -74,7 +74,7 @@ public:
 
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
     DefineIdentity  (   "Halsey"
@@ -83,7 +83,7 @@ public:
 
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -97,11 +97,11 @@ public:
 ///     Halsey  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Halsey() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -110,7 +110,7 @@ public:
 ///     Halsey  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Halsey original.
+/// @param  _orig Variavel do tipo Halsey original.
     Halsey(const Halsey& _orig) = default;
 
 /// <summary>
@@ -119,7 +119,7 @@ public:
     virtual ~Halsey() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Halsey.
+/// Construtora com os parametros que definem a isoterma de Halsey.
 /// </summary>
 /// <example>
 /// Uso:
@@ -130,7 +130,7 @@ public:
 /// @endcode
 /// </example>
 ///  @param _k1 Constante da isoterma de Halsey.
-///  @param  _k2 Constante de ligação de equilíbrio isotérmica.
+///  @param  _k2 Constante de ligacao de equilibrio isotermica.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
     Halsey  (   const Real& _k1
@@ -154,8 +154,8 @@ public:
 ///     Halsey  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Halsey original.
-///  @return Cópia de _orig.
+///  @param _orig Variavel do tipo Halsey original.
+///  @return Copia de _orig.
     Halsey& operator = (const Halsey& _orig) = default;
 
 //==============================================================================
@@ -163,7 +163,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da constante da isoterma de Halsey.
+/// Funcao que informa o valor da constante da isoterma de Halsey.
 /// </summary>
 /// <example>
 /// Uso:
@@ -172,12 +172,12 @@ public:
 ///     Real _k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante da isoterma de Halsey.
 inline Real K1 () const {return  Value(0);};
 
 /// <summary>
-/// Função que retorna o valor da constante de ligação de equilíbrio isotérmica.
+/// Funcao que retorna o valor da constante de ligacao de equilibrio isotermica.
 /// </summary>
 /// <example>
 /// Uso:
@@ -186,8 +186,8 @@ inline Real K1 () const {return  Value(0);};
 ///     Real _k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da constante de ligação de equilíbrio isotérmica.
+///  @param " " Nao ha parametros.
+///  @return Valor da constante de ligacao de equilibrio isotermica.
 inline Real K2 () const
 {
     return  Value(1);
@@ -198,7 +198,7 @@ inline Real K2 () const
 //==============================================================================
 
 /// <summary>
-/// Função para alterar o valor da constante da isoterma de Halsey.
+/// Funcao para alterar o valor da constante da isoterma de Halsey.
 /// </summary>
 /// <example>
 /// Uso:
@@ -217,7 +217,7 @@ inline void K1 (const Real& _k1)
 
 
 /// <summary>
-/// Função que altera o valor da constante de ligação de equilíbrio isotérmica.
+/// Funcao que altera o valor da constante de ligacao de equilibrio isotermica.
 /// </summary>
 /// <example>
 /// Uso:
@@ -227,7 +227,7 @@ inline void K1 (const Real& _k1)
 ///     var1.K2(_k22);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor da constante de ligação de equilíbrio isotérmica.
+///  @param _k2 Novo valor da constante de ligacao de equilibrio isotermica.
 ///  @exception _k2 <= 0.
 inline void K2 (const Real& _k2)
 {
@@ -244,7 +244,7 @@ inline void K2 (const Real& _k2)
 
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -254,8 +254,8 @@ inline void K2 (const Real& _k2)
 ///     Real qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _ce Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _ce Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _ce < 0.
     [[nodiscard]] 
     inline Real Qe  (   const Real& _c

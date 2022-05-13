@@ -5,9 +5,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Freundlich
+// Description : Classe com as equacoes da isoterma de Freundlich
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,25 +26,25 @@
 
 /** @defgroup Freundlich Freundlich
  *  @ingroup Two_Parameters
- *  Classe Freundlich contém a equação da isoterma de Freundlich.
+ *  Classe Freundlich contem a equacao da isoterma de Freundlich.
  *  @{
  */
 
 /// <summary>
-/// Classe com a equação da isoterma de Freundlich
+/// Classe com a equacao da isoterma de Freundlich
 /// </summary>
-///  Isoterma com dois parâmetros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com dois parametros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     Q_e(C_e) = K_1C_e^{\frac{1}{K_2}}
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://tinyurl.com/yxruu6c7).
+///  Um artigo de referencia pode ser encontrado [aqui](https://tinyurl.com/yxruu6c7).
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -72,7 +72,7 @@ public:
     
  
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
     DefineIdentity  (   "Freundlich"
@@ -81,7 +81,7 @@ public:
     
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -95,11 +95,11 @@ public:
 ///     Freundlich  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Freundlich() = default;
     
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -108,7 +108,7 @@ public:
 ///     Freundlich  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Freundlich original.
+/// @param  _orig Variavel do tipo Freundlich original.
     Freundlich(const Freundlich& _orig) = default;
     
 /// <summary>
@@ -117,7 +117,7 @@ public:
     ~Freundlich() override = default;
     
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Freundlich.
+/// Construtora com os parametros que definem a isoterma de Freundlich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -127,8 +127,8 @@ public:
 ///     Freundlich  var1(k1, k2);              
 /// @endcode
 /// </example>
-///  @param _k1 Coeficiente de distribuição em [M /M ].    
-///  @param  _k2 Fator de correção. 
+///  @param _k1 Coeficiente de distribuicao em [M /M ].    
+///  @param  _k2 Fator de correcao. 
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
     Freundlich  (   const Real&     _k1
@@ -152,8 +152,8 @@ public:
 ///     Freundlich  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Freundlich original.
-///  @return Cópia de _orig. 
+///  @param _orig Variavel do tipo Freundlich original.
+///  @return Copia de _orig. 
     Freundlich& operator = (const Freundlich& _orig) = default;
 
 //==============================================================================
@@ -161,7 +161,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor do coeficiente de distribuição em [M /M ].
+/// Funcao que informa o valor do coeficiente de distribuicao em [M /M ].
 /// </summary>
 /// <example>
 /// Uso:
@@ -170,15 +170,15 @@ public:
 ///     Real _k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente de distribuição em [M /M ].
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente de distribuicao em [M /M ].
 [[nodiscard]] inline Real K1 () const
 {   
     return  Value(0);
 };
 
 /// <summary>
-/// Função que retorna o coeficiente associado ao fator de correção.
+/// Funcao que retorna o coeficiente associado ao fator de correcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -187,8 +187,8 @@ public:
 ///     Real _k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado ao fator de correção.  
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente associado ao fator de correcao.  
 [[nodiscard]] inline Real K2 () const
 {
     return  Value(1);
@@ -199,7 +199,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar o valor do coeficiente de distribuição em [M /M ].
+/// Funcao para alterar o valor do coeficiente de distribuicao em [M /M ].
 /// </summary>
 /// <example>
 /// Uso:
@@ -209,7 +209,7 @@ public:
 ///     var1.K1(k11);
 /// @endcode
 /// </example>
-///  @param _k1 Novo valor do coeficiente de distribuição em [M /M ].
+///  @param _k1 Novo valor do coeficiente de distribuicao em [M /M ].
 ///  @exception _k1 <= 0.
 inline void K1 (const Real& _k1)  
 {
@@ -218,7 +218,7 @@ inline void K1 (const Real& _k1)
 
 
 /// <summary>
-/// Função que altera o coeficiente associado ao fator de correção.
+/// Funcao que altera o coeficiente associado ao fator de correcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -228,7 +228,7 @@ inline void K1 (const Real& _k1)
 ///     var1.K2(_k22);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor do coeficiente associado a energia de adsorção.
+///  @param _k2 Novo valor do coeficiente associado a energia de adsorcao.
 ///  @exception _k2 <= 0.
 inline void K2 (const Real& _k2)  
 {
@@ -236,11 +236,11 @@ inline void K2 (const Real& _k2)
 };
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -250,8 +250,8 @@ inline void K2 (const Real& _k2)
 ///     Real qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.
     [[nodiscard]] 
     Real Qe (   const Real& _c

@@ -4,9 +4,9 @@
 //               Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Harkin-Jura
+// Description : Classe com as equacoes da isoterma de Harkin-Jura
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,10 +26,9 @@
 //==============================================================================
 // includes lib c++
 //==============================================================================
-
-#include <cmath>                // sqrt, log10
-#include <iostream>             // std::cout
-#include <sstream>              // std::stringstream
+#include <cmath>
+#include <iostream>
+#include <sstream>
 
 //==============================================================================
 // includes da lib IsothermLib
@@ -39,23 +38,10 @@
 #include <Isotherm/TwoParameters/HarkinJura.h>
 
 
-//==============================================================================
-// Header das funções
-//==============================================================================
-#include <fstream>
-
-    void    PlotGraph(  const ist::Isotherm&,
-                        const Real&,
-                        const Real&,
-                        const Real&,
-                        const UInt&,
-                        const std::string);
-
-
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsHarkinJura
@@ -75,9 +61,6 @@ VecPairString IsothermTemplate < HarkinJura >::infoIsotherm = detailsHarkinJura;
 HarkinJura :: HarkinJura (  const Real& _k1,
                             const Real& _k2) : TwoParameters(_k1, _k2){
 
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
 
@@ -90,19 +73,13 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
         abort();
 
     }
 
     setup = true;
 
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
     }
 
@@ -113,10 +90,7 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 #undef  __FUNCT__
 #define __FUNCT__ "HarkinJura ::  Qe (const Real&, const Real&) "
 Real
-HarkinJura ::  Qe (const Real& _ce, const Real& _temp) const  {
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+HarkinJura ::  Qe (const Real& _ce, const Real&) const  {
 
     try {
 
@@ -131,11 +105,8 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n";
+        std::cout << _isoExcept << "\n";
 
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
         abort();
     }
 
@@ -162,22 +133,16 @@ auto    logCe    = log10(_ce);
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n";
+        std::cout << _isoExcept << "\n";
 
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
         abort();
     }
 
 auto value = sqrt((*ptrValue) / (*(ptrValue + 1) - logCe));
 
-#ifdef __HARKIN_JURA_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
-//    return  (value >= ZERO ? value : 0.0) ;
-    return value;
+    return  (value >= ZERO ? value : 0.0) ;
+
 }
 
 IST_NAMESPACE_CLOSE

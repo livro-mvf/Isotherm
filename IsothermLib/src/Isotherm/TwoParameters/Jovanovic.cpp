@@ -2,11 +2,11 @@
 // Name        : Jovanovic.cpp
 // Author      : Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
-//               Iasmim barboza Storck
+//               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Jovanovic
+// Description : Classe com as equacoes da isoterma de Jovanovic
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -28,6 +28,7 @@
 // includes lib c++
 //==============================================================================
 
+#include<cmath>             // exp
 #include <iostream>         // std::cout
 
 //==============================================================================
@@ -40,13 +41,13 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsJovanovic
     {
         PairString  ( "Qmax"
-                    , "Capacidade máxima de adsorção")
+                    , "Capacidade maxima de adsorçao")
     ,   PairString  ( "K1"
                     , "Constante da isoterma de Jovanovic")
     };
@@ -61,9 +62,6 @@ Jovanovic :: Jovanovic (    const Real&     _qmax,
                             TwoParameters(_qmax, _k1)
 {
 
-#ifdef __JOVANOVIC_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
             if (_k1 <= 0.0)  throw
@@ -75,33 +73,22 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __JOVANOVIC_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
         abort();
 
     }
 
     setup = true;
 
-#ifdef __JOVANOVIC_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-
 }
 
 //==============================================================================
-// Concentração de Equilí­brio Q
+// Concentraçao de Equili�­brio Q
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real Jovanovic ::  Qe (const Real&, const Real&) "
 Real
 Jovanovic ::  Qe (const Real& _ce, const Real& _temp) const {
-#ifdef __JOVANOVIC_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
 
@@ -117,18 +104,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
                     << "\n"
                     << std::flush;
 
-#ifdef __JOVANOVIC_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
         abort();
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    value    = *(ptrValue + 1) * exp(- (*ptrValue) * _ce) ;
-
-#ifdef __JOVANOVIC_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     return  (value >= ZERO ? value : 0.0) ;;
 

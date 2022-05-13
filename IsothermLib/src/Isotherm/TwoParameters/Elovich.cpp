@@ -5,7 +5,7 @@
 //               Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Elovich
+// Description : Classe com as equacoes da isoterma de Elovich
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -43,13 +43,13 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsElovich
     {
         PairString  ( "Qmax"
-                    , "Capacidade máxima de adsorção")
+                    , "Capacidade maxima de adsorcao")
     ,   PairString  ( "K1"
                     , "Constante da isoterma de Elovich")
     };
@@ -59,7 +59,7 @@ VecPairString IsothermTemplate < Elovich >::infoIsotherm = detailsElovich;
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -93,7 +93,7 @@ Elovich :: Elovich  (   const Real& _qmax
     }
 
 //==============================================================================
-// Concentração Qe
+// Concentracao Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -125,9 +125,9 @@ Elovich ::  Qe (   const Real& _ce
 
 auto fp    = std::bind(&Elovich::FQe, *this, _1);
 auto theta = NewtonRaphson (fp, 0.5);
+auto value =  theta * Qmax();
 
-   return theta * Qmax();
-
+    return  (value >= ZERO ? value : 0.0);
 }
 
 #undef  __FUNCT__

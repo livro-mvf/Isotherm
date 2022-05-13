@@ -4,9 +4,9 @@
 //               Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Langmuir
+// Description : Classe com as equacoes da isoterma de Langmuir
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -39,13 +39,13 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsLangmuir
     {
         PairString  ( "Qmax"
-                    , "Capacidade máxima de adsorção")
+                    , "Capacidade maxima de adsorcao")
     ,   PairString  ( "K1"
                     , "Constante de equilibrio de Langmuir")
     };
@@ -61,9 +61,6 @@ Langmuir :: Langmuir    (   const Real&     _qmax
                         :   TwoParameters(_qmax, _k1)
 {
 
-#ifdef __LANGMUIR_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
 
@@ -80,19 +77,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __LANGMUIR_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
         abort();
 
     }
 
     setup = true;
-
-#ifdef __LANGMUIR_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     }
 
@@ -103,9 +92,6 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 #undef  __FUNCT__
 #define __FUNCT__ "Real Langmuir ::  Qe (const Real&, const Real&) const "
 Real Langmuir ::  Qe (const Real& _ce, const Real&) const {
-#ifdef __LANGMUIR_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
 
@@ -121,11 +107,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n";
-
-#ifdef __LANGMUIR_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+        std::cout << _isoExcept << "\n";
         abort();
     }
 
@@ -133,13 +115,7 @@ auto    ptrValue    = std::begin(coeffValue);
 auto    auxi        = *(ptrValue + 1) * _ce;
 auto    value       = *ptrValue * auxi / (1.0 + auxi);
 
-#ifdef __LANGMUIR_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-
-//    return  (value >= ZERO ? value : 0.0);
-
-    return value;
+    return  (value >= ZERO ? value : 0.0);
 
 }
 

@@ -5,9 +5,9 @@
 //               Joao Flavio Vieira de Vasconcellos
 //               Iasmim barboza Storck
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Temkin
+// Description : Classe com as equacoes da isoterma de Temkin
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -48,7 +48,7 @@ VecPairString       detailsTemkin
         PairString  ( "K1"
                     , "Constante da isoterma de Temkin")
     ,   PairString  ( "K2"
-                    , "Constante de ligação de equilíbrio isotérmica")};
+                    , "Constante de ligaçao de equiibrio isotérmica")};
 
 template<>
 VecPairString IsothermTemplate < Temkin >::infoIsotherm = detailsTemkin;
@@ -99,7 +99,7 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
     }
 
 //==============================================================================
-// Concentração de Equilíbrio Q
+// Concentraçao de Equiibrio Q
 //==============================================================================
 
 #undef  __FUNCT__
@@ -140,9 +140,9 @@ auto    ptrValue = std::begin(coeffValue);
         }
 
 auto    auxi = log(_ce * (*ptrValue));
+auto    value =  (RGAS * _temp * auxi) / (*(ptrValue + 1));
 
-    return (RGAS * _temp * auxi) / (*(ptrValue + 1));
-
+     return  (value >= ZERO ? value : 0.0);
 
 }
 

@@ -26,13 +26,13 @@
 
 /** @defgroup HarkinJura Harkin-Jura
  *  @ingroup Two_Parameters
- *  Classe HarkinJura contém a equação da isoterma de Harkin-Jura.
+ *  Classe HarkinJura contem a equacao da isoterma de Harkin-Jura.
  */
 
 /// <summary>
 /// Classe com as equações da isoterma de HarkinJura
 /// </summary>
-///  Isoterma com dois parâmetros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com dois parametros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     \[\frac{1}{Q_e(C_e, T)^{2}} = \frac{K_2 - 1}{K_1}log(C_e)\]
 ///\end{align}
@@ -40,21 +40,17 @@
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2022
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
 #ifndef __HARKIN_JURA_H__
 #define __HARKIN_JURA_H__
 
-//==============================================================================
-// opção de debug
-//==============================================================================
 
-//#define  __HARKIN_JURA_DEBUG_H__
 
 //==============================================================================
 // include da isotherm++
@@ -77,7 +73,7 @@ public:
     
  
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
     DefineIdentity("HarkinJura", ID::HarkinJura);  
@@ -98,11 +94,11 @@ public:
 ///     HarkinJura  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     HarkinJura() = default;
     
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -111,7 +107,7 @@ public:
 ///     HarkinJura  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo HarkinJura original.
+/// @param  _orig Variavel do tipo HarkinJura original.
     HarkinJura(const HarkinJura& _orig) = default;
     
 /// <summary>
@@ -120,7 +116,7 @@ public:
     virtual ~HarkinJura() = default;
     
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de HarkinJura.
+/// Construtora com os parametros que definem a isoterma de HarkinJura.
 /// </summary>
 /// <example>
 /// Uso:
@@ -153,8 +149,8 @@ public:
 ///     HarkinJura  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo HarkinJura original.
-///  @return Cópia de _orig. 
+///  @param _orig Variavel do tipo HarkinJura original.
+///  @return Copia de _orig. 
     HarkinJura& operator = (const HarkinJura& _orig) = default;
 
 //==============================================================================
@@ -162,7 +158,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da constante da isoterma de Harkin-Jura.
+/// Funcao que informa o valor da constante da isoterma de Harkin-Jura.
 /// </summary>
 /// <example>
 /// Uso:
@@ -171,12 +167,12 @@ public:
 ///     Real _k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante da isoterma de Harkin-Jura.
 inline Real K1 () const {return  Value(0);};
 
 /// <summary>
-/// Função que informa o valor da constante da isoterma de Harkin-Jura.
+/// Funcao que informa o valor da constante da isoterma de Harkin-Jura.
 /// </summary>
 /// <example>
 /// Uso:
@@ -185,7 +181,7 @@ inline Real K1 () const {return  Value(0);};
 ///     Real _k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante da isoterma de Harkin-Jura.
 inline Real K2 () const {return  Value(1);};
 
@@ -194,7 +190,7 @@ inline Real K2 () const {return  Value(1);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar o valor da constante da isoterma de Harkin-Jura.
+/// Funcao para alterar o valor da constante da isoterma de Harkin-Jura.
 /// </summary>
 /// <example>
 /// Uso:
@@ -210,7 +206,7 @@ inline Real K2 () const {return  Value(1);};
 
 
 /// <summary>
-/// Função para alterar o valor da constante da isoterma de Harkin-Jura.
+/// Funcao para alterar o valor da constante da isoterma de Harkin-Jura.
 /// </summary>
 /// <example>
 /// Uso:
@@ -229,7 +225,7 @@ inline Real K2 () const {return  Value(1);};
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equili�brio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -239,10 +235,11 @@ inline Real K2 () const {return  Value(1);};
 ///     Real qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equili�brio.    
 ///  @exception _c < 0.
-    virtual Real Qe (const Real&_ce, const Real& _temp = 0) const;
+    [[nodiscard]] 
+    Real Qe (const Real&_c, const Real& _temp = 0) const override;
     
     
 
@@ -253,8 +250,9 @@ inline Real K2 () const {return  Value(1);};
     }    
     
 };
+
 /// \example TesteHarkinJura.cpp
-///Este é um arquivo com exemplos de aplicação da classe HarkinJura.
+///Este e um arquivo com exemplos de aplicacao da classe HarkinJura.
  
 IST_NAMESPACE_CLOSE
         
@@ -262,5 +260,4 @@ IST_NAMESPACE_CLOSE
 
 /** @} */ 
         
-        
-        
+   

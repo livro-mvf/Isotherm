@@ -30,15 +30,15 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsDubininTwoParameters /* NOLINT */
     {
-        PairString  ( "Não definido"
-                    , "Não definido")
-    ,   PairString  ( "Não definido"
-                    , "Não definido")};
+        PairString  ( "Nao definido"
+                    , "Nao definido")
+    ,   PairString  ( "Nao definido"
+                    , "Nao definido")};
 
 template<>
 VecPairString IsothermTemplate < TwoParameters >::infoIsotherm = detailsDubininTwoParameters;  /* NOLINT */
