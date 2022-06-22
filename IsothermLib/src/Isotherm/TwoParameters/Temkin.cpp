@@ -48,7 +48,7 @@ VecPairString       detailsTemkin
         PairString  ( "K1"
                     , "Constante da isoterma de Temkin")
     ,   PairString  ( "K2"
-                    , "Constante de ligaçao de equiibrio isotérmica")};
+                    , "Constante de ligacao de equiibrio isotérmica")};
 
 template<>
 VecPairString IsothermTemplate < Temkin >::infoIsotherm = detailsTemkin;
@@ -56,7 +56,7 @@ VecPairString IsothermTemplate < Temkin >::infoIsotherm = detailsTemkin;
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 
@@ -99,7 +99,7 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
     }
 
 //==============================================================================
-// Concentraçao de Equiibrio Q
+// Concentracao de Equiibrio Q
 //==============================================================================
 
 #undef  __FUNCT__

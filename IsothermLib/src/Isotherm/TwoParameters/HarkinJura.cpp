@@ -26,6 +26,7 @@
 //==============================================================================
 // includes lib c++
 //==============================================================================
+
 #include <cmath>
 #include <iostream>
 #include <sstream>
@@ -55,11 +56,16 @@ VecPairString       detailsHarkinJura
 template<>
 VecPairString IsothermTemplate < HarkinJura >::infoIsotherm = detailsHarkinJura;
 
+//==============================================================================
+// Funcoes da classe
+//==============================================================================
+
 
 #undef  __FUNCT__
 #define __FUNCT__ "HarkinJura :: HarkinJura (const Real&, const Real&)"
 HarkinJura :: HarkinJura (  const Real& _k1,
-                            const Real& _k2) : TwoParameters(_k1, _k2){
+                            const Real& _k2) : TwoParameters(_k1, _k2)
+{
 
 
     try {
@@ -84,13 +90,16 @@ HarkinJura :: HarkinJura (  const Real& _k1,
     }
 
 //==============================================================================
-// ConcentraÃ§Ã£o de Equilibrio Q
+// Concentracao de Equilibrio Q
 //==============================================================================
 
 #undef  __FUNCT__
-#define __FUNCT__ "HarkinJura ::  Qe (const Real&, const Real&) "
+#define __FUNCT__ "HarkinJura ::  Qe (const Real&, const Real&)"
 Real
-HarkinJura ::  Qe (const Real& _ce, const Real&) const  {
+HarkinJura ::  Qe   ( const Real& _ce
+                    , const Real&
+                    ) const  
+{
 
     try {
 

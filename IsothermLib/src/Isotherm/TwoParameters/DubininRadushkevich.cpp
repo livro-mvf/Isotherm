@@ -52,14 +52,14 @@ VecPairString       detailsDubininRadushkevich                      /* NOLINT */
         PairString  ( "Qmax"
                     , "Constante de equiibrio de Dubinin-Radushkevich")
     ,   PairString  ( "K1"
-                    , "Coeficiente associado a energia de adsorçao")};
+                    , "Coeficiente associado a energia de adsorcao")};
 
 template<>
 VecPairString IsothermTemplate < DubininRadushkevich >::infoIsotherm = detailsDubininRadushkevich; /* NOLINT */
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 
@@ -98,7 +98,7 @@ DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
 }
 
 //==============================================================================
-// Concentraçao de equilibro Qe
+// Concentracao de equilibro Qe
 //==============================================================================
 
 #undef  __FUNCT__

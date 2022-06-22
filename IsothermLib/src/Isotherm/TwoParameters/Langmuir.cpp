@@ -53,6 +53,10 @@ VecPairString       detailsLangmuir
 template<>
 VecPairString IsothermTemplate < Langmuir >::infoIsotherm = detailsLangmuir;
 
+//==============================================================================
+// Funcoes da classe
+//==============================================================================
+
 
 #undef  __FUNCT__
 #define __FUNCT__ "Langmuir :: Langmuir (const Real&, const Real&)"
@@ -91,7 +95,10 @@ Langmuir :: Langmuir    (   const Real&     _qmax
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real Langmuir ::  Qe (const Real&, const Real&) const "
-Real Langmuir ::  Qe (const Real& _ce, const Real&) const {
+Real Langmuir ::  Qe    (   const Real& _ce
+                        ,   const Real&
+                        ) const 
+{
 
     try {
 

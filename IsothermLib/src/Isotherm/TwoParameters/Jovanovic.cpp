@@ -47,13 +47,18 @@ IST_NAMESPACE_OPEN
 VecPairString       detailsJovanovic
     {
         PairString  ( "Qmax"
-                    , "Capacidade maxima de adsorÃ§ao")
+                    , "Capacidade maxima de adsorcao")
     ,   PairString  ( "K1"
                     , "Constante da isoterma de Jovanovic")
     };
 
 template<>
 VecPairString IsothermTemplate < Jovanovic >::infoIsotherm = detailsJovanovic;
+
+
+//==============================================================================
+// Funcoes da classe
+//==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Jovanovic :: Jovanovic (const Real&, const Real&)"
@@ -82,7 +87,7 @@ Jovanovic :: Jovanovic (    const Real&     _qmax,
 }
 
 //==============================================================================
-// ConcentraÃ§ao de Equili­Â­brio Q
+// Concentracao de Equili­brio Q
 //==============================================================================
 
 #undef  __FUNCT__
