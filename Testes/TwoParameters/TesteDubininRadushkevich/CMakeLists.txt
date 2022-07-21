@@ -29,5 +29,5 @@ target_link_libraries    (      ${IsothermExe}
 
 target_link_directories (   ${IsothermExe}
                             PRIVATE
-                            "${CMAKE_SOURCE_DIR}/IsothermLib/lib"
+                            "${CMAKE_SOURCE_DIR}/lib"
                             )

@@ -269,11 +269,13 @@ inline void K1 (const Real& _k1)
     }
     
     
-    [[nodiscard]] 
-    virtual Elovich* CloneImplementation() const override
+
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Elovich(*this);
+        return std::make_unique<Elovich>(*this);
     }
+    
     
 //==============================================================================
 // Dados da classe

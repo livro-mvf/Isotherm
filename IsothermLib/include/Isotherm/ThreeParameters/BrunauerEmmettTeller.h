@@ -292,13 +292,12 @@ inline Real K2 () const {return  Value(2);};
     }
 
 
-
-    [[nodiscard]] 
-    virtual BrunauerEmmettTeller* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new BrunauerEmmettTeller(*this);
+        return std::make_unique<BrunauerEmmettTeller>(*this);
     }
-    
+
 };
 
 IST_NAMESPACE_CLOSE

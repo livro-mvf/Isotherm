@@ -77,8 +77,9 @@ IST_NAMESPACE_OPEN
 ///
 ///  \copyright GNU Public License.
 
-class FrenkelHalseyHill :     public virtual FiveParameters,
-                            public IsothermTemplate < FrenkelHalseyHill > {
+class FrenkelHalseyHill :   public virtual FiveParameters,
+                            public IsothermTemplate < FrenkelHalseyHill > 
+{
 
 //==============================================================================
 // ID da classe
@@ -309,11 +310,13 @@ inline Real K4 () const {return  Value(4);};
 /// </example>
 ///  @param _k2 Novo valor associado a constante da isoterma de Fritz – Schlunder - V.
 ///  @exception _k2 <= 0.
-    void K2 (const Real& _k2)  {*this = FrenkelHalseyHill(    Value(0),
+    void K2 (const Real& _k2)  {
+        *this = FrenkelHalseyHill(  Value(0),
                                                             Value(1),
                                                             _k2     ,
                                                             Value(3),
-                                                            Value(4));};
+                                                            Value(4));
+    };
 
 /// <summary>
 /// Função para alterar o valor associado ao expoente da isoterma de Fritz – Schlunder - V.
@@ -328,11 +331,14 @@ inline Real K4 () const {return  Value(4);};
 /// </example>
 ///  @param _k3 Novo valor associado ao expoente da isoterma de Fritz – Schlunder - V.
 ///  @exception 0 < _k3 < 1.
-    void K3 (const Real& _k3)  {*this = FrenkelHalseyHill(    Value(0),
-                                                            Value(1),
-                                                            Value(2),
-                                                            _k3,
-                                                            Value(4));};
+    void K3 (const Real& _k3)  {       
+        *this = FrenkelHalseyHill   (   Value(0),
+                                        Value(1),
+                                        Value(2),
+                                        _k3,
+                                        Value(4)
+                                    );
+    };
 
 /// <summary>
 /// Função para alterar o valor associado ao expoente da isoterma de Fritz – Schlunder - V.
@@ -374,18 +380,13 @@ inline Real K4 () const {return  Value(4);};
 ///  @exception _c < 0.
     virtual Real Qe (const Real&, const Real& = 0) const;
 
-    
-    
-    [[nodiscard]] 
-    FrenkelHalseyHill* CloneImplementation() const override
+  
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new FrenkelHalseyHill(*this);
+        return std::make_unique<FrenkelHalseyHill>(*this);
     }
     
-//    virtual FrenkelHalseyHill* clone() const override
-//    {
-//        return new FrenkelHalseyHill(*this);
-//    }
 
 };
 

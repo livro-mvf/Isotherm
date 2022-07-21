@@ -241,13 +241,13 @@ inline Real K2 () const {return  Value(1);};
     [[nodiscard]] 
     Real Qe (const Real&_c, const Real& _temp = 0) const override;
     
-    
-
-    [[nodiscard]] 
-    virtual HarkinJura* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new HarkinJura(*this);
-    }    
+        return std::make_unique<HarkinJura>(*this);
+    }       
+
+ 
     
 };
 

@@ -293,14 +293,12 @@ inline Real K2 () const {return  Value(2);};
         return Qe(_c, 0);
     }
 
-
-
-    [[nodiscard]] 
-    virtual Khan* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Khan(*this);
+        return std::make_unique<Khan>(*this);
     }
-            
+    
 };
 
 IST_NAMESPACE_CLOSE

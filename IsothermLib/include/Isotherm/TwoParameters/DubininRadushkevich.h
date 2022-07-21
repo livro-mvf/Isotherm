@@ -332,12 +332,18 @@ inline  void K1 (const Real& _k1)
     }
 
 
+/// <summary>
+/// Funcao que faz o clone da classe virtual.
+/// </summary>
+    
 
-    [[nodiscard]] 
-    virtual DubininRadushkevich* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new DubininRadushkevich(*this);
+        return std::make_unique<DubininRadushkevich>(*this);
     }
+
+
 
 
 private:

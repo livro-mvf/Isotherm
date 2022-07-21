@@ -132,7 +132,9 @@ public:
 ///  @param  _k1 Constante de equilibrio de Langmuir.
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
-    Langmuir (const Real& _qmax, const Real& _k1);
+    Langmuir    (   const Real& _qmax
+                ,   const Real& _k1
+                );
 
 //==============================================================================
 // Sobrecarga de operadores
@@ -251,11 +253,14 @@ public:
         return Qe(_c, 0);
     }
     
-    [[nodiscard]] 
-    virtual Langmuir* CloneImplementation() const override
+
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Langmuir(*this);
-    }   
+        return std::make_unique<Langmuir>(*this);
+    }
+
+  
 
 };
 

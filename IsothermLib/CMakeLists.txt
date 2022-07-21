@@ -1,7 +1,7 @@
 
 
 cmake_minimum_required(VERSION 3.21)
-include(CMakePrintHelpers)
+#include(CMakePrintHelpers)
 
 project (    MVFLIB
              VERSION 1.0.1
@@ -12,17 +12,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_RELEASE} -fassociative-math -freciprocal-math -fno-signed-zeros -fno-trapping-math")
 
-set ( LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+set ( LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
 set ( ISOTHERMLIB_MODULE_LIB_NAME IsothermLib)
 
 file   (   GLOB_RECURSE ISOTHERMLIB_MODULE_CXX src/*        )
 file   (   GLOB_RECURSE ISOTHERMLIB_MODULE_HDR include/*    )
 
 include_directories(${CMAKE_SOURCE_DIR}/IsothermLib/include)
-
-#cmake_print_variables(LIBRARY_OUTPUT_PATH)
-#cmake_print_variables(ISOTHERMLIB_MODULE_CXX)
-#cmake_print_variables(ISOTHERMLIB_MODULE_HDR)
 
 add_library (   ${ISOTHERMLIB_MODULE_LIB_NAME}
                 SHARED

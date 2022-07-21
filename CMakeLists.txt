@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.21)
-include(CMakePrintHelpers)
+cmake_minimum_required(VERSION 3.15)
+#include(CMakePrintHelpers)
 
 project(
         IsothermLib

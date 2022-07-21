@@ -242,14 +242,18 @@ inline Real Qmax () const {return  Value(0);};
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
-virtual Real Qe (const Real&_c, const Real& _temp = 0) const;
+    [[nodiscard]]
+    Real Qe (   const Real& _c
+            ,   const Real& _temp = 0
+            ) const;
 
 
-    [[nodiscard]] 
-    virtual Jovanovic* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Jovanovic(*this);
-    }   
+        return std::make_unique<Jovanovic>(*this);
+    }
+
 
 };
 

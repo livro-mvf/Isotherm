@@ -292,13 +292,13 @@ inline Real K2 () const {return  Value(2);};
     }
 
 
-
-    [[nodiscard]] 
-    virtual Hill* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Hill(*this);
+        return std::make_unique<Hill>(*this);
     }
-        
+
+
     
 };
 

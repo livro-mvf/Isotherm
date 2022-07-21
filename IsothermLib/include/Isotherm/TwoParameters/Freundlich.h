@@ -257,11 +257,13 @@ inline void K2 (const Real& _k2)
     Real Qe (   const Real& _c
             ,   const Real& _temp = 0) const override;
 
-    [[nodiscard]] 
-    virtual Freundlich* CloneImplementation() const override
+    
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Freundlich(*this);
+        return std::make_unique<Freundlich>(*this);
     }
+
     
 private:
     

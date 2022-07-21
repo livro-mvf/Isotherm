@@ -290,12 +290,12 @@ inline Real K2 () const {return  Value(2);};
     }
 
 
-
-    [[nodiscard]] 
-    virtual Henderson* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Henderson(*this);
+        return std::make_unique<Henderson>(*this);
     }
+
         
     
 };

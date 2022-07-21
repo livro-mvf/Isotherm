@@ -213,16 +213,15 @@ public:
 ///  @param _c Concentração do soluto.
 ///  @return Valor da quantidade de sorção no equilíbrio.
 ///  @exception _c < 0.
- virtual Real Qe    (   const Real&  _c
+    virtual Real Qe    (   const Real&  _c
                     ,   const Real&  = 0) const ;
 
-    [[nodiscard]] 
-    virtual Henry* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Henry(*this);
+        return std::make_unique<Henry>(*this);
     }
-
-
+    
 };
 
 /**

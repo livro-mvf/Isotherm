@@ -179,20 +179,20 @@ public:
                 return Qe(_x, 0);
 
         };
-
-    
-    virtual Isotherm* Clone()  
+  
+        
+    [[nodiscard]]    
+    virtual std::unique_ptr<Isotherm> Clone()  const 
     {
         return CloneImplementation();
     }   
-    
-private:
 
-    virtual Isotherm* CloneImplementation() const = 0;        
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const = 0;        
 
 
 //==============================================================================
-// Variáveis da classe
+// Variaveis da classe
 //==============================================================================
 
 protected:

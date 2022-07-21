@@ -284,11 +284,14 @@ inline Real K2 () const {return  Value(2);};
 ///  @exception _c < 0.    
     virtual Real Qe (const Real&, const Real& = 0) const;
 
-    virtual LangmuirJovanovic* clone() const override
-    {
-        return new LangmuirJovanovic(*this);
-    } 
     
+    
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
+    {
+        return std::make_unique<LangmuirJovanovic>(*this);
+    }
+
 };
 
 IST_NAMESPACE_CLOSE

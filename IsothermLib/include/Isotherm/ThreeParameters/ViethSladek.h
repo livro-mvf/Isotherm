@@ -311,13 +311,12 @@ inline void K2 (const Real& _k2)
     }
 
 
-
-    [[nodiscard]] 
-    virtual ViethSladek* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new ViethSladek(*this);
+        return std::make_unique<ViethSladek>(*this);
     }
-    
+
     
 };
 

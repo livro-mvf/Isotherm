@@ -8,7 +8,7 @@
 // Description : Arquivo com dados para o Doxygen gerenciar os
 //               grupos do projeto
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,32 +26,33 @@
 //==============================================================================
 
 /*!
- * @mainpage Documentação da Biblioteca Isotherm++
+ * @mainpage Documentacao da Biblioteca Isotherm++
  *
- * @section intro_sec Introdução
+ * @section intro_sec Introducao
  *
- *  Está é a documentação da biblioteca Isotherm++. Ela foi projetada para 
- *  aqueles que necessitam elaborar programas na área de transporte de
- *  massa envolvendo processos de adsorção/dessorção.
+ *  Esta e a documentacao da biblioteca Isotherm++. Ela foi projetada para 
+ *  aqueles que necessitam elaborar programas na area de transporte de
+ *  massa envolvendo processos de adsorcao/dessorcao.
  *
  *  Por isto desenvolvemos esta biblioteca que tem embutida uma quantidade 
- *  considerável de isotermas de adsorção conhecidas e outras, novas ou menos
- *  populares, poderão ser, a qualquer momento, adicionadas à biblioteca 
+ *  consideravel de isotermas de adsorcao conhecidas e outras, novas ou menos
+ *  populares, poderao ser, a qualquer momento, adicionadas à biblioteca 
  *  de modo bastante simples.
  *
- *  A Isotherm++ foi inteiramente escrita em C++14 e não foi utilizado em sua
- * construção bibliotecas outras além do STL.
+ *  A Isotherm++ foi inteiramente escrita em C++14 e nao foi utilizado em sua
+ * construcao bibliotecas outras alem do STL.
  *
  
  *
  * @section authors Autores
  *
- *  O código foi desenvolvido por:
+ *  O codigo foi desenvolvido por:
+ *  - Iasmim Barboza Storck
  *  - Lara Botelho Brum
  *  - Luan Rodrigues Soares de Souza
  * 
- *  sob a supervisão de
- *  - João Flávio Vasconcellos
+ *  sob a supervisao de
+ *  - Joao Flavio Vasconcellos
  *
  * @section license Licença
  * 
@@ -90,5 +91,5 @@
  */ 
 
 /** @defgroup Base Classes base das isotermas
- *  Grupo de Classes de onde são derivadas as classes com os modelos de isotermas.
+ *  Grupo de Classes de onde sao derivadas as classes com os modelos de isotermas.
  */ 

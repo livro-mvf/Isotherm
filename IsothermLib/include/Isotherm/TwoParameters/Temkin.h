@@ -276,13 +276,12 @@ public:
     Real Qe (const Real& _c, const Real& _temp) const;
     
     
-    [[nodiscard]] 
-    virtual Temkin* CloneImplementation() const override
+    
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Temkin(*this);
-    } 
-    
-    
+        return std::make_unique<Temkin>(*this);
+    }    
     
 private:
 

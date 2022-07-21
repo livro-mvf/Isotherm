@@ -291,14 +291,11 @@ inline Real K2 () const {return  Value(2);};
         return Qe(_c, 0);
     }
 
-
-
-    [[nodiscard]] 
-    virtual Jossens* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Jossens(*this);
+        return std::make_unique<Jossens>(*this);
     }
-
     
 };
 

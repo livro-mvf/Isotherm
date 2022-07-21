@@ -320,12 +320,12 @@ public:
     }
 
 
-
-    [[nodiscard]] 
-    virtual FowlerGuggenheim* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new FowlerGuggenheim(*this);
+        return std::make_unique<FowlerGuggenheim>(*this);
     }
+
     
 
 //==============================================================================

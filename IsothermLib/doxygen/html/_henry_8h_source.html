@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Isotherm++: Código-Fonte de IsothermLib/include/Isotherm/OneParameter/Henry.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Isotherm++<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_3393ec37890ad9b3a7885029fce22598.html">IsothermLib</a></li><li class="navelem"><a class="el" href="dir_dbbde0c145412e2fe2852ce43eb851e2.html">include</a></li><li class="navelem"><a class="el" href="dir_f6e7fadfa303d2c82893c0cc076b5910.html">Isotherm</a></li><li class="navelem"><a class="el" href="dir_29bcb55aec7b9e893bc7179358d3ac65.html">OneParameter</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Henry.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Name        : Henry.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Authors     : Iasmim Barboza Storck</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//               Lara Botelho Brum</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//               Luan Rodrigues Soares de Souza</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//               Joao Flavio Vieira de Vasconcellos</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// Version     : 1.0</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// Description : Classe com as equacoes da isoterma de Henry</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Copyright   : Copyright (C) &lt;2022&gt;  Joao Flavio Vasconcellos</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//                                      (jflavio at iprj.uerj.br)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// the Free Software Foundation, either version 3 of the License.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// GNU General Public License for more details.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#ifndef __HENRY_H__</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define __HENRY_H__</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// include da isotherm++</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &lt;Isotherm/OneParameter/OneParameter.h&gt;</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><a class="code hl_define" href="group___configure.html#ga1e3e0e0eca304ffc8364100b22724d21">IST_NAMESPACE_OPEN</a></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_henry.html">   66</a></span><span class="keyword">class </span><a class="code hl_class" href="class_henry.html">Henry</a> :   <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code hl_class" href="class_one_parameter.html">OneParameter</a>,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keyword">public</span> <a class="code hl_class" href="class_isotherm_template.html">IsothermTemplate</a> &lt; Henry &gt;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">// ID da classe</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_henry.html#ad3b41069bebfd4c2752cf6f70f41d468">   79</a></span>    <a class="code hl_function" href="class_henry.html#ad3b41069bebfd4c2752cf6f70f41d468">DefineIdentity</a>  (   <span class="stringliteral">&quot;Henry&quot;</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    ,   ID::Henry</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    );</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">// Funções Construtoras/Destrutora</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_henry.html#aa92ced203a956240ee852b55731ef8e3">  100</a></span>    <a class="code hl_function" href="class_henry.html#aa92ced203a956240ee852b55731ef8e3">Henry</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_henry.html#a96a31f0c34cbcf968fe090d9f5a07686">  113</a></span>    <a class="code hl_function" href="class_henry.html#a96a31f0c34cbcf968fe090d9f5a07686">Henry</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_henry.html">Henry</a>&amp; _orig) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="class_henry.html#ae0538538f074e5706bfcf1998817a193">  118</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_henry.html#ae0538538f074e5706bfcf1998817a193">~Henry</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <a class="code hl_function" href="class_henry.html#aa92ced203a956240ee852b55731ef8e3">Henry</a> (<span class="keyword">const</span> Real&amp; _k1);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">// Sobrecarga de operadores</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="class_henry.html#a1884766cc0fbfa3d6bc7d77eef81a851">  151</a></span>    <a class="code hl_class" href="class_henry.html">Henry</a>&amp; <a class="code hl_function" href="class_henry.html#a1884766cc0fbfa3d6bc7d77eef81a851">operator = </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_henry.html">Henry</a>&amp; _orig) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">// Acesso as constantes da classe</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="class_henry.html#a2250f9d0aab3716c5b60e35e9eb8448a">  169</a></span><span class="keyword">inline</span> Real <a class="code hl_function" href="class_henry.html#a2250f9d0aab3716c5b60e35e9eb8448a">K1</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">return</span>  <a class="code hl_function" href="group___isotherm_template.html#ga66905e5e5db160c8a6d803aed0d6d85c">Value</a>(0);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">// Alterando as constantes da classe</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="class_henry.html#a5debc5a246ddbffebf7782915cc05e5b">  191</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_henry.html#a5debc5a246ddbffebf7782915cc05e5b">K1</a> (<span class="keyword">const</span> Real&amp; _k1)</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>{</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    *<span class="keyword">this</span> = <a class="code hl_function" href="class_henry.html#aa92ced203a956240ee852b55731ef8e3">Henry</a>(_k1);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>};</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">// Funcoes virtuais</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">//==============================================================================</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> <span class="keyword">virtual</span> Real <a class="code hl_function" href="class_henry.html#af9bdf57767a9fee1579804f0bfdd1cab">Qe</a>    (   <span class="keyword">const</span> Real&amp;  _c</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                    ,   <span class="keyword">const</span> Real&amp;  = 0) <span class="keyword">const</span> ;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    [[nodiscard]] </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_henry.html">Henry</a>* CloneImplementation()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_function" href="class_henry.html#aa92ced203a956240ee852b55731ef8e3">Henry</a>(*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>};</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><a class="code hl_define" href="group___configure.html#ga9804ef63a551808d389310b891356c2a">IST_NAMESPACE_CLOSE</a></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="preprocessor">#endif  </span><span class="comment">/* __HENRY_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="ttc" id="aclass_henry_html"><div class="ttname"><a href="class_henry.html">Henry</a></div><div class="ttdoc">Classe com as equações da isoterma de Henry.</div><div class="ttdef"><b>Definition:</b> Henry.h:68</div></div>
+<div class="ttc" id="aclass_henry_html_a1884766cc0fbfa3d6bc7d77eef81a851"><div class="ttname"><a href="class_henry.html#a1884766cc0fbfa3d6bc7d77eef81a851">Henry::operator=</a></div><div class="ttdeci">Henry &amp; operator=(const Henry &amp;_orig)=default</div><div class="ttdoc">Sobrecarga do operador =.</div></div>
+<div class="ttc" id="aclass_henry_html_a2250f9d0aab3716c5b60e35e9eb8448a"><div class="ttname"><a href="class_henry.html#a2250f9d0aab3716c5b60e35e9eb8448a">Henry::K1</a></div><div class="ttdeci">Real K1() const</div><div class="ttdoc">Função que informa o valor do coeficiente de distribuição.</div><div class="ttdef"><b>Definition:</b> Henry.h:169</div></div>
+<div class="ttc" id="aclass_henry_html_a5debc5a246ddbffebf7782915cc05e5b"><div class="ttname"><a href="class_henry.html#a5debc5a246ddbffebf7782915cc05e5b">Henry::K1</a></div><div class="ttdeci">void K1(const Real &amp;_k1)</div><div class="ttdoc">Função para alterar o valor do coeficiente de distribuição.</div><div class="ttdef"><b>Definition:</b> Henry.h:191</div></div>
+<div class="ttc" id="aclass_henry_html_a96a31f0c34cbcf968fe090d9f5a07686"><div class="ttname"><a href="class_henry.html#a96a31f0c34cbcf968fe090d9f5a07686">Henry::Henry</a></div><div class="ttdeci">Henry(const Henry &amp;_orig)=default</div><div class="ttdoc">Construtora de cópia.</div></div>
+<div class="ttc" id="aclass_henry_html_aa92ced203a956240ee852b55731ef8e3"><div class="ttname"><a href="class_henry.html#aa92ced203a956240ee852b55731ef8e3">Henry::Henry</a></div><div class="ttdeci">Henry()=default</div><div class="ttdoc">Construtora default.</div></div>
+<div class="ttc" id="aclass_henry_html_ad3b41069bebfd4c2752cf6f70f41d468"><div class="ttname"><a href="class_henry.html#ad3b41069bebfd4c2752cf6f70f41d468">Henry::DefineIdentity</a></div><div class="ttdeci">DefineIdentity(&quot;Henry&quot;, ID::Henry)</div><div class="ttdoc">Definição de ID para esta classe para fins de identificação de erros.</div></div>
+<div class="ttc" id="aclass_henry_html_ae0538538f074e5706bfcf1998817a193"><div class="ttname"><a href="class_henry.html#ae0538538f074e5706bfcf1998817a193">Henry::~Henry</a></div><div class="ttdeci">virtual ~Henry()=default</div><div class="ttdoc">Destrutora.</div></div>
+<div class="ttc" id="aclass_henry_html_af9bdf57767a9fee1579804f0bfdd1cab"><div class="ttname"><a href="class_henry.html#af9bdf57767a9fee1579804f0bfdd1cab">Henry::Qe</a></div><div class="ttdeci">virtual Real Qe(const Real &amp;_c, const Real &amp;=0) const</div><div class="ttdoc">Função que calcula a quantidade de sorção no equilíbrio.</div><div class="ttdef"><b>Definition:</b> Henry.cpp:91</div></div>
+<div class="ttc" id="aclass_isotherm_template_html"><div class="ttname"><a href="class_isotherm_template.html">IsothermTemplate</a></div><div class="ttdoc">Classe que gerencia o nome e detalhes sobre cada constante dos modelos das isotermas.</div><div class="ttdef"><b>Definition:</b> Isotherm.h:317</div></div>
+<div class="ttc" id="aclass_one_parameter_html"><div class="ttname"><a href="class_one_parameter.html">OneParameter</a></div><div class="ttdoc">Classe base para todas as classes com um unico parametro.</div><div class="ttdef"><b>Definition:</b> OneParameter.h:58</div></div>
+<div class="ttc" id="agroup___configure_html_ga1e3e0e0eca304ffc8364100b22724d21"><div class="ttname"><a href="group___configure.html#ga1e3e0e0eca304ffc8364100b22724d21">IST_NAMESPACE_OPEN</a></div><div class="ttdeci">#define IST_NAMESPACE_OPEN</div><div class="ttdoc">Definoção do início namespace da biblioteca Isotherm++</div><div class="ttdef"><b>Definition:</b> Configure.h:63</div></div>
+<div class="ttc" id="agroup___configure_html_ga9804ef63a551808d389310b891356c2a"><div class="ttname"><a href="group___configure.html#ga9804ef63a551808d389310b891356c2a">IST_NAMESPACE_CLOSE</a></div><div class="ttdeci">#define IST_NAMESPACE_CLOSE</div><div class="ttdoc">Definoção do fim namespace da biblioteca Isotherm++</div><div class="ttdef"><b>Definition:</b> Configure.h:66</div></div>
+<div class="ttc" id="agroup___isotherm_template_html_ga66905e5e5db160c8a6d803aed0d6d85c"><div class="ttname"><a href="group___isotherm_template.html#ga66905e5e5db160c8a6d803aed0d6d85c">Isotherm::Value</a></div><div class="ttdeci">const VecReal Value() const</div><div class="ttdoc">Vetor com os coeficientes de qualquer isoterma.</div><div class="ttdef"><b>Definition:</b> Isotherm.h:259</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

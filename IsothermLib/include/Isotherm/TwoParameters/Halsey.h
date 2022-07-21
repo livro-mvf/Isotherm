@@ -264,12 +264,13 @@ inline void K2 (const Real& _k2)
                         return Qe(_c, 0);
                     };
 
-
-    [[nodiscard]] 
-    virtual Halsey* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Halsey(*this);
+        return std::make_unique<Halsey>(*this);
     }
+
+
     
 };
 

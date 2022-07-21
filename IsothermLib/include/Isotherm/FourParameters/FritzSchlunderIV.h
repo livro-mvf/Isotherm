@@ -335,11 +335,12 @@ inline Real K3 () const {return  Value(3);};
 
 
 
-    [[nodiscard]] 
-    virtual FritzSchlunderIV* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new FritzSchlunderIV(*this);
+        return std::make_unique<FritzSchlunderIV>(*this);
     }
+    
 
     
 };

@@ -290,13 +290,12 @@ public:
         return Qe(_c, 0);
     }
 
-
-
-    [[nodiscard]] 
-    virtual Kiselev* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new Kiselev(*this);
+        return std::make_unique<Kiselev>(*this);
     }
+
 //==============================================================================
 // Dados da classe
 //==============================================================================

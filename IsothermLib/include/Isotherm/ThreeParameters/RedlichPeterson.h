@@ -284,13 +284,13 @@ inline Real K3 () const {return  Value(2);};
         return Qe(_c, 0);
     }
 
-
-
-    [[nodiscard]] 
-    virtual RedlichPeterson* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new RedlichPeterson(*this);
+        return std::make_unique<RedlichPeterson>(*this);
     }
+
+
 
 };
 

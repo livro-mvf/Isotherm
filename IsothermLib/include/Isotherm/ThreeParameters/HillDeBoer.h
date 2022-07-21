@@ -312,12 +312,12 @@ public:
 ///  @exception _c < 0.
     virtual Real Qe (const Real& _c, const Real& = 0) const;
 
-    
-    [[nodiscard]] 
-    virtual HillDeboer* CloneImplementation() const override
+    [[nodiscard]]
+    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
-        return new HillDeboer(*this);
+        return std::make_unique<HillDeboer>(*this);
     }
+    
 
 //==============================================================================
 // Dados da classe
