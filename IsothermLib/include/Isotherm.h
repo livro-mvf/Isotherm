@@ -288,6 +288,9 @@ bool                                                    setup = false;
 
 };
 
+
+typedef std::shared_ptr<Isotherm>                   PtrIsotherm;
+
 /** @} */
 
 
