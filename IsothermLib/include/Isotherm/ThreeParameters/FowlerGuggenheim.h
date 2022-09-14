@@ -139,10 +139,11 @@ public:
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
-    FowlerGuggenheim (    const Real& _qmax,
-                    const Real& _k1,
-                    const Real& _k2,
-                    const Real& _rgas = Isotherm::RGASCONST) ;
+    FowlerGuggenheim    (   const Real&     _qmax
+                        ,   const Real&     _k1
+                        ,   const Real&     _k2
+                        ,   const Real&     _rgas = Isotherm::RGASCONST
+                        ) ;
 
 //==============================================================================
 // Sobrecarga de operadores
@@ -243,7 +244,7 @@ public:
 /// </example>
 ///  @param _qmax Novo valor da capacidade maxima de adsorção.
 ///  @exception _qmax <= 0.
-    void Qmax (const Real& _qmax) {*this = FowlerGuggenheim(_qmax, Value(1), Value(2));};
+    void Qmax (const Real& _qmax) {*this = FowlerGuggenheim(_qmax, Value(1), Value(2), this->Rgas());};
 
 /// <summary>
 /// Função que altera o coeficiente associado a constante de equilíbrio de Fowler-Guggenheim.
@@ -258,7 +259,7 @@ public:
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a constante de equilíbrio de Fowler-Guggenheim.
 ///  @exception _k1 <= 0.
-    void K1 (const Real& _k1)  {*this = FowlerGuggenheim(Value(0), _k1, Value(2));};
+    void K1 (const Real& _k1)  {*this = FowlerGuggenheim(Value(0), _k1, Value(2), this->Rgas());};
 
 /// <summary>
 /// Função para alterar o valor da constante de iteração entre as moléculas adsorvidas.
@@ -273,7 +274,7 @@ public:
 /// </example>
 ///  @param _k2 Novo valor da constante de iteração entre as moléculas adsorvidas.
 ///  @exception _k2 <= 0.
-    void K2 (const Real& _k2)  {*this = FowlerGuggenheim(Value(0), Value(1), _k2);};
+    void K2 (const Real& _k2)  {*this = FowlerGuggenheim(Value(0), Value(1), _k2, this->Rgas());};
 
 /// <summary>
 /// Função para alterar o valor da constante universal dos gases.

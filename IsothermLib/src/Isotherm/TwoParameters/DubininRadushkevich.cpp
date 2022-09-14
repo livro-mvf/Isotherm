@@ -64,7 +64,7 @@ VecPairString IsothermTemplate < DubininRadushkevich >::infoIsotherm = detailsDu
 
 
 #undef  __FUNCT__
-#define __FUNCT__ "Langmuir :: Langmuir (const Real&, const Real&)"
+#define __FUNCT__ "DubininRadushkevich :: DubininRadushkevich (const Real&, const Real&, const Real&)"
 DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
                                             ,   const Real&         _k1
                                             ,   const Real&         _rgas)
@@ -88,8 +88,8 @@ DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout   << _isoExcept;
-        abort();
+        std::cout   << _isoExcept << std::flush;
+        exit(EXIT_FAILURE);
 
     }
 
@@ -102,7 +102,7 @@ DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
 //==============================================================================
 
 #undef  __FUNCT__
-#define __FUNCT__ "Langmuir :: Langmuir (const Real&, const Real&)"
+#define __FUNCT__ "DubininRadushkevich :: DubininRadushkevich (const Real&, const Real&)"
 Real
 DubininRadushkevich ::  Qe  (   const Real&     _ce
                             ,   const Real&     _temp) const
@@ -125,7 +125,7 @@ DubininRadushkevich ::  Qe  (   const Real&     _ce
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
 
     }
 

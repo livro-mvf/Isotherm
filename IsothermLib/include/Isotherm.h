@@ -35,10 +35,10 @@
 /// </summary>
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -152,8 +152,8 @@ const Real PERC (1e-06);
 public:
 
     void PlotGraph  (   const std::string&  // Nome do arquivo
-                    ,   FunctionEscala&     // Função de conversão de escala direção x
-                    ,   FunctionEscala&     // função de conversão de escala direção y
+                    ,   FunctionEscala&     // Funçao de conversao de escala direçao x
+                    ,   FunctionEscala&     // funçao de conversao de escala direçao y
                     ,   const UInt&         // Numero de pontos
                     ,   const Real&         // Valor Inicial
                     ,   const Real&         // Valor final
@@ -168,6 +168,7 @@ public:
 
 public:
 
+        [[nodiscard]] 
         virtual Real Qe  ( const Real&, const Real&) const = 0;
 
         [[maybe_unused]] virtual std::string CodeString (const UInt&) const;
@@ -248,7 +249,7 @@ protected:
     inline auto rend() {return  InfoIsotherm().rend();};
 
 //==============================================================================
-// Acesso as variáveis
+// Acesso as variaveis
 //==============================================================================
 
 protected:
@@ -270,7 +271,7 @@ inline void Value (const UInt& _i, const Real& _val) {coeffValue[_i] = _val;};
 public:
 
 /// <summary>
-/// Função que retorna o número de constantes de uma isoterma.
+/// Funçao que retorna o número de constantes de uma isoterma.
 /// </summary>
 [[nodiscard]] inline size_t NumberConst () const {return coeffValue.size();};
 
@@ -307,10 +308,10 @@ typedef std::shared_ptr<Isotherm>                   PtrIsotherm;
 /// </summary>
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -344,7 +345,7 @@ public:
     inline auto crend() const {return  InfoIsotherm().crend();};
 
 //==============================================================================
-// Função privada da classe
+// Funçao privada da classe
 //==============================================================================
 
 protected:

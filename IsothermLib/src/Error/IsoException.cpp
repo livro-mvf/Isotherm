@@ -21,6 +21,7 @@ static std::string IsoExceptionStr[] =
             "Coeficientes da isoterma indefinidos."                    // BadCoefficient
     ,       "Ce menor ou igual a zero."                                // BadCeLEZero
     ,       "Ce menor do que zero."                                    // BadCeLTZero    
+    ,       "Ce maior ou igual a K2."                                  //BadCeGTK2  
     ,       "K1 menor ou igual a zero."                                // BadK1LEZero
     ,       "K1 menor do que zero."                                    // BadK1LTZero
     ,       "K2 menor ou igual a zero."                                // BadK2LEZero
@@ -29,6 +30,7 @@ static std::string IsoExceptionStr[] =
     ,       "K3 menor do que zero."                                    // BadK3LTZero  
     ,       "K4 menor ou igual a zero."                                // BadK4LEZero
     ,       "K4 menor do que zero."                                    // BadK4LTZero  
+    ,       "K1 menor do que 1."                                       // BadK1LTOne
     ,       "K2 menor ou igual a 1."                                   // BadK2LEOne
     ,       "K3 maior do que 1."                                       // BadK3GTOne     
     ,       "K3 deve ser maior que  0 e menor que 1."                  // BadK3Between01
@@ -37,9 +39,9 @@ static std::string IsoExceptionStr[] =
     ,       "Temperatura menor ou igual a zero."                       // BadTempLEZero
     ,       "Constante universal dos gases menor ou igual a zero."     // BadRGasLEZero
     ,       "Resultado inconsistente para o modelo."                   // BadResult
-    ,       "Overflow de operação matemática."                         // BadOverFlow
+    ,       "Overflow de operacao matemática."                         // BadOverFlow
     ,       "O valor de log(C) maior que K_2."                         // BadLogCeGTK2
-    ,       "Problema de convergencia do método iterativo."            // ConvergenceProblem
+    ,       "Problema de convergencia do metodo iterativo."            // ConvergenceProblem
     ,       "O valor de theta maior ou igual a 1."                     // BadThetaGEOne
     ,       "O valor de theta menor ou igual a 0."                     // BadThetaLEZero
     ,       "O valor de K_1 C menor ou igual a 1."                     // BadKCeK1LEOne
@@ -92,7 +94,7 @@ std::ostream& operator <<   (   std::ostream&           _os
         }
     }
     
-    std::cout << "Execução cancelada\n";
+    std::cout << "Execucao cancelada\n";
     PrintLine(_os);           
     
     return _os;

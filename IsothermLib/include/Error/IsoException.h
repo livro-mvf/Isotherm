@@ -62,6 +62,7 @@ enum IsoExceptionIndex {
         BadCoefficient = 0
     ,   BadCeLEZero
     ,   BadCeLTZero
+    ,   BadCeGEK2
     ,   BadK1LEZero
     ,   BadK1LTZero
     ,   BadK2LEZero
@@ -70,6 +71,7 @@ enum IsoExceptionIndex {
     ,   BadK3LTZero
     ,   BadK4LEZero
     ,   BadK4LTZero
+    ,   BadK1LTOne
     ,   BadK2LEOne
     ,   BadK3GTOne       
     ,   BadK3Between01

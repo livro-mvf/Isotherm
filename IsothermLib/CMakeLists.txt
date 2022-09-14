@@ -1,9 +1,8 @@
 
 
 cmake_minimum_required(VERSION 3.21)
-#include(CMakePrintHelpers)
 
-project (    MVFLIB
+project (    IsothermLib
              VERSION 1.0.1
         )
 

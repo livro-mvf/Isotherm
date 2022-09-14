@@ -1,5 +1,0 @@
-add_subdirectory(OneParameter)
-add_subdirectory(TwoParameters)
-add_subdirectory(ThreeParameters)
-add_subdirectory(FourParameters)
-add_subdirectory(FiveParameters)

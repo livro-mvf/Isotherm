@@ -176,7 +176,8 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor da  constante de equilibrio de Dubinin-Radushkevich.
-[[nodiscard]] inline Real Qmax () const
+[[nodiscard]] 
+inline Real Qmax () const
 {
     return  Value(0);
 };
@@ -193,7 +194,8 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a energia de adsorcao.
-[[nodiscard]] inline Real K1 () const
+[[nodiscard]] 
+inline Real K1 () const
 {
     return  Value(1);
 };
@@ -211,7 +213,8 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor da constante universal dos gases.
-[[maybe_unused]] [[nodiscard]] inline Real Rgas () const
+[[maybe_unused]] [[nodiscard]] 
+inline Real Rgas () const
 {
     return  RGAS;
 };
@@ -234,10 +237,12 @@ public:
 /// </example>
 ///  @param _qmax Novo valor da constante de equilibrio de Dubinin-Radushkevich.
 ///  @exception _qmax <= 0.
+//[[maybe_unused]] 
 inline void Qmax (const Real& _qmax)
 {
     *this = DubininRadushkevich     (   _qmax
                                     ,   Value(1)
+                                    , this->Rgas()
                                     );
 };
 
@@ -255,10 +260,12 @@ inline void Qmax (const Real& _qmax)
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a energia de adsorcao.
 ///  @exception _k1 <= 0.
+//[[maybe_unused]] 
 inline  void K1 (const Real& _k1)
 {
     *this = DubininRadushkevich (   Value(0)
                                 ,   _k1
+                                ,   this->Rgas()
                                 );
 };
 
@@ -275,7 +282,8 @@ inline  void K1 (const Real& _k1)
 /// </example>
 ///  @param _rgas Novo valor da constante universal dos gases.
 ///  @exception _rgas <= 0.
-[[maybe_unused]] inline  void Rgas (const Real& _rgas)
+[[maybe_unused]] 
+inline  void Rgas (const Real& _rgas)
 {
     *this = DubininRadushkevich     (   Value(0)
                                     ,   Value(1)
@@ -337,7 +345,7 @@ inline  void K1 (const Real& _k1)
 /// </summary>
     
 
-    [[nodiscard]]
+    [[maybe_unused]] [[nodiscard]] 
     virtual std::unique_ptr<Isotherm> CloneImplementation() const override
     {
         return std::make_unique<DubininRadushkevich>(*this);

@@ -30,22 +30,24 @@
 
 #include <cmath>
 #include <iostream>
+#include <sstream>
 
 //==============================================================================
 // includes da lib IsothermLib
 //==============================================================================
 
+#include <Error/IsoException.h>
 #include <Isotherm/ThreeParameters/BrunauerEmmettTeller.h>
 
 
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermBrunauerEmmettTeller {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção.")
+                                                    , "Capacidade maxima de adsorção.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Brunauer - Emmett - Teller.")
                                     ,   PairString  ( "K2"
@@ -56,47 +58,39 @@ VecPairString IsothermTemplate < BrunauerEmmettTeller >::infoIsotherm = isotherm
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "BrunauerEmmettTeller :: BrunauerEmmettTeller (const Real&, const Real&, const Real&)"
-BrunauerEmmettTeller :: BrunauerEmmettTeller (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+BrunauerEmmettTeller :: BrunauerEmmettTeller    (   const Real&     _qmax
+                                                ,   const Real&     _k1
+                                                ,   const Real&     _k2
+                                                ) 
+                                                : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __BRUNAUER_EMMETT_TELLER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+    try {
+
+            if (_qmax <= 0.0)  throw
+                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+
+            if (_k1 < 1)  throw
+                    IsoException (IST_LOC, className(), BadK1LTOne);
+
+            if (_k2 <= 0.0)  throw
+                    IsoException (IST_LOC, className(), BadK2LEZero);
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout << _isoExcept << "\n";
 
 
-//    try {
-//
-//            if (_qmax <= 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadQmaxLEZero);
-//
-//            if (_k1 <= 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK1LEZero);
-//
-//            if (_k2 <= 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK2LEZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//
-//#ifdef __BRUNAUER_EMMETT_TELLER_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
-//
-//    };
+        abort();
+
+    };
 
     setup = true;
 
-#ifdef __BRUNAUER_EMMETT_TELLER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
 }
 
@@ -108,34 +102,46 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 #define __FUNCT__ "BrunauerEmmettTeller ::  Qe (const Real&, const Real&) const "
 Real
 BrunauerEmmettTeller ::  Qe (const Real& _ce, const Real&) const {
-
-//    try {
-//        if (!setup) throw
-//                IsoException    (   IST_LOC
-//                                ,   className()
-//                                ,   BadCoefficient);
-//
-//        if (_ce < 0.0)  throw
-//                IsoException (IST_LOC, className(), BadCeLTZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//
-//#ifdef __BRUNAUER_EMMETT_TELLER_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
-//    }
-
 auto    ptrValue = std::begin(coeffValue);
+
+    try {
+        if (!setup) throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCoefficient
+                                );
+        
+        
+        if (_ce < 0.0)  throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
+        
+        if (_ce >= *(ptrValue + 2)) {
+        
+            std::stringstream sstr;
+            
+            
+            sstr << "ce = " << _ce << " e K2 = " << *(ptrValue + 2) << "\n";
+            throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeGEK2
+                                ,   sstr.str()
+                                );
+        }   
+
+        
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout << _isoExcept << "\n";
+        abort();
+    }
+
+
 auto    auxi = 1.0 + (*(ptrValue + 1) - 1) * _ce / *(ptrValue + 2);
 auto    auxiQ = *(ptrValue + 1) * _ce / ((*(ptrValue + 2) - _ce) * auxi);
-
-
-#ifdef __BRUNAUER_EMMETT_TELLER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
    return ( *ptrValue * auxiQ );
 }
