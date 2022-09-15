@@ -127,13 +127,15 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = (*(ptrValue + 1) * _ce) / pow((1 + *(ptrValue + 1) * _ce), *(ptrValue + 2));
+auto    k1c  = *(ptrValue + 1) * _ce;
+auto    auxi = k1c / pow( k1c + 1, *(ptrValue + 2));
 
 #ifdef __KHAN_DEBUG_H__
 std::cout << "Sai: " << __FUNCT__ << "\n";
 #endif
 
         return *ptrValue * auxi;
+
 }
 
 IST_NAMESPACE_CLOSE

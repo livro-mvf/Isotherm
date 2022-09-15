@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Hill
+// Description : Classe com as equacoes da isoterma de Hill
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -43,11 +43,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermDetails {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção")
+                                                    , "Capacidade maxima de adsorcao")
                                     ,   PairString  ( "K1"
                                                     , "Constante de Hill")
                                     ,   PairString  ( "K2"
@@ -75,13 +75,22 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
@@ -101,7 +110,7 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

@@ -27,7 +27,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 const Real  TOLE(1e-06);
 const UInt  ITERMAX(5000);
 const UInt  ITERMIN(5);
-const Real  DELTA(1e-02);
+const Real  DELTA(1e-03);
 
 
 

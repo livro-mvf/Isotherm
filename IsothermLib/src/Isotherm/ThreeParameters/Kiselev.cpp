@@ -83,8 +83,8 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
             if (_k1 <= 0.0)  throw
                     IsoException (IST_LOC, className(), BadK1LEZero);
 
-            if (_k2 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LTZero);
+            if (_k2 <= 0.0)  throw
+                    IsoException (IST_LOC, className(), BadK2LEZero);
 
     } catch (const IsoException& _isoExcept) {
 

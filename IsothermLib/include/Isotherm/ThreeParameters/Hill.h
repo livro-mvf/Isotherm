@@ -3,9 +3,9 @@
 // Author      : Iasmim Barboza Storck
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Hill
+// Description : Classe com as equacoes da isoterma de Hill
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -24,20 +24,20 @@
 
 
 /*! \class	Hill
- *  \brief	Classe com as equações da isoterma de Hill
+ *  \brief	Classe com as equacoes da isoterma de Hill
  *  \file	Hill.h
  *  \author	Lara Botelho Brum
  *  \author	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __HILL_H__
 #define __HILL_H__
 
 //==============================================================================
-// opção de debug
+// opcao de debug
 //==============================================================================
 
 //#define __HILL_DEBUG_H__
@@ -57,18 +57,18 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Hill
+/// Classe com as equacoes da isoterma de Hill
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T) = q_{max}\frac{C^{{K_2}}}{K_1 + C^{{K_2}}}\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -82,7 +82,7 @@ class Hill :  public virtual ThreeParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
         
@@ -90,7 +90,7 @@ public:
     
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -104,11 +104,11 @@ public:
 ///     Hill  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Hill() = default;
     
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -117,7 +117,7 @@ public:
 ///     Hill  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Hill original. 
+/// @param  _orig Variavel do tipo Hill original. 
     Hill (const Hill& _hill) = default;
   
 /// <summary>
@@ -126,7 +126,7 @@ public:
     virtual ~Hill() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Hill.
+/// Construtora com os parametros que definem a isoterma de Hill.
 /// </summary>
 /// <example>
 /// Uso:
@@ -137,7 +137,7 @@ public:
 ///     Hill  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.    
+///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param  _k1 Constante da isortema de Hill.    
 ///  @param _k2 Constante do expoente da isoterma de Hill.
 ///  @exception _qmax <= 0.
@@ -162,8 +162,8 @@ public:
 ///     Hill  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Hill original.
-///  @return Cópia de _orig.    
+///  @param _orig Variavel do tipo Hill original.
+///  @return Copia de _orig.    
     Hill& operator = (const Hill&) = default;
     
 //==============================================================================
@@ -171,7 +171,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -180,13 +180,13 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
 inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Hill.
+/// Funcao que retorna o coeficiente associado a constante de Hill.
 /// </summary>
 /// <example>
 /// Uso:
@@ -195,12 +195,12 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Hill.
 inline Real K1 () const {return  Value(1);};
     
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Hill.
+/// Funcao que retorna o valor do expoente da isoterma de Hill.
 /// </summary>
 /// <example>
 /// Uso:
@@ -209,7 +209,7 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do expoente da isoterma de Hill.    
 inline Real K2 () const {return  Value(2);};
 
@@ -218,7 +218,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -228,12 +228,12 @@ inline Real K2 () const {return  Value(2);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = Hill(_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de Hill.
+/// Funcao que altera o coeficiente associado a constante de Hill.
 /// </summary>
 /// <example>
 /// Uso:
@@ -248,7 +248,7 @@ inline Real K2 () const {return  Value(2);};
     void K1 (const Real& _k1)  {*this = Hill(Value(0), _k1,  Value(2));};
 
 /// <summary>
-/// Função para alterar o valor do expoente da isoterma de Hill.
+/// Funcao para alterar o valor do expoente da isoterma de Hill.
 /// </summary>
 /// <example>
 /// Uso:
@@ -264,11 +264,11 @@ inline Real K2 () const {return  Value(2);};
     
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -278,8 +278,8 @@ inline Real K2 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.    
 ///  @exception _c < 0.    
     virtual Real Qe (const Real&, const Real&) const;
 

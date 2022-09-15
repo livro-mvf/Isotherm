@@ -71,9 +71,9 @@ TEST_F(TestSuit, ConstrutorDefault) {
 
 TEST_F(TestSuit, ConstrutorPadrao) {
     
+  EXPECT_EQ(isotherm_2.Rgas(), RGASNovo);
   EXPECT_EQ(isotherm_2.K2(), K2);
   EXPECT_EQ(isotherm_2.K1(), K1);  
-  EXPECT_EQ(isotherm_2.Rgas(), RGASNovo);
   EXPECT_EQ(isotherm_2.NumberConst(), 2);
 
   isotherm_2.K2(K2Novo);

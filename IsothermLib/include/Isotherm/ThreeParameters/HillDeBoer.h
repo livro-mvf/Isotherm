@@ -37,7 +37,7 @@
 #ifndef __HILLDEBOER_H__
 #define __HILLDEBOER_H__
 //==============================================================================
-// opção de debug
+// opcao de debug
 //==============================================================================
 
 //#define __HILLDEBOER_DEBUG_H__
@@ -76,7 +76,7 @@ class HillDeboer :  public virtual ThreeParameters,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
 
@@ -97,7 +97,7 @@ public:
 ///     HillDeboer  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Não há parâmetros para esta funcao
     HillDeboer() = default;
 
 /// <summary>
@@ -130,9 +130,9 @@ public:
 ///     HillDeboer  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.
+///  @param _qmax Capacidade maxima de adsorcao.
 ///  @param  _k1 Constante de equilíbrio de Hill – Deboer.
-///  @param _k2 Constante de iteração entre as moléculas adsorvidas.
+///  @param _k2 Constante de iteracao entre as moléculas adsorvidas.
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
@@ -167,7 +167,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -177,12 +177,12 @@ public:
 /// @endcode
 /// </example>
 ///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @return Valor da  capacidade maxima de adsorcao.
     inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de equilíbrio de Hill - Deboer.
+/// Funcao que retorna o coeficiente associado a constante de equilíbrio de Hill - Deboer.
 /// </summary>
 /// <example>
 /// Uso:
@@ -194,10 +194,10 @@ public:
 ///  @param " " Não há parâmetros.
 ///  @return Valor do coeficiente associado a constante de equilíbrio de Hill – Deboer.
     inline Real K1 () const {return  Value(1);};
-    inline Real RGas() const {return RGAS;};
+
 
 /// <summary>
-/// Função que retorna o valor associado a constante de iteração entre as moléculas adsorvidas.
+/// Funcao que retorna o valor associado a constante de iteracao entre as moléculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -207,12 +207,12 @@ public:
 /// @endcode
 /// </example>
 ///  @param " " Não há parâmetros.
-///  @return Valor associado a constante de iteração entre as moléculas adsorvidas.
+///  @return Valor associado a constante de iteracao entre as moléculas adsorvidas.
     inline Real K2 () const {return  Value(2);};
 
 
 /// <summary>
-/// Função que retorna o valor da constante universal dos gases.
+/// Funcao que retorna o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -231,7 +231,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -241,12 +241,17 @@ public:
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
-    void Qmax (const Real& _qmax)  {*this = HillDeboer(_qmax, Value(1), Value(2));};
+    void Qmax (const Real& _qmax)  {*this = HillDeboer  ( _qmax
+                                                        , Value(1)
+                                                        , Value(2)
+                                                        , this->Rgas()
+                                                        );
+                                    };
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de equilíbrio de Hill – Deboer.
+/// Funcao que altera o coeficiente associado a constante de equilíbrio de Hill – Deboer.
 /// </summary>
 /// <example>
 /// Uso:
@@ -258,10 +263,15 @@ public:
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a constante de equilíbrio de Hill – Deboer.
 ///  @exception _k1 <= 0.
-     void K1 (const Real& _k1)  {*this = HillDeboer(Value(0), _k1, Value(2));};
+     void K1 (const Real& _k1)  {   *this = HillDeboer  (   Value(0)
+                                                        ,   _k1
+                                                        ,   Value(2)
+                                                        ,   this->Rgas()
+                                                        );
+                                };
 
 /// <summary>
-/// Função para alterar o valor associado a constante de iteração entre as moléculas adsorvidas.
+/// Funcao para alterar o valor associado a constante de iteracao entre as moléculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -271,12 +281,17 @@ public:
 ///     var1.K2(k2);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor associado a constante de iteração entre as moléculas adsorvidas.
+///  @param _k2 Novo valor associado a constante de iteracao entre as moléculas adsorvidas.
 ///  @exception _k2 <= 0.
-    void K2 (const Real& _k2)  {*this = HillDeboer(Value(0), Value(1), _k2);};
+    void K2 (const Real& _k2)   {   *this = HillDeboer  (   Value(0)
+                                                        ,   Value(1)
+                                                        ,   _k2
+                                                        ,   this->Rgas()
+                                                        );
+                                };
 
 /// <summary>
-/// Função para alterar o valor da constante universal dos gases.
+/// Funcao para alterar o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -288,7 +303,7 @@ public:
 /// </example>
 ///  @param _rgas Novo valor da constante universal dos gases.
 ///  @exception _rgas <= 0.
-    void Rgas (const Real& _rgas) {*this = HillDeboer(Value(0), Value(1), _rgas);};
+    void Rgas (const Real& _rgas) {*this = HillDeboer(Value(0), Value(1), Value(2), _rgas);};
 
 
 
@@ -297,7 +312,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -307,8 +322,8 @@ public:
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.
 ///  @exception _c < 0.
     virtual Real Qe (const Real& _c, const Real& = 0) const;
 

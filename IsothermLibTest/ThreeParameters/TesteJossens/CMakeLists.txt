@@ -22,7 +22,12 @@ target_include_directories  (   ${IsothermExe}
                                 "${CMAKE_SOURCE_DIR}/IsothermLib/include"
                                 )
 
-target_link_libraries    (      ${IsothermExe}
-                                PRIVATE
-                                IsothermLib
-                                )
+target_link_libraries   (   ${IsothermExe}
+                            PRIVATE
+                            IsothermLib
+                            ${GTEST_LIBRARIES} 
+                            pthread
+                        )
+
+
+add_test(NAME ${IsothermExe} COMMAND ${IsothermExe})

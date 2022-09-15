@@ -220,7 +220,7 @@ public:
 /// </example>
 ///  @param _k1 Novo valor da constante da isoterma de Temkin.
 ///  @exception _k1 <= 0.
-    void K1 (const Real& _k1)  {*this = Temkin(_k1, Value(1));};
+    void K1 (const Real& _k1)  {*this = Temkin(_k1, Value(1), this->Rgas());};
 
 
 /// <summary>
@@ -236,7 +236,7 @@ public:
 /// </example>
 ///  @param _k2 Novo valor do coeficiente associado a constante de ligacao de equilibrio isotermica.
 ///  @exception _k2 <= 0.
-    void K2 (const Real& _k2)  {*this = Temkin(Value(0), _k2);};
+    void K2 (const Real& _k2)  {*this = Temkin(Value(0), _k2, this->Rgas());};
 
 /// <summary>
 /// Funcao para alterar o valor da constante universal dos gases.

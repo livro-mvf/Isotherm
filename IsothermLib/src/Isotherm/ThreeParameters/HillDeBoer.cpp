@@ -51,11 +51,11 @@ IST_NAMESPACE_OPEN
 VecPairString       detailsHillDeboer
     {
         PairString  ( "Qmax"
-                    , "Capacidade máxima de adsorção")
+                    , "Capacidade máxima de adsorcao")
     ,   PairString  ( "K1"
                     , "Constante de equilíbrio de Hill – Deboer")
     ,   PairString  ( "K2"
-                    , "Constante de iteração entre as moléculas adsorvidas")
+                    , "Constante de iteracao entre as moléculas adsorvidas")
     };
 
 template<>
@@ -114,7 +114,7 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
     }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

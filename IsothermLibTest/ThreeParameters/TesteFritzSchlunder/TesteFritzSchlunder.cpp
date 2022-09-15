@@ -5,10 +5,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Programa para testar a classe com as 
-//               equações da isoterma de Fritz - Schlunder.
+// Description : Programa de teste da classe FritzSchlunder
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -25,276 +24,122 @@
 //
 //==============================================================================
 
+//==============================================================================
+// include da isotherm++
+//==============================================================================
 
+#include <Isotherm/ThreeParameters/FritzSchlunder.h>                 // ist::FritzSchlunder
 
 
 //==============================================================================
-// include da isotherm
+// include da googletest
 //==============================================================================
+#include <gtest/gtest.h>
 
-#include <Misc/Misc.h>                                      // PrintLine
-#include <Isotherm/ThreeParameters/FritzSchlunder.h>
+typedef     ist::FritzSchlunder TestIsotherm;
 
-//==============================================================================
-// include da lib c++ 
-//==============================================================================
-
-#include <cmath>                        // std::fabs
-#include <iomanip>                      // std::setw, std::setprecision
-#include <iostream>                     // std::cout
-#include <cassert>                      // assert
-
-
-int main(int argc, char** argv) {
+class TestSuit : public ::testing::Test {  
     
-//==============================================================================
-// Impressão do cabeçalho
-//==============================================================================
+protected: 
     
-    PrintLine(std::cout);    
-    std::cout << "Teste da classe Fritz - Schlunder\n";
-    PrintLine(std::cout);    
+const Real              QMAX        = 4.897e-1;    
+const Real              K1          = 1432e-3;    
+const Real              K2          = 23.72e-2;    
+const Real              QMAXNovo    = 34.548;    
+const Real              K1Novo      = 98.1e-03;    
+const Real              K2Novo      = 117.1e-02;    
+const Real              CE          = 1.6; 
+           
 
-//==============================================================================
-// testes com construtores e destrutora
-//==============================================================================
-    
-    std::cout << "\n\n";
-    PrintLine(std::cout);    
-    std::cout << "Teste dos construtores\n";
-    PrintLine(std::cout);    
+public:
+        
+    TestIsotherm     isotherm_1;    
+    TestIsotherm     isotherm_2 = TestIsotherm(QMAX, K1, K2);    
+    TestIsotherm     isotherm_3 = TestIsotherm(isotherm_2);    
+
+};  
+
+TEST_F(TestSuit, ConstrutorDefault) {
  
-const Real          QMAX(10.0);    
-const Real          K1(1000.0); 
-const Real          K2(1.0);
+    EXPECT_EQ(isotherm_1.Qmax(), 0);
+    EXPECT_EQ(isotherm_1.K1(), 0);
+    EXPECT_EQ(isotherm_1.K2(), 0);
+    EXPECT_EQ(isotherm_1.NumberConst(), 3);
+    EXPECT_DEATH(auto value = isotherm_1.Qe(CE);, "");
+  
+}
 
-ist::FritzSchlunder     f1;                 //Construtora default    
-    assert (f1.K1() == 0); 
-    assert (f1.K2() == 0); 
-    assert (f1.Qmax() == 0); 
+TEST_F(TestSuit, ConstrutorPadrao) {
+    
+  EXPECT_EQ(isotherm_2.Qmax(), QMAX);
+  EXPECT_EQ(isotherm_2.K1(), K1);  
+  EXPECT_EQ(isotherm_2.K2(), K2);  
+  EXPECT_EQ(isotherm_2.NumberConst(), 3);
 
-    std::cout << "\nImprimindo a variavel f1: " 
-              << f1 
-              << std::endl;
-    
-ist::FritzSchlunder     f2( QMAX, K1, K2 );     // Construtora com 3 parâmetros; 
-    assert (f2.K1() == K1); 
-    assert (f2.K2() == K2); 
-    assert (f2.Qmax() == QMAX);
-    
-    std::cout << "\nImprimindo a variavel f2: " 
-              << f2 
-              << std::endl;
+  isotherm_2.Qmax(QMAXNovo);
+  isotherm_2.K1(K1Novo);
+  isotherm_2.K2(K2Novo);
 
-ist::FritzSchlunder     f3(f2);             // Construtoa de cópia
-    assert (f2.K1() == f3.K1()); 
-    assert (f2.K2() == f3.K2()); 
-    assert (f2.Qmax() == f3.Qmax());
-    
-    std::cout << "\nImprimindo a variavel f3: " 
-              << f3 
-              << std::endl;
-    
-//==============================================================================
-// testes com sobrecarga de operadores
-//==============================================================================
+  EXPECT_EQ(isotherm_2.Qmax(), QMAXNovo);
+  EXPECT_EQ(isotherm_2.K1(), K1Novo);
+  EXPECT_EQ(isotherm_2.K2(), K2Novo);
+  
+  
+}
 
-    std::cout << "\n\n";
-    PrintLine(std::cout);    
-    std::cout << "Teste da sobrecarga de operadores\n";
-    PrintLine(std::cout);    
-    
-    f1 = f3;
-    assert (f1.K1() == f3.K1()); 
-    assert (f1.K2() == f3.K2()); 
-    assert (f1.Qmax() == f3.Qmax());
-    
-    std::cout << "\nImprimindo a variavel f1: " << f1 << std::endl;
-    
-const Real QMAX1 (778.0);
-const Real K11 (45.0);
-const Real K22 (1.5);
+TEST_F(TestSuit, ConstrutoraDeCopia) {
 
-ist::FritzSchlunder     f4 = ist::FritzSchlunder(QMAX1, K11, K22);
-    assert (f4.K1() == K11); 
-    assert (f4.K2() == K22); 
-    assert (f4.Qmax() == QMAX1);
-    
+  EXPECT_EQ(isotherm_3.Qmax(), QMAX);
+  EXPECT_EQ(isotherm_3.K1(), K1);  
+  EXPECT_EQ(isotherm_3.K2(), K2);  
+  EXPECT_EQ(isotherm_3.NumberConst(), 3);
 
-    std::cout   << "\nImprimindo a variavel f4: "  
-                << f4 
-                << std::endl;
-    
-//==============================================================================
-// testes do acesso as constantes da classe
-//==============================================================================
+  isotherm_3.Qmax(QMAXNovo);
+  isotherm_3.K1(K1Novo);
+  isotherm_3.K2(K2Novo);
 
-    
-    std::cout << "\n";
-    PrintLine(std::cout);    
-    std::cout << "Teste do acesso as constantes da classe\n";
-    PrintLine(std::cout);    
-    
-    
-    std::cout << f1
-              << "\n";
-    
-    std::cout   << "K1:\t" 
-                << std::setw(12)
-                << std::fixed
-                << f1.K1() 
-                << std::endl;
-    
-    std::cout   << "K2:\t" 
-                << std::setw(12)
-                << std::fixed
-                << f1.K2() 
-                << std::endl;
-    
-    std::cout << "QMAX:\t" 
-              << std::setw(12) 
-              << std::fixed
-              << f1.Qmax() 
-              << std::endl;
-        
-    std::cout   << "\nAlterando K1  e K2 separadamente\n";    
-    std::cout << "Imprimindo f1 modificado: \n" << f1 << std::endl;
-    
-    f1.K1(K11);
-    assert (f1.K1() == K11); 
-
-    f1.K2(K22);
-    assert (f1.K2() == K22); 
-    
-    f1.Qmax(QMAX1);
-    assert (f1.Qmax() == QMAX1); 
-    
-    std::cout   << "Imprimindo f1 modificado: \n" 
-                << f1 
-                << std::endl;
-   
-    
-const Real                      CE(1.6);
-const Real                      K1_QE(1432e-3);
-const Real                      K2_QE(23.72e-2);
-const Real                      QMAX_QE(4.897e-1);
-const ist::FritzSchlunder           var_FS(QMAX_QE, K1_QE, K2_QE);
-const Real                      QEANALITICO(0.725062513);
-const Real                      QeNumerico(var_FS.Qe(CE));
-const Real                      DiffQe = fabs(QeNumerico - QEANALITICO) / QEANALITICO;
-const Real                      DQMIN(1e-06);
+  EXPECT_EQ(isotherm_3.Qmax(), QMAXNovo);
+  EXPECT_EQ(isotherm_3.K1(), K1Novo);
+  EXPECT_EQ(isotherm_3.K2(), K2Novo);
+  
+}
 
 
-       std::cout   << "\n\nImprimindo isoterma para o cálculo de Qe: \n" 
-                << var_FS
-                << std::endl; 
-       
-       
-    std::cout   << "Qe = " 
-                << std::scientific
-                << std::setprecision(6)
-                << QeNumerico
-                << " para C = "
-                << std::fixed
-                << CE
-                << "  QAnalitico = "
-                << std::scientific
-                << QEANALITICO
-                << std::fixed
-                << std::endl;
-    
-        std::cout   << "Diferença = " 
-                    << std::scientific
-                    << std::setprecision(3)
-                    << (100.0 * (QeNumerico - QEANALITICO) / QEANALITICO)
-                    << " % "
-                    << std::fixed
-                    << "\n";
-        
-        
-  assert (DiffQe <= DQMIN); 
-    
-    
-   
-//==============================================================================
-// imprimindo as informações sobre as constantes
-//==============================================================================
+TEST_F(TestSuit, CalculoQe) {
 
     
-    std::cout << "\n";
-    PrintLine(std::cout);    
-    std::cout << "Teste do acesso as informações sobre as constantes\n";
-    PrintLine(std::cout);
+
+const TestIsotherm              iso1 (QMAX, K1, K2);
+
+
+const Real                      QEANALIT1(0.725062513);
+
+
+    EXPECT_FLOAT_EQ ( iso1.Qe(CE), QEANALIT1);
+
+}
+
+TEST_F(TestSuit, DeathTest) {
     
-    assert (f1.NumberConst() == 3);
-    std::cout   << "Numero de constantes de f1: " 
-                << f1.NumberConst() 
-                << std::endl;
+    EXPECT_DEATH(TestIsotherm(- QMAX ,  K1, K2);, ""); 
+    EXPECT_DEATH(TestIsotherm(  QMAX ,  - K1, K2);, "");
+    EXPECT_DEATH(TestIsotherm(  QMAX ,    K1, - K2);, "");
+//    EXPECT_DEATH(TestIsotherm(0.0 ,  K1, K2);, "");
+//    EXPECT_DEATH(TestIsotherm(QMAX ,  0.0, K2);, "");
+//    EXPECT_DEATH(TestIsotherm(QMAX ,  K1, 0.0);, "");
     
-    std::cout << std::setfill(' ');
-    std::cout << "Impressao de informações da isoterma\n"
-              << std::setw(20)
-              << std::left
-              << "Parâmetro"
-              << std::setw(40)
-              << " Detalhe do parâmetro"
-              << std::right
-              << std::endl;
-    
-    for (auto x : f1) {
-        std::cout   << std::setw(20)
-                    << std::left
-                    << x.first 
-                    << std::setw(40)
-                    << x.second
-                    << std::right
-                    << "\n";
-    }
-    
-//==============================================================================
-// testes para dass exceções - para testar deve-se tirar os comentários abaixo
-//==============================================================================
+    EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
+    EXPECT_DEATH(isotherm_2.K1( - K1);, "");
+//    EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
+    EXPECT_DEATH(isotherm_2.Qmax(- QMAX);, "");
+//    EXPECT_DEATH(isotherm_2.Qmax(   0.0);, "");
+    EXPECT_DEATH(isotherm_2.K2( - K2);, "");
+//    EXPECT_DEATH(isotherm_2.K2(  0.0);, "");
 
-     return EXIT_SUCCESS;     
+}
 
-     
-     
-//==============================================================================
-// testes para ver as exceções
-//==============================================================================   
-    
-    std::cout << "\n";
-    PrintLine(std::cout);    
-    std::cout << "Testes para ver o funcionamento das exceções\n";
-    PrintLine(std::cout); 
-
-
-const Real                      CE_Errado(3.16227766); 
-const Real                      K1_Errado(0.4);
-const Real                      K2_Errado(0.5);
-const Real                      QMAX_Errado(0.7);
-ist::FritzSchlunder     f6 ( - QMAX_Errado,    K1_Errado,    K2_Errado);            // Teste ok   
-
-ist::FritzSchlunder     f7 (   QMAX_Errado,  - K1_Errado,    K2_Errado);            // Teste ok   
-
-ist::FritzSchlunder     f8 (   QMAX_Errado,    K1_Errado,  - K2_Errado);            // Teste ok   
-
-    std::cout   << "Imprimindo Qe com C errada = " 
-                << f1.Qe( - CE_Errado ) 
-                << std::endl;                                // Teste ok
-    
-ist::FritzSchlunder     f9;    
-    
-    std::cout   << "Imprimindo Qe sem coeficientes = " 
-                << f9.Qe( CE ) 
-                << std::endl;                           // Teste ok
-   
-    f1.Qmax(-QMAX1);                                    // Teste ok
-
-    f1.K1(-K11);                                        // Teste ok
-    
-    f1.K2(-K22);                                        // Teste ok
-
-   return EXIT_FAILURE; 
-
+int main(int argc, char **argv)
+{
+   testing::InitGoogleTest(&argc, argv);
+   return RUN_ALL_TESTS(); 
 }

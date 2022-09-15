@@ -136,7 +136,7 @@ auto    auxi1 = *(ptrValue +1) * (pow(_ce, *(ptrValue + 2)));
 std::cout << "Sai: " << __FUNCT__ << "\n";
 #endif
 
-        return *ptrValue * (auxi1 / 1 + auxi1);
+        return *ptrValue * (auxi1 / (1 + auxi1));
 }
 
 IST_NAMESPACE_CLOSE

@@ -3,7 +3,7 @@
 // Author      : Iasmim Barboza Storck
 //               Lara Botelho Brum
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Fowler - Guggenheim
+// Description : Classe com as equacoes da isoterma de Fowler - Guggenheim
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -24,13 +24,13 @@
 
 
 /*! \class	Fowler - Guggenheim
- *  \brief	Classe com as equações da isoterma de Fowler - Guggenheim
+ *  \brief	Classe com as equacoes da isoterma de Fowler - Guggenheim
  *  \file	FowlerGuggenheim.h
  *  \authors	Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __FOWLERGUGGENHEIM_H__
@@ -38,7 +38,7 @@
 
 
 //==============================================================================
-// opção de debug
+// opçao de debug
 //==============================================================================
 
 //#define __FOWLERGUGGENHEIM_DEBUG_H__
@@ -52,19 +52,19 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Fowler - Guggenheim
+/// Classe com as equacoes da isoterma de Fowler - Guggenheim
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tras parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas sao as seguintes:
 ///\begin{align}
 ///  \[\[f(\theta = K_1C-\frac{\theta}{1-\theta}e^{\frac{K_2\theta}{RT}}=0\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referancia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \authors    Iasmim Barboza Storck
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -79,14 +79,14 @@ class FowlerGuggenheim :  public virtual ThreeParameters,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definiçao de ID para esta classe para fins de identificaçao de erros.
 /// </summary>
 /// <example>
 
     DefineIdentity("Fowler - Guggenheim", ID::FowlerGuggenheim);
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -100,7 +100,7 @@ public:
 ///     FowlerGuggenheim  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parâmetros para esta funçao
     FowlerGuggenheim () = default;
 
 /// <summary>
@@ -113,7 +113,7 @@ public:
 ///     FowlerGuggenheim  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo FowlerGuggenheim original.
+/// @param  _orig Variavel do tipo FowlerGuggenheim original.
     FowlerGuggenheim (const FowlerGuggenheim& _fowlerguggenheim) = default;
 
 /// <summary>
@@ -133,7 +133,7 @@ public:
 ///     Sips  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.
+///  @param _qmax Capacidade maxima de adsorçao.
 ///  @param  _k1 Constante da isortema de Fowler - Guggenheim.
 ///  @param _k2 Constante do expoente da isoterma de Fowler - Guggenheim.
 ///  @exception _qmax <= 0.
@@ -162,7 +162,7 @@ public:
 ///     FowlerGuggenheim  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Fowler - Guggenheim original.
+///  @param _orig Variavel do tipo Fowler - Guggenheim original.
 ///  @return Cópia de _orig.
     FowlerGuggenheim& operator = (const FowlerGuggenheim& _orig) = default;
 
@@ -171,7 +171,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funçao que informa o valor da capacidade maxima de adsorçao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -180,13 +180,13 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parâmetros.
+///  @return Valor da  capacidade maxima de adsorçao.
     inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Fowler - Guggenheim.
+/// Funçao que retorna o coeficiente associado a constante de Fowler - Guggenheim.
 /// </summary>
 /// <example>
 /// Uso:
@@ -195,12 +195,12 @@ public:
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parâmetros.
 ///  @return Valor do coeficiente associado a constante de Fowler - Guggenheim.
     inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Fowler - Guggenheim.
+/// Funçao que retorna o valor do expoente da isoterma de Fowler - Guggenheim.
 /// </summary>
 /// <example>
 /// Uso:
@@ -209,12 +209,12 @@ public:
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parâmetros.
 ///  @return Valor do expoente da isoterma de Fowler - Guggenheim.
     inline Real K2 () const {return  Value(2);};
 
 /// <summary>
-/// Função que retorna o valor da constante universal dos gases.
+/// Funçao que retorna o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -223,7 +223,7 @@ public:
 ///     Real rg = var1.Rgas();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parâmetros.
 ///  @return Valor da constante universal dos gases.
     inline Real Rgas () const {return  RGAS;};
 
@@ -232,7 +232,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funçao para alterar  a capacidade maxima de adsorçao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -242,12 +242,12 @@ public:
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorçao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax) {*this = FowlerGuggenheim(_qmax, Value(1), Value(2), this->Rgas());};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de equilíbrio de Fowler-Guggenheim.
+/// Funçao que altera o coeficiente associado a constante de equilíbrio de Fowler-Guggenheim.
 /// </summary>
 /// <example>
 /// Uso:
@@ -262,7 +262,7 @@ public:
     void K1 (const Real& _k1)  {*this = FowlerGuggenheim(Value(0), _k1, Value(2), this->Rgas());};
 
 /// <summary>
-/// Função para alterar o valor da constante de iteração entre as moléculas adsorvidas.
+/// Funçao para alterar o valor da constante de iteraçao entre as moléculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -272,12 +272,12 @@ public:
 ///     var1.K2(k2);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor da constante de iteração entre as moléculas adsorvidas.
+///  @param _k2 Novo valor da constante de iteraçao entre as moléculas adsorvidas.
 ///  @exception _k2 <= 0.
     void K2 (const Real& _k2)  {*this = FowlerGuggenheim(Value(0), Value(1), _k2, this->Rgas());};
 
 /// <summary>
-/// Função para alterar o valor da constante universal dos gases.
+/// Funçao para alterar o valor da constante universal dos gases.
 /// </summary>
 /// <example>
 /// Uso:
@@ -294,11 +294,11 @@ public:
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funçao que calcula a quantidade de sorçao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -308,8 +308,8 @@ public:
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentraçao do soluto.
+///  @return Valor da quantidade de sorçao no equilíbrio.
 ///  @exception _c < 0.
     virtual Real Qe (const Real& _c, const Real& _temp) const;
 
