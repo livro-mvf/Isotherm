@@ -42,11 +42,11 @@ class TestSuit : public ::testing::Test {
     
 protected: 
     
-const Real              K1          = 10;    
-const Real              K2          = 15;    
+const Real              K1          = 0.229774;    
+const Real              K2          = 0.304665;    
 const Real              K1Novo      = 100;    
 const Real              K2Novo      = 25;    
-const Real              CE          = 0.1; 
+const Real              CE          = 0.362076; 
 
 
 public:
@@ -98,26 +98,30 @@ TEST_F(TestSuit, CalculoQe) {
 
 
 const TestIsotherm              iso1 (K1, K2);
+std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
 
-
-const Real                      QEANALIT1(8.576958986);
+const Real                      QEANALIT1(0.8187514112e-2);
 
 
     EXPECT_FLOAT_EQ ( iso1.Qe(CE), QEANALIT1);
+    EXPECT_FLOAT_EQ ( iso1c->Qe(CE), QEANALIT1);
+    EXPECT_DEATH(auto value = iso1c->Qe(- CE);, "");
 
 }
 
 TEST_F(TestSuit, DeathTest) {
     
     EXPECT_DEATH(TestIsotherm(- K1 ,  K2);, ""); 
-    EXPECT_DEATH(TestIsotherm(  K1 , -K2);, ""); 
     EXPECT_DEATH(TestIsotherm( 0.0 ,  K2);, ""); 
+
+    EXPECT_DEATH(TestIsotherm(  K1 , -K2);, ""); 
     EXPECT_DEATH(TestIsotherm(  K1 , 0.0);, ""); 
     
     EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
-//    EXPECT_DEATH(auto value = isotherm_2.Qe( 0.0);, "");
+
     EXPECT_DEATH(isotherm_2.K1( - K1);, "");
     EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
+
     EXPECT_DEATH(isotherm_2.K2( - K2);, "");
     EXPECT_DEATH(isotherm_2.K2(  0.0);, "");
 

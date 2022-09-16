@@ -175,7 +175,8 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente de distribuicao em [M /M ].
-[[nodiscard]] inline Real Qmax () const
+[[nodiscard]] 
+inline Real Qmax () const
 {
     return  Value(0);
 };
@@ -193,7 +194,8 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de equilibrio de Elovich.    
-[[nodiscard]] inline Real K1 () const
+[[nodiscard]] 
+inline Real K1 () const
 {
     return  Value(1);
 };

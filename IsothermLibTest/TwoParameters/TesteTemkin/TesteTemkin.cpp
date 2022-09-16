@@ -90,11 +90,13 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
   EXPECT_EQ(isotherm_3.Rgas(), RGASNovo);
   EXPECT_EQ(isotherm_3.NumberConst(), 2);
 
+  isotherm_3.Rgas(2 * RGASNovo);
   isotherm_3.K2(K2Novo);
   isotherm_3.K1(K1Novo);
 
   EXPECT_EQ(isotherm_3.K2(), K2Novo);
   EXPECT_EQ(isotherm_3.K1(), K1Novo);
+  EXPECT_EQ(isotherm_3.Rgas(), 2 * RGASNovo);
   
 }
 
@@ -102,39 +104,48 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 TEST_F(TestSuit, CalculoQe) {
 
 
+const Real                      QEANALIT1(3.244105344);
+const Real                      QEANALIT2(1.622052671);
 
 const TestIsotherm              iso1 (K1, K2);
 const TestIsotherm              iso2 (K1, K2, RGASNovo);
-//
-//
-const Real                      QEANALIT1(3.244105344);
-const Real                      QEANALIT2(1.622052671);
-//
+std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
+std::unique_ptr<ist::Isotherm>  iso2c = iso2.Clone();
 
     EXPECT_FLOAT_EQ ( iso1.Qe(CE, TEMP), QEANALIT1);
-//    EXPECT_FLOAT_EQ ( iso2.Qe(CE, TEMP), QEANALIT2);
+    EXPECT_FLOAT_EQ ( iso2.Qe(CE, TEMP), QEANALIT2);
+    EXPECT_FLOAT_EQ ( iso1c->Qe(CE, TEMP), QEANALIT1);
+    EXPECT_FLOAT_EQ ( iso2c->Qe(CE, TEMP), QEANALIT2);
 
 }
 
 
 TEST_F(TestSuit, DeathTest) {
     
+    EXPECT_DEATH(TestIsotherm( 0.0 ,  K2);, "");
     EXPECT_DEATH(TestIsotherm(- K1 ,  K2);, ""); 
-    EXPECT_DEATH(TestIsotherm(- K1 ,  K2);, "");
+
     EXPECT_DEATH(TestIsotherm(  K1 ,  - K2);, "");
-    EXPECT_DEATH(TestIsotherm(0.0 ,  K2);, "");
     EXPECT_DEATH(TestIsotherm(K1 ,  0.0);, "");
+
     EXPECT_DEATH(TestIsotherm(  K1 ,   K2, - RGASNovo);, "");
     EXPECT_DEATH(TestIsotherm(  K1 ,   K2, 0.0);, "");
     
     EXPECT_DEATH(auto value = isotherm_2.Qe(- CE,   TEMP);, "");
-    EXPECT_DEATH(auto value = isotherm_2.Qe(  CE, - TEMP);, "");
     EXPECT_DEATH(auto value = isotherm_2.Qe( 0.0,   TEMP);, "");
+
+    EXPECT_DEATH(auto value = isotherm_2.Qe(  CE, - TEMP);, "");
+    EXPECT_DEATH(auto value = isotherm_2.Qe(  CE,    0.0);, "");
+
+    
     EXPECT_DEATH(auto value = isotherm_2.Qe( 1.0 / K1,   TEMP);, "");
+    
     EXPECT_DEATH(isotherm_2.K1( - K1);, "");
     EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
+    
     EXPECT_DEATH(isotherm_2.K2(- K2);, "");
     EXPECT_DEATH(isotherm_2.K2(   0.0);, "");
+    
     EXPECT_DEATH(isotherm_2.Rgas(- RGASNovo);, "");
     EXPECT_DEATH(isotherm_2.Rgas(       0.0);, "");
 

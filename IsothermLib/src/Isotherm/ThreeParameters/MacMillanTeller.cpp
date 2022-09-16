@@ -85,10 +85,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 //
 //        std::cout << _isoExcept << "\n";
 //
-//#ifdef __MAC_MILLAN_TELLER_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
+//  exit(EXIT_FAILURE);
 //
 //    };
 
@@ -122,10 +119,7 @@ MacMillanTeller ::  Qe (const Real& _ce, const Real&) const {
 //
 //        std::cout << _isoExcept << "\n";
 //
-//#ifdef __MAC_MILLAN_TELLER_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
+//  exit(EXIT_FAILURE);
 //    }
 
 auto    ptrValue = std::begin(coeffValue);

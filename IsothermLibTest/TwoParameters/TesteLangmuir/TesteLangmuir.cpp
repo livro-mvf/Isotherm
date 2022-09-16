@@ -98,27 +98,33 @@ TEST_F(TestSuit, CalculoQe) {
 
 
 
+const Real                      QEANALIT1(0.00025956303);
 const TestIsotherm              iso1 (QMAX, K1);
 
-
-const Real                      QEANALIT1(0.00025956303);
-
+std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
 
     EXPECT_FLOAT_EQ ( iso1.Qe(CE), QEANALIT1);
-
+    EXPECT_FLOAT_EQ ( iso1c->Qe(CE), QEANALIT1);
+    
+    EXPECT_DEATH(auto value = iso1c->Qe(- CE);, "");
+    EXPECT_DEATH(auto value = iso1c->Qe( 0.0);, "");
 }
 
 TEST_F(TestSuit, DeathTest) {
     
     EXPECT_DEATH(TestIsotherm(- QMAX ,  K1);, ""); 
-    EXPECT_DEATH(TestIsotherm(  QMAX ,  - K1);, "");
     EXPECT_DEATH(TestIsotherm(0.0 ,  K1);, "");
+    
+    
+    EXPECT_DEATH(TestIsotherm(  QMAX ,  - K1);, "");
     EXPECT_DEATH(TestIsotherm(QMAX ,  0.0);, "");
     
     EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
     EXPECT_DEATH(auto value = isotherm_2.Qe( 0.0);, "");
+    
     EXPECT_DEATH(isotherm_2.K1( - K1);, "");
     EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
+    
     EXPECT_DEATH(isotherm_2.Qmax(- QMAX);, "");
     EXPECT_DEATH(isotherm_2.Qmax(   0.0);, "");
 

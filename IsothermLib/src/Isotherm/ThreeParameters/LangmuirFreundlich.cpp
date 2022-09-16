@@ -84,10 +84,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
         std::cout << _isoExcept << "\n";
 
-#ifdef __LANGMUIR_FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
@@ -121,10 +118,7 @@ LangmuirFreundlich ::  Qe (const Real& _ce, const Real&) const {
 
         std::cout << _isoExcept << "\n";
 
-#ifdef __LANGMUIR_FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);

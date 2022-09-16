@@ -28,8 +28,8 @@
 // includes da lib IsothermLib
 //==============================================================================
 
-#include <cmath>
-#include <iostream>
+#include <cmath>                    // exp
+#include <iostream>                 // std::cout
 
 //==============================================================================
 // includes da lib IsothermLib
@@ -84,7 +84,7 @@ Elovich :: Elovich  (   const Real& _qmax
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
 
     }
 
@@ -118,7 +118,7 @@ Elovich ::  Qe (   const Real& _ce
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);;
     }
 
     const_cast<Real&>(auxiCe) = _ce * this->K1();

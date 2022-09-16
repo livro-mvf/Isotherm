@@ -173,6 +173,7 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor da capacidade maxima de adsorcao em [M /M ].
+    [[nodiscard]] 
     inline Real Qmax () const {return  Value(0);};
 
 /// <summary>
@@ -187,6 +188,7 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de equilibrio de Langmuir.
+    [[nodiscard]] 
     inline Real K1 () const {return  Value(1);};
 
 

@@ -237,7 +237,6 @@ inline Real Rgas () const
 /// </example>
 ///  @param _qmax Novo valor da constante de equilibrio de Dubinin-Radushkevich.
 ///  @exception _qmax <= 0.
-//[[maybe_unused]] 
 inline void Qmax (const Real& _qmax)
 {
     *this = DubininRadushkevich     (   _qmax
@@ -259,8 +258,7 @@ inline void Qmax (const Real& _qmax)
 /// @endcode
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a energia de adsorcao.
-///  @exception _k1 <= 0.
-//[[maybe_unused]] 
+///  @exception _k1 <= 0. 
 inline  void K1 (const Real& _k1)
 {
     *this = DubininRadushkevich (   Value(0)
@@ -350,8 +348,6 @@ inline  void Rgas (const Real& _rgas)
     {
         return std::make_unique<DubininRadushkevich>(*this);
     }
-
-
 
 
 private:

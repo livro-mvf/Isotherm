@@ -53,7 +53,7 @@ VecPairString       detailsHalsey
         PairString  ( "K1"
                     , "Constante da isoterma de Halsey")
     ,   PairString  ( "K2"
-                    , "Constante de ligacao de equiibrio isotérmica")
+                    , "Constante de ligacao de equiibrio isotermica")
     };
 
 template<>
@@ -78,7 +78,7 @@ Halsey :: Halsey    (   const Real& _k1
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
 
     }
 
@@ -116,7 +116,8 @@ Real    value;
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
+
     }
 
     return  (value >= ZERO ? value : 0.0);

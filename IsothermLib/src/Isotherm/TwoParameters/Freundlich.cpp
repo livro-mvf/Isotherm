@@ -67,11 +67,6 @@ Freundlich :: Freundlich    (   const Real&         _k1
                             :   TwoParameters(_k1, _k2)
 {
 
-#ifdef __FREUNDLICH_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
-
     try {
 
             if (_k1 <= 0.0)  throw
@@ -83,20 +78,13 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     }
 
     invK2 = 1.0 /  _k2;
     setup = true;
 
-#ifdef __FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     }
 
@@ -111,9 +99,6 @@ Freundlich ::  Qe   (   const Real&         _ce
                     ,   const Real&            
                     ) const
 {
-#ifdef __FREUNDLICH_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
 Real    expValue;
 auto    ptrValue = std::begin(coeffValue);
@@ -134,20 +119,14 @@ auto    ptrValue = std::begin(coeffValue);
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n";
-
-#ifdef __FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        std::cout << _isoExcept << "\n";
+        exit(EXIT_FAILURE);
+        
     }
 
 
 auto    value    = *ptrValue * expValue ;
 
-#ifdef __FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     return (value >= ZERO ? value : 0.0) ;
 

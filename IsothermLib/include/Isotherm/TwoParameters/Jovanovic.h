@@ -171,6 +171,7 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor da constante da isoterma de Jovanovic.
+[[nodiscard]]
 inline Real K1 () const {return  Value(1);};
 
 
@@ -186,6 +187,7 @@ inline Real K1 () const {return  Value(1);};
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor da  capacidade maxima de adsorcao.
+[[nodiscard]]
 inline Real Qmax () const {return  Value(0);};
 
 

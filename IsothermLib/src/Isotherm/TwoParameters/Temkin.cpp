@@ -48,7 +48,7 @@ VecPairString       detailsTemkin
         PairString  ( "K1"
                     , "Constante da isoterma de Temkin")
     ,   PairString  ( "K2"
-                    , "Constante de ligacao de equiibrio isotérmica")};
+                    , "Constante de ligacao de equiibrio isotermica")};
 
 template<>
 VecPairString IsothermTemplate < Temkin >::infoIsotherm = detailsTemkin;
@@ -123,7 +123,7 @@ auto    ptrValue = std::begin(coeffValue);
                                     ,   className()
                                     , BadCeLEZero);
 
-            if (_temp < 0.0)  throw
+            if (_temp <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
                                     ,   BadTempLEZero);

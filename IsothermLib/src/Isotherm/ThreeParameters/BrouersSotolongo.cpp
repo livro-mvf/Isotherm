@@ -130,21 +130,13 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __BROUERS_SOTOLONGO_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    auxiK2 = pow(_ce, *(ptrValue + 2));
 auto    auxi = exp(-((*(ptrValue + 1)) * auxiK2));
 auto    auxiQ = 1 - auxi;
-
-#ifdef  __BROUERS_SOTOLONGO_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     return ( *ptrValue * auxiQ );
 

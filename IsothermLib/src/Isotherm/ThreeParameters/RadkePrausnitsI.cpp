@@ -84,11 +84,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
         std::cout << _isoExcept << "\n";
 
-#ifdef __RADKE_PRAUSNITS_I_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
-
+        exit(EXIT_FAILURE);
     };
 
     setup = true;
@@ -121,10 +117,7 @@ RadkePrausnitsI ::  Qe (const Real& _ce, const Real&) const {
 //
 //        std::cout << _isoExcept << "\n";
 //
-//#ifdef __RADKE_PRAUSNITS_I_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
+//  exit(EXIT_FAILURE);
 //    }
 
 auto    ptrValue = std::begin(coeffValue);

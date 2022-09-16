@@ -267,7 +267,7 @@ inline void K2 (const Real& _k2)
     
 private:
     
-Real        invK2{};
+Real        invK2 = 0.0;
 
 };
 /// \example TesteFreundlich.cpp

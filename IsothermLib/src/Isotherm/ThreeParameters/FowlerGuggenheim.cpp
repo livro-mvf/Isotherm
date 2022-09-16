@@ -103,12 +103,9 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n" << std::flush;
+        std::cout << _isoExcept << "\n" << std::flush;
 
-#ifdef __FLOWER_GUGGENHEIM_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
@@ -153,15 +150,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout   << _isoExcept
-                << "\n"
-                << std::flush;
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept
+                    << "\n"
+                    << std::flush;
 
-#ifdef __FLOWER_GUGGENHEIM_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 
@@ -203,12 +196,9 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
         } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+            std::cout << _isoExcept << "\n";
 
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-            abort();
+            exit(EXIT_FAILURE);
         }
 
 

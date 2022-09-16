@@ -27,7 +27,7 @@
 // includes lib c++
 //==============================================================================
 
-#include <cmath>
+#include <cmath>                // log10 e sqrt
 #include <iostream>
 #include <sstream>
 

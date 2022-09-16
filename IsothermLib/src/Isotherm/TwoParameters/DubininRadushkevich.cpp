@@ -90,8 +90,7 @@ DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
 
         std::cout   << _isoExcept << std::flush;
         exit(EXIT_FAILURE);
-
-    }
+ }
 
     setup = true;
 
@@ -102,7 +101,7 @@ DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
 //==============================================================================
 
 #undef  __FUNCT__
-#define __FUNCT__ "DubininRadushkevich :: DubininRadushkevich (const Real&, const Real&)"
+#define __FUNCT__ "DubininRadushkevich :: DubininRadushkevich (const Real&, const Real&) const"
 Real
 DubininRadushkevich ::  Qe  (   const Real&     _ce
                             ,   const Real&     _temp) const
