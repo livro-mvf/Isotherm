@@ -74,9 +74,6 @@ FowlerGuggenheim :: FowlerGuggenheim (  const Real& _qmax,
                                                         RGAS(_rgas) {
 
 
-#ifdef __FLOWER_GUGGENHEIM_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
 
@@ -112,10 +109,6 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     setup = true;
 
 
-#ifdef __FLOWER_GUGGENHEIM_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-
     }
 
 //==============================================================================
@@ -124,11 +117,9 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real FowlerGuggenheim ::  Qe (const Real&, const Real&) const"
-Real FowlerGuggenheim ::  Qe (const Real& _ce, const Real& _temp) const {
-
-#ifdef __FLOWER_GUGGENHEIM_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+Real FowlerGuggenheim ::  Qe    (   const Real&     _ce
+                                ,   const Real&     _temp
+                                )   const {
 
 
     try {
@@ -138,14 +129,16 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
                                 ,   BadCoefficient);
 
         if (_ce < 0.0)  throw
-                IsoException (      IST_LOC
-                              ,     className()
-                              ,     BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
-        if (_temp < 0.0)  throw
-                IsoException (      IST_LOC
-                              ,     className()
-                              ,     BadTempLEZero);
+        if (_temp <= 0.0)  throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadTempLEZero
+                                );
 
 
     } catch (const IsoException& _isoExcept) {
@@ -176,23 +169,21 @@ auto value = resul * this->Qmax();
 #define __FUNCT__ "Real  FowlerGuggenheim ::  FQe (const Real&) const"
 Real
 FowlerGuggenheim ::  FQe (const Real& _theta) const {
-
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
+   
 
         try {
 
             if (_theta >= 1.0) throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadThetaGEOne);
+                                    ,   BadThetaGEOne
+                                    );
 
             if (_theta<= 0.0) throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadThetaLEZero);
+                                    ,   BadThetaLEZero
+                                    );
 
         } catch (const IsoException& _isoExcept) {
 

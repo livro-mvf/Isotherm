@@ -69,9 +69,6 @@ Kiselev :: Kiselev (     const Real& _qmax,
                          const Real& _k2) :
                          ThreeParameters(_qmax, _k1, _k2 ) {
 
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
     try {
 
@@ -89,20 +86,13 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
     std::cout << _isoExcept << "\n" << std::flush;
-
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+    exit(EXIT_FAILURE);
 
     };
 
     setup = true;
 
 
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     }
 
@@ -114,9 +104,6 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 #define __FUNCT__ "Real Kiselev ::  Qe (const Real&, const Real&) const"
 Real Kiselev ::  Qe (const Real& _ce, const Real&) const {
 
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
 
     try {
@@ -132,15 +119,10 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout   << _isoExcept
-                << "\n"
-                << std::flush;
-        std::cout << _isoExcept << "\n";
-
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        std::cout   << _isoExcept
+                    << "\n"
+                    << std::flush;
+        exit(EXIT_FAILURE); 
     }
 
     const_cast<Real&>(auxiCe) = _ce * this->K1();
@@ -159,10 +141,6 @@ return (value >= ZERO ? value : 0.0) ;
 Real
 Kiselev ::  FQe (const Real& _theta) const {
 
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
         try {
 
@@ -178,12 +156,8 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
         } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-
-#ifdef __KISELEV_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-            abort();
+            std::cout << _isoExcept << "\n";
+            exit(EXIT_FAILURE);
         }
 
 

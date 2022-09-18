@@ -1,8 +1,8 @@
 //==============================================================================
 // Name        : DubininRadushkevich.cpp
 // Authors     : Lara Botelho Brum
-//               Joao Flavio Vieira de Vasconcellos
 //               Iasmim Barboza Storck
+//               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Dubinin-Radushkevich
 //
@@ -37,9 +37,6 @@
 #include <Error/IsoException.h>
 #include <Isotherm/TwoParameters/DubininRadushkevich.h>
 
-//==============================================================================
-// Variaveis estaticas
-//==============================================================================
 
 IST_NAMESPACE_OPEN
 
@@ -75,20 +72,30 @@ DubininRadushkevich :: DubininRadushkevich  (   const Real&         _qmax
     try {
 
         if (_qmax <= 0.0) {
-            throw IsoException(IST_LOC, className(), BadQmaxLEZero);
+            throw IsoException  (   IST_LOC
+                                ,   className()
+                                ,   BadQmaxLEZero
+                                );
         }
 
         if (_k1 <= 0.0) {
-            throw IsoException(IST_LOC, className(), BadK1LEZero);
+            throw IsoException  (   IST_LOC
+                                ,   className()
+                                ,   BadK1LEZero
+                                );
         }
 
         if (_rgas <= 0.0) {
-            throw IsoException(IST_LOC, className(), BadRGasLEZero);
+            throw IsoException  (   IST_LOC
+                                ,   className()
+                                ,   BadRGasLEZero
+                                );
         }
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout   << _isoExcept << std::flush;
+        std::cout   << _isoExcept 
+                    << std::flush;
         exit(EXIT_FAILURE);
  }
 
@@ -110,20 +117,30 @@ DubininRadushkevich ::  Qe  (   const Real&     _ce
     try {
 
         if (!setup) {
-            throw IsoException(IST_LOC, className(), BadCoefficient);
+            throw IsoException  (   IST_LOC
+                                ,   className() 
+                                ,   BadCoefficient
+                                );
         }
 
         if (_ce <= 0.0) {
-            throw IsoException(IST_LOC, className(), BadCeLEZero);
+            throw IsoException  (   IST_LOC
+                                ,   className()
+                                ,   BadCeLEZero
+                                );
         }
 
         if (_temp <= 0.0) {
-            throw IsoException(IST_LOC, className(), BadTempLEZero);
+            throw IsoException  (   IST_LOC
+                                ,   className()
+                                ,   BadTempLEZero
+                                );
         }
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }

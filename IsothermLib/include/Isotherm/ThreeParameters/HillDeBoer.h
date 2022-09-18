@@ -36,11 +36,6 @@
 
 #ifndef __HILLDEBOER_H__
 #define __HILLDEBOER_H__
-//==============================================================================
-// opcao de debug
-//==============================================================================
-
-//#define __HILLDEBOER_DEBUG_H__
 
 //==============================================================================
 // include da isotherm++
@@ -178,6 +173,7 @@ public:
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor da  capacidade maxima de adsorcao.
+    [[nodiscard]]
     inline Real Qmax () const {return  Value(0);};
 
 
@@ -193,6 +189,7 @@ public:
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor do coeficiente associado a constante de equilíbrio de Hill – Deboer.
+    [[nodiscard]]
     inline Real K1 () const {return  Value(1);};
 
 
@@ -208,6 +205,7 @@ public:
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor associado a constante de iteracao entre as moléculas adsorvidas.
+    [[nodiscard]]
     inline Real K2 () const {return  Value(2);};
 
 
@@ -223,6 +221,7 @@ public:
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor da constante universal dos gases.
+    [[nodiscard]]
     inline Real Rgas () const {return  RGAS;};
 
 
@@ -325,6 +324,7 @@ public:
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilíbrio.
 ///  @exception _c < 0.
+    [[nodiscard]]
     virtual Real Qe (const Real& _c, const Real& = 0) const;
 
     [[nodiscard]]

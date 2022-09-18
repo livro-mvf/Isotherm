@@ -68,10 +68,6 @@ Khan :: Khan (  const Real& _qmax,
                 const Real& _k1,
                 const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __KHAN_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
    try {
 
@@ -87,18 +83,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __KHAN_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     }
     setup = true;
 
-#ifdef __KHAN_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
  }
 
@@ -119,20 +108,13 @@ Khan ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __KHAN_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    k1c  = *(ptrValue + 1) * _ce;
 auto    auxi = k1c / pow( k1c + 1, *(ptrValue + 2));
 
-#ifdef __KHAN_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return *ptrValue * auxi;
 

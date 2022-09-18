@@ -68,16 +68,23 @@ Freundlich :: Freundlich    (   const Real&         _k1
 {
 
     try {
-
+        
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
@@ -106,27 +113,36 @@ auto    ptrValue = std::begin(coeffValue);
     try {
 
         if (!setup) throw
-            IsoException (IST_LOC, className(), BadCoefficient);
+            IsoException    (   IST_LOC
+                            ,   className()
+                            ,   BadCoefficient
+                            );
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                , BadCeLTZero
+                                );
 
         std::feclearexcept(FE_ALL_EXCEPT);
         expValue = pow(_ce, invK2);
 
         if(std::fetestexcept(FE_OVERFLOW)) throw
-                IsoException (IST_LOC, className(), BadOverFlow);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadOverFlow
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
         
     }
 
 
 auto    value    = *ptrValue * expValue ;
-
 
     return (value >= ZERO ? value : 0.0) ;
 

@@ -46,7 +46,6 @@
 #ifndef __THREEPARAMETERS_H__
 #define __THREEPARAMETERS_H__
 
-//#define __THREEPARAMETERS_DEBUG_H__
 
 #include <Isotherm.h>
 

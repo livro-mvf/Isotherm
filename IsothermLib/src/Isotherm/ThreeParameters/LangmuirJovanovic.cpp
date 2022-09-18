@@ -66,10 +66,7 @@
 //LangmuirJovanovic :: LangmuirJovanovic (  const Real& _qmax,
 //                const Real& _k1,
 //                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
-//
-//#ifdef __LANGMUIRJOVANOVIC_DEBUG_H__
-//std::cout << "Entrei: " << __FUNCT__ << "\n";
-//#endif
+
 //
 //
 //    try {
@@ -86,17 +83,9 @@
 //    } catch (const IsoException& _isoExcept) {
 //
 //        std::cout << _isoExcept << "\n";
-//
-//#ifdef __LANGMUIRJOVANOVIC_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
+//        exit(EXIT_FAILURE);
 //
 //    };
-//
-//#ifdef __LANGMUIRJOVANOVIC_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
 //
 //}
 //
@@ -117,19 +106,12 @@
 //    } catch (const IsoException& _isoExcept) {
 //
 //        std::cout << _isoExcept << "\n";
-//
-//#ifdef __LANGMUIRJOVANOVIC_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
-//        abort();
+//        exit(EXIT_FAILURE);
 //    }
 //
 //auto    ptrValue = std::begin(coeffValue);
 //auto    auxi = pow(_ce, *(ptrValue + 2));
 //
-//#ifdef __LANGMUIRJOVANOVIC_DEBUG_H__
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif
 //
 //        return *ptrValue * auxi / (auxi + *(ptrValue + 1));
 //}

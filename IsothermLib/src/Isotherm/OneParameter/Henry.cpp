@@ -72,8 +72,8 @@ Henry :: Henry  (   const Real&     _k1)
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n";
-    abort();
+        std::cout << _isoExcept << "\n";
+        exit(EXIT_FAILURE);
 
     }
 
@@ -104,7 +104,7 @@ Henry ::  Qe    (   const Real& _ce
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
     }
 
     return   *(std::begin(coeffValue)) * _ce;

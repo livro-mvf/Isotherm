@@ -69,9 +69,6 @@ Sips :: Sips    (   const Real& _qmax
                 : ThreeParameters(_qmax, _k1, _k2)
 {
 
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
 
     try {
@@ -94,18 +91,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     }
     setup = true;
 
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     }
 
@@ -119,9 +109,6 @@ Real
 Sips ::  Qe   (   const Real&     _ce
               ,   const Real&     _temp) const
 {
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
 
         try {
@@ -139,11 +126,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
         } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-            abort();
+exit(EXIT_FAILURE);
         }
 
 
@@ -151,9 +134,6 @@ auto    ptrValue = std::begin(coeffValue);
 auto    auxi  = pow(*(ptrValue + 1) * _ce, 1.0 / *(ptrValue + 2));
 auto    value = *ptrValue * (auxi / (1.0 + auxi));
 
-#ifdef __SIPS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     return (value >= ZERO ? value : 0.0)  ;
 

@@ -64,10 +64,6 @@ LangmuirFreundlich :: LangmuirFreundlich (  const Real& _qmax,
                 const Real& _k1,
                 const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __LANGMUIR_FREUNDLICH_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
     try {
 
@@ -90,9 +86,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     setup = true;
 
-#ifdef __LANGMUIR_FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
 }
 
@@ -126,9 +120,6 @@ auto    auxi = (*(ptrValue + 1)) * (pow(_ce, *(ptrValue + 2)));
 auto    auxiQ = (*ptrValue) * auxi;
 auto    auxiK = 1 + auxi;
 
-#ifdef __LANGMUIR_FREUNDLICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return ( auxiQ / auxiK );
 }

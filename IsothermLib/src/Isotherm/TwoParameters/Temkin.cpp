@@ -27,7 +27,7 @@
 //==============================================================================
 // includes lib c++
 //==============================================================================
-#include <cmath>
+#include <cmath>                    // log
 #include <iostream>
 
 //==============================================================================
@@ -40,7 +40,7 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsTemkin
@@ -48,7 +48,8 @@ VecPairString       detailsTemkin
         PairString  ( "K1"
                     , "Constante da isoterma de Temkin")
     ,   PairString  ( "K2"
-                    , "Constante de ligacao de equiibrio isotermica")};
+                    , "Constante de ligacao de equiibrio isotermica")
+    };
 
 template<>
 VecPairString IsothermTemplate < Temkin >::infoIsotherm = detailsTemkin;
@@ -61,40 +62,41 @@ VecPairString IsothermTemplate < Temkin >::infoIsotherm = detailsTemkin;
 
 
 #undef  __FUNCT__
-#define __FUNCT__ "Temkin :: Temkin (const Real&, const Real&)"
-Temkin :: Temkin (  const Real& _k1,
-                    const Real& _k2,
-                    const Real& _rgas) : TwoParameters(_k1, _k2), RGAS(_rgas) {
+#define __FUNCT__ "Temkin :: Temkin (const Real&, const Real&, const Real&)"
+Temkin :: Temkin    (   const Real&     _k1
+                    ,   const Real&     _k2
+                    ,   const Real&     _rgas
+                    ) : TwoParameters(_k1, _k2), RGAS(_rgas) {
 
     try {
 
             if (_k1 <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK1LEZero);
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK2LEZero);
+                                    ,   BadK2LEZero
+                                    );
 
             if (_rgas <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadRGasLEZero);
+                                    ,   BadRGasLEZero
+                                    );
 
-    } catch (const IsoException& _isoExcept) {
+        } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-        abort();
-
+            std::cout   << _isoExcept 
+                        << "\n";
+            exit(EXIT_FAILURE);
     }
 
     setup = true;
 
-#ifdef __TEMKIN_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     }
 
@@ -116,33 +118,39 @@ auto    ptrValue = std::begin(coeffValue);
             if (!setup) throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadCoefficient);
+                                    ,   BadCoefficient
+                                    );
 
-            if (_ce <= 0.0)  throw
+            if (_ce <= 0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    , BadCeLEZero);
+                                    ,   BadCeLEZero
+                                    );
 
-            if (_temp <= 0.0)  throw
+            if (_temp <= 0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadTempLEZero);
+                                    ,   BadTempLEZero
+                                    );
 
-            if ((_ce * (*ptrValue)) <= 1.0)  throw
+            if ((_ce * (*ptrValue)) <= 1)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadKCeK1LEOne);
+                                    ,   BadKCeK1LEOne
+                                    );
 
         } catch (const IsoException& _isoExcept) {
 
-            std::cout << _isoExcept << "\n";
-            abort();
-        }
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
+    
+    }
 
 auto    auxi = log(_ce * (*ptrValue));
 auto    value =  (RGAS * _temp * auxi) / (*(ptrValue + 1));
 
-     return  (value >= ZERO ? value : 0.0);
+    return  (value >= ZERO ? value : 0.0);
 
 }
 

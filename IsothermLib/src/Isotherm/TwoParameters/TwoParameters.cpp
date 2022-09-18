@@ -38,7 +38,8 @@ VecPairString       detailsDubininTwoParameters /* NOLINT */
         PairString  ( "Nao definido"
                     , "Nao definido")
     ,   PairString  ( "Nao definido"
-                    , "Nao definido")};
+                    , "Nao definido")
+    };
 
 template<>
 VecPairString IsothermTemplate < TwoParameters >::infoIsotherm = detailsDubininTwoParameters;  /* NOLINT */

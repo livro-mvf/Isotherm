@@ -42,11 +42,11 @@ class TestSuit : public ::testing::Test {
     
 protected: 
 
-const Real              QMAX        = 1432e-3;    
-const Real              K1          = 23.72e-4;    
+const Real              QMAX        = 63.1638;    
+const Real              K1          = 7.69755;    
+const Real              CE          = 0.138159; 
 const Real              QMAXNovo    = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
-const Real              CE          = 76.43e-3; 
 
 
 public:
@@ -98,7 +98,7 @@ TEST_F(TestSuit, CalculoQe) {
 
 
 
-const Real                      QEANALIT1(0.00025956303);
+const Real                      QEANALIT1(32.55355802);
 const TestIsotherm              iso1 (QMAX, K1);
 
 std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();

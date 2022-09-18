@@ -65,9 +65,6 @@ MacMillanTeller :: MacMillanTeller (  const Real& _qmax,
                 const Real& _k1,
                 const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __MAC_MILLAN_TELLER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
 
 //    try {
@@ -91,9 +88,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     setup = true;
 
-#ifdef __MAC_MILLAN_TELLER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
 }
 
@@ -127,9 +122,7 @@ auto    auxi = log(*(ptrValue + 2) / _ce);
 auto    auxi1 = (*(ptrValue + 1)) / auxi;
 auto    auxi2 = pow(auxi1, (1 / 3));
 
-#ifdef __MAC_MILLAN_TELLER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
         return ( (*ptrValue) * auxi2);
 }

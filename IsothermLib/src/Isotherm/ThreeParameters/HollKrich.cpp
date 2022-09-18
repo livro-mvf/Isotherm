@@ -69,11 +69,6 @@ VecPairString IsothermTemplate < HollKrich >::infoIsotherm = detailsHollKrich;
                 const Real& _k1,
                 const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __HOLL_KRICH_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
-
    try {
 
             if (_qmax <= 0.0)  throw
@@ -88,20 +83,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __HOLL_KRICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     }
     setup = true;
 
-
-
-#ifdef __HOLL_KRICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
  }
 
@@ -122,19 +108,13 @@ HollKrich ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __HOLL_KRICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi1 = *(ptrValue +1) * (pow(_ce, *(ptrValue + 2)));
 
-#ifdef __HOLL_KRICH_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
         return *ptrValue * (auxi1 / (1 + auxi1));
 }

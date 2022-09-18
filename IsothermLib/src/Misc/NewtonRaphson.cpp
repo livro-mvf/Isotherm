@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cmath>
-
+#include <iomanip>
 
 //==============================================================================
 // include da isotherm++
@@ -12,22 +12,19 @@
 
 #include <Misc/NewtonRaphson.h>
 #include <Error/IsoException.h>
-//#include <Isotherm/Misc/SourceInfo.h>
 
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real  NewtonRaphson (std::function<Real(Real)> const Real&);"
-Real  NewtonRaphson (   NRFunction _func,
-                        const Real& _ce) {
-
-#ifdef  __NEWTONRAPHSON_DEBUG_H__ 
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif  
+Real  NewtonRaphson     (       NRFunction      _func
+                        ,       const Real&     _ce
+                        ) {
+ 
 
 const Real  TOLE(1e-06);
-const UInt  ITERMAX(5000);
-const UInt  ITERMIN(5);
-const Real  DELTA(1e-03);
+const UInt  ITERMAX(100);
+const UInt  ITERMIN(3);
+const Real  DELTA(1e-04);
 
 
 
@@ -46,13 +43,23 @@ bool    flag1(true),
             fx    = _func(ce_0);
             dfx   = (_func(ce_0 + DELTA) - fx) / DELTA;
             ce_1  = ce_0 - fx / dfx;
-        
+            
+            std::cout << std::setw(5)  << iter
+                      << std::setw(15) << ce_0
+                      << std::setw(15) << ce_1
+                      << std::setw(15) << fx
+                      << std::setw(15) << dfx
+                      << std::endl;
+            
+            
             dc    = fabs((ce_1 - ce_0) / ce_1);
             ce_0  = ce_1;
         
             flag1 = fabs(fx) < TOLE && dc < TOLE && iter >= ITERMIN;     // Controle do erro
-            flag2 = ++iter > ITERMAX;                                       // Controle do número máximo de iterações
+            flag2 = ++iter > ITERMAX;                                    // Controle do numero maximo de iterações
 
+
+            
     } while (!(flag1 || flag2));
     
     try {
@@ -64,18 +71,12 @@ bool    flag1(true),
 
     } catch (const ist::IsoException& _isoExcept) {
             
-        std::cout << _isoExcept << "\n";
-        
-#ifdef __NEWTONRAPHSON_DEBUG_H__  
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif              
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
         
     };
 
-#ifdef  __NEWTONRAPHSON_DEBUG_H__
-std::cout << "\nSai: " << __FUNCT__ << "\n";
-#endif  
 
     return ce_1;
 }

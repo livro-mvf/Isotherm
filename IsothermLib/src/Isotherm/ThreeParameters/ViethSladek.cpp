@@ -57,7 +57,7 @@ ViethSladek :: ViethSladek  (   const Real&     _qmax
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
@@ -86,7 +86,7 @@ ViethSladek ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);

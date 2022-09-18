@@ -68,48 +68,51 @@ VecPairString IsothermTemplate < HillDeboer >::infoIsotherm = detailsHillDeboer;
 
 #undef  __FUNCT__
 #define __FUNCT__ "HillDeboer :: HillDeboer (const Real&, const Real&, const Real&)"
-HillDeboer :: HillDeboer (  const Real& _qmax,
-                            const Real& _k1,
-                            const Real& _k2,
-                            const Real& _rgas) :
+HillDeboer :: HillDeboer    (  const Real& _qmax
+                            ,   const Real& _k1
+                            ,   const Real& _k2
+                            ,   const Real& _rgas) :
                             ThreeParameters(_qmax, _k1, _k2 ),
                                              RGAS(_rgas) {
 
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+
 
     try {
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LTZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LTZero
+                                    );
 
             if (_rgas <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadRGasLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadRGasLEZero
+                                    );
 
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
     }
 
     setup = true;
 
-
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
     }
 
@@ -120,39 +123,51 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 #undef  __FUNCT__
 #define __FUNCT__ "HillDeboer ::  Qe (const Real&, const Real&) const"
 Real
-HillDeboer ::  Qe (const Real& _ce, const Real& _temp) const {
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+HillDeboer ::  Qe   (   const Real&     _ce
+                    ,   const Real&     _temp
+                    ) const {
 
 
     try {
 
         if (!setup) throw
-            IsoException (IST_LOC, className(), BadCoefficient);
+            IsoException    (   IST_LOC
+                            ,   className()
+                            ,   BadCoefficient
+                            );
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
         if (_temp <= 0.0)  throw
-                IsoException (IST_LOC, className(), BadTempLEZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadTempLEZero
+                                );
 
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
     const_cast<Real&>(auxiCe) = _ce * this->K1();
-    const_cast<Real&>(tempK)  = _temp;
+    const_cast<Real&>(tempK)  = 1.0 / (_temp * Rgas());
 
+    std::cout   << "Qmax = " << Qmax()
+                << " K1 = " << K1()
+                << " K2 = " << K2()
+                << " Ce = " << _ce
+                << "\n";
+    
+    
 auto fp    = std::bind(&HillDeboer::FQe, *this, _1);
-auto resul = NewtonRaphson (fp, 0.5);
+auto resul = NewtonRaphson (fp, 0.95);
 auto value = resul * Qmax();
 
     return (value >= ZERO ? value : 0.0);
@@ -164,17 +179,10 @@ auto value = resul * Qmax();
 #define __FUNCT__ "Real  HillDeboer ::  FQe (const Real&) const"
 Real  HillDeboer ::  FQe (const Real& _theta) const {
 
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
-#ifdef __HILLDEBOER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
-Real       auxiK2 = _theta * this->K2() / (RGAS * tempK);
-Real       auxi1  = _theta / (1 - _theta);
-Real       auxi2  = auxi1 * exp(auxi1 - auxiK2);
+auto       auxi1  = _theta / (1.0 - _theta);
+auto       auxiK2 = _theta * this->K2() * tempK;
+auto       auxi2  = auxi1 * exp(auxi1 - auxiK2);
 
     return auxiCe - auxi2;
 

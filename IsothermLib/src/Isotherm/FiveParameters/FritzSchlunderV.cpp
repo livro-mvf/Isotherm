@@ -69,11 +69,6 @@ FritzSchlunderV :: FritzSchlunderV (  const Real& _qmax,
                 const Real& _k3,
                 const Real& _k4) : FiveParameters(_qmax, _k1, _k2, _k3, _k4) {
 
-#ifdef __FRITZ_SCHLUNDER_V_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
-
     try {
 
             if (_qmax < 0.0)  throw
@@ -94,19 +89,11 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __FRITZ_SCHLUNDER_V_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
     setup = true;
-
-#ifdef __FRITZ_SCHLUNDER_V_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
 }
 
@@ -131,11 +118,7 @@ FritzSchlunderV ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __FRITZ_SCHLUNDER_V_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
@@ -143,9 +126,6 @@ auto    auxi = (*ptrValue) * (pow(_ce, (*(ptrValue + 3))));
 auto    auxi1 = (*(ptrValue + 2)) * (pow(_ce, (*(ptrValue + 4))));
 
 
-#ifdef __FRITZ_SCHLUNDER_V_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return ( auxi / ((*(ptrValue + 1)) + auxi1) );
 }

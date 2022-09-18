@@ -28,7 +28,6 @@
 // includes lib c++
 //==============================================================================
 
-#include <cmath>
 #include <iostream>
 #include <sstream>
 
@@ -72,10 +71,16 @@ BrunauerEmmettTeller :: BrunauerEmmettTeller    (   const Real&     _qmax
     try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 < 1)  throw
-                    IsoException (IST_LOC, className(), BadK1LTOne);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LTOne
+                                    );
 
             if (_k2 <= 0.0)  throw
                     IsoException (IST_LOC, className(), BadK2LEZero);
@@ -83,9 +88,7 @@ BrunauerEmmettTeller :: BrunauerEmmettTeller    (   const Real&     _qmax
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
@@ -123,7 +126,11 @@ auto    ptrValue = std::begin(coeffValue);
             std::stringstream sstr;
             
             
-            sstr << "ce = " << _ce << " e K2 = " << *(ptrValue + 2) << "\n";
+            sstr    << "ce = " 
+                    << _ce 
+                    << " e K2 = " 
+                    << *(ptrValue + 2) 
+                    << "\n";
             throw
                 IsoException    (   IST_LOC
                                 ,   className()
@@ -135,15 +142,18 @@ auto    ptrValue = std::begin(coeffValue);
         
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
 
-auto    auxi = 1.0 + (*(ptrValue + 1) - 1) * _ce / *(ptrValue + 2);
-auto    auxiQ = *(ptrValue + 1) * _ce / ((*(ptrValue + 2) - _ce) * auxi);
+auto    auxi  = 1.0 + (*(ptrValue + 1) - 1) * _ce / *(ptrValue + 2);
+auto    value = *ptrValue * (*(ptrValue + 1) * _ce / ((*(ptrValue + 2) - _ce) * auxi));
 
-   return ( *ptrValue * auxiQ );
+
+   return  (value >= ZERO ? value : 0.0);
+
 }
 
 IST_NAMESPACE_CLOSE

@@ -47,15 +47,11 @@ ThreeParameters :: ThreeParameters( const Real& _par_0, // Primeiro parâmetro
                                     const Real& _par_2) // Terceiro parâmetro
 {
 
-#ifdef  __THREEPARAMETERS_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+
 
     coeffValue    = VecReal({_par_0, _par_1, _par_2});
 
-#ifdef  __THREEPARAMETERS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
 }
 

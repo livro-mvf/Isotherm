@@ -70,14 +70,21 @@ Halsey :: Halsey    (   const Real& _k1
     try {
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
@@ -87,7 +94,7 @@ Halsey :: Halsey    (   const Real& _k1
 }
 
 //==============================================================================
-// ConcentraÃ§Ã£o de Equilibrio Q
+// Concentracao de Equilibrio Q
 //==============================================================================
 
 #undef  __FUNCT__
@@ -101,21 +108,31 @@ Real    value;
     try {
 
         if (!setup) throw
-            IsoException (IST_LOC, className(), BadCoefficient);
+            IsoException    (   IST_LOC
+                            ,   className()
+                            ,   BadCoefficient
+                            );
 
         if (_ce <= 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLEZero);
+                IsoException    (  IST_LOC
+                                ,   className()
+                                ,   BadCeLEZero
+                                );
 
         std::feclearexcept(FE_ALL_EXCEPT);
         value =  pow( *ptrValue / _ce, 1.0 / *(ptrValue + 1));
 
         if(std::fetestexcept(FE_OVERFLOW)) throw
-                IsoException (IST_LOC, className(), BadOverFlow);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadOverFlow
+                                );
 
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }

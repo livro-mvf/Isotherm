@@ -43,11 +43,11 @@ class TestSuit : public ::testing::Test {
 protected: 
     
 
-const Real              QMAX        = 1432e-3;    
-const Real              K1          = 23.72e-4;    
-const Real              QMAXNovo    = 34.548;    
-const Real              K1Novo      = 98.1e-03;    
-const Real              CE          = 76.43e-3; 
+const Real              QMAX        = 73.1322;    
+const Real              K1          = 8.28677;    
+const Real              CE          = 0.524708; 
+const Real              QMAXNovo    = 2 * QMAX;    
+const Real              K1Novo      = 0.5 * K1;    
 
 
 public:
@@ -78,6 +78,7 @@ TEST_F(TestSuit, ConstrutorPadrao) {
 
   EXPECT_EQ(isotherm_2.Qmax(), QMAXNovo);
   EXPECT_EQ(isotherm_2.K1(), K1Novo);
+    
 }
 
 TEST_F(TestSuit, ConstrutoraDeCopia) {
@@ -96,8 +97,9 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 
 
 TEST_F(TestSuit, CalculoQe) {
-
-const Real                      QEANALIT1(0.002126092358);
+    
+//
+const Real                      QEANALIT1(0.9456660821);
     
 const TestIsotherm              iso1 (QMAX, K1);
 std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();

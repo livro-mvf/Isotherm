@@ -21,6 +21,7 @@ static std::string IsoExceptionStr[] =
             "Coeficientes da isoterma indefinidos."                    // BadCoefficient
     ,       "Ce menor ou igual a zero."                                // BadCeLEZero
     ,       "Ce menor do que zero."                                    // BadCeLTZero    
+    ,       "Ce maior ou igual a 1."                                    // BadCeLTZero    
     ,       "Ce maior ou igual a K2."                                  //BadCeGTK2  
     ,       "K1 menor ou igual a zero."                                // BadK1LEZero
     ,       "K1 menor do que zero."                                    // BadK1LTZero

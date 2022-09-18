@@ -42,13 +42,13 @@ class TestSuit : public ::testing::Test {
 protected: 
     
 
-const Real              K2          = 10;    
-const Real              K1          = 10.3;    
+const Real              K1          = 0.876338;    
+const Real              K2          = 0.730948;    
+const Real              CE          = 4.188692034; 
+const Real              TEMP        = 88.0658;
 const Real              RGASNovo    = 4.157231309;      
 const Real              K2Novo      = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
-const Real              TEMP        = 132.0;
-const Real              CE          = 0.1; 
 
 
 public:
@@ -104,8 +104,8 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 TEST_F(TestSuit, CalculoQe) {
 
 
-const Real                      QEANALIT1(3.244105344);
-const Real                      QEANALIT2(1.622052671);
+const Real                      QEANALIT1(1302.647690);
+const Real                      QEANALIT2(651.3238448);
 
 const TestIsotherm              iso1 (K1, K2);
 const TestIsotherm              iso2 (K1, K2, RGASNovo);
@@ -116,7 +116,10 @@ std::unique_ptr<ist::Isotherm>  iso2c = iso2.Clone();
     EXPECT_FLOAT_EQ ( iso2.Qe(CE, TEMP), QEANALIT2);
     EXPECT_FLOAT_EQ ( iso1c->Qe(CE, TEMP), QEANALIT1);
     EXPECT_FLOAT_EQ ( iso2c->Qe(CE, TEMP), QEANALIT2);
-
+    EXPECT_DEATH(auto value = iso1c->Qe(- CE, TEMP);, "");
+    EXPECT_DEATH(auto value = iso1c->Qe( 0.0, TEMP);, "");
+    EXPECT_DEATH(auto value = iso1c->Qe( CE, -TEMP);, "");
+    EXPECT_DEATH(auto value = iso1c->Qe( CE, 0);, "");
 }
 
 

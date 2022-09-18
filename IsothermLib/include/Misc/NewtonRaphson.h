@@ -8,10 +8,6 @@
 #ifndef __NEWTONRAPHSON_H__
 #define __NEWTONRAPHSON_H__
 
-//==============================================================================
-// debug
-//==============================================================================
-//#define __NEWTONRAPHSON_DEBUG_H__
 
 #include <functional>
 using namespace std::placeholders;

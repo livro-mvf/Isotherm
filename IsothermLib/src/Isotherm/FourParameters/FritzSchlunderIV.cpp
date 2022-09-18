@@ -65,10 +65,7 @@ FritzSchlunderIV :: FritzSchlunderIV (  const Real& _qmax,
                                         const Real& _k1,
                                         const Real& _k2,
                                         const Real& _k3) : FourParameters(_qmax, _k1, _k2, _k3) {
-    
-#ifdef __FRITZ_SCHLUNDER_IV_DEBUG_H__   
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif    
+  
 
 //
 //    try {
@@ -88,20 +85,13 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 //    } catch (const IsoException& _isoExcept) {
 //            
 //        std::cout << _isoExcept << "\n";
-//         
-//#ifdef __FRITZ_SCHLUNDER_IV_DEBUG_H__    
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif              
-//        abort();
+//                      
+//        exit(EXIT_FAILURE);
 //        
 //    };
     
     setup = true;
-            
-#ifdef __FRITZ_SCHLUNDER_IV_DEBUG_H__   
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif    
-        
+
 }
     
 //==============================================================================
@@ -125,21 +115,15 @@ FritzSchlunderIV ::  Qe (const Real& _ce, const Real&) const {
 //    } catch (const IsoException& _isoExcept) {
 //
 //        std::cout << _isoExcept << "\n";
-//
-//#ifdef __FRITZ_SCHLUNDER_IV_DEBUG_H__   
-//std::cout << "Sai: " << __FUNCT__ << "\n";
-//#endif              
-//        abort();
+//             
+//        exit(EXIT_FAILURE);
 //    }
  
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi = (*ptrValue) * (pow(_ce, (*(ptrValue + 2))));
 auto    auxi1 = 1 + (*(ptrValue + 1)) * (pow(_ce, (*(ptrValue + 3))));
 
-
-#ifdef __FRITZ_SCHLUNDER_V_DEBUG_H__   
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif  
+ 
 
         return ( auxi / (auxi1) );
 }

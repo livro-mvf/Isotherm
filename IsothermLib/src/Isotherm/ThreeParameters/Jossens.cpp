@@ -71,10 +71,6 @@ Jossens :: Jossens (  const Real& _qmax,
                       const Real& _k2) :
                      ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __JOSSENS_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
    try {
 
@@ -95,9 +91,7 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     }
     setup = true;
 
-#ifdef __JOSSENS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
  }
 
@@ -124,9 +118,6 @@ Jossens ::  Qe (const Real& _ce, const Real&) const {
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi1 = 1 + *(ptrValue +1) * (pow(_ce, *(ptrValue + 2)));
 
-#ifdef __JOSSENS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return *ptrValue * (_ce / auxi1);
 }

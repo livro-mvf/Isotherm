@@ -63,23 +63,32 @@ VecPairString IsothermTemplate < HarkinJura >::infoIsotherm = detailsHarkinJura;
 
 #undef  __FUNCT__
 #define __FUNCT__ "HarkinJura :: HarkinJura (const Real&, const Real&)"
-HarkinJura :: HarkinJura (  const Real& _k1,
-                            const Real& _k2) : TwoParameters(_k1, _k2)
+HarkinJura :: HarkinJura    (   const Real&     _k1
+                            ,   const Real&     _k2
+                            ) 
+                            : TwoParameters(_k1, _k2)
 {
 
 
     try {
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LTZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LTZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
     }
 
@@ -87,7 +96,7 @@ HarkinJura :: HarkinJura (  const Real& _k1,
 
 
 
-    }
+}
 
 //==============================================================================
 // Concentracao de Equilibrio Q
@@ -106,17 +115,21 @@ HarkinJura ::  Qe   ( const Real& _ce
         if (!setup) throw
             IsoException    (   IST_LOC
                             ,   className()
-                            ,   BadCoefficient);
+                            ,   BadCoefficient
+                            );
+        
         if (_ce <= 0.0)  throw
             IsoException    (  IST_LOC
                             , className()
-                            , BadCeLEZero);
+                            , BadCeLEZero
+                            );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
-        abort();
     }
 
 auto    ptrValue = std::begin(coeffValue);
@@ -142,9 +155,10 @@ auto    logCe    = log10(_ce);
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
-        abort();
     }
 
 auto value = sqrt((*ptrValue) / (*(ptrValue + 1) - logCe));

@@ -61,7 +61,8 @@ VecPairString IsothermTemplate < Langmuir >::infoIsotherm = detailsLangmuir;
 #undef  __FUNCT__
 #define __FUNCT__ "Langmuir :: Langmuir (const Real&, const Real&)"
 Langmuir :: Langmuir    (   const Real&     _qmax
-                        ,   const Real&     _k1)
+                        ,   const Real&     _k1
+                        )
                         :   TwoParameters(_qmax, _k1)
 {
 
@@ -71,18 +72,19 @@ Langmuir :: Langmuir    (   const Real&     _qmax
             if (_qmax <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadQmaxLEZero);
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK1LEZero);
+                                    ,   BadK1LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-        abort();
-
+exit(EXIT_FAILURE);
     }
 
     setup = true;
@@ -105,17 +107,20 @@ Real Langmuir ::  Qe    (   const Real& _ce
         if (!setup) throw
                 IsoException    (   IST_LOC
                                 ,   className()
-                                ,   BadCoefficient);
+                                ,   BadCoefficient
+                                );
 
         if (_ce <= 0.0)  throw
                 IsoException    (   IST_LOC
                                 ,   className()
-                                , BadCeLTZero);
+                                , BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue    = std::begin(coeffValue);

@@ -34,14 +34,9 @@
  *  \bug	Não há bugs conhecidos
  */
 
-//#ifndef __HOLL_KRICH_H__
+#ifndef __HOLL_KRICH_H__
 #define __HOLL_KRICH_H__
 
-//==============================================================================
-// opção de debug
-//==============================================================================
-
-//#define __HOLL_KRICH_DEBUG_H__
 
 //==============================================================================
 // include da biblioteca c++
@@ -302,3 +297,4 @@ inline Real K2 () const {return  Value(2);};
 
 IST_NAMESPACE_CLOSE
 
+#endif

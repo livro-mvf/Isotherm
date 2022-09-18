@@ -68,10 +68,6 @@ RedlichPeterson :: RedlichPeterson (
                 const Real& _k2,
                 const Real& _k3) : ThreeParameters(_k1, _k2, _k3) {
 
-#ifdef __REDLICH_PETERSON_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
     try {
             if (_k1 <= 0.0)  throw
@@ -89,19 +85,13 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __REDLICH_PETERSON_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+exit(EXIT_FAILURE);
 
     };
 
     setup = true;
 
-#ifdef __REDLICH_PETERSON_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
 }
 
@@ -125,19 +115,13 @@ Real RedlichPeterson ::  Qe (const Real& _ce, const Real&)  const {
     } catch (const IsoException& _isoExcept) {
 
     std::cout << _isoExcept << "\n";
-
-#ifdef __REDLICH_PETERSON_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 
 auto    value = (*ptrValue * _ce) / (1 + *(ptrValue + 1) * (pow(_ce, *(ptrValue + 2))));
-#ifdef __REDLICH_PETERSON_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+
 
 
         return (value >= ZERO ? value : 0.0)  ;

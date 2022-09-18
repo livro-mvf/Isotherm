@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Hill
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -58,18 +58,15 @@ VecPairString IsothermTemplate < Hill >::infoIsotherm = isothermDetails;
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Hill :: Hill (const Real&, const Real&, const Real&)"
-Hill :: Hill (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
-
-#ifdef __HILL_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
+Hill :: Hill    (   const Real& _qmax
+                ,   const Real& _k1
+                ,   const Real& _k2
+                ) : ThreeParameters(_qmax, _k1, _k2) {
 
 
     try {
@@ -94,18 +91,12 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-
-#ifdef __HILL_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
     };
 
-#ifdef __HILL_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
 }
 
@@ -116,31 +107,31 @@ std::cout << "Sai: " << __FUNCT__ << "\n";
 #undef  __FUNCT__
 #define __FUNCT__ "Hill ::  Qe (const Real&, const Real&) const "
 Real
-Hill ::  Qe (const Real& _ce, const Real&) const {
+Hill ::  Qe     (   const Real& _ce
+                ,   const Real&
+                ) const {
 
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-
-#ifdef __HILL_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
-auto    ptrValue = std::begin(coeffValue);
-auto    auxi = pow(_ce, *(ptrValue + 2));
+auto    ptrValue    = std::begin(coeffValue);
+auto    auxi        = pow(_ce, *(ptrValue + 2));
+auto    value       = *ptrValue * auxi / (auxi + *(ptrValue + 1));
 
-#ifdef __HILL_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
+    return  (value >= ZERO ? value : 0.0);
 
-        return *ptrValue * auxi / (auxi + *(ptrValue + 1));
 }
 
 IST_NAMESPACE_CLOSE

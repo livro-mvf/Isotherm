@@ -62,23 +62,31 @@ VecPairString IsothermTemplate < Jovanovic >::infoIsotherm = detailsJovanovic;
 
 #undef  __FUNCT__
 #define __FUNCT__ "Jovanovic :: Jovanovic (const Real&, const Real&)"
-Jovanovic :: Jovanovic (    const Real&     _qmax,
-                            const Real&     _k1) :
-                            TwoParameters(_qmax, _k1)
+Jovanovic :: Jovanovic  (   const Real&     _qmax
+                        ,   const Real&     _k1
+                        ) 
+                        :   TwoParameters (_qmax, _k1)
 {
 
 
     try {
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-        abort();
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
     }
 
@@ -93,29 +101,36 @@ Jovanovic :: Jovanovic (    const Real&     _qmax,
 #undef  __FUNCT__
 #define __FUNCT__ "Real Jovanovic ::  Qe (const Real&, const Real&) "
 Real
-Jovanovic ::  Qe (const Real& _ce, const Real& _temp) const {
+Jovanovic ::  Qe    (   const Real&     _ce
+                    ,   const Real& 
+                    ) const {
 
     try {
 
         if (!setup) throw
-            IsoException (IST_LOC, className(), BadCoefficient);
+            IsoException    (   IST_LOC
+                            ,   className()
+                            ,   BadCoefficient
+                            );
 
         if (_ce <= 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLEZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLEZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
         std::cout   << _isoExcept
                     << "\n"
                     << std::flush;
-
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    value    = *(ptrValue + 1) * exp(- (*ptrValue) * _ce) ;
+auto    value    = *(ptrValue) * exp(- *(ptrValue + 1) * _ce) ;
 
-    return  (value >= ZERO ? value : 0.0) ;;
+    return  (value >= ZERO ? value : 0.0);
 
 }
 

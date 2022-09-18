@@ -64,10 +64,6 @@ ValenzuelaMyers :: ValenzuelaMyers (  const Real& _qmax,
                 const Real& _k1,
                 const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __VALENZUELA_MYERS_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
     try {
 
@@ -83,19 +79,12 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __VALENZUELA_MYERS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
     setup = true;
 
-#ifdef __VALENZUELA_MYERS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
 }
 
@@ -120,11 +109,7 @@ ValenzuelaMyers ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __VALENZUELA_MYERS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
@@ -133,9 +118,6 @@ auto    auxi1 = *(ptrValue + 1) + ( _ce * exp( -(*(ptrValue + 2))) );
 auto    auxi2 = log(auxi / auxi1);
 auto    auxi3 = *ptrValue / (2 * (*(ptrValue + 2)));
 
-#ifdef __VALENZUELA_MYERS_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return ( auxi3 * auxi2);
 }

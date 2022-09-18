@@ -66,10 +66,6 @@ RadkePrausnitsIII :: RadkePrausnitsIII (  const Real& _qmax,
                 const Real& _k1,
                 const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
-#ifdef __RADKE_PRAUSNITS_III_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
-
 
     try {
 
@@ -85,17 +81,8 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __RADKE_PRAUSNITS_III_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
-
+exit(EXIT_FAILURE);
     };
-
-#ifdef __RADKE_PRAUSNITS_III_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
 }
 
@@ -116,19 +103,11 @@ RadkePrausnitsIII ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __RADKE_PRAUSNITS_III_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi = (*(ptrValue + 1) * pow(_ce, *(ptrValue+2))) / (((1 + *(ptrValue + 1)) * pow ( _ce, *(ptrValue + 2) - 1)));
-
-#ifdef __RADKE_PRAUSNITS_III_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return *ptrValue * auxi;
 }

@@ -67,9 +67,6 @@ FritzSchlunder :: FritzSchlunder    (   const Real&     _qmax
                                     :   ThreeParameters(_qmax, _k1, _k2)
 {
 
-#ifdef __FRITZ_SCHLUNDER_DEBUG_H__
-std::cout << "Entrei: " << __FUNCT__ << "\n";
-#endif
 
 
     try {
@@ -86,19 +83,12 @@ std::cout << "Entrei: " << __FUNCT__ << "\n";
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __FRITZ_SCHLUNDER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
 
     };
 
     setup = true;
 
-#ifdef __FRITZ_SCHLUNDER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
 }
 
@@ -123,11 +113,7 @@ FritzSchlunder ::  Qe (const Real& _ce, const Real&) const {
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-
-#ifdef __FRITZ_SCHLUNDER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
-        abort();
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
@@ -135,9 +121,6 @@ auto    auxi = (*ptrValue) * (*(ptrValue + 1)) * _ce;
 auto    auxiK2 = pow(_ce, *(ptrValue + 2));
 auto    auxiQ = 1 + ((*ptrValue) * auxiK2);
 
-#ifdef __FRITZ_SCHLUNDER_DEBUG_H__
-std::cout << "Sai: " << __FUNCT__ << "\n";
-#endif
 
         return ( auxi / auxiQ );
 }

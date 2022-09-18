@@ -83,14 +83,15 @@ Elovich :: Elovich  (   const Real& _qmax
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
 
     setup = true;
 
-    }
+}
 
 //==============================================================================
 // Concentracao Qe
@@ -117,17 +118,19 @@ Elovich ::  Qe (   const Real& _ce
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);;
     }
 
-    const_cast<Real&>(auxiCe) = _ce * this->K1();
 
+const_cast<Real&>(auxiCe) = _ce * this->K1();
 auto fp    = std::bind(&Elovich::FQe, *this, _1);
 auto theta = NewtonRaphson (fp, 0.5);
 auto value =  theta * Qmax();
 
     return  (value >= ZERO ? value : 0.0);
+
 }
 
 #undef  __FUNCT__

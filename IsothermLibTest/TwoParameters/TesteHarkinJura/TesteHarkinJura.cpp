@@ -28,6 +28,7 @@
 // include da isotherm++
 //==============================================================================
 
+#include <cmath>
 #include <Isotherm/TwoParameters/HarkinJura.h>                 // ist::HarkinJura
 
 
@@ -43,11 +44,11 @@ class TestSuit : public ::testing::Test {
 protected: 
 
     
-const Real              K1          = 1432e-3;    
-const Real              K2          = 23.72e-2;    
+const Real              K1          = 0.737732;    
+const Real              K2          = 3.99010;    
 const Real              K1Novo      = 100;    
 const Real              K2Novo      = 25;    
-const Real              CE          = 1.60; 
+const Real              CE          = 4.103260; 
 
 
 public:
@@ -97,7 +98,7 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 
 TEST_F(TestSuit, CalculoQe) {
 
-const Real                      QEANALIT1(6.57943567);
+const Real                      QEANALIT1(0.4673967064);
 
 
 const TestIsotherm              iso1 (K1, K2);
@@ -127,6 +128,9 @@ TEST_F(TestSuit, DeathTest) {
 
     EXPECT_DEATH(isotherm_2.K2( - K2);, "");
 
+    isotherm_2 = TestIsotherm(K1, 0.9 * fabs(log10(K2)));
+    EXPECT_DEATH(auto value = isotherm_2.Qe(CE);, "");
+    
 }
 
 int main(int argc, char **argv)
