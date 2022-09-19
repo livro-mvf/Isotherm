@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Holl - Krich
+// Description : Classe com as equacoes da isoterma de Holl - Krich
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -43,11 +43,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsHollKrich { PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção")
+                                                    , "Capacidade maxima de adsorcao")
                                     ,   PairString  ( "K1"
                                                     , "Constante de Holl-Krich")
                                     ,   PairString  ( "K2"
@@ -59,64 +59,82 @@ VecPairString IsothermTemplate < HollKrich >::infoIsotherm = detailsHollKrich;
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres pari�metros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "HollKrich :: HollKrich (const Real&, const Real&, const Real&)"
 
-  HollKrich :: HollKrich (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+  HollKrich :: HollKrich    (   const Real&     _qmax
+                            ,   const Real&     _k1
+                            ,   const Real&     _k2
+                            ) : ThreeParameters(_qmax, _k1, _k2) {
 
    try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
+   
     setup = true;
 
 
  }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equili�brio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "HollKrich ::  Qe (const Real&, const Real&) const "
 Real
-HollKrich ::  Qe (const Real& _ce, const Real&) const {
+HollKrich ::  Qe    (   const Real& _ce
+                    ,   const Real&
+                    ) const {
 
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi1 = *(ptrValue +1) * (pow(_ce, *(ptrValue + 2)));
+auto    value = *ptrValue * (auxi1 / (1 + auxi1));
 
+    return  (value >= ZERO ? value : 0.0);
 
-
-        return *ptrValue * (auxi1 / (1 + auxi1));
 }
 
 IST_NAMESPACE_CLOSE

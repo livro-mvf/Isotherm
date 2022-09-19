@@ -42,13 +42,13 @@ class TestSuit : public ::testing::Test {
     
 protected: 
     
-const Real              QMAX        = 4.897e-1;    
-const Real              K1          = 1432e-3;    
-const Real              K2          = 3;    
+const Real              CE          = 1.15488; 
+const Real              QMAX        = 7.86721;    
+const Real              K1          = 7.73234;    
+const Real              K2          = 3.35271;    
 const Real              QMAXNovo    = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
 const Real              K2Novo      = 3.3;    
-const Real              CE          = 2.00e-01; 
 
 public:
         
@@ -107,11 +107,11 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 TEST_F(TestSuit, CalculoQe) {
 
     
+const Real                      QEANALIT1(7.285780350);
 
 const TestIsotherm              iso1 (QMAX, K1, K2);
 
 
-const Real                      QEANALIT1(0.5546462921e-2);
 
 
     EXPECT_FLOAT_EQ ( iso1.Qe(CE), QEANALIT1);
@@ -121,17 +121,20 @@ const Real                      QEANALIT1(0.5546462921e-2);
 TEST_F(TestSuit, DeathTest) {
     
     EXPECT_DEATH(TestIsotherm(- QMAX ,  K1, K2);, ""); 
-    EXPECT_DEATH(TestIsotherm(  QMAX ,  - K1, K2);, "");
-    EXPECT_DEATH(TestIsotherm(  QMAX ,    K1, - K2);, "");
     EXPECT_DEATH(TestIsotherm(0.0 ,  K1, K2);, "");
+    EXPECT_DEATH(isotherm_2.Qmax(- QMAX);, "");
+    EXPECT_DEATH(isotherm_2.Qmax(   0.0);, "");
+
+    EXPECT_DEATH(TestIsotherm(  QMAX ,  - K1, K2);, "");
     EXPECT_DEATH(TestIsotherm(QMAX ,  0.0, K2);, "");
+    EXPECT_DEATH(isotherm_2.K1( - K1);, "");
+    EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
+    
+    
+    EXPECT_DEATH(TestIsotherm(  QMAX ,    K1, - K2);, "");
     EXPECT_DEATH(TestIsotherm(QMAX ,  K1, 0.9);, "");
     
     EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
-    EXPECT_DEATH(isotherm_2.K1( - K1);, "");
-    EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
-    EXPECT_DEATH(isotherm_2.Qmax(- QMAX);, "");
-    EXPECT_DEATH(isotherm_2.Qmax(   0.0);, "");
     EXPECT_DEATH(isotherm_2.K2( - K2);, "");
     EXPECT_DEATH(isotherm_2.K2(  0.9);, "");
 

@@ -29,8 +29,8 @@
 // includes lib c++
 //==============================================================================
 
-#include <cmath>
-#include <iostream>
+#include <cmath>                // std::exp
+#include <iostream>             // std::cout
 
 
 //==============================================================================
@@ -158,12 +158,6 @@ HillDeboer ::  Qe   (   const Real&     _ce
 
     const_cast<Real&>(auxiCe) = _ce * this->K1();
     const_cast<Real&>(tempK)  = 1.0 / (_temp * Rgas());
-
-    std::cout   << "Qmax = " << Qmax()
-                << " K1 = " << K1()
-                << " K2 = " << K2()
-                << " Ce = " << _ce
-                << "\n";
     
     
 auto fp    = std::bind(&HillDeboer::FQe, *this, _1);

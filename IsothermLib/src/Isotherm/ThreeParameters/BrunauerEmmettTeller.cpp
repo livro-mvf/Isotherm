@@ -104,7 +104,10 @@ BrunauerEmmettTeller :: BrunauerEmmettTeller    (   const Real&     _qmax
 #undef  __FUNCT__
 #define __FUNCT__ "BrunauerEmmettTeller ::  Qe (const Real&, const Real&) const "
 Real
-BrunauerEmmettTeller ::  Qe (const Real& _ce, const Real&) const {
+BrunauerEmmettTeller ::  Qe     (   const Real& _ce
+                                ,   const Real&
+                                ) const 
+{
 auto    ptrValue = std::begin(coeffValue);
 
     try {
