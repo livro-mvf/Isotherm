@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos             
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Jossens
+// Description : Classe com as equacoes da isoterma de Jossens
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -23,13 +23,13 @@
 //
 //==============================================================================
 /*! \class	Jossens
- *  \brief	Classe com as equações da isoterma de Jossens
+ *  \brief	Classe com as equacoes da isoterma de Jossens
  *  \file	Jossens.h
  *  \authors	Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 
@@ -52,18 +52,18 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Jossens
+/// Classe com as equacoes da isoterma de Jossens
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:        *EDITAR, CASO HAJA NECESSIDADE*
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:         
 ///\begin{align}
 ///   \[Q_e(C_e, T) = q_{max}\frac{C}{1+K_1(C^{K_2})}]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -77,7 +77,7 @@ class Jossens :  public virtual ThreeParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
         
@@ -85,7 +85,7 @@ public:
     
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -99,11 +99,11 @@ public:
 ///     Jossens  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Jossens() = default;
     
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -112,7 +112,7 @@ public:
 ///     Jossens  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Jossens original. 
+/// @param  _orig Variavel do tipo Jossens original. 
     Jossens (const Jossens& _jossens) = default;
   
 /// <summary>
@@ -121,20 +121,20 @@ public:
     virtual ~Jossens() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Jossens.
+/// Construtora com os parametros que definem a isoterma de Jossens.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     double QMAX(1.0);                                                           *EDITAR, CASO HAJA NECESSIDADE*
-///     double K1(1.0);                                                             *EDITAR, CASO HAJA NECESSIDADE*
-///     double K2(1.0);                                                             *EDITAR, CASO HAJA NECESSIDADE*
+///     double QMAX(1.0);                                                            
+///     double K1(1.0);                                                              
+///     double K2(1.0);                                                              
 ///     HollKrich  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.                                    *EDITAR, CASO HAJA NECESSIDADE*
-///  @param  _k1 Constante da isortema de Jossens.                                  *EDITAR, CASO HAJA NECESSIDADE*
-///  @param _k2 Constante do expoente da isoterma de Jossens.                       *EDITAR, CASO HAJA NECESSIDADE*
+///  @param _qmax Capacidade maxima de adsorcao.                                     
+///  @param  _k1 Constante da isortema de Jossens.                                   
+///  @param _k2 Constante do expoente da isoterma de Jossens.                        
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
@@ -153,20 +153,20 @@ public:
 /// <example>
 /// Uso:
 /// @code
-///     Jossens  var1(QMAX, K1, K2);                                                *EDITAR, CASO HAJA NECESSIDADE*
+///     Jossens  var1(QMAX, K1, K2);                                                 
 ///     Jossens  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Jossens original.
-///  @return Cópia de _orig.    
+///  @param _orig Variavel do tipo Jossens original.
+///  @return Copia de _orig.    
     Jossens& operator = (const Jossens&) = default;
     
 //==============================================================================
-// Acesso as constantes da classe                                                   *EDITAR SEÇÃO CASO HAJA NECESSIDADE*
+// Acesso as constantes da classe                                                    
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -175,13 +175,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
-inline Real Qmax () const {return  Value(0);};
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
+    [[nodiscard]]
+    inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Jossens.
+/// Funcao que retorna o coeficiente associado a constante de Jossens.
 /// </summary>
 /// <example>
 /// Uso:
@@ -190,12 +191,13 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Jossens.
+[[nodiscard]]
 inline Real K1 () const {return  Value(1);};
     
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Jossens.
+/// Funcao que retorna o valor do expoente da isoterma de Jossens.
 /// </summary>
 /// <example>
 /// Uso:
@@ -204,16 +206,17 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do expoente da isoterma de Jossens.    
+[[nodiscard]]
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
-// Alterando as constantes da classe                                                *EDITAR SEÇÃO CASO HAJA NECESSIDADE*
+// Alterando as constantes da classe                                                 
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -223,12 +226,12 @@ inline Real K2 () const {return  Value(2);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = Jossens(_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de Jossens.
+/// Funcao que altera o coeficiente associado a constante de Jossens.
 /// </summary>
 /// <example>
 /// Uso:
@@ -243,7 +246,7 @@ inline Real K2 () const {return  Value(2);};
     void K1 (const Real& _k1)  {*this = Jossens(Value(0), _k1,  Value(2));};
 
 /// <summary>
-/// Função para alterar o valor do expoente da isoterma de Jossens.
+/// Funcao para alterar o valor do expoente da isoterma de Jossens.
 /// </summary>
 /// <example>
 /// Uso:
@@ -259,11 +262,11 @@ inline Real K2 () const {return  Value(2);};
     
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -273,8 +276,8 @@ inline Real K2 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.    
 ///  @exception _c < 0.    
     virtual Real Qe (const Real&, const Real&) const;
         

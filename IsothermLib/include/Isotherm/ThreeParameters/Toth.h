@@ -125,15 +125,15 @@ public:
 /// <example>
 /// Uso:
 /// @code
-///     double K3(1.0);                                                             *EDITAR, CASO HAJA NECESSIDADE*
-///     double K1(1.0);                                                             *EDITAR, CASO HAJA NECESSIDADE*
-///     double K2(1.0);                                                             *EDITAR, CASO HAJA NECESSIDADE*
+///     double K3(1.0);                                                              
+///     double K1(1.0);                                                              
+///     double K2(1.0);                                                              
 ///     Toth  var1(K3, K1, K2);
 /// @endcode
 /// </example>
-///  @param _k3 Constante da isoterm de Toth.                                       *EDITAR, CASO HAJA NECESSIDADE*
-///  @param _k1 Constante da isortema de Toth.                                      *EDITAR, CASO HAJA NECESSIDADE*
-///  @param _k2 Constante do expoente da isoterma de Toth.                          *EDITAR, CASO HAJA NECESSIDADE*
+///  @param _k3 Constante da isoterm de Toth.                                        
+///  @param _k1 Constante da isortema de Toth.                                       
+///  @param _k2 Constante do expoente da isoterma de Toth.                           
 ///  @exception _k3 <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
@@ -165,7 +165,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Toth.                    *EDITAR CASO HAJA NECESSIDADE*
+/// Função que retorna o coeficiente associado a constante de Toth.                     
 /// </summary>
 /// <example>
 /// Uso:
@@ -175,12 +175,12 @@ public:
 /// @endcode
 /// </example>
 ///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de Toth.                       *EDITAR CASO HAJA NECESSIDADE*
+///  @return Valor do coeficiente associado a constante de Toth.                        
 inline Real K3 () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Toth.                    *EDITAR CASO HAJA NECESSIDADE*
+/// Função que retorna o coeficiente associado a constante de Toth.                     
 /// </summary>
 /// <example>
 /// Uso:
@@ -190,11 +190,11 @@ inline Real K3 () const {return  Value(0);};
 /// @endcode
 /// </example>
 ///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de Toth.                       *EDITAR CASO HAJA NECESSIDADE*
+///  @return Valor do coeficiente associado a constante de Toth.                        
 inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Toth.                        *EDITAR CASO HAJA NECESSIDADE*
+/// Função que retorna o valor do expoente da isoterma de Toth.                         
 /// </summary>
 /// <example>
 /// Uso:
@@ -204,7 +204,7 @@ inline Real K1 () const {return  Value(1);};
 /// @endcode
 /// </example>
 ///  @param " " Não há parâmetros.
-///  @return Valor do expoente da isoterma de Toth.                                    *EDITAR CASO HAJA NECESSIDADE*
+///  @return Valor do expoente da isoterma de Toth.                                     
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -212,7 +212,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Toth.                  *EDITAR CASO HAJA NECESSIDADE*
+/// Função que retorna o coeficiente associado a constante de Toth.                   
 /// </summary>
 /// <example>
 /// Uso:

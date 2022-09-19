@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe com as equações da isoterma de Khan
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -64,28 +64,40 @@ VecPairString IsothermTemplate < Khan >::infoIsotherm = detailsKhan;
 
 #undef  __FUNCT__
 #define __FUNCT__ "Khan :: Khan (const Real&, const Real&, const Real&)"
-Khan :: Khan (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+Khan :: Khan    (   const Real&     _qmax
+                ,   const Real&     _k1
+                ,   const Real&     _k2
+                ) : ThreeParameters(_qmax, _k1, _k2) {
 
 
    try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+                    IsoException    (  IST_LOC
+                                    , className()
+                                    , BadK2LEOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
+   
     setup = true;
 
 
@@ -98,25 +110,34 @@ Khan :: Khan (  const Real& _qmax,
 #undef  __FUNCT__
 #define __FUNCT__ "Khan ::  Q (const Real&, const Real&) const "
 Real
-Khan ::  Qe (const Real& _ce, const Real&) const {
+Khan ::  Qe     (   const Real& _ce
+                ,   const Real&
+                ) const {
 
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
+        
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    k1c  = *(ptrValue + 1) * _ce;
 auto    auxi = k1c / pow( k1c + 1, *(ptrValue + 2));
+auto    value = *ptrValue * auxi;
+ 
+    return  (value >= ZERO ? value : 0.0);
+     
 
-
-        return *ptrValue * auxi;
 
 }
 

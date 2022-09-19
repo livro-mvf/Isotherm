@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Khan
+// Description : Classe com as equacoes da isoterma de Khan
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -25,13 +25,13 @@
 
 
 /*! \class	Khan
- *  \brief	Classe com as equações da isoterma de Khan
+ *  \brief	Classe com as equacoes da isoterma de Khan
  *  \file	Khan.h
  *  \authors    Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __KHAN_H__
@@ -53,18 +53,18 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Khan
+/// Classe com as equacoes da isoterma de Khan
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ _K2 \f$,  cujas fórmulas são as seguintes:        *EDITAR, CASO HAJA NECESSIDADE*
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ _K2 \f$,  cujas formulas sao as seguintes:        
 ///\begin{align}
 ///   \[q = q_{max}\frac{K_1C}{(1+K_1)\K_2}]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -78,7 +78,7 @@ class Khan :  public virtual ThreeParameters,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
 
@@ -86,7 +86,7 @@ public:
 
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -100,11 +100,11 @@ public:
 ///     Khan  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Khan() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -113,7 +113,7 @@ public:
 ///     Khan  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Khan original.
+/// @param  _orig Variavel do tipo Khan original.
     Khan (const Khan& _khan) = default;
 
 /// <summary>
@@ -122,7 +122,7 @@ public:
     virtual ~Khan() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Khan.
+/// Construtora com os parametros que definem a isoterma de Khan.
 /// </summary>
 /// <example>
 /// Uso:
@@ -133,7 +133,7 @@ public:
 ///     Khan  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.
+///  @param _qmax Capacidade maxima de adsorcao.
 ///  @param _k1 Constante da isortema de Khan.
 ///  @param _k2 Constante do expoente da isoterma de Khan.
 ///  @exception _qmax <= 0.
@@ -158,8 +158,8 @@ public:
 ///     Khan  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Khan original.
-///  @return Cópia de _orig.
+///  @param _orig Variavel do tipo Khan original.
+///  @return Copia de _orig.
     Khan& operator = (const Khan&) = default;
 
 //==============================================================================
@@ -167,7 +167,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -176,13 +176,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da capacidade maxima de adsorcao.
+    [[nodiscard]]
 inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Khan.
+/// Funcao que retorna o coeficiente associado a constante de Khan.
 /// </summary>
 /// <example>
 /// Uso:
@@ -191,12 +192,13 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Khan.
+[[nodiscard]]
 inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Khan.
+/// Funcao que retorna o valor do expoente da isoterma de Khan.
 /// </summary>
 /// <example>
 /// Uso:
@@ -205,8 +207,9 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do expoente da isoterma de Khan.
+[[nodiscard]]
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -214,7 +217,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -224,12 +227,12 @@ inline Real K2 () const {return  Value(2);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qm Novo valor da capacidade maxima de adsorção.
+///  @param _qm Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = Khan(_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Khan.
+/// Funcao que retorna o coeficiente associado a constante de Khan.
 /// </summary>
 /// <example>
 /// Uso:
@@ -246,7 +249,7 @@ inline Real K2 () const {return  Value(2);};
 
 
 /// <summary>
-/// Função para alterar o valor do expoente da isoterma de Khan.
+/// Funcao para alterar o valor do expoente da isoterma de Khan.
 /// </summary>
 /// <example>
 /// Uso:
@@ -262,11 +265,11 @@ inline Real K2 () const {return  Value(2);};
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -276,8 +279,8 @@ inline Real K2 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.
 ///  @exception _c < 0.
     virtual Real Qe (const Real&, const Real&) const;
 

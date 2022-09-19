@@ -47,7 +47,7 @@ IST_NAMESPACE_OPEN
 //==============================================================================
 
 VecPairString       detailsJossens {       PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção")
+                                                    , "Capacidade máxima de adsorcao")
                                        ,   PairString  ( "K1"
                                                     , "Constante de Jossens")
                                        ,   PairString  ( "K2"
@@ -66,29 +66,35 @@ VecPairString IsothermTemplate < Jossens >::infoIsotherm = detailsJossens;
 #undef  __FUNCT__
 #define __FUNCT__ "Jossens :: Jossens (const Real&, const Real&, const Real&)"
 
-Jossens :: Jossens (  const Real& _qmax,
-                      const Real& _k1,
-                      const Real& _k2) :
-                     ThreeParameters(_qmax, _k1, _k2) {
+Jossens :: Jossens  (   const Real&     _qmax
+                    ,   const Real&     _k1
+                    ,   const Real&     _k2
+                    ) 
+                    :   ThreeParameters(_qmax, _k1, _k2) {
 
 
    try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
-
-            if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()        
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+                    IsoException    (   IST_LOC
+                                    ,   className() 
+                                    ,   BadK2LEOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept     
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
+   
     setup = true;
 
 
@@ -96,30 +102,37 @@ Jossens :: Jossens (  const Real& _qmax,
  }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Jossens ::  Qe (const Real&, const Real&) const "
 Real
-Jossens ::  Qe (const Real& _ce, const Real&) const {
+Jossens ::  Qe  (   const Real& _ce
+                ,   const Real&
+                ) const {
 
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi1 = 1 + *(ptrValue +1) * (pow(_ce, *(ptrValue + 2)));
-
-
-        return *ptrValue * (_ce / auxi1);
+auto    value = *ptrValue * (_ce / auxi1);
+ 
+    return  (value >= ZERO ? value : 0.0);
+     
 }
 
 IST_NAMESPACE_CLOSE

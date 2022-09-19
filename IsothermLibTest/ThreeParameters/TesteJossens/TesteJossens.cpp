@@ -42,13 +42,13 @@ class TestSuit : public ::testing::Test {
     
 protected: 
     
-const Real              QMAX        = 4.897e-1;    
-const Real              K1          = 1432e-3;    
-const Real              K2          = 3;    
+const Real              CE          = 0.606125; 
+const Real              QMAX        = 5.59427;    
+const Real              K1          = 3.02992;    
+const Real              K2          = 2.00797;    
 const Real              QMAXNovo    = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
 const Real              K2Novo      = 3.3;    
-const Real              CE          = 2.00e-01; 
 
 public:
         
@@ -60,46 +60,46 @@ public:
 
 TEST_F(TestSuit, ConstrutorDefault) {
  
-    EXPECT_EQ(isotherm_1.Qmax(), 0);
-    EXPECT_EQ(isotherm_1.K1(), 0);
-    EXPECT_EQ(isotherm_1.K2(), 0);
-    EXPECT_EQ(isotherm_1.NumberConst(), 3);
-    EXPECT_DEATH(TestIsotherm(QMAX , K1, 0.9);, ""); 
+//    EXPECT_EQ(isotherm_1.Qmax(), 0);
+//    EXPECT_EQ(isotherm_1.K1(), 0);
+//    EXPECT_EQ(isotherm_1.K2(), 0);
+//    EXPECT_EQ(isotherm_1.NumberConst(), 3);
+//    EXPECT_DEATH(TestIsotherm(QMAX , K1, 0.9);, ""); 
   
 }
 
 TEST_F(TestSuit, ConstrutorPadrao) {
     
-  EXPECT_EQ(isotherm_2.Qmax(), QMAX);
-  EXPECT_EQ(isotherm_2.K1(), K1);  
-  EXPECT_EQ(isotherm_2.K2(), K2);  
-  EXPECT_EQ(isotherm_2.NumberConst(), 3);
-
-  isotherm_2.Qmax(QMAXNovo);
-  isotherm_2.K1(K1Novo);
-  isotherm_2.K2(K2Novo);
-
-  EXPECT_EQ(isotherm_2.Qmax(), QMAXNovo);
-  EXPECT_EQ(isotherm_2.K1(), K1Novo);
-  EXPECT_EQ(isotherm_2.K2(), K2Novo);
+//  EXPECT_EQ(isotherm_2.Qmax(), QMAX);
+//  EXPECT_EQ(isotherm_2.K1(), K1);  
+//  EXPECT_EQ(isotherm_2.K2(), K2);  
+//  EXPECT_EQ(isotherm_2.NumberConst(), 3);
+//
+//  isotherm_2.Qmax(QMAXNovo);
+//  isotherm_2.K1(K1Novo);
+//  isotherm_2.K2(K2Novo);
+//
+//  EXPECT_EQ(isotherm_2.Qmax(), QMAXNovo);
+//  EXPECT_EQ(isotherm_2.K1(), K1Novo);
+//  EXPECT_EQ(isotherm_2.K2(), K2Novo);
   
   
 }
 
 TEST_F(TestSuit, ConstrutoraDeCopia) {
 
-  EXPECT_EQ(isotherm_3.Qmax(), QMAX);
-  EXPECT_EQ(isotherm_3.K1(), K1);  
-  EXPECT_EQ(isotherm_3.K2(), K2);  
-  EXPECT_EQ(isotherm_3.NumberConst(), 3);
-
-  isotherm_3.Qmax(QMAXNovo);
-  isotherm_3.K1(K1Novo);
-  isotherm_3.K2(K2Novo);
-
-  EXPECT_EQ(isotherm_3.Qmax(), QMAXNovo);
-  EXPECT_EQ(isotherm_3.K1(), K1Novo);
-  EXPECT_EQ(isotherm_3.K2(), K2Novo);
+//  EXPECT_EQ(isotherm_3.Qmax(), QMAX);
+//  EXPECT_EQ(isotherm_3.K1(), K1);  
+//  EXPECT_EQ(isotherm_3.K2(), K2);  
+//  EXPECT_EQ(isotherm_3.NumberConst(), 3);
+//
+//  isotherm_3.Qmax(QMAXNovo);
+//  isotherm_3.K1(K1Novo);
+//  isotherm_3.K2(K2Novo);
+//
+//  EXPECT_EQ(isotherm_3.Qmax(), QMAXNovo);
+//  EXPECT_EQ(isotherm_3.K1(), K1Novo);
+//  EXPECT_EQ(isotherm_3.K2(), K2Novo);
   
 }
 
@@ -107,34 +107,44 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 TEST_F(TestSuit, CalculoQe) {
 
     
-
-const TestIsotherm              iso1 (QMAX, K1, K2);
-
-
-const Real                      QEANALIT1(0.09683070742);
-
-
-    EXPECT_FLOAT_EQ ( iso1.Qe(CE), QEANALIT1);
-
+//const Real                      QEANALIT1(1.608001087);
+//
+//const TestIsotherm              iso1 (QMAX, K1, K2);
+//std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
+//
+//
+//
+//    EXPECT_FLOAT_EQ ( iso1.Qe(CE), QEANALIT1);
+//    EXPECT_FLOAT_EQ ( iso1c->Qe(CE), QEANALIT1);
+//    
+//    
+//    EXPECT_DEATH(auto value = iso1c->Qe(- CE);, "");
 }
 
 TEST_F(TestSuit, DeathTest) {
     
-    EXPECT_DEATH(TestIsotherm(- QMAX ,  K1, K2);, ""); 
-    EXPECT_DEATH(TestIsotherm(  QMAX ,  - K1, K2);, "");
-    EXPECT_DEATH(TestIsotherm(  QMAX ,    K1, - K2);, "");
-    EXPECT_DEATH(TestIsotherm(0.0 ,  K1, K2);, "");
-    EXPECT_DEATH(TestIsotherm(QMAX ,  0.0, K2);, "");
-    EXPECT_DEATH(TestIsotherm(QMAX ,  K1, 0.9);, "");
-    
-    EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
-    EXPECT_DEATH(isotherm_2.K1( - K1);, "");
-    EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
-    EXPECT_DEATH(isotherm_2.Qmax(- QMAX);, "");
-    EXPECT_DEATH(isotherm_2.Qmax(   0.0);, "");
-    EXPECT_DEATH(isotherm_2.K2( - K2);, "");
-    EXPECT_DEATH(isotherm_2.K2(  0.9);, "");
-
+//    EXPECT_DEATH(TestIsotherm(- QMAX ,  K1, K2);, ""); 
+//    EXPECT_DEATH(TestIsotherm(   0.0 ,  K1, K2);, "");
+//    EXPECT_DEATH(isotherm_2.Qmax(- QMAX);, "");
+//    EXPECT_DEATH(isotherm_2.Qmax(   0.0);, "");
+//
+//
+//
+//    EXPECT_DEATH(TestIsotherm(  QMAX , - K1, K2);, "");
+//    EXPECT_DEATH(TestIsotherm(  QMAX ,  0.0, K2);, "");
+//    EXPECT_DEATH(isotherm_2.K1( - K1);, "");
+//    EXPECT_DEATH(isotherm_2.K1(  0.0);, "");
+// 
+//   
+//   
+//    
+//    EXPECT_DEATH(TestIsotherm(  QMAX ,  K1, - K2);, "");
+//    EXPECT_DEATH(TestIsotherm(  QMAX ,  K1,  0.9);, "");
+//    EXPECT_DEATH(isotherm_2.K2( - K2);, "");
+//    EXPECT_DEATH(isotherm_2.K2(  0.9);, "");
+//    
+//    EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
+ 
 }
 
 int main(int argc, char **argv)
