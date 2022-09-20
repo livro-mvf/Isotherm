@@ -21,7 +21,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-//==============================================================================//==============================================================================
+//==============================================================================
 // includes lib c++
 //==============================================================================
 
@@ -47,11 +47,11 @@ IST_NAMESPACE_OPEN
 VecPairString       detailsKiselev
     {
             PairString  ( "Qmax"
-                        , "Capacidade máxima de adsorção")
+                        , "Capacidade máxima de adsorcao")
         ,   PairString  ( "K1"
                         , "Constante de equilíbrio de Kiselev")
         ,   PairString  ( "K2"
-                        , "Constante de iteração entre as moléculas adsorvidas")
+                        , "Constante de iteracao entre as moléculas adsorvidas")
     };
 
 template<>
@@ -64,29 +64,40 @@ VecPairString IsothermTemplate < Kiselev >::infoIsotherm = detailsKiselev;
 
 #undef  __FUNCT__
 #define __FUNCT__ "Kiselev :: Kiselev (const Real&, const Real&, const Real&)"
-Kiselev :: Kiselev (     const Real& _qmax,
-                         const Real& _k1,
-                         const Real& _k2) :
-                         ThreeParameters(_qmax, _k1, _k2 ) {
+Kiselev :: Kiselev  (   const Real&     _qmax
+                    ,   const Real&     _k1
+                    ,   const Real&     _k2
+                    ) 
+                    :   ThreeParameters(_qmax, _k1, _k2 ) {
 
 
     try {
 
         if (_qmax <= 0.0) {
             throw
-                    IsoException(IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
         }
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n" << std::flush;
-    exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n" << std::flush;
+        exit(EXIT_FAILURE);
 
     };
 
@@ -97,12 +108,14 @@ Kiselev :: Kiselev (     const Real& _qmax,
     }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real Kiselev ::  Qe (const Real&, const Real&) const"
-Real Kiselev ::  Qe (const Real& _ce, const Real&) const {
+Real Kiselev ::  Qe     (   const Real&     _ce
+                        ,   const Real&
+                        ) const {
 
 
 
@@ -113,7 +126,10 @@ Real Kiselev ::  Qe (const Real& _ce, const Real&) const {
                                 ,   BadCoefficient);
 
         if (_ce <= 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
 
 
@@ -131,7 +147,7 @@ auto fp    = std::bind(&Kiselev::FQe, *this, _1);
 auto result = NewtonRaphson (fp, 0.5);
 auto value = result * this->Qmax();
 
-return (value >= ZERO ? value : 0.0) ;
+    return (value >= ZERO ? value : 0.0) ;
 
 }
 
@@ -161,7 +177,7 @@ Kiselev ::  FQe (const Real& _theta) const {
         }
 
 
-Real       auxiK2     = 1 + (_theta * this->K2());
+Real       auxiK2     = 1 + _theta * this->K2();
 Real       auxiTheta  = 1 - _theta;
 Real       auxi1      = _theta / (auxiK2 * auxiTheta);
 
