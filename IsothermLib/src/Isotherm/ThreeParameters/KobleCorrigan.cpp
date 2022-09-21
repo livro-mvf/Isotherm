@@ -84,10 +84,10 @@ KobleCorrigan :: KobleCorrigan  (   const Real&     _qmax
                                     ,   BadK1LEZero
                                     );
 
-            if (_k2 <= 1)  throw
+            if (_k2 <= 0)  throw
                     IsoException    (  IST_LOC
                                     ,   className()
-                                    ,   BadK2LEOne
+                                    ,   BadK2LEZero
                                     );
 
     } catch (const IsoException& _isoExcept) {
@@ -132,10 +132,11 @@ KobleCorrigan ::  Qe    (   const Real&     _ce
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = pow(_ce, *(ptrValue + 2));
+auto    auxi     = pow(_ce, *(ptrValue + 2));
+auto    value    = *ptrValue * auxi / (1 + auxi * (*(ptrValue + 1)));
 
-
-        return *ptrValue * auxi / (1 + auxi * (*(ptrValue + 1)));
+        
+         return (value >= ZERO ? value : 0.0) ;
 }
 
 IST_NAMESPACE_CLOSE

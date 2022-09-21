@@ -10,6 +10,7 @@
 #add_subdirectory(TesteKiselev)
 add_subdirectory(TesteKobleCorrigan)
 add_subdirectory(TesteLangmuirFreundlich)
+#add_subdirectory(TesteLangmuirJovanovic)
 add_subdirectory(TesteMacMillanTeller)
 add_subdirectory(TesteRadkePrausnitsI)
 add_subdirectory(TesteRadkePrausnitsII)

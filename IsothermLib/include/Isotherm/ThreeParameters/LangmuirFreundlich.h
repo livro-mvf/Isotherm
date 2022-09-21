@@ -3,7 +3,7 @@
 // Author      : Iasmim Barboza Storck
 //               Luan Rodrigues Soares de Souza
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Langmuir - Freundlich.
+// Description : Classe com as equacoes da isoterma de Langmuir - Freundlich.
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -24,12 +24,12 @@
 
 
 /*! \class	Langmuir - Freundlich
- *  \brief	Classe com as equações da isoterma de Langmuir - Freundlich.
+ *  \brief	Classe com as equacoes da isoterma de Langmuir - Freundlich.
  *  \file	LangmuirFreundlich.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Não ha bugs conhecidos
  */
 
 #ifndef __LANGMUIR_FREUNDLICH_H__
@@ -51,17 +51,17 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Langmuir - Freundlich.
+/// Classe com as equacoes da isoterma de Langmuir - Freundlich.
 /// </summary>
 ///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e,T)=q_{max}\frac{K_1C_e^{K_2}}{1+K_1C_e^{K_2}}\]
 ///\end{align}
 ///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    João Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Não ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -83,7 +83,7 @@ public:
     
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -97,7 +97,7 @@ public:
 ///     LangmuirFreundlich  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Não ha parâmetros para esta função
     LangmuirFreundlich() = default;
     
 /// <summary>
@@ -110,7 +110,7 @@ public:
 ///     LangmuirFreundlich  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Langmuir - Freundlich original. 
+/// @param  _orig Variavel do tipo Langmuir - Freundlich original. 
     LangmuirFreundlich (const LangmuirFreundlich& _langmuir_freundlich) = default;
   
 /// <summary>
@@ -155,7 +155,7 @@ public:
 ///     LangmuirFreundlich  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo LangmuirFreundlich original.
+///  @param _orig Variavel do tipo LangmuirFreundlich original.
 ///  @return Cópia de _orig.    
     LangmuirFreundlich& operator = (const LangmuirFreundlich&) = default;
     
@@ -173,7 +173,7 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Não ha parâmetros.
 ///  @return Valor da  capacidade maxima de adsorção.
 inline Real Qmax () const {return  Value(0);};
 
@@ -188,7 +188,7 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Não ha parâmetros.
 ///  @return Valor do coeficiente associado a constante de Langmuir - Freundlich.
 inline Real K1 () const {return  Value(1);};
     
@@ -202,7 +202,7 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Não ha parâmetros.
 ///  @return Valor do parâmetro da equação de Langmuir - Freundlich.    
 inline Real K2 () const {return  Value(2);};
 
@@ -257,7 +257,7 @@ inline Real K2 () const {return  Value(2);};
     
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>

@@ -42,10 +42,10 @@ class TestSuit : public ::testing::Test {
     
 protected: 
     
-const Real              CE          = 0.798566;
-const Real              QMAX        = 58.4159;    
-const Real              K1          = 8.26389;   
-const Real              K2          = 2.66750;    
+const Real              CE          = 0.314521;
+const Real              QMAX        = 5.92353;    
+const Real              K1          = 2.56458;   
+const Real              K2          = 0.506544;    
 const Real              QMAXNovo    = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
 const Real              K2Novo      = 3.3;    
@@ -107,7 +107,7 @@ TEST_F(TestSuit, CalculoQe) {
 
 //    
 //
-const Real                      QEANALIT1(5.791753442);
+const Real                      QEANALIT1(1.358225821);
 const TestIsotherm              iso1 (QMAX, K1, K2);
 std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
 
@@ -134,9 +134,9 @@ TEST_F(TestSuit, DeathTest) {
 
 
     EXPECT_DEATH(TestIsotherm(  QMAX ,    K1, - K2);, "");
-    EXPECT_DEATH(TestIsotherm(  QMAX ,  K1, 0.99);, "");
+    EXPECT_DEATH(TestIsotherm(  QMAX ,  K1, 0.0);, "");
     EXPECT_DEATH(isotherm_2.K2( - K2);, "");
-    EXPECT_DEATH(isotherm_2.K2(  0.99);, "");
+    EXPECT_DEATH(isotherm_2.K2(  0.0);, "");
 
     EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
 // 
