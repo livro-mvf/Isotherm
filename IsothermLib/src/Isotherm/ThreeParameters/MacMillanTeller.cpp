@@ -4,9 +4,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de MacMillan - Teller.
+// Description : Classe com as equacoes da isoterma de MacMillan - Teller.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -35,17 +35,18 @@
 // includes da lib IsothermLib
 //==============================================================================
 
+#include <Error/IsoException.h>
 #include <Isotherm/ThreeParameters/MacMillanTeller.h>
 
 
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermMacMillanTeller {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção.")
+                                                    , "Capacidade maxima de adsorcao.")
                                             ,   PairString  ( "K1"
                                                     , "Constante da isoterma de MacMillan - Teller.")
                                             ,   PairString  ( "K2"
@@ -56,35 +57,35 @@ VecPairString IsothermTemplate < MacMillanTeller >::infoIsotherm = isothermMacMi
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "MacMillanTeller :: MacMillanTeller (const Real&, const Real&, const Real&)"
-MacMillanTeller :: MacMillanTeller (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+MacMillanTeller :: MacMillanTeller  (   const Real&     _qmax
+                                    ,   const Real&     _k1
+                                    ,   const Real&     _k2) : ThreeParameters(_qmax, _k1, _k2) {
 
 
 
-//    try {
-//
-//            if (_qmax < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadQmaxLEZero);
-//
-//            if (_k1 < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK1LEZero);
-//
-//            if (_k2 < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK2LEZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//
-//  exit(EXIT_FAILURE);
-//
-//    };
+    try {
+
+            if (_qmax <= 0.0)  throw
+                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+
+            if (_k1 < 0.0)  throw
+                    IsoException (IST_LOC, className(), BadK1LEZero);
+
+            if (_k2 <= 0.0)  throw
+                    IsoException (IST_LOC, className(), BadK2LEZero);
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout << _isoExcept << "\n";
+
+  exit(EXIT_FAILURE);
+
+    };
 
     setup = true;
 
@@ -93,38 +94,40 @@ MacMillanTeller :: MacMillanTeller (  const Real& _qmax,
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equili�brio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "MacMillanTeller ::  Qe (const Real&, const Real&) const "
 Real
-MacMillanTeller ::  Qe (const Real& _ce, const Real&) const {
+MacMillanTeller ::  Qe  (   const Real& _ce
+                        ,   const Real&
+                        ) const {
 
-//    try {
-//        if (!setup) throw
-//                IsoException    (   IST_LOC
-//                                ,   className()
-//                                ,   BadCoefficient);
-//
-//        if (_ce < 0.0)  throw
-//                IsoException (IST_LOC, className(), BadCeLTZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//
-//  exit(EXIT_FAILURE);
-//    }
+    try {
+        if (!setup) throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCoefficient);
+
+        if (_ce < 0.0)  throw
+                IsoException (IST_LOC, className(), BadCeLTZero);
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout << _isoExcept << "\n";
+
+  exit(EXIT_FAILURE);
+    }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = log(*(ptrValue + 2) / _ce);
-auto    auxi1 = (*(ptrValue + 1)) / auxi;
-auto    auxi2 = pow(auxi1, (1 / 3));
+auto    auxi = (*(ptrValue + 1)) / log(*(ptrValue + 2) / _ce);;
+auto    value = *ptrValue * auxi * auxi * auxi;
 
 
-
-        return ( (*ptrValue) * auxi2);
+    return (value >= ZERO ? value : 0.0) ;
+    
+    
 }
 
 IST_NAMESPACE_CLOSE

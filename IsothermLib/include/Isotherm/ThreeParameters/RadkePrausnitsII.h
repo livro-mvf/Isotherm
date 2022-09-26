@@ -2,7 +2,7 @@
 // Name        : RadkePrausnitsII.h
 // Author      : Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Radke-Prausnits II
+// Description : Classe com as equacoes da isoterma de Radke-Prausnits II
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -23,7 +23,7 @@
 
 
 /*! \class	RadkePrausnitsII
- *  \brief	Classe com as equações da isoterma de Radke-Prausnits II
+ *  \brief	Classe com as equacoes da isoterma de Radke-Prausnits II
  *  \file	RadkePrausnitsII.h
  *  \author	Lara Botelho Brum
  *  \author	Joao Flavio Vieira de Vasconcellos
@@ -51,7 +51,7 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Radke-Prausnits II
+/// Classe com as equacoes da isoterma de Radke-Prausnits II
 /// </summary>
 ///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
 ///\begin{align}
@@ -84,7 +84,7 @@ public:
     
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -258,7 +258,7 @@ inline Real K2 () const {return  Value(2);};
     
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>

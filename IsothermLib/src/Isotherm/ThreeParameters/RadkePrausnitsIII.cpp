@@ -3,7 +3,7 @@
 // Author      : Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Radke-Prausnits III
+// Description : Classe com as equacoes da isoterma de Radke-Prausnits III
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)

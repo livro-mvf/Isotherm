@@ -2,7 +2,7 @@
 // Name        : RadkePrausnitsI.h
 // Author      : Luan Rodrigues Soares de Souza
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Radke - Prausnits I.
+// Description : Classe com as equacoes da isoterma de Radke - Prausnits I.
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -23,7 +23,7 @@
 
 
 /*! \class	RadkePrausnitsI
- *  \brief	Classe com as equações da isoterma de Radke - Prausnits I.
+ *  \brief	Classe com as equacoes da isoterma de Radke - Prausnits I.
  *  \file	RadkePrausnitsI.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
@@ -52,7 +52,7 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Radke - Prausnits I.
+/// Classe com as equacoes da isoterma de Radke - Prausnits I.
 /// </summary>
 ///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
 ///\begin{align}
@@ -84,7 +84,7 @@ public:
 
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -176,6 +176,7 @@ public:
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor da  capacidade maxima de adsorção.
+    [[nodiscard]]
 inline Real Qmax () const {return  Value(0);};
 
 
@@ -191,6 +192,7 @@ inline Real Qmax () const {return  Value(0);};
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor do coeficiente associado a constante de Radke - Prausnits I.
+[[nodiscard]]
 inline Real K1 () const {return  Value(1);};
 
 /// <summary>
@@ -205,6 +207,7 @@ inline Real K1 () const {return  Value(1);};
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor do parâmetro da equação de Radke - Prausnits I.
+[[nodiscard]]
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -258,7 +261,7 @@ inline Real K2 () const {return  Value(2);};
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>

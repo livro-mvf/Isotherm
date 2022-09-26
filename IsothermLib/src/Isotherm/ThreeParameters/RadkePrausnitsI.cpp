@@ -2,9 +2,9 @@
 // Name        : RadkePrausnitsI.cpp
 // Author      : Luan Rodrigues Soares de Souza
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Radke - Prausnits I.
+// Description : Classe com as equacoes da isoterma de Radke - Prausnits I.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -60,15 +60,17 @@ VecPairString IsothermTemplate < RadkePrausnitsI >::infoIsotherm = isothermRadke
 
 #undef  __FUNCT__
 #define __FUNCT__ "RadkePrausnitsI :: RadkePrausnitsI (const Real&, const Real&, const Real&)"
-RadkePrausnitsI :: RadkePrausnitsI (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+RadkePrausnitsI :: RadkePrausnitsI  (   const Real&     _qmax
+                                    ,   const Real&     _k1
+                                    ,   const Real&     _k2
+                                    ) 
+                                    : ThreeParameters(_qmax, _k1, _k2) {
 
 
 
     try {
 
-            if (_qmax < 0.0)  throw
+            if (_qmax <= 0.0)  throw
                     IsoException (IST_LOC, className(), BadQmaxLEZero);
 
             if (_k1 < 0.0)  throw
@@ -96,23 +98,25 @@ RadkePrausnitsI :: RadkePrausnitsI (  const Real& _qmax,
 #undef  __FUNCT__
 #define __FUNCT__ "RadkePrausnitsI ::  Qe (const Real&, const Real&) const "
 Real
-RadkePrausnitsI ::  Qe (const Real& _ce, const Real&) const {
+RadkePrausnitsI ::  Qe  (   const Real& _ce
+                        ,   const Real&
+                        ) const {
 
-//    try {
-//        if (!setup) throw
-//                IsoException    (   IST_LOC
-//                                ,   className()
-//                                ,   BadCoefficient);
-//
-//        if (_ce < 0.0)  throw
-//                IsoException (IST_LOC, className(), BadCeLTZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//
-//  exit(EXIT_FAILURE);
-//    }
+    try {
+        if (!setup) throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCoefficient);
+
+        if (_ce < 0.0)  throw
+                IsoException (IST_LOC, className(), BadCeLTZero);
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout << _isoExcept << "\n";
+
+  exit(EXIT_FAILURE);
+    }
 
 auto    ptrValue = std::begin(coeffValue);
 auto    auxi = (*(ptrValue + 1)) * _ce;
