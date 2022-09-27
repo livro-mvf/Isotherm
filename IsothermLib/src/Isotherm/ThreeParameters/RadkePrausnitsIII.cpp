@@ -46,7 +46,7 @@ IST_NAMESPACE_OPEN
 //==============================================================================
 
 VecPairString       detailsRadkePrausnitsIII {   PairString  ( "Qmax"
-                                                           , "Capacidade máxima de adsorção")
+                                                           , "Capacidade máxima de adsorcao")
                                             ,   PairString  ( "K1"
                                                            , "Constante de Radke-Prausnits III")
                                             ,   PairString  ( "K2"
@@ -57,37 +57,48 @@ VecPairString IsothermTemplate < RadkePrausnitsIII >::infoIsotherm = detailsRadk
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "RadkePrausnitsIII :: RadkePrausnitsIII (const Real&, const Real&, const Real&)"
-RadkePrausnitsIII :: RadkePrausnitsIII (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+RadkePrausnitsIII :: RadkePrausnitsIII  (   const Real&     _qmax
+                                        ,   const Real&     _k1
+                                        ,   const Real&     _k2
+                                        ) 
+                                        : ThreeParameters(_qmax, _k1, _k2) {
 
 
     try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
         std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     };
 
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -98,18 +109,23 @@ RadkePrausnitsIII ::  Qe (const Real& _ce, const Real&) const {
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = (*(ptrValue + 1) * pow(_ce, *(ptrValue+2))) / (((1 + *(ptrValue + 1)) * pow ( _ce, *(ptrValue + 2) - 1)));
-
-        return *ptrValue * auxi;
+auto    auxi =  *(ptrValue + 1) *  pow(_ce, *(ptrValue+2));
+auto    value = *ptrValue * auxi / (1 + auxi / _ce);
+return (value >= ZERO ? value : 0.0) ;
+        
 }
 
 IST_NAMESPACE_CLOSE

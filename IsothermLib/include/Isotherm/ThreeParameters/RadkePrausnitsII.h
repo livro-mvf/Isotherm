@@ -29,7 +29,7 @@
  *  \author	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __RADKE_PRAUSNITS_II_H__
@@ -53,16 +53,16 @@ IST_NAMESPACE_OPEN
 /// <summary>
 /// Classe com as equacoes da isoterma de Radke-Prausnits II
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tras parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T) = q_{max}\frac{K_1 * C}{1 + K_1 * C^{K_2}}\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referancia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -76,7 +76,7 @@ class RadkePrausnitsII :  public virtual ThreeParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
         
@@ -98,11 +98,11 @@ public:
 ///     RadkePrausnitsII  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     RadkePrausnitsII() = default;
     
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -111,7 +111,7 @@ public:
 ///     RadkePrausnitsII  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo RadkePrausnitsI original. 
+/// @param  _orig Variavel do tipo RadkePrausnitsI original. 
     RadkePrausnitsII (const RadkePrausnitsII& radkeprausnitsii) = default;
   
 /// <summary>
@@ -120,7 +120,7 @@ public:
     virtual ~RadkePrausnitsII() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Radke-PrausnitsII.
+/// Construtora com os parametros que definem a isoterma de Radke-PrausnitsII.
 /// </summary>
 /// <example>
 /// Uso:
@@ -131,7 +131,7 @@ public:
 ///     RadkePrausnitsII  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.    
+///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param  _k1 Constante da isortema de RadkePrausnitsII.    
 ///  @param _k2 Constante do expoente da isoterma de RadkePrausnitsII.
 ///  @exception _qmax <= 0.
@@ -156,8 +156,8 @@ public:
 ///     RadkePrausnitsII  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo RadkePrausnitsII original.
-///  @return Cópia de _orig.    
+///  @param _orig Variavel do tipo RadkePrausnitsII original.
+///  @return Copia de _orig.    
     RadkePrausnitsII& operator = (const RadkePrausnitsII&) = default;
     
 //==============================================================================
@@ -165,7 +165,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -174,13 +174,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
+    [[nodiscard]] 
 inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de RadkePrausnitsII.
+/// Funcao que retorna o coeficiente associado a constante de RadkePrausnitsII.
 /// </summary>
 /// <example>
 /// Uso:
@@ -189,12 +190,13 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de RadkePrausnitsII.
+[[nodiscard]] 
 inline Real K1 () const {return  Value(1);};
     
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de RadkePrausnitsII.
+/// Funcao que retorna o valor do expoente da isoterma de RadkePrausnitsII.
 /// </summary>
 /// <example>
 /// Uso:
@@ -203,8 +205,9 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do expoente da isoterma de RadkePrausnitsII.    
+///  @param " " Nao ha parametros.
+///  @return Valor do expoente da isoterma de RadkePrausnitsII.  
+[[nodiscard]] 
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -212,7 +215,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -222,12 +225,12 @@ inline Real K2 () const {return  Value(2);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = RadkePrausnitsII(_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de RadkePrausnitsII.
+/// Funcao que altera o coeficiente associado a constante de RadkePrausnitsII.
 /// </summary>
 /// <example>
 /// Uso:
@@ -242,7 +245,7 @@ inline Real K2 () const {return  Value(2);};
      void K1 (const Real& _k1)  {*this = RadkePrausnitsII(Value(0), _k1,  Value(2));};
 
 /// <summary>
-/// Função para alterar o valor do expoente da isoterma de RadkePrausnitsII.
+/// Funcao para alterar o valor do expoente da isoterma de RadkePrausnitsII.
 /// </summary>
 /// <example>
 /// Uso:
@@ -262,7 +265,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -272,8 +275,8 @@ inline Real K2 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.    
 ///  @exception _c < 0.    
  [[nodiscard]] Real Qe (const Real&, const Real&) const;
  

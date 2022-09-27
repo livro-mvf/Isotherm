@@ -44,7 +44,7 @@ IST_NAMESPACE_OPEN
 //==============================================================================
 
 VecPairString       isothermLangmuirFreundlich {   PairString  ( "Qmax"
-                                                    , "Capacidade maxima de adsorção.")
+                                                    , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Langmuir-Freundlich.")
                                     ,   PairString  ( "K2"
@@ -55,7 +55,7 @@ VecPairString IsothermTemplate < LangmuirFreundlich >::infoIsotherm = isothermLa
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -101,7 +101,7 @@ LangmuirFreundlich :: LangmuirFreundlich    (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equili�brio Qe
 //==============================================================================
 
 #undef  __FUNCT__

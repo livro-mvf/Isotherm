@@ -42,11 +42,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsRadkePrausnitsII {   PairString  ( "Qmax"
-                                                           , "Capacidade máxima de adsorção")
+                                                           , "Capacidade maxima de adsorcao")
                                             ,   PairString  ( "K1"
                                                            , "Constante de Radke-Prausnits II")
                                             ,   PairString  ( "K2"
@@ -57,31 +57,44 @@ VecPairString IsothermTemplate < RadkePrausnitsII >::infoIsotherm = detailsRadke
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "RadkePrausnitsII :: RadkePrausnitsII (const Real&, const Real&, const Real&)"
-RadkePrausnitsII :: RadkePrausnitsII (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+RadkePrausnitsII :: RadkePrausnitsII    (   const Real&     _qmax
+                                        ,   const Real&     _k1
+                                        ,   const Real&     _k2
+                                        ) 
+                                        : ThreeParameters(_qmax, _k1, _k2) {
 
 
 
     try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (  IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
 
     };
@@ -90,30 +103,37 @@ RadkePrausnitsII :: RadkePrausnitsII (  const Real& _qmax,
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "RadkePreusnitsII ::  Qe (const Real&, const Real&) const "
 Real
-RadkePrausnitsII ::  Qe (const Real& _ce, const Real&) const {
+RadkePrausnitsII ::  Qe     (   const Real& _ce
+                            ,   const Real&
+                            ) const {
 
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = (*(ptrValue + 1) * _ce) / (((1 + *(ptrValue + 1)) * pow ( _ce, *(ptrValue + 2))));
+auto    auxi  = 1 + *(ptrValue + 1) * pow ( _ce, *(ptrValue + 2));
+auto    value = *ptrValue * *(ptrValue + 1) * _ce /auxi;
 
+         return (value >= ZERO ? value : 0.0) ;
 
-        return *ptrValue * auxi;
 }
 
 IST_NAMESPACE_CLOSE

@@ -40,11 +40,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermRadkePrausnitsI {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção.")
+                                                    , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Radke - Prausnits I.")
                                     ,   PairString  ( "K2"
@@ -55,7 +55,7 @@ VecPairString IsothermTemplate < RadkePrausnitsI >::infoIsotherm = isothermRadke
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -71,18 +71,27 @@ RadkePrausnitsI :: RadkePrausnitsI  (   const Real&     _qmax
     try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LTZero
+                                    );
 
             if (_k2 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LTZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
     };
 
@@ -92,7 +101,7 @@ RadkePrausnitsI :: RadkePrausnitsI  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equili�brio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -109,13 +118,17 @@ RadkePrausnitsI ::  Qe  (   const Real& _ce
                                 ,   BadCoefficient);
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
 
-  exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
