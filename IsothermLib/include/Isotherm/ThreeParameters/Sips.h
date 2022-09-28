@@ -3,7 +3,7 @@
 // Authors     : Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Sips
+// Description : Classe com as equacoes da isoterma de Sips
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -24,13 +24,13 @@
 
 
 /*! \class	Sips
- *  \brief	Classe com as equações da isoterma de Sips
+ *  \brief	Classe com as equacoes da isoterma de Sips
  *  \file	Sips.h
  *  \authors	Luan Rodrigues Soares de Souza
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \date	2022
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __SIPS_H__
@@ -45,18 +45,18 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Sips
+/// Classe com as equacoes da isoterma de Sips
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tras parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T) = q_{max}\frac{K_1C^{\frac{1}{K_2}}}{1 + K_1C^{\frac{1}{K_2}}}\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referancia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Luan Rodrigues Soares de Souza
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -70,14 +70,14 @@ class Sips :  public virtual ThreeParameters,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
 
     DefineIdentity("Sips", ID::Sips);
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -91,11 +91,11 @@ public:
 ///     Sips  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Sips() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -104,7 +104,7 @@ public:
 ///     Sips  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Sips original.
+/// @param  _orig Variavel do tipo Sips original.
     Sips (const Sips& _orig) = default;
 
 /// <summary>
@@ -113,7 +113,7 @@ public:
     virtual ~Sips() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Sips.
+/// Construtora com os parametros que definem a isoterma de Sips.
 /// </summary>
 /// <example>
 /// Uso:
@@ -124,7 +124,7 @@ public:
 ///     Sips  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.
+///  @param _qmax Capacidade maxima de adsorcao.
 ///  @param  _k1 Constante da isortema de Sips.
 ///  @param _k2 Constante do expoente da isoterma de Sips.
 ///  @exception _qmax <= 0.
@@ -149,8 +149,8 @@ public:
 ///     Sips  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Sips original.
-///  @return Cópia de _orig.
+///  @param _orig Variavel do tipo Sips original.
+///  @return Copia de _orig.
     Sips& operator = (const Sips& _orig) = default;
 
 //==============================================================================
@@ -158,7 +158,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -167,13 +167,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
+    [[nodiscard]]
     inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Sips.
+/// Funcao que retorna o coeficiente associado a constante de Sips.
 /// </summary>
 /// <example>
 /// Uso:
@@ -182,12 +183,13 @@ public:
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Sips.
+    [[nodiscard]]
     inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Sips.
+/// Funcao que retorna o valor do expoente da isoterma de Sips.
 /// </summary>
 /// <example>
 /// Uso:
@@ -196,8 +198,9 @@ public:
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do expoente da isoterma de Sips.
+    [[nodiscard]]
     inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -205,7 +208,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -215,12 +218,12 @@ public:
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = Sips(_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de Sips.
+/// Funcao que altera o coeficiente associado a constante de Sips.
 /// </summary>
 /// <example>
 /// Uso:
@@ -235,7 +238,7 @@ public:
      void K1 (const Real& _k1)  {*this = Sips(Value(0), _k1, Value(2));};
 
 /// <summary>
-/// Função para alterar o valor do expoente da isoterma de Sips.
+/// Funcao para alterar o valor do expoente da isoterma de Sips.
 /// </summary>
 /// <example>
 /// Uso:
@@ -251,11 +254,11 @@ public:
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -265,8 +268,8 @@ public:
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.
 ///  @exception _c < 0.
 
     [[nodiscard]]  Real Qe (const Real&, const Real&) const;

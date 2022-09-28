@@ -2,7 +2,7 @@
 // Name        : ValenzuelaMyers.h
 // Author      : Luan Rodrigues Soares de Souza
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Valenzuela - Myers.
+// Description : Classe com as equacoes da isoterma de Valenzuela - Myers.
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)

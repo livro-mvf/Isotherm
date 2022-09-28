@@ -37,14 +37,14 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsSips
     {
 
         PairString  ( "Qmax"
-                    , "Capacidade máxima de adsorçãoo")
+                    , "Capacidade maxima de adsorçaoo")
     ,   PairString  ( "K1"
                     , "Expoente da isoterma de Sips")
     ,   PairString  ( "K2"
@@ -57,7 +57,7 @@ VecPairString IsothermTemplate < Sips >::infoIsotherm = detailsSips;
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 
@@ -100,7 +100,7 @@ Sips :: Sips    (   const Real& _qmax
     }
 
 //==============================================================================
-// Concentração de Equilíbrio Q
+// Concentraçao de Equilíbrio Q
 //==============================================================================
 
 #undef  __FUNCT__
@@ -121,7 +121,7 @@ Sips ::  Qe   (   const Real&     _ce
             if (_ce <= 0.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    , BadCeLEZero);
+                                    ,   BadCeLEZero);
 
         } catch (const IsoException& _isoExcept) {
 

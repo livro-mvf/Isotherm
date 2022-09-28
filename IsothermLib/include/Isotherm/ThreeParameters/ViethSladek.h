@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Vieth-Sladek
+// Description : Classe com as equacoes da isoterma de Vieth-Sladek
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -30,7 +30,7 @@
  */
 
 /// <summary>
-/// Classe com as equações da isoterma de ViethSladek
+/// Classe com as equacoes da isoterma de ViethSladek
 /// </summary>
 ///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
 ///  \f{Q_e(C_e) = K_2 C_e + \frac{q_{max} K_1C_e} {1+K_1C_e} \f}
@@ -82,7 +82,7 @@ public:
     
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -277,7 +277,7 @@ inline void K2 (const Real& _k2)
     
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
