@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe base para as isotermas com 5 parâmetros
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify

@@ -63,29 +63,43 @@ VecPairString IsothermTemplate < RedlichPeterson >::infoIsotherm = detailsRedlic
 
 #undef  __FUNCT__
 #define __FUNCT__ "RedlichPeterson :: RedlichPeterson (const Real&, const Real&, const Real&)"
-RedlichPeterson :: RedlichPeterson (
-                const Real& _k1,
-                const Real& _k2,
-                const Real& _k3) : ThreeParameters(_k1, _k2, _k3) {
+RedlichPeterson :: RedlichPeterson  (   const Real&     _k1
+                                    ,   const Real&     _k2
+                                    ,   const Real&     _k3
+                                    ) 
+                                    : ThreeParameters(_k1, _k2, _k3) {
 
 
     try {
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
             if (_k3 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK3LTZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK3LTZero
+                                    );
 
             if (_k3 >= 1.0)  throw
-                    IsoException (IST_LOC, className(), BadK3GTOne);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK3GTOne
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
     };
 
@@ -101,7 +115,9 @@ exit(EXIT_FAILURE);
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real RedlichPeterson ::  Qe (const Real&, const Real&) const "
-Real RedlichPeterson ::  Qe (const Real& _ce, const Real&)  const {
+Real RedlichPeterson ::  Qe     (   const Real& _ce
+                                ,   const Real&
+                                )  const {
 
     try {
 
@@ -111,18 +127,20 @@ Real RedlichPeterson ::  Qe (const Real& _ce, const Real&)  const {
                                 ,   BadCoefficient);
 
         if (_ce <= 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLEZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLEZero
+                                );
     } catch (const IsoException& _isoExcept) {
 
-    std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
+        
     }
 
 auto    ptrValue = std::begin(coeffValue);
-
 auto    value = (*ptrValue * _ce) / (1 + *(ptrValue + 1) * (pow(_ce, *(ptrValue + 2))));
-
-
 
         return (value >= ZERO ? value : 0.0)  ;
 

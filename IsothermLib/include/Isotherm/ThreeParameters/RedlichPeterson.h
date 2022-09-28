@@ -5,7 +5,7 @@
 // Version     : 1.0
 // Description : Classe da isoterma de Redlich - Peterson.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@
  *  \authors	Luan Rodrigues Soares de Souza
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Não há bugs conhecidos
  */
 
@@ -170,6 +170,7 @@ public:
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor da constante de Redlich-Peterson.
+    [[nodiscard]] 
 inline Real K1 () const {return  Value(0);};
 
 
@@ -184,7 +185,8 @@ inline Real K1 () const {return  Value(0);};
 /// @endcode
 /// </example>
 ///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de Redlich - Peterson.  
+///  @return Valor do coeficiente associado a constante de Redlich - Peterson.
+[[nodiscard]] 
 inline Real K2 () const {return  Value(1);};
     
 /// <summary>
@@ -199,6 +201,7 @@ inline Real K2 () const {return  Value(1);};
 /// </example>
 ///  @param " " Não há parâmetros.
 ///  @return Valor do coeficiente que reflete a heterogeneidade do adsorvente.
+[[nodiscard]] 
 inline Real K3 () const {return  Value(2);};
 
 //==============================================================================
