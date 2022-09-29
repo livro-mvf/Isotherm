@@ -1,9 +1,9 @@
 //==============================================================================
 // Name        : Toth.h
-// Authors     : Lara Botelho Brum
+// Authors     : Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Toth
+// Description : Classe com as equacoes da isoterma de Toth
 //
 // Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -24,23 +24,17 @@
 
 
 /*! \class	Toth
- *  \brief	Classe com as equações da isoterma de Toth
+ *  \brief	Classe com as equacoes da isoterma de Toth
  *  \file	Toth.h
- *  \authors	Lara Botelho Brum
+ *  \authors	Luan Rodrigues Soares de Souza
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \date	2022
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __TOTH_H__
 #define __TOTH_H__
-
-//==============================================================================
-// include da biblioteca c++
-//==============================================================================
-
-#include <cmath>
 
 //==============================================================================
 // include da isotherm++
@@ -51,23 +45,23 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Toth
+/// Classe com as equacoes da isoterma de Toth
 /// </summary>
-///  Isoterma com três parâmetros, \f$ K_1 \f$, \f$ K_2 \f$ e \f$ K_3 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tras parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
-///   \[q = q_max\frac{K_1C}{((1+(K_1C)_e^{K_2})_e^{\frac{1}{K_2}}]
+///  \[Q_e(C_e, T) = q_{max}\frac{K_1C^{\frac{1}{K_2}}}{1 + K_1C^{\frac{1}{K_2}}}\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  Um artigo de referancia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  \authors    Luan Rodrigues Soares de Souza
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
 class Toth :  public virtual ThreeParameters,
-                   public IsothermTemplate < Toth > {
+              public IsothermTemplate < Toth > {
 
 //==============================================================================
 // ID da classe
@@ -76,15 +70,14 @@ class Toth :  public virtual ThreeParameters,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
 
     DefineIdentity("Toth", ID::Toth);
 
-
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -98,11 +91,11 @@ public:
 ///     Toth  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Toth() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -111,8 +104,8 @@ public:
 ///     Toth  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Toth original.
-    Toth (const Toth& _toth) = default;
+/// @param  _orig Variavel do tipo Toth original.
+    Toth (const Toth& _orig) = default;
 
 /// <summary>
 /// Destrutora.
@@ -120,24 +113,24 @@ public:
     virtual ~Toth() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Toth.
+/// Construtora com os parametros que definem a isoterma de Toth.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     double K3(1.0);                                                              
-///     double K1(1.0);                                                              
-///     double K2(1.0);                                                              
-///     Toth  var1(K3, K1, K2);
+///     double QMAX(1.0);
+///     double K1(1.0);
+///     double K2(1.0);
+///     Toth  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _k3 Constante da isoterm de Toth.                                        
-///  @param _k1 Constante da isortema de Toth.                                       
-///  @param _k2 Constante do expoente da isoterma de Toth.                           
-///  @exception _k3 <= 0.
+///  @param _qmax Capacidade maxima de adsorcao.
+///  @param  _k1 Constante da isortema de Toth.
+///  @param _k2 Constante do expoente da isoterma de Toth.
+///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
-    Toth (const Real&, const Real&, const Real&);
+    Toth (const Real& , const Real& ,  const Real&);
 
 //==============================================================================
 // Sobrecarga de operadores
@@ -152,129 +145,133 @@ public:
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
+///     Toth  var1(QMAX, K1, K2);
 ///     Toth  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Toth original.
-///  @return Cópia de _orig.
-   Toth& operator = (const Toth&) = default;
+///  @param _orig Variavel do tipo Toth original.
+///  @return Copia de _orig.
+    Toth& operator = (const Toth& _orig) = default;
 
 //==============================================================================
-// Acesso as constantes da classe
+// Acesso as constantes da classe inline
 //==============================================================================
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Toth.                     
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
-///     double k3 = var1.K3();
+///     Toth  var1(QMAX, K1, K2);
+///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de Toth.                        
-inline Real K3 () const {return  Value(0);};
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
+    [[nodiscard]]
+    inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Toth.                     
+/// Funcao que retorna o coeficiente associado a constante de Toth.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
+///     Toth  var1(QMAX, K1, K2);
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de Toth.                        
-inline Real K1 () const {return  Value(1);};
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente associado a constante de Toth.
+    [[nodiscard]]
+    inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Função que retorna o valor do expoente da isoterma de Toth.                         
+/// Funcao que retorna o valor do expoente da isoterma de Toth.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
+///     Toth  var1(QMAX, K1, K2);
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do expoente da isoterma de Toth.                                     
-inline Real K2 () const {return  Value(2);};
+///  @param " " Nao ha parametros.
+///  @return Valor do expoente da isoterma de Toth.
+    [[nodiscard]]
+    inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
 // Alterando as constantes da classe
 //==============================================================================
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Toth.                   
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
-///     double k3(3.0);
-///     var1.K3(k3);
+///     Toth  var1(QMAX, K1, K2);
+///     double q1(3.0);
+///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _k3 Novo valor do coeficiente associado a constante de Toth.
-///  @exception _k3 <= 0.
-    void K3 (const Real& _k3)  {*this = Toth(_k3, Value(1), Value(2));};
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
+///  @exception _qmax <= 0.
+    void Qmax (const Real& _qmax)  {*this = Toth(_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante de Toth.
+/// Funcao que altera o coeficiente associado a constante de Toth.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
+///     Toth  var1(QMAX, K1, K2);
 ///     double k1(2.0);
 ///     var1.K1(k1);
 /// @endcode
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a constante de Toth.
 ///  @exception _k1 <= 0.
-    void K1 (const Real& _k1)  {*this = Toth(Value(0), _k1,  Value(2));};
+     void K1 (const Real& _k1)  {*this = Toth(Value(0), _k1, Value(2));};
 
 /// <summary>
-/// Função para alterar o valor do expoente da isoterma de Toth.
+/// Funcao para alterar o valor do expoente da isoterma de Toth.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
+///     Toth  var1(QMAX, K1, K2);
 ///     double k2(3.0);
 ///     var1.K2(k2);
 /// @endcode
 /// </example>
 ///  @param _k2 Novo valor do expoente da isoterma de Toth.
 ///  @exception _k2 <= 0.
-     void K2 (const Real& _k2)  {*this = Toth(Value(0), Value(1),  _k2);};
+    void K2 (const Real& _k2)  {*this = Toth(Value(0), Value(1), _k2);};
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     Toth  var1(K3, K1, K2);
+///     Toth  var1(QMAX, K1, K2);
 ///     double ce(1.0);
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.
 ///  @exception _c < 0.
+
     [[nodiscard]]  Real Qe (const Real&, const Real&) const;
 
     [[nodiscard]] 
@@ -290,11 +287,10 @@ inline Real K2 () const {return  Value(2);};
         return std::make_unique<Toth>(*this);
     }
 
+
     
 };
 
 IST_NAMESPACE_CLOSE
 
-
-#endif /* __TOTH_H__ */
-
+#endif /* __SIPS_H__ */

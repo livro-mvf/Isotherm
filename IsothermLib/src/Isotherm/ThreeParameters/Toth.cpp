@@ -45,8 +45,8 @@ IST_NAMESPACE_OPEN
 // Variaveis estáticas                                                              *EDITAR, CASO HAJA NECESSIDADE*
 //==============================================================================
 
-VecPairString       detailsToth {   PairString  ( "K3"
-                                                , "Constante de Toth")
+VecPairString       detailsToth {   PairString  ( "Qmax"
+                                                , "Capacidade maxima de adsorcao")
                                 ,   PairString  ( "K1"
                                                 , "Constante de Toth")
                                 ,   PairString  ( "K2"
@@ -58,32 +58,43 @@ VecPairString IsothermTemplate < Toth >::infoIsotherm = detailsToth;
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Toth :: Toth (const Real&, const Real&, const Real&)"
-Toth :: Toth (  const Real& _k3,
-                const Real& _k1,
-                const Real& _k2) :
-                ThreeParameters(_k3, _k1, _k2) {
+Toth :: Toth    (   const Real&     _qmax
+                ,   const Real&     _k1
+                ,   const Real&     _k2
+                ) 
+                :   ThreeParameters(_qmax, _k1, _k2) {
 
 
    try {
 
-            if (_k3 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+            if (_qmax <= 0.0)  throw
+                    IsoException    (  IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
-            if (_k2 <= 1)  throw
-                    IsoException (IST_LOC, className(), BadK2LEOne);
+            if (_k2 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
 
     }
     setup = true;
@@ -98,25 +109,31 @@ exit(EXIT_FAILURE);
 #undef  __FUNCT__
 #define __FUNCT__ "Toth ::  Qe (const Real&, const Real&) const "
 Real
-Toth ::  Qe (const Real& _ce, const Real&) const {
+Toth ::  Qe     (   const Real&     _ce
+                ,   const Real&
+                ) const {
 
     try {
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                , BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = pow((1 / *(ptrValue + 1)) + (pow (_ce, *(ptrValue + 2) )) , 1 / * (ptrValue + 2));
+auto    auxi = pow((1. / *(ptrValue + 1)) + (pow (_ce, *(ptrValue + 2) )) , 1. / * (ptrValue + 2));
+auto    value = *ptrValue * _ce / auxi;
 
+    return (value >= ZERO ? value : 0.0)  ;
 
-
-        return *ptrValue * _ce / auxi;
 }
 
 IST_NAMESPACE_CLOSE

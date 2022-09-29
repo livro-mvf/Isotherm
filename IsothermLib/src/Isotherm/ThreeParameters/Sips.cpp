@@ -44,7 +44,7 @@ VecPairString       detailsSips
     {
 
         PairString  ( "Qmax"
-                    , "Capacidade maxima de adsorçaoo")
+                    , "Capacidade maxima de adsorcao")
     ,   PairString  ( "K1"
                     , "Expoente da isoterma de Sips")
     ,   PairString  ( "K2"
@@ -100,7 +100,7 @@ Sips :: Sips    (   const Real& _qmax
     }
 
 //==============================================================================
-// Concentraçao de Equilíbrio Q
+// Concentraca de Equilíbrio Q
 //==============================================================================
 
 #undef  __FUNCT__

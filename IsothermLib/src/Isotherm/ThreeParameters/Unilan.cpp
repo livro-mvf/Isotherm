@@ -35,6 +35,7 @@
 // includes da lib IsothermLib
 //==============================================================================
 
+#include <Error/IsoException.h>
 #include <Isotherm/ThreeParameters/Unilan.h>
 
 
@@ -45,7 +46,7 @@ IST_NAMESPACE_OPEN
 //==============================================================================
 
 VecPairString       isothermUnilan {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção.")
+                                                    , "Capacidade máxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Unilan.")
                                     ,   PairString  ( "K2"
@@ -56,74 +57,90 @@ VecPairString IsothermTemplate < Unilan >::infoIsotherm = isothermUnilan;
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Unilan :: Unilan (const Real&, const Real&, const Real&)"
-Unilan :: Unilan (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2) : ThreeParameters(_qmax, _k1, _k2) {
+Unilan :: Unilan    (   const Real&     _qmax
+                    ,   const Real&     _k1
+                    ,   const Real&     _k2
+                    ) 
+                    : ThreeParameters(_qmax, _k1, _k2) {
 
 
 
-//    try {
-//
-//            if (_qmax < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadQmaxLEZero);
-//
-//            if (_k1 < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK1LEZero);
-//
-//            if (_k2 < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK2LEZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
-//
-//        exit(EXIT_FAILURE);
-//
-//    };
+    try {
+
+            if (_qmax <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
+
+            if (_k1 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
+
+            if (_k2 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout   << _isoExcept 
+                    << "\n";
+        exit(EXIT_FAILURE);
+
+    };
 
     setup = true;
+    
+auto    val = exp(_k2);
+        nume = _k1 * val;
+        deno = _k1 / val;
+        prod = 0.5 * _qmax / _k2;
 
 
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Unilan ::  Qe (const Real&, const Real&) const "
 Real
-Unilan ::  Qe (const Real& _ce, const Real&) const {
+Unilan ::  Qe   (   const Real&     _ce
+                ,   const Real&
+                ) const {
 
-//    try {
-//        if (!setup) throw
-//                IsoException    (   IST_LOC
-//                                ,   className()
-//                                ,   BadCoefficient);
-//
-//        if (_ce < 0.0)  throw
-//                IsoException (IST_LOC, className(), BadCeLTZero);
-//
-//    } catch (const IsoException& _isoExcept) {
-//
-//        std::cout << _isoExcept << "\n";
+    try {
+        if (!setup) throw
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCoefficient);
 
-//       exit(EXIT_FAILURE);;
-//    }
+        if (_ce < 0.0)  throw
+                IsoException (IST_LOC, className(), BadCeLTZero);
+
+    } catch (const IsoException& _isoExcept) {
+
+        std::cout   << _isoExcept 
+                    << "\n";
+       exit(EXIT_FAILURE);;
+    }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = 1 + (*(ptrValue + 1) * _ce * exp(*(ptrValue + 2)));
-auto    auxi1 = 1 + (*(ptrValue + 1) * _ce * exp( -(*(ptrValue + 2))) );
-auto    auxi2 = log(auxi / auxi1);
-auto    auxi3 = *ptrValue / (2 * (*(ptrValue + 2)));
+auto    value = prod * log ((1 + _ce * nume) / (1 + _ce * deno));
 
-
-        return ( auxi3 * auxi2);
+    return (value >= ZERO ? value : 0.0)  ;
+    
+    
 }
 
 IST_NAMESPACE_CLOSE

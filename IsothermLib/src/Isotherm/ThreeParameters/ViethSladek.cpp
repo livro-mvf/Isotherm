@@ -20,43 +20,53 @@ IST_NAMESPACE_OPEN
 //==============================================================================
 
 VecPairString       isothermViethSladek     {   PairString  ( "Qmax"
-                                                            , "Capacidade máxima de adsorção")
+                                                            , "Capacidade máxima de adsorcao")
                                             ,   PairString  ( "K1"
                                                             , "Constante de ViethSladek")
                                             ,   PairString  ( "K2"
-                                                            , "Parâmetro da equação de Vieth–Sladek")};
+                                                            , "Parametro da equacao de ViethSladek")};
 
 template<>
 VecPairString IsothermTemplate < ViethSladek >::infoIsotherm = isothermViethSladek;
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "ViethSladek :: ViethSladek (const Real&, const Real&, const Real&)"
 ViethSladek :: ViethSladek  (   const Real&     _qmax
                             ,   const Real&     _k1
-                            ,   const Real& _k2
+                            ,   const Real&     _k2
                             )
                             :   ThreeParameters(_qmax, _k1, _k2)
 {
 
     try {
 
-            if (_qmax < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+            if (_qmax <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
-            if (_k1 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+            if (_k1 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
-            if (_k2 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+            if (_k2 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     };
@@ -66,13 +76,15 @@ ViethSladek :: ViethSladek  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de Equilíbrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "ViethSladek ::  Qe (const Real&, const Real&) const "
 Real
-ViethSladek ::  Qe (const Real& _ce, const Real&) const {
+ViethSladek ::  Qe  (   const Real& _ce
+                    ,   const Real&
+                    ) const {
 
     try {
         if (!setup) throw
@@ -81,20 +93,26 @@ ViethSladek ::  Qe (const Real& _ce, const Real&) const {
                                 ,   BadCoefficient);
 
         if (_ce < 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
+        
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = ((*(ptrValue + 2)) * _ce);
+
 auto    auxiq = ((*ptrValue) * (*(ptrValue + 1)) * _ce);
 auto    auxik = (1 + ((*(ptrValue + 1)) * _ce));
+auto    value = ((*(ptrValue + 2)) * _ce) + auxiq / auxik;
 
-        return (auxi + auxiq / auxik );
+    return (value >= ZERO ? value : 0.0)  ;
 }
 
 IST_NAMESPACE_CLOSE

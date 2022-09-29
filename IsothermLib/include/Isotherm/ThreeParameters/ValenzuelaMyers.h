@@ -28,7 +28,7 @@
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
  *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 
@@ -53,15 +53,15 @@ IST_NAMESPACE_OPEN
 /// <summary>
 /// Classe com as equações da isoterma de ValenzuelaMyers.
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com três parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T)= \frac{q_{max}}{2K_2}ln(\frac{K_1+C_ee^{K_2}}{K_1+C_ee^{-K_2}})\]
 ///\end{align}
 ///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flávio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -75,7 +75,7 @@ class ValenzuelaMyers :  public virtual ThreeParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
         
@@ -97,7 +97,7 @@ public:
 ///     ValenzuelaMyers  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     ValenzuelaMyers() = default;
     
 /// <summary>
@@ -119,7 +119,7 @@ public:
     virtual ~ValenzuelaMyers() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Valenzuela - Myers.
+/// Construtora com os parametros que definem a isoterma de Valenzuela - Myers.
 /// </summary>
 /// <example>
 /// Uso:
@@ -130,7 +130,7 @@ public:
 ///     Sips  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.    
+///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param  _k1 Constante da isortema de Valenzuela - Myers.    
 ///  @param _k2 Constante da isoterma de Valenzuela - Myers.
 ///  @exception _qmax <= 0.
@@ -164,7 +164,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -173,13 +173,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
+        [[nodiscard]] 
 inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Valenzuela - Myers.
+/// Funcao que retorna o coeficiente associado a constante de Valenzuela - Myers.
 /// </summary>
 /// <example>
 /// Uso:
@@ -188,12 +189,13 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Valenzuela - Myers.
+    [[nodiscard]] 
 inline Real K1 () const {return  Value(1);};
     
 /// <summary>
-/// Função que retorna o parâmetro da equação de Valenzuela - Myers.
+/// Funcao que retorna o parametro da equacao de Valenzuela - Myers.
 /// </summary>
 /// <example>
 /// Uso:
@@ -202,8 +204,9 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do parâmetro da equação de Valenzuela - Myers.    
+///  @param " " Nao ha parametros.
+///  @return Valor do parametro da equacao de Valenzuela - Myers.   
+    [[nodiscard]] 
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -211,7 +214,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -221,12 +224,12 @@ inline Real K2 () const {return  Value(2);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = ValenzuelaMyers (_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante da isoterma de Valenzuela - Myers.
+/// Funcao que altera o coeficiente associado a constante da isoterma de Valenzuela - Myers.
 /// </summary>
 /// <example>
 /// Uso:
@@ -241,7 +244,7 @@ inline Real K2 () const {return  Value(2);};
     void K1 (const Real& _k1)  {*this = ValenzuelaMyers (Value(0), _k1, Value(2));};
 
 /// <summary>
-/// Função para alterar o valor associado a constante da isoterma de Valenzuela - Myers.
+/// Funcao para alterar o valor associado a constante da isoterma de Valenzuela - Myers.
 /// </summary>
 /// <example>
 /// Uso:
@@ -261,7 +264,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilíbrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -271,8 +274,8 @@ inline Real K2 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilíbrio.    
 ///  @exception _c < 0.    
   
     
@@ -292,7 +295,11 @@ inline Real K2 () const {return  Value(2);};
         return std::make_unique<ValenzuelaMyers>(*this);
     }
 
-
+    private:
+        
+        Real nume = 0;
+        Real deno = 0;
+        Real prod = 0;
     
 };
 
