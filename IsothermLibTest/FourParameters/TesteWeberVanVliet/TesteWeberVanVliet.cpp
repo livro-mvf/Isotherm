@@ -1,5 +1,5 @@
 //==============================================================================
-// Name        : TesteBaudu.cpp
+// Name        : TesteWeberVanVliet.cpp
 // Authors     : Iasmim Barboza Storck
 //               Lara Botelho Brum
 //               Luan Rodrigues Soares de Souza
@@ -28,7 +28,7 @@
 // include da isotherm++
 //==============================================================================
 
-#include <Isotherm/FourParameters/Baudu.h>                 // ist::Baudu
+#include <Isotherm/FourParameters/WeberVanVliet.h>                 // ist::WeberVanVliet
 
 
 //==============================================================================
@@ -36,7 +36,7 @@
 //==============================================================================
 #include <gtest/gtest.h>
 
-typedef     ist::Baudu TestIsotherm;
+typedef     ist::WeberVanVliet TestIsotherm;
 
 class TestSuit : public ::testing::Test {  
     

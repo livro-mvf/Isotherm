@@ -1,5 +1,5 @@
 //==============================================================================
-// Name        : TesteBaudu.cpp
+// Name        : TesteMarczewskiJaroniec.cpp
 // Authors     : Iasmim Barboza Storck
 //               Lara Botelho Brum
 //               Luan Rodrigues Soares de Souza
@@ -28,7 +28,7 @@
 // include da isotherm++
 //==============================================================================
 
-#include <Isotherm/FourParameters/Baudu.h>                 // ist::Baudu
+#include <Isotherm/FourParameters/MarczewskiJaroniec.h>                 // ist::MarczewskiJaroniec
 
 
 //==============================================================================
@@ -36,17 +36,17 @@
 //==============================================================================
 #include <gtest/gtest.h>
 
-typedef     ist::Baudu TestIsotherm;
+typedef     ist::MarczewskiJaroniec TestIsotherm;
 
 class TestSuit : public ::testing::Test {  
     
 protected: 
     
-const Real              CE          = 1.84657;
-const Real              QMAX        = 1.95325;    
-const Real              K1          = 0.513664;   
-const Real              K2          = 0.0435246;    
-const Real              K3          = 0.605498e-2;    
+const Real              CE          = 1.68377;
+const Real              QMAX        = 4.99159;    
+const Real              K1          = 0.240965;   
+const Real              K2          = 0.0686414;    
+const Real              K3          = 0.0818727;    
 const Real              QMAXNovo    = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
 const Real              K2Novo      = 3.3;    
@@ -114,7 +114,7 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 
 TEST_F(TestSuit, CalculoQe) {
 
-const Real                      QEANALIT1(0.9412889085);
+const Real                      QEANALIT1(2.103278904);
 const TestIsotherm              iso1 (QMAX, K1, K2, K3);
 std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
 

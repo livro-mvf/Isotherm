@@ -73,7 +73,7 @@ public:
         ,   HillDeBoer
         ,   RedlichPeterson
         ,   Sips
-    //    ,   Kiselev
+        ,   Kiselev
         ,   FowlerGuggenheim
         ,   HollKrich
         ,   Jossens
@@ -94,6 +94,8 @@ public:
         ,   ValenzuelaMyers
         ,   Baudu = 400
         ,   FritzSchlunderIV
+        ,   MarczewskiJaroniec
+        ,   WeberVanVliet
         ,   FritzSchlunderV = 500
         ,   FrenkelHalseyHill
         ,   Henderson       

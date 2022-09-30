@@ -69,6 +69,16 @@ class Kiselev :  public virtual ThreeParameters,
 // ID da classe
 //==============================================================================
 
+public:    
+    
+/// <summary>
+/// Definicao de ID para esta classe para fins de identificacao de erros.
+/// </summary>
+    
+    DefineIdentity  (   "Kiselev"
+                    ,   ID::Kiselev
+                    );  
+    
 public:
 
 /// <summary>

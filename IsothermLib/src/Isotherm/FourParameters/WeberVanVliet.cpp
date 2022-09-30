@@ -1,8 +1,8 @@
 //==============================================================================
-// Name        : Baudu.cpp
+// Name        : WeberVanVliet.cpp
 // Author      : Joao Flavio Vasconcellos 
 // Version     : 1.0
-// Description : Classe com as equacoes da isoterma de Baudu.
+// Description : Classe com as equacoes da isoterma de WeberVanVliet.
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -34,7 +34,7 @@
 //==============================================================================
 
 #include <Error/IsoException.h>
-#include <Isotherm/FourParameters/Baudu.h>
+#include <Isotherm/FourParameters/WeberVanVliet.h>
 
 
 IST_NAMESPACE_OPEN
@@ -43,17 +43,17 @@ IST_NAMESPACE_OPEN
 // Variaveis estaticas
 //==============================================================================
 
-VecPairString       detailsBaudu    {   PairString  ( "Qmax"
+VecPairString       detailsWeberVanVliet    {   PairString  ( "Qmax"
                                                     , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
-                                                    , "Coeficiente da isoterma de Baudu.")
+                                                    , "Coeficiente da isoterma de WeberVanVliet.")
                                     ,   PairString  ( "K2"
-                                                    , "Coeficiente da isoterma de Baudu.")        
+                                                    , "Coeficiente da isoterma de WeberVanVliet.")        
                                     ,   PairString  ( "K3"
-                                                    , "Expoente da isoterma de Baudu.")};
+                                                    , "Expoente da isoterma de WeberVanVliet.")};
 
 template<>
-VecPairString IsothermTemplate < Baudu >::infoIsotherm = detailsBaudu;
+VecPairString IsothermTemplate < WeberVanVliet >::infoIsotherm = detailsWeberVanVliet;
 
 
 //==============================================================================
@@ -61,8 +61,8 @@ VecPairString IsothermTemplate < Baudu >::infoIsotherm = detailsBaudu;
 //==============================================================================
 
 #undef  __FUNCT__
-#define __FUNCT__ "Baudu :: Baudu (const Real&, const Real&, const Real&, const Real&)"
-Baudu :: Baudu  (   const Real&     _qmax 
+#define __FUNCT__ "WeberVanVliet :: WeberVanVliet (const Real&, const Real&, const Real&, const Real&)"
+WeberVanVliet :: WeberVanVliet  (   const Real&     _qmax 
                 ,   const Real&     _k1
                 ,   const Real&     _k2
                 ,   const Real&     _k3
@@ -123,9 +123,9 @@ Baudu :: Baudu  (   const Real&     _qmax
    
 
 #undef  __FUNCT__
-#define __FUNCT__ "Baudu ::  Qe (const Real&, const Real&) const "
+#define __FUNCT__ "WeberVanVliet ::  Qe (const Real&, const Real&) const "
 Real 
-Baudu ::  Qe    (   const Real& _ce
+WeberVanVliet ::  Qe    (   const Real& _ce
                 ,   const Real&
                 ) const {
     

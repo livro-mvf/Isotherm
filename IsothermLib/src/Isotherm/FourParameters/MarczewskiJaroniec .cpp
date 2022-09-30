@@ -1,8 +1,8 @@
 //==============================================================================
-// Name        : Baudu.cpp
+// Name        : MarczewskiJaroniec.cpp
 // Author      : Joao Flavio Vasconcellos 
 // Version     : 1.0
-// Description : Classe com as equacoes da isoterma de Baudu.
+// Description : Classe com as equacoes da isoterma de MarczewskiJaroniec.
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -34,7 +34,7 @@
 //==============================================================================
 
 #include <Error/IsoException.h>
-#include <Isotherm/FourParameters/Baudu.h>
+#include <Isotherm/FourParameters/MarczewskiJaroniec.h>
 
 
 IST_NAMESPACE_OPEN
@@ -43,17 +43,17 @@ IST_NAMESPACE_OPEN
 // Variaveis estaticas
 //==============================================================================
 
-VecPairString       detailsBaudu    {   PairString  ( "Qmax"
+VecPairString       detailsMarczewskiJaroniec    {   PairString  ( "Qmax"
                                                     , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
-                                                    , "Coeficiente da isoterma de Baudu.")
+                                                    , "Coeficiente da isoterma de MarczewskiJaroniec.")
                                     ,   PairString  ( "K2"
-                                                    , "Coeficiente da isoterma de Baudu.")        
+                                                    , "Coeficiente da isoterma de MarczewskiJaroniec.")        
                                     ,   PairString  ( "K3"
-                                                    , "Expoente da isoterma de Baudu.")};
+                                                    , "Expoente da isoterma de MarczewskiJaroniec.")};
 
 template<>
-VecPairString IsothermTemplate < Baudu >::infoIsotherm = detailsBaudu;
+VecPairString IsothermTemplate < MarczewskiJaroniec >::infoIsotherm = detailsMarczewskiJaroniec;
 
 
 //==============================================================================
@@ -61,8 +61,8 @@ VecPairString IsothermTemplate < Baudu >::infoIsotherm = detailsBaudu;
 //==============================================================================
 
 #undef  __FUNCT__
-#define __FUNCT__ "Baudu :: Baudu (const Real&, const Real&, const Real&, const Real&)"
-Baudu :: Baudu  (   const Real&     _qmax 
+#define __FUNCT__ "MarczewskiJaroniec :: MarczewskiJaroniec (const Real&, const Real&, const Real&, const Real&)"
+MarczewskiJaroniec :: MarczewskiJaroniec  (   const Real&     _qmax 
                 ,   const Real&     _k1
                 ,   const Real&     _k2
                 ,   const Real&     _k3
@@ -123,9 +123,9 @@ Baudu :: Baudu  (   const Real&     _qmax
    
 
 #undef  __FUNCT__
-#define __FUNCT__ "Baudu ::  Qe (const Real&, const Real&) const "
+#define __FUNCT__ "MarczewskiJaroniec ::  Qe (const Real&, const Real&) const "
 Real 
-Baudu ::  Qe    (   const Real& _ce
+MarczewskiJaroniec ::  Qe    (   const Real& _ce
                 ,   const Real&
                 ) const {
     
@@ -151,9 +151,9 @@ Baudu ::  Qe    (   const Real& _ce
     }
  
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi  = *(ptrValue + 1) * pow(_ce, 1 -  *(ptrValue + 2) +  *(ptrValue + 3));
-auto    auxi1 = *(ptrValue + 1) * pow(_ce, 1 -  *(ptrValue + 2));
-auto    value = (*ptrValue) * auxi / (1 + auxi1);
+auto    auxi  = pow(*(ptrValue + 1) * _ce, *(ptrValue + 2));
+auto    auxi1 = auxi / (1 + auxi);
+auto    value = (*ptrValue) * pow(auxi1, *(ptrValue + 3) / *(ptrValue + 2) );
 
     return  (value >= ZERO ? value : 0.0);
  
