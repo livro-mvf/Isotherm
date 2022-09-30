@@ -2,9 +2,9 @@
 // Name        : FourParameters.h
 // Author      : Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com quatro parâmetros
+// Description : Classe base para as isotermas com quatro parametros
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -23,19 +23,19 @@
 
 /** @defgroup FourParameters  
  *  @ingroup Base
- *  Classe base das isotermas com quatro parâmetro.
+ *  Classe base das isotermas com quatro parametro.
  *  @{
  */
 
 ///  <summary>
-///  Classe base para todas as isotermas com quatro parâmetros.
+///  Classe base para todas as isotermas com quatro parametros.
 /// </summary>
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
         
@@ -89,7 +89,7 @@ protected:
 
 protected:
 
-    FourParameters& operator = ( const FourParameters& ) = default;
+    FourParameters& operator = (const FourParameters&) = default;
 
 };
 

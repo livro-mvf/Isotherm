@@ -70,17 +70,27 @@ BrouersSotolongo :: BrouersSotolongo    (   const Real&     _qmax
     try {
 
             if (_qmax <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
             if (_k1 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
             if (_k2 <= 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     };

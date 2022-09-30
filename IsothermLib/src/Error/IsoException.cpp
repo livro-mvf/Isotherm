@@ -34,8 +34,6 @@ static std::string IsoExceptionStr[] =
     ,       "K1 menor do que 1."                                       // BadK1LTOne
     ,       "K2 menor ou igual a 1."                                   // BadK2LEOne
     ,       "K3 maior do que 1."                                       // BadK3GTOne     
-    ,       "K3 deve ser maior que  0 e menor que 1."                  // BadK3Between01
-    ,       "K4 deve ser maior que  0 e menor que 1."                  // BadK4Between01                     
     ,       "Qmax menor ou igual a zero."                              // BadQmaxLEZero 
     ,       "Temperatura menor ou igual a zero."                       // BadTempLEZero
     ,       "Constante universal dos gases menor ou igual a zero."     // BadRGasLEZero

@@ -2,7 +2,7 @@
 // Name        : ThreeParameters.cpp
 // Author      : Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com 3 parâmetros
+// Description : Classe base para as isotermas com 3 parametros
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -33,7 +33,7 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 template<>
@@ -42,16 +42,13 @@ VecPairString IsothermTemplate < ThreeParameters >::infoIsotherm  = VecPairStrin
 
 #undef  __FUNCT__
 #define __FUNCT__ "ThreeParameters :: ThreeParameters (const Real&, const Real&, const Real&)"
-ThreeParameters :: ThreeParameters( const Real& _par_0, // Primeiro parâmetro
-                                    const Real& _par_1, // Segundo parâmetro
-                                    const Real& _par_2) // Terceiro parâmetro
-{
-
-
+ThreeParameters :: ThreeParameters  (   const Real&     _par_0      // Primeiro parametro
+                                    ,   const Real&     _par_1      // Segundo parametro
+                                    ,   const Real&     _par_2      // Terceiro parametro
+                                    )
+{       
 
     coeffValue    = VecReal({_par_0, _par_1, _par_2});
-
-
 
 }
 

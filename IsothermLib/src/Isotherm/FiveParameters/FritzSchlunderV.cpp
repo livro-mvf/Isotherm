@@ -80,11 +80,11 @@ FritzSchlunderV :: FritzSchlunderV (  const Real& _qmax,
             if (_k2 < 0.0)  throw
                     IsoException (IST_LOC, className(), BadK2LEZero);
 
-            if (_k3 > 1.0 || _k3 < 0)  throw
-                    IsoException (IST_LOC, className(), BadK3Between01);
-
-            if (_k4 > 1.0 || _k4 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK4Between01);
+//            if (_k3 > 1.0 || _k3 < 0)  throw
+//                    IsoException (IST_LOC, className(), BadK3Between01);
+//
+//            if (_k4 > 1.0 || _k4 < 0.0)  throw
+//                    IsoException (IST_LOC, className(), BadK4Between01);
 
     } catch (const IsoException& _isoExcept) {
 

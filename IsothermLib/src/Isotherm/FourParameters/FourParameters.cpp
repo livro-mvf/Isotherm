@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com quatro parâmetros
+// Description : Classe base para as isotermas com quatro parametros
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -27,12 +27,13 @@
 // includes da lib Isotherm++
 //==============================================================================
 
+
 #include <Isotherm/FourParameters/FourParameters.h>
 
 IST_NAMESPACE_OPEN
         
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 template<>
@@ -41,13 +42,14 @@ VecPairString IsothermTemplate < FourParameters >::infoIsotherm  = VecPairString
 
 #undef  __FUNCT__
 #define __FUNCT__ "FourParameters :: FourParameters (const Real&, const Real&, const Real&, const Real&)"
-FourParameters :: FourParameters    (   const Real&     _par_0      // Primeiro parâmetro
-                                    ,   const Real&     _par_1      // Segundo parâmetro
-                                    ,   const Real&     _par_2      // Terceiro parâmetro
-                                    ,   const Real&     _par_3      // Terceiro parâmetro
+FourParameters :: FourParameters    (   const Real&     _par_0      // Primeiro parametro
+                                    ,   const Real&     _par_1      // Segundo parametro
+                                    ,   const Real&     _par_2      // Terceiro parametro
+                                    ,   const Real&     _par_3      // Terceiro parametro
                                     )
 {
-    coeffValue    = VecReal(( _par_0, _par_1, _par_2, _par_3));
+    coeffValue    = VecReal({ _par_0, _par_1, _par_2, _par_3});
+ 
 }
 
 IST_NAMESPACE_CLOSE

@@ -74,9 +74,7 @@ enum IsoExceptionIndex {
     ,   BadK4LTZero
     ,   BadK1LTOne
     ,   BadK2LEOne
-    ,   BadK3GTOne       
-    ,   BadK3Between01
-    ,   BadK4Between01                    
+    ,   BadK3GTOne                          
     ,   BadQmaxLEZero                
     ,   BadTempLEZero
     ,   BadRGasLEZero                
