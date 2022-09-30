@@ -131,7 +131,7 @@ public:
 ///     double K1(1.0);    
 ///     double K2(1.0);
 ///     double K3(1.0);
-///     WeberVanVliet  var1(Q1, K1, K2, K3);
+///     WeberVanVliet  var1(K1, K2, K3, K4);
 /// @endcode
 /// </example>
 ///  @param _qmax Capacidade maxima de adsorcao.    
@@ -143,10 +143,10 @@ public:
 ///  @exception _k2 <= 0.
 ///  @exception 0 < _k3 < 1.
     WeberVanVliet   (   const Real& 
-            ,   const Real& 
-            ,   const Real& 
-            ,   const Real&
-            );
+                    ,   const Real& 
+                    ,   const Real& 
+                    ,   const Real&
+                    );
 
 //==============================================================================
 // Sobrecarga de operadores
@@ -173,22 +173,7 @@ public:
 // Acesso as constantes da classe
 //==============================================================================
 
-/// <summary>
-/// Funcao que informa o valor da capacidade maxima de adsorcao.
-/// </summary>
-/// <example>
-/// Uso:
-/// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
-///     double q1 = var1.Qmax();
-/// @endcode
-/// </example>
-///  @param " " Nao ha parametros.
-///  @return Valor da  capacidade maxima de adsorcao.
     
-[[nodiscard]] 
-inline Real Qmax () const {return  Value(0);};
-
 
 /// <summary>
 /// Funcao que retorna o coeficiente associado a constante de WeberVanVliet.
@@ -205,7 +190,7 @@ inline Real Qmax () const {return  Value(0);};
 
 
 [[nodiscard]] 
-inline Real K1 () const {return  Value(1);};
+inline Real K1 () const {return  Value(0);};
     
 /// <summary>
 /// Funcao que retorna o parametro da equacao de WeberVanVliet.
@@ -213,14 +198,14 @@ inline Real K1 () const {return  Value(1);};
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do parametro da equacao de WeberVanVliet.    
 [[nodiscard]] 
-inline Real K2 () const {return  Value(2);};
+inline Real K2 () const {return  Value(1);};
 
 /// <summary>
 /// Funcao que retorna o parametro da equacao de WeberVanVliet.
@@ -228,38 +213,33 @@ inline Real K2 () const {return  Value(2);};
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
 ///     double k3 = var1.K3();
 /// @endcode
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do parametro da equacao de WeberVanVliet.  
 [[nodiscard]] 
-inline Real K3 () const {return  Value(3);};
-
-//==============================================================================
-// Alterando as constantes da classe
-//==============================================================================
+inline Real K3 () const {return  Value(2);};
 
 /// <summary>
-/// Funcao para alterar  a capacidade maxima de adsorcao.
+/// Funcao que retorna o parametro da equacao de WeberVanVliet.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
-///     double q1(3.0);
-///     var1.Qmax(q1);
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
+///     double k4 = var1.K4();
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorcao.
-///  @exception _qmax < 0.
-    void Qmax (const Real& _qmax)   {   *this = WeberVanVliet    (       _qmax 
-                                                                    ,       Value(1) 
-                                                                    ,       Value(2)
-                                                                    ,       Value(3)
-                                                                    );
-                                    };
+///  @param " " Nao ha parametros.
+///  @return Valor do parametro da equacao de WeberVanVliet.  
+[[nodiscard]] 
+inline Real K4 () const {return  Value(3);};
+
+//==============================================================================
+// Alterando as constantes da classe
+//==============================================================================
 
 /// <summary>
 /// Funcao que altera o coeficiente associado a constante da isoterma de WeberVanVliet.
@@ -274,8 +254,30 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a constante da isoterma de WeberVanVliet. 
 ///  @exception _k1 <= 0.
-    void K1 (const Real& _k1)   {   *this = WeberVanVliet    (   Value(0) 
-                                                                ,   _k1 
+    void K1 (const Real& _k1)   {   *this = WeberVanVliet   (   _k1 
+                                                            ,   Value(1) 
+                                                            ,   Value(2) 
+                                                            ,   Value(3)
+                                                            );
+                            };
+
+                             
+
+/// <summary>
+/// Funcao que altera o coeficiente associado a constante da isoterma de WeberVanVliet.
+/// </summary>
+/// <example>
+/// Uso:
+/// @code
+///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     double k1(2.0);
+///     var1.K1(k1);
+/// @endcode
+/// </example>
+///  @param _k1 Novo valor do coeficiente associado a constante da isoterma de WeberVanVliet. 
+///  @exception _k1 <= 0.
+    void K2 (const Real& _k2)   {   *this = WeberVanVliet    (   Value(0) 
+                                                                ,   _k2 
                                                                 ,   Value(2) 
                                                                 ,   Value(3)
                                                                 );
@@ -294,11 +296,11 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _k2 Novo valor associado a constante da isoterma de WeberVanVliet.
 ///  @exception _k2 <= 0.    
-    void K2 (const Real& _k2)   {   *this = WeberVanVliet    (   Value(0) 
-                                                                ,   Value(1) 
-                                                                ,   _k2     
-                                                                ,   Value(3)
-                                                                );
+    void K3 (const Real& _k3)   {   *this = WeberVanVliet   (   Value(0) 
+                                                            ,   Value(1) 
+                                                            ,   _k3     
+                                                            ,   Value(3)
+                                                            );
                                 };
 
 /// <summary>
@@ -314,11 +316,11 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _k3 Novo valor associado ao expoente da isoterma de WeberVanVliet.
 ///  @exception 0 < _k3 < 1.    
-    void K3 (const Real& _k3)  {    *this = WeberVanVliet    (   Value(0) 
-                                                                ,   Value(1) 
-                                                                ,   Value(2) 
-                                                                ,   _k3
-                                                                );
+    void K4 (const Real& _k4)  {    *this = WeberVanVliet   (   Value(0) 
+                                                            ,   Value(1) 
+                                                            ,   Value(2) 
+                                                            ,   _k4
+                                                            );
                                 };
 
     
@@ -357,7 +359,18 @@ inline Real K3 () const {return  Value(3);};
         return std::make_unique<WeberVanVliet>(*this);
     }
     
+//==============================================================================
+// Dados da classe
+//==============================================================================
 
+    
+ 
+    private:
+
+    Real                auxiCe = 0;
+    
+    [[nodiscard]]
+    Real  FQe (const Real&) const;
     
 };
 

@@ -35,7 +35,7 @@
 
 #include <Error/IsoException.h>
 #include <Isotherm/FourParameters/WeberVanVliet.h>
-
+#include <Misc/NewtonRaphson.h>
 
 IST_NAMESPACE_OPEN
 
@@ -150,13 +150,26 @@ WeberVanVliet ::  Qe    (   const Real& _ce
         
     }
  
-auto    ptrValue = std::begin(coeffValue);
-auto    auxi  = *(ptrValue + 1) * pow(_ce, 1 -  *(ptrValue + 2) +  *(ptrValue + 3));
-auto    auxi1 = *(ptrValue + 1) * pow(_ce, 1 -  *(ptrValue + 2));
-auto    value = (*ptrValue) * auxi / (1 + auxi1);
+    const_cast<Real&>(auxiCe) = _ce / this->K1();
+    
+auto fp    = std::bind(&WeberVanVliet::FQe, *this, _1);
+auto value = NewtonRaphson (fp, 0.95);
 
-    return  (value >= ZERO ? value : 0.0);
+    return (value >= ZERO ? value : 0.0);
  
+}
+
+
+#undef  __FUNCT__
+#define __FUNCT__ "Real  WeberVanVliet ::  FQe (const Real&) const"
+Real  
+WeberVanVliet ::  FQe (const Real& _q) const {
+
+auto    ptrValue = std::begin(coeffValue);    
+auto    auxi  = pow(_q, *(ptrValue + 2) + *(ptrValue + 3));
+    
+    return auxiCe - pow(_q, *(ptrValue + 1) * auxi);
+
 }
 
 IST_NAMESPACE_CLOSE

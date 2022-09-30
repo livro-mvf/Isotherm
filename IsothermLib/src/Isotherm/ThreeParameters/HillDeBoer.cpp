@@ -45,17 +45,17 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsHillDeboer
     {
         PairString  ( "Qmax"
-                    , "Capacidade máxima de adsorcao")
+                    , "Capacidade maxima de adsorcao")
     ,   PairString  ( "K1"
-                    , "Constante de equilíbrio de Hill – Deboer")
+                    , "Constante de equili�brio de Hill Deboer")
     ,   PairString  ( "K2"
-                    , "Constante de iteracao entre as moléculas adsorvidas")
+                    , "Constante de iteracao entre as moleculas adsorvidas")
     };
 
 template<>
@@ -68,12 +68,12 @@ VecPairString IsothermTemplate < HillDeboer >::infoIsotherm = detailsHillDeboer;
 
 #undef  __FUNCT__
 #define __FUNCT__ "HillDeboer :: HillDeboer (const Real&, const Real&, const Real&)"
-HillDeboer :: HillDeboer    (  const Real& _qmax
+HillDeboer :: HillDeboer    (   const Real& _qmax
                             ,   const Real& _k1
                             ,   const Real& _k2
-                            ,   const Real& _rgas) :
-                            ThreeParameters(_qmax, _k1, _k2 ),
-                                             RGAS(_rgas) {
+                            ,   const Real& _rgas) 
+                            :   ThreeParameters(_qmax, _k1, _k2 )
+                            ,   RGAS(_rgas) {
 
 
 
@@ -117,7 +117,7 @@ HillDeboer :: HillDeboer    (  const Real& _qmax
     }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de Equili�brio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -171,7 +171,8 @@ auto value = resul * Qmax();
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real  HillDeboer ::  FQe (const Real&) const"
-Real  HillDeboer ::  FQe (const Real& _theta) const {
+Real  
+HillDeboer ::  FQe (const Real& _theta) const {
 
 
 auto       auxi1  = _theta / (1.0 - _theta);

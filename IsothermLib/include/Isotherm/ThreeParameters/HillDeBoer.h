@@ -338,14 +338,16 @@ public:
 // Dados da classe
 //==============================================================================
 
-    Real  FQe (const Real&) const;
-
+    
+ 
     private:
 
     Real                auxiCe = 0;
     Real                RGAS   = Isotherm::RGASCONST;         // Constante universal dos gases
     Real                tempK  = 0;
-
+    
+    [[nodiscard]]
+    Real  FQe (const Real&) const;
 };
 
 IST_NAMESPACE_CLOSE
