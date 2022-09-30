@@ -92,11 +92,11 @@ public:
         ,   MacMillanTeller
         ,   Unilan
         ,   ValenzuelaMyers
-  //      ,   Baudu = 400
+        ,   Baudu = 400
+        ,   FritzSchlunderIV
         ,   FritzSchlunderV = 500
         ,   FrenkelHalseyHill
         ,   Henderson       
-        ,   FritzSchlunderIV
   };    
     
 //==============================================================================

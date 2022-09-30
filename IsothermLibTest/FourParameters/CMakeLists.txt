@@ -1,1 +1,2 @@
 add_subdirectory(TesteFritzSchlunderIV)
+add_subdirectory(TesteBaudu)
