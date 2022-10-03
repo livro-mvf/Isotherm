@@ -5,7 +5,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de HarkinJura
+// Description : Classe com as equacoes da isoterma de HarkinJura
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -30,13 +30,13 @@
  */
 
 /// <summary>
-/// Classe com as equações da isoterma de HarkinJura
+/// Classe com as equacoes da isoterma de HarkinJura
 /// </summary>
 ///  Isoterma com dois parametros, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///     \[\frac{1}{Q_e(C_e, T)^{2}} = \frac{K_2 - 1}{K_1}log(C_e)\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
@@ -80,7 +80,7 @@ public:
     
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -221,11 +221,11 @@ inline Real K2 () const {return  Value(1);};
     void K2 (const Real& _k2)  {*this = HarkinJura(Value(0), _k2);};
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equili�brio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -236,7 +236,7 @@ inline Real K2 () const {return  Value(1);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equili�brio.    
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.
     [[nodiscard]] 
     Real Qe (const Real&_c, const Real& _temp = 0) const override;

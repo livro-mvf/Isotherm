@@ -246,7 +246,7 @@ inline void K1 (const Real& _k1)
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equili­brio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:

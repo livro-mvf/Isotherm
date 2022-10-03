@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com 5 parâmetros
+// Description : Classe base para as isotermas com 5 parametros
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -44,11 +44,11 @@ VecPairString IsothermTemplate < FiveParameters >::infoIsotherm  = VecPairString
 
 #undef  __FUNCT__
 #define __FUNCT__ "FiveParameters :: FiveParameters (const Real&, const Real&, const Real&, const Real&, const Real&)"
-FiveParameters :: FiveParameters    (   const Real&     _par_0      // Primeiro parâmetro
-                                    ,   const Real&     _par_1      // Segundo parâmetro
-                                    ,   const Real&     _par_2      //Terceiro parâmetro
-                                    ,   const Real&     _par_3      //Quarto parâmetro
-                                    ,   const Real&     _par_4      // Quinto parâmetro
+FiveParameters :: FiveParameters    (   const Real&     _par_0      // Primeiro parametro
+                                    ,   const Real&     _par_1      // Segundo parametro
+                                    ,   const Real&     _par_2      //Terceiro parametro
+                                    ,   const Real&     _par_3      //Quarto parametro
+                                    ,   const Real&     _par_4      // Quinto parametro
                                     )
 {
     coeffValue    = VecReal({_par_0, _par_1, _par_2, _par_3, _par_4});

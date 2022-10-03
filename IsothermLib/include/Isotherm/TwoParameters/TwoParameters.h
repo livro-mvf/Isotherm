@@ -38,7 +38,7 @@
 ///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2022
-///  \bug       Nao ha¡ bugs conhecidos.
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -92,7 +92,6 @@ protected:
 protected:
 
     TwoParameters& operator = (const TwoParameters&) = default;
-
 
 };
 

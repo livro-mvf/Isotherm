@@ -56,7 +56,7 @@
  *
  * @section license Licença
  * 
- * @copyright  Copyright (C) <2021>  Joao Flavio Vasconcellos 
+ * @copyright  Copyright (C) <2022>  Joao Flavio Vasconcellos 
  *                                      (jflavio at iprj.uerj.br)
  * 
  * 
@@ -66,28 +66,28 @@
  */
 
 
-/** @defgroup Miscelânea Classes e Programas Acessórios
- *   Classes e programas com funções acessórias da classe Isotherm++.
+/** @defgroup Misceli�nea Classes e Programas Acessórios
+ *   Classes e programas com funcoes acessórias da classe Isotherm++.
  */
 
-/** @defgroup One_Parameter Isotermas com um parâmetro
- *  Grupo de Isotermas que possuem um único parâmetro.
+/** @defgroup One_Parameter Isotermas com um parametro
+ *  Grupo de Isotermas que possuem um único parametro.
  */ 
 
-/** @defgroup Two_Parameters Isotermas com dois parâmetros
- *  Grupo de Isotermas que possuem dois  parâmetros.
+/** @defgroup Two_Parameters Isotermas com dois parametros
+ *  Grupo de Isotermas que possuem dois  parametros.
  */ 
 
-/** @defgroup Three_Parameters Isotermas com três parâmetros
- *  Grupo de Isotermas que possuem três parâmetros.
+/** @defgroup Three_Parameters Isotermas com tres parametros
+ *  Grupo de Isotermas que possuem tres parametros.
  */ 
 
-/** @defgroup Four_Parameters Isotermas com quatro parâmetros
- *  Grupo de Isotermas que possuem quatro parâmetros.
+/** @defgroup Four_Parameters Isotermas com quatro parametros
+ *  Grupo de Isotermas que possuem quatro parametros.
  */ 
 
-/** @defgroup Five_Parameters Isotermas com cinco parâmetros
- *  Grupo de Isotermas que possuem cinco parâmetros.
+/** @defgroup Five_Parameters Isotermas com cinco parametros
+ *  Grupo de Isotermas que possuem cinco parametros.
  */ 
 
 /** @defgroup Base Classes base das isotermas

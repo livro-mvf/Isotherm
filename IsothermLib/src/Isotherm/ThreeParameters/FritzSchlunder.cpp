@@ -41,11 +41,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermFritzSchlunder {   PairString   ( "Qmax"
-                                                            , "Capacidade máxima de adsorção.")
+                                                            , "Capacidade maxima de adsorcao.")
                                             ,   PairString  ( "K1"
                                                              ,   "Constante da isoterma de Fritz–Schlunder.")
                                             ,        PairString  ( "K2"
@@ -56,7 +56,7 @@ VecPairString IsothermTemplate < FritzSchlunder >::infoIsotherm = isothermFritzS
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -93,7 +93,7 @@ FritzSchlunder :: FritzSchlunder    (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

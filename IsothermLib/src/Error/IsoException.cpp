@@ -34,11 +34,12 @@ static std::string IsoExceptionStr[] =
     ,       "K1 menor do que 1."                                       // BadK1LTOne
     ,       "K2 menor ou igual a 1."                                   // BadK2LEOne
     ,       "K3 maior do que 1."                                       // BadK3GTOne     
+    ,       "K3 maior ou igual a 1."                                   // BadK3GEOne     
     ,       "Qmax menor ou igual a zero."                              // BadQmaxLEZero 
     ,       "Temperatura menor ou igual a zero."                       // BadTempLEZero
     ,       "Constante universal dos gases menor ou igual a zero."     // BadRGasLEZero
     ,       "Resultado inconsistente para o modelo."                   // BadResult
-    ,       "Overflow de operacao matemática."                         // BadOverFlow
+    ,       "Overflow de operacao matematica."                         // BadOverFlow
     ,       "O valor de log(C) maior que K_2."                         // BadLogCeGTK2
     ,       "Problema de convergencia do metodo iterativo."            // ConvergenceProblem
     ,       "O valor de theta maior ou igual a 1."                     // BadThetaGEOne

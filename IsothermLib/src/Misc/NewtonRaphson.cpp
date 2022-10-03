@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <cmath>
-//#include <iomanip>
 
 //==============================================================================
 // include da isotherm++
@@ -43,20 +42,11 @@ bool    flag1(true),
             fx    = _func(ce_0);
             dfx   = (_func(ce_0 + DELTA) - fx) / DELTA;
             ce_1  = ce_0 - fx / dfx;
-//            
-//            std::cout << std::setw(5)  << iter
-//                      << std::setw(15) << ce_0
-//                      << std::setw(15) << ce_1
-//                      << std::setw(15) << fx
-//                      << std::setw(15) << dfx
-//                      << std::endl;
-//            
-            
             dc    = fabs((ce_1 - ce_0) / ce_1);
             ce_0  = ce_1;
         
             flag1 = fabs(fx) < TOLE && dc < TOLE && iter >= ITERMIN;     // Controle do erro
-            flag2 = ++iter > ITERMAX;                                    // Controle do numero maximo de iterações
+            flag2 = ++iter > ITERMAX;                                    // Controle do numero maximo de iteracoes
 
 
             

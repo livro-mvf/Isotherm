@@ -24,6 +24,7 @@
 //==============================================================================
 // includes lib c++
 //==============================================================================
+
 #include <cmath>
 #include <iostream>
 
@@ -57,7 +58,7 @@ VecPairString IsothermTemplate < Sips >::infoIsotherm = detailsSips;
 
 
 //==============================================================================
-// Construtora com dois parametros
+// Construtora com tres parametros
 //==============================================================================
 
 
@@ -90,7 +91,8 @@ Sips :: Sips    (   const Real& _qmax
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     }
@@ -100,14 +102,15 @@ Sips :: Sips    (   const Real& _qmax
     }
 
 //==============================================================================
-// Concentraca de Equilíbrio Q
+// Concentraca de equilibrio Q
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "Real Sips ::  Qe (const Real&, const Real&) const  "
 Real
-Sips ::  Qe   (   const Real&     _ce
-              ,   const Real&     _temp) const
+Sips ::  Qe     (   const Real&     _ce
+                ,   const Real&    
+                ) const
 {
 
 
@@ -125,8 +128,9 @@ Sips ::  Qe   (   const Real&     _ce
 
         } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
-exit(EXIT_FAILURE);
+            std::cout   << _isoExcept 
+                        << "\n";
+            exit(EXIT_FAILURE);
         }
 
 

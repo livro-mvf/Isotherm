@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Unilan.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@
  *  \file	Unilan.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Nao ha bugs conhecidos
  */
 
@@ -55,12 +55,12 @@ IST_NAMESPACE_OPEN
 /// <summary>
 /// Classe com as equacoes da isoterma de Unilan.
 /// </summary>
-///  Isoterma com três parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas sao as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T)= \frac{q_{max}}{2K_2}ln(\frac{1+K_1C_ee^{K_2}}{1+K_1C_ee^{-K_2}})\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    Joao Flávio Vieira de Vasconcellos
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
 ///  \date      2020
 ///  \bug       Nao ha bugs conhecidos.
@@ -112,7 +112,7 @@ public:
 ///     Unilan  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Unilan original. 
+/// @param  _orig Variavel do tipo Unilan original. 
     Unilan (const Unilan& _unilan) = default;
   
 /// <summary>
@@ -157,7 +157,7 @@ public:
 ///     Unilan  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Unilan original.
+///  @param _orig Variavel do tipo Unilan original.
 ///  @return Cópia de _orig.    
     Unilan& operator = (const Unilan&) = default;
     
@@ -266,7 +266,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -277,7 +277,7 @@ inline Real K2 () const {return  Value(2);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.    
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
 
     [[nodiscard]]  

@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equacoµes da isoterma de Fritz-SchlundeIV.
+// Description : Classe com as equacoes da isoterma de Fritz-SchlundeIV.
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -25,23 +25,23 @@
 
 /** @defgroup FritzSchlunderIV  FritzSchlunderIV
  *  @ingroup Four_Parameters
- *  Classe FritzSchlunderIV contÃ©m a equacao da isoterma de FritzSchlunder IV.
+ *  Classe FritzSchlunderIV contem a equacao da isoterma de FritzSchlunder IV.
  *  @{
  */        
 
 /// <summary>
-/// Classe com as equacoµes da isoterma de Fritz-Schlunder IV.
+/// Classe com as equacoes da isoterma de Fritz-Schlunder IV.
 /// </summary>
 ///  Isoterma com quatro parametros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$ e \f$ K_3 \f$ cujas formulas sao as seguintes:
 ///\begin{align}
 ///  Q_e(C_e, T) = \frac{q_{max}C_e^{K_3}}{1 + K_1C_e^{K_3}}
 ///\end{align}
-///  Um artigo de referÃªncia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   Joao Fli¡vio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
@@ -322,11 +322,11 @@ inline Real K3 () const {return  Value(3);};
 
     
 //==============================================================================
-// Funcoµes virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equili­brio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -337,7 +337,7 @@ inline Real K3 () const {return  Value(3);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equili­brio.    
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
     [[nodiscard]]  Real Qe (const Real&, const Real&) const;
 

@@ -104,7 +104,7 @@ VecPairString IsothermTemplate < HollKrich >::infoIsotherm = detailsHollKrich;
  }
 
 //==============================================================================
-// Concentracao de Equili­brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

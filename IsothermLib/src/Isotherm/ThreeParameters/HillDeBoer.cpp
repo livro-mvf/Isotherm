@@ -53,7 +53,7 @@ VecPairString       detailsHillDeboer
         PairString  ( "Qmax"
                     , "Capacidade maxima de adsorcao")
     ,   PairString  ( "K1"
-                    , "Constante de equili≠brio de Hill Deboer")
+                    , "Constante de equilibrio de Hill Deboer")
     ,   PairString  ( "K2"
                     , "Constante de iteracao entre as moleculas adsorvidas")
     };
@@ -63,7 +63,7 @@ VecPairString IsothermTemplate < HillDeboer >::infoIsotherm = detailsHillDeboer;
 
 
 //==============================================================================
-// Construtora com dois par√¢metros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -117,7 +117,7 @@ HillDeboer :: HillDeboer    (   const Real& _qmax
     }
 
 //==============================================================================
-// Concentracao de Equili≠brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

@@ -43,11 +43,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsKobleCorrigan {   PairString  ( "Qmax"
-                                                         , "Capacidade máxima de adsorção")
+                                                         , "Capacidade maxima de adsorcao")
                                          ,   PairString  ( "K1"
                                                          , "Constante de Koble-Corrigan")
                                          ,   PairString  ( "K2"
@@ -58,7 +58,7 @@ VecPairString IsothermTemplate < KobleCorrigan >::infoIsotherm = detailsKobleCor
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -106,7 +106,7 @@ KobleCorrigan :: KobleCorrigan  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

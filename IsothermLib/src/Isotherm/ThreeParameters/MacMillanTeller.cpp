@@ -94,7 +94,7 @@ MacMillanTeller :: MacMillanTeller  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentracao de Equili­brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

@@ -1,6 +1,8 @@
 //==============================================================================
 // Name        : Baudu.cpp
-// Author      : Joao Flavio Vasconcellos 
+// Authors     : Lara Botelho Brum
+//               Luan Rodrigues Soares de Souza
+//               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Baudu.
 //
@@ -27,7 +29,6 @@
 
 #include <cmath>
 #include <iostream>
-#include <iomanip>
 
 //==============================================================================
 // includes da lib Isotherm++
@@ -97,13 +98,11 @@ Baudu :: Baudu  (   const Real&     _qmax
                                     ,   BadK3LEZero
                                     );  
             
-            if (_k3 > 1.0)  throw  
+            if (_k3 >= 1.0)  throw  
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK3GTOne
-                                    );  
-//            if (_k3 > 1.0 || _k3 < 0)  throw  
-//                    IsoException (IST_LOC, className(), BadK3Between);   
+                                    ,   BadK3GEOne
+                                    );   
             
     } catch (const IsoException& _isoExcept) {
             
@@ -118,7 +117,7 @@ Baudu :: Baudu  (   const Real&     _qmax
 }
     
 //==============================================================================
-// Concentracao de Equili­brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
    
 
@@ -138,7 +137,7 @@ Baudu ::  Qe    (   const Real& _ce
         if (_ce <= 0.0)  throw 
                 IsoException    (   IST_LOC
                                 ,   className()
-                                ,   BadCeLTZero
+                                ,   BadCeLEZero
                                 ); 
 
     } catch (const IsoException& _isoExcept) {

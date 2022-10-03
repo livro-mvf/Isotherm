@@ -28,7 +28,7 @@
  *  \authors	Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Nao ha bugs conhecidos
  */
 
@@ -62,7 +62,7 @@ IST_NAMESPACE_OPEN
 ///  \authors    Lara Botelho Brum
 ///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
@@ -266,7 +266,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -277,7 +277,7 @@ inline Real K2 () const {return  Value(2);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.    
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
     virtual Real Qe (const Real&, const Real&) const;
         

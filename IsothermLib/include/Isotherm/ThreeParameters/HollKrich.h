@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de HollKrich
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@
  *  \authors	Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Nao ha bugs conhecidos
  */
 
@@ -63,7 +63,7 @@ IST_NAMESPACE_OPEN
 ///  \authors	 Lara Botelho Brum
 ///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
@@ -267,7 +267,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -278,7 +278,7 @@ public:
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
     virtual Real Qe (const Real&, const Real&) const;
 

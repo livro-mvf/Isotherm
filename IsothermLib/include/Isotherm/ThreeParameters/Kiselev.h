@@ -6,7 +6,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Kiselev
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@
  *  \authors	Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Nao ha bugs conhecidos
  */
 
@@ -49,15 +49,15 @@ IST_NAMESPACE_OPEN
 /// <summary>
 /// Classe com as equacoes da isoterma de Kiselev
 /// </summary>
-///  Isoterma com tres parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[f(\theta = K_1C-\frac{\theta}{1-\theta}{1+K_2\theta}\]
 ///\end{align}
-///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/j.molliq.2021.117674).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/j.molliq.2022.117674).
 ///  \authors    Lara Botelho Brum
 ///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
@@ -107,7 +107,7 @@ public:
 ///     Kiselev  var;
 /// @endcode
 /// </example>
-/// @param " " Nao ha parâmetros para esta funçao
+/// @param " " Nao ha parametros para esta funçao
     Kiselev () = default;
 
     /// <summary>
@@ -129,7 +129,7 @@ public:
     ~Kiselev () override = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Kiselev.
+/// Construtora com os parametros que definem a isoterma de Kiselev.
 /// </summary>
 /// <example>
 /// Uso:
@@ -141,8 +141,8 @@ public:
 /// @endcode
 /// </example>
 ///  @param _qmax Capacidade maxima de adsorçao.
-///  @param  _k1 Constante de equilíbrio de Kiselev.
-///  @param _k2 Constante de iteraçao entre as moléculas adsorvidas.
+///  @param  _k1 Constante de equilibrio de Kiselev.
+///  @param _k2 Constante de iteraçao entre as moleculas adsorvidas.
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
@@ -185,14 +185,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Nao ha parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da  capacidade maxima de adsorçao.
     [[nodiscard]] 
     inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Funçao que retorna o coeficiente associado a constante de equilíbrio de Hill - Deboer.
+/// Funçao que retorna o coeficiente associado a constante de equilibrio de Hill - Deboer.
 /// </summary>
 /// <example>
 /// Uso:
@@ -201,13 +201,13 @@ public:
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Nao ha parâmetros.
-///  @return Valor do coeficiente associado a constante de equilíbrio de Kiselev.
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente associado a constante de equilibrio de Kiselev.
     [[nodiscard]] 
     inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Funçao que retorna o valor associado a constante de iteraçao entre as moléculas adsorvidas.
+/// Funçao que retorna o valor associado a constante de iteraçao entre as moleculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -216,8 +216,8 @@ public:
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Nao ha parâmetros.
-///  @return Valor associado a constante de iteraçao entre as moléculas adsorvidas.
+///  @param " " Nao ha parametros.
+///  @return Valor associado a constante de iteraçao entre as moleculas adsorvidas.
     [[nodiscard]] inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -240,7 +240,7 @@ public:
     void Qmax (const Real& _qmax)  {*this = Kiselev (_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Funçao que altera o coeficiente associado a constante de equilíbrio de Kiselev.
+/// Funçao que altera o coeficiente associado a constante de equilibrio de Kiselev.
 /// </summary>
 /// <example>
 /// Uso:
@@ -250,12 +250,12 @@ public:
 ///     var1.K1(k1);
 /// @endcode
 /// </example>
-///  @param _k1 Novo valor do coeficiente associado a constante de equilíbrio de Kiselev.
+///  @param _k1 Novo valor do coeficiente associado a constante de equilibrio de Kiselev.
 ///  @exception _k1 <= 0.
     void K1 (const Real& _k1)  {*this = Kiselev (Value(0), _k1, Value(2));};
 
 /// <summary>
-/// Funçao para alterar o valor associado a constante de iteraçao entre as moléculas adsorvidas.
+/// Funçao para alterar o valor associado a constante de iteraçao entre as moleculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -265,7 +265,7 @@ public:
 ///     var1.K2(k2);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor associado a constante de iteraçao entre as moléculas adsorvidas.
+///  @param _k2 Novo valor associado a constante de iteraçao entre as moleculas adsorvidas.
 ///  @exception _k2 <= 0.
     void K2 (const Real& _k2)  {*this = Kiselev(Value(0), Value(1), _k2);};
 
@@ -275,7 +275,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Funçao que calcula a quantidade de sorçao no equilíbrio.
+/// Funçao que calcula a quantidade de sorçao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -286,9 +286,10 @@ public:
 /// @endcode
 /// </example>
 ///  @param _c Concentraçao do soluto.
-///  @return Valor da quantidade de sorçao no equilíbrio.
+///  @return Valor da quantidade de sorçao no equilibrio.
 ///  @exception _c < 0.
-[[nodiscard]] Real Qe (const Real&, const Real&) const override;
+[[nodiscard]] 
+Real Qe (const Real&, const Real&) const override;
         
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c

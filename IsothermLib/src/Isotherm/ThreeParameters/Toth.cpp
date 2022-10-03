@@ -42,7 +42,7 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas                                                              *EDITAR, CASO HAJA NECESSIDADE*
+// Variaveis estaticas                                                              *EDITAR, CASO HAJA NECESSIDADE*
 //==============================================================================
 
 VecPairString       detailsToth {   PairString  ( "Qmax"
@@ -103,7 +103,7 @@ Toth :: Toth    (   const Real&     _qmax
  }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -115,10 +115,10 @@ Toth ::  Qe     (   const Real&     _ce
 
     try {
 
-        if (_ce < 0.0)  throw
+        if (_ce <= 0.0)  throw
                 IsoException    (   IST_LOC
                                 ,   className()
-                                , BadCeLTZero
+                                , BadCeLEZero
                                 );
 
     } catch (const IsoException& _isoExcept) {

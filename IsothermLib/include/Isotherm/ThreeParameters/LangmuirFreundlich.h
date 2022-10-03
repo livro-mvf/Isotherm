@@ -5,7 +5,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Langmuir - Freundlich.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -28,8 +28,8 @@
  *  \file	LangmuirFreundlich.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
- *  \date	2021
- *  \bug	Não ha bugs conhecidos
+ *  \date	2022
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __LANGMUIR_FREUNDLICH_H__
@@ -53,15 +53,15 @@ IST_NAMESPACE_OPEN
 /// <summary>
 /// Classe com as equacoes da isoterma de Langmuir - Freundlich.
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e,T)=q_{max}\frac{K_1C_e^{K_2}}{1+K_1C_e^{K_2}}\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    João Flavio Vieira de Vasconcellos
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não ha bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -75,7 +75,7 @@ class LangmuirFreundlich :  public virtual ThreeParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
         
@@ -97,7 +97,7 @@ public:
 ///     LangmuirFreundlich  var;
 /// @endcode
 /// </example>
-/// @param " " Não ha parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     LangmuirFreundlich() = default;
     
 /// <summary>
@@ -119,7 +119,7 @@ public:
     virtual ~LangmuirFreundlich() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Langmuir - Freundlich.
+/// Construtora com os parametros que definem a isoterma de Langmuir - Freundlich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -130,7 +130,7 @@ public:
 ///     Sips  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.    
+///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param  _k1 Constante da isortema de Langmuir - Freundlich.    
 ///  @param _k2 Constante da isoterma de Langmuir - Freundlich.
 ///  @exception _qmax <= 0.
@@ -164,7 +164,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -173,13 +173,13 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não ha parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
 inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Langmuir - Freundlich.
+/// Funcao que retorna o coeficiente associado a constante de Langmuir - Freundlich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -188,12 +188,12 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não ha parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Langmuir - Freundlich.
 inline Real K1 () const {return  Value(1);};
     
 /// <summary>
-/// Função que retorna o parâmetro da equação de Langmuir - Freundlich.
+/// Funcao que retorna o parametro da equacao de Langmuir - Freundlich.
 /// </summary>
 /// <example>
 /// Uso:
@@ -202,8 +202,8 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não ha parâmetros.
-///  @return Valor do parâmetro da equação de Langmuir - Freundlich.    
+///  @param " " Nao ha parametros.
+///  @return Valor do parametro da equacao de Langmuir - Freundlich.    
 inline Real K2 () const {return  Value(2);};
 
 //==============================================================================
@@ -211,7 +211,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -221,12 +221,12 @@ inline Real K2 () const {return  Value(2);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
     void Qmax (const Real& _qmax)  {*this = LangmuirFreundlich (_qmax, Value(1), Value(2));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante da isoterma de Fritz–Schlunder.
+/// Funcao que altera o coeficiente associado a constante da isoterma de Fritz–Schlunder.
 /// </summary>
 /// <example>
 /// Uso:
@@ -241,7 +241,7 @@ inline Real K2 () const {return  Value(2);};
     void K1 (const Real& _k1)  {*this = LangmuirFreundlich (Value(0), _k1, Value(2));};
 
 /// <summary>
-/// Função para alterar o valor associado a constante da isoterma de Fritz–Schlunder.
+/// Funcao para alterar o valor associado a constante da isoterma de Fritz–Schlunder.
 /// </summary>
 /// <example>
 /// Uso:
@@ -261,7 +261,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -271,8 +271,8 @@ inline Real K2 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
 
     

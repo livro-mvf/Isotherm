@@ -41,11 +41,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermBrouersSotolongo    {   PairString  ( "Qmax"
-                                                                , "Capacidade máxima de adsorção.")
+                                                                , "Capacidade maxima de adsorcao.")
                                                 ,   PairString  ( "K1"
                                                                 , "Constante da isoterma de Brouers - Sotolongo.")
                                                 ,   PairString  ( "K2"
@@ -56,14 +56,15 @@ VecPairString IsothermTemplate < BrouersSotolongo >::infoIsotherm = isothermBrou
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "BrouersSotolongo :: BrouersSotolongo (const Real&, const Real&, const Real&)"
 BrouersSotolongo :: BrouersSotolongo    (   const Real&     _qmax
                                         ,   const Real&     _k1
-                                        ,   const Real&     _k2)
+                                        ,   const Real&     _k2
+                                        )
                                         :   ThreeParameters(_qmax, _k1, _k2)
 {
 
@@ -100,7 +101,7 @@ BrouersSotolongo :: BrouersSotolongo    (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -119,10 +120,10 @@ BrouersSotolongo ::  Qe     (   const Real&     _ce
                                 ,   BadCoefficient
                                 );
 
-        if (_ce < 0.0)  throw
+        if (_ce <= 0.0)  throw
                 IsoException    (   IST_LOC
                                 ,   className()
-                                ,   BadCeLTZero
+                                ,   BadCeLEZero
                                 );
 
     } catch (const IsoException& _isoExcept) {

@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equacoµes da isoterma de WeberVanVliet.
+// Description : Classe com as equacoes da isoterma de WeberVanVliet.
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -25,23 +25,23 @@
 
 /** @defgroup WeberVanVliet  WeberVanVliet
  *  @ingroup Four_Parameters
- *  Classe WeberVanVliet cont√©m a equacao da isoterma de WeberVanVliet.
+ *  Classe WeberVanVliet contem a equacao da isoterma de WeberVanVliet.
  *  @{
  */        
 
 /// <summary>
-/// Classe com as equacoµes da isoterma de WeberVanVliet.
+/// Classe com as equacoes da isoterma de WeberVanVliet.
 /// </summary>
-///  Isoterma com quatro parametros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$ e \f$ K_3 \f$ cujas formulas sao as seguintes:
+///  Isoterma com quatro parametros,  \f$ K_1 \f$, \f$ K_2 \f$ , \f$ K_3 \f$  e \f$ K_4 \f$, cuja formula e a seguinte:
 ///\begin{align}
-///  Q_e(C_e, T) = \frac{q_{max}C_e^{K_3}}{1 + K_1C_e^{K_3}}
+/// C_e = K_1 Q(C_e)^{K_2 Q(C_e)^{K_3 + K_4}}
 ///\end{align}
-///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/0043-1354(80)90107-4).
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   Joao Fli°vio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
@@ -66,15 +66,15 @@
 
 IST_NAMESPACE_OPEN
 
-class WeberVanVliet :    public virtual FourParameters,
-                            public IsothermTemplate < WeberVanVliet > {
+class WeberVanVliet :   public virtual FourParameters,
+                        public IsothermTemplate < WeberVanVliet > {
     
     
 //==============================================================================
 // ID da classe
 //==============================================================================
 
-public:    
+private:    
     
 /// <summary>
 /// Definicao de ID para esta classe para fins de identificacao de erros.
@@ -127,25 +127,24 @@ public:
 /// <example>
 /// Uso:
 /// @code
-///     double QMAX(1.0);
 ///     double K1(1.0);    
 ///     double K2(1.0);
-///     double K3(1.0);
+///     double K3(0.5);
+///     double K4(0.5);
 ///     WeberVanVliet  var1(K1, K2, K3, K4);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param _k1 Coeficiente da isortema de WeberVanVliet.    
 ///  @param _k2 Coeficiente da isoterma de WeberVanVliet.
 ///  @param _k3 Expoente da isoterma de WeberVanVliet.    
-///  @exception _qmax < 0.
+///  @param _k4 Expoente da isoterma de WeberVanVliet.    
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
 ///  @exception 0 < _k3 < 1.
-    WeberVanVliet   (   const Real& 
-                    ,   const Real& 
-                    ,   const Real& 
-                    ,   const Real&
+    WeberVanVliet   (   const Real&     _k1 
+                    ,   const Real&     _k2
+                    ,   const Real&     _k3
+                    ,   const Real&     _k4
                     );
 
 //==============================================================================
@@ -161,13 +160,13 @@ public:
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     WeberVanVliet  var1( K1, K2, K3, K4);              
 ///     WeberVanVliet  var2 = var1;
 /// @endcode
 /// </example>
 ///  @param _orig Variavel do tipo WeberVanVliet.
 ///  @return Copia de _orig.    
-    WeberVanVliet& operator = (const WeberVanVliet&) = default;
+    WeberVanVliet& operator = (const WeberVanVliet& _orig) = default;
     
 //==============================================================================
 // Acesso as constantes da classe
@@ -181,7 +180,7 @@ public:
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
@@ -247,7 +246,7 @@ inline Real K4 () const {return  Value(3);};
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
 ///     double k1(2.0);
 ///     var1.K1(k1);
 /// @endcode
@@ -269,18 +268,18 @@ inline Real K4 () const {return  Value(3);};
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
-///     double k1(2.0);
-///     var1.K1(k1);
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
+///     double k2(2.0);
+///     var1.K2(k2);
 /// @endcode
 /// </example>
-///  @param _k1 Novo valor do coeficiente associado a constante da isoterma de WeberVanVliet. 
-///  @exception _k1 <= 0.
-    void K2 (const Real& _k2)   {   *this = WeberVanVliet    (   Value(0) 
-                                                                ,   _k2 
-                                                                ,   Value(2) 
-                                                                ,   Value(3)
-                                                                );
+///  @param _k2 Novo valor do coeficiente associado a constante da isoterma de WeberVanVliet. 
+///  @exception _k2 <= 0.
+    void K2 (const Real& _k2)   {   *this = WeberVanVliet  (   Value(0) 
+                                                            ,   _k2 
+                                                            ,   Value(2) 
+                                                            ,   Value(3)
+                                                            );
                                 };
 
 /// <summary>
@@ -289,13 +288,13 @@ inline Real K4 () const {return  Value(3);};
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
-///     double k2(3.0);
-///     var1.K2(k2);
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
+///     double k3(0.5);
+///     var1.K3(k2);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor associado a constante da isoterma de WeberVanVliet.
-///  @exception _k2 <= 0.    
+///  @param _k3 Novo valor associado a constante da isoterma de WeberVanVliet.
+///  @exception _k3 <= 0.    
     void K3 (const Real& _k3)   {   *this = WeberVanVliet   (   Value(0) 
                                                             ,   Value(1) 
                                                             ,   _k3     
@@ -309,13 +308,13 @@ inline Real K4 () const {return  Value(3);};
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
-///     double k3(3.0);
-///     var1.K3(k3);
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
+///     double k4(0.5);
+///     var1.K4(k4);
 /// @endcode
 /// </example>
-///  @param _k3 Novo valor associado ao expoente da isoterma de WeberVanVliet.
-///  @exception 0 < _k3 < 1.    
+///  @param _k4 Novo valor associado ao expoente da isoterma de WeberVanVliet.
+///  @exception  _k3 < 1.    
     void K4 (const Real& _k4)  {    *this = WeberVanVliet   (   Value(0) 
                                                             ,   Value(1) 
                                                             ,   Value(2) 
@@ -325,24 +324,23 @@ inline Real K4 () const {return  Value(3);};
 
     
 //==============================================================================
-// Funcoµes virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equili≠brio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
 /// @code
-///     WeberVanVliet  var1(QMAX, K1, K2, K3);              
+///     WeberVanVliet  var1(K1, K2, K3, K4);              
 ///     double ce(1.0);
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equili≠brio.    
-///  @exception _c < 0.    
-    [[nodiscard]]  Real Qe (const Real&, const Real&) const;
+///  @return Valor da quantidade de sorcao no equilibrio.    
+///  @exception _c <= 0.    
 
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c
@@ -351,7 +349,10 @@ inline Real K4 () const {return  Value(3);};
         return Qe(_c, 0);
     }
 
-
+private:
+        
+    [[maybe_unused]]  [[nodiscard]]  
+    Real Qe (const Real&, [[maybe_unused]]  const Real&) const;
 
     [[nodiscard]]
     virtual std::unique_ptr<Isotherm> CloneImplementation() const override
@@ -365,7 +366,7 @@ inline Real K4 () const {return  Value(3);};
 
     
  
-    private:
+private:
 
     Real                auxiCe = 0;
     

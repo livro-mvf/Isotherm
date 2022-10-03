@@ -1,6 +1,6 @@
-/** @defgroup ID        Identificação da Classe
- *  @ingroup Miscelânea
- *  Classe ID para identificação das classes no caso de erro.
+/** @defgroup ID        Identificacao da Classe
+ *  @ingroup Misceli�nea
+ *  Classe ID para identificacao das classes no caso de erro.
  *  @{
  */
 
@@ -8,9 +8,9 @@
 // Name        : ID.h
 // Author      : Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe para identificação de cada classe
+// Description : Classe para identificacao de cada classe
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -118,7 +118,7 @@ public:
     ID& operator = (const ID&) = default;
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 [[nodiscard]] inline  virtual std::string className() const {return "no class";}

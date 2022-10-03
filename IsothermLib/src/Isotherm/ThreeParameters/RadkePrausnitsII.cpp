@@ -103,7 +103,7 @@ RadkePrausnitsII :: RadkePrausnitsII    (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

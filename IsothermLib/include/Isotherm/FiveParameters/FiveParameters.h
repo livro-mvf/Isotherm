@@ -4,9 +4,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com cinco parâmetros
+// Description : Classe base para as isotermas com cinco parametros
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -25,19 +25,19 @@
 
 /** @defgroup FiveParameters  
  *  @ingroup Base
- *  Classe base das isotermas com cinco parâmetro.
+ *  Classe base das isotermas com cinco parametro.
  *  @{
  */
 
 ///  <summary>
-///  Classe base para todas as classes com cinco parâmetros.
+///  Classe base para todas as classes com cinco parametros.
 /// </summary>
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 

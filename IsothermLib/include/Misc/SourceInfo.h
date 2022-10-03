@@ -1,6 +1,6 @@
-/** @defgroup SourceInfo Informações sobre as classes
- *  @ingroup Miscelânea
- *  Classe com informações sobre outras classes para fins de identificação e localização de erros
+/** @defgroup SourceInfo Informacoes sobre as classes
+ *  @ingroup Misceli�nea
+ *  Classe com informacoes sobre outras classes para fins de identificacao e localizacao de erros
  *  @{
  */
 
@@ -35,7 +35,7 @@ public:
     SourceInfo(const std::string&, const long&, const std::string&);
     
 //==============================================================================
-// funções inline
+// funcoes inline
 //==============================================================================
     
     [[nodiscard]] inline std::string  FileLocation () const {return fileLocation;};

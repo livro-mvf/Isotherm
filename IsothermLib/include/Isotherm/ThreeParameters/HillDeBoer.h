@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de HillDeboer
+// Description : Classe com as equacoes da isoterma de HillDeboer
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -25,13 +25,13 @@
 
 
 /*! \class	Hill - Deboer
- *  \brief	Classe com as equações da isoterma de Hill - Deboer
+ *  \brief	Classe com as equacoes da isoterma de Hill - Deboer
  *  \file	HillDeboer.h
  *  \authors	Lara Botelho Brum
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \date	2022
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __HILLDEBOER_H__
@@ -46,18 +46,18 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Hill-Deboer.
+/// Classe com as equacoes da isoterma de Hill-Deboer.
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[f(\theta ) = K_1C-\frac{\theta}{1-\theta}e^{\frac{\theta}{1-\theta}-\frac{K_2\theta}{RT}}=0\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Lara Botelho Brum
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -78,7 +78,7 @@ public:
     DefineIdentity("HillDeBoer", ID::HillDeBoer);
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -92,7 +92,7 @@ public:
 ///     HillDeboer  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta funcao
+/// @param " " Nao ha parametros para esta funcao
     HillDeboer() = default;
 
 /// <summary>
@@ -105,7 +105,7 @@ public:
 ///     HillDeboer  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo HillDeboer original.
+/// @param  _orig Variavel do tipo HillDeboer original.
     HillDeboer (const HillDeboer& _orig) = default;
 
 /// <summary>
@@ -114,7 +114,7 @@ public:
     virtual ~HillDeboer() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de HillDeboer.
+/// Construtora com os parametros que definem a isoterma de HillDeboer.
 /// </summary>
 /// <example>
 /// Uso:
@@ -126,8 +126,8 @@ public:
 /// @endcode
 /// </example>
 ///  @param _qmax Capacidade maxima de adsorcao.
-///  @param  _k1 Constante de equilíbrio de Hill – Deboer.
-///  @param _k2 Constante de iteracao entre as moléculas adsorvidas.
+///  @param  _k1 Constante de equilibrio de Hill – Deboer.
+///  @param _k2 Constante de iteracao entre as moleculas adsorvidas.
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
@@ -153,7 +153,7 @@ public:
 ///     HillDeboer  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo HillDeBoer original.
+///  @param _orig Variavel do tipo HillDeBoer original.
 ///  @return Cópia de _orig.
     HillDeboer& operator = (const HillDeboer& _orig) = default;
 
@@ -171,14 +171,14 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da  capacidade maxima de adsorcao.
     [[nodiscard]]
     inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Funcao que retorna o coeficiente associado a constante de equilíbrio de Hill - Deboer.
+/// Funcao que retorna o coeficiente associado a constante de equilibrio de Hill - Deboer.
 /// </summary>
 /// <example>
 /// Uso:
@@ -187,14 +187,14 @@ public:
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente associado a constante de equilíbrio de Hill – Deboer.
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente associado a constante de equilibrio de Hill – Deboer.
     [[nodiscard]]
     inline Real K1 () const {return  Value(1);};
 
 
 /// <summary>
-/// Funcao que retorna o valor associado a constante de iteracao entre as moléculas adsorvidas.
+/// Funcao que retorna o valor associado a constante de iteracao entre as moleculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -203,8 +203,8 @@ public:
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor associado a constante de iteracao entre as moléculas adsorvidas.
+///  @param " " Nao ha parametros.
+///  @return Valor associado a constante de iteracao entre as moleculas adsorvidas.
     [[nodiscard]]
     inline Real K2 () const {return  Value(2);};
 
@@ -219,7 +219,7 @@ public:
 ///     Real rg = var1.Rgas();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante universal dos gases.
     [[nodiscard]]
     inline Real Rgas () const {return  RGAS;};
@@ -250,7 +250,7 @@ public:
                                     };
 
 /// <summary>
-/// Funcao que altera o coeficiente associado a constante de equilíbrio de Hill – Deboer.
+/// Funcao que altera o coeficiente associado a constante de equilibrio de Hill – Deboer.
 /// </summary>
 /// <example>
 /// Uso:
@@ -260,7 +260,7 @@ public:
 ///     var1.K1(k1);
 /// @endcode
 /// </example>
-///  @param _k1 Novo valor do coeficiente associado a constante de equilíbrio de Hill – Deboer.
+///  @param _k1 Novo valor do coeficiente associado a constante de equilibrio de Hill – Deboer.
 ///  @exception _k1 <= 0.
      void K1 (const Real& _k1)  {   *this = HillDeboer  (   Value(0)
                                                         ,   _k1
@@ -270,7 +270,7 @@ public:
                                 };
 
 /// <summary>
-/// Funcao para alterar o valor associado a constante de iteracao entre as moléculas adsorvidas.
+/// Funcao para alterar o valor associado a constante de iteracao entre as moleculas adsorvidas.
 /// </summary>
 /// <example>
 /// Uso:
@@ -280,7 +280,7 @@ public:
 ///     var1.K2(k2);
 /// @endcode
 /// </example>
-///  @param _k2 Novo valor associado a constante de iteracao entre as moléculas adsorvidas.
+///  @param _k2 Novo valor associado a constante de iteracao entre as moleculas adsorvidas.
 ///  @exception _k2 <= 0.
     void K2 (const Real& _k2)   {   *this = HillDeboer  (   Value(0)
                                                         ,   Value(1)
@@ -307,11 +307,11 @@ public:
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -322,7 +322,7 @@ public:
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
     [[nodiscard]]
     virtual Real Qe (const Real& _c, const Real& = 0) const;

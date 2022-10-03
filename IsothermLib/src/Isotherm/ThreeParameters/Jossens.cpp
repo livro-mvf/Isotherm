@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Khan
+// Description : Classe com as equacoes da isoterma de Khan
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -43,11 +43,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsJossens {       PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorcao")
+                                                    , "Capacidade maxima de adsorcao")
                                        ,   PairString  ( "K1"
                                                     , "Constante de Jossens")
                                        ,   PairString  ( "K2"
@@ -60,7 +60,7 @@ VecPairString IsothermTemplate < Jossens >::infoIsotherm = detailsJossens;
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -102,7 +102,7 @@ Jossens :: Jossens  (   const Real&     _qmax
  }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -114,10 +114,10 @@ Jossens ::  Qe  (   const Real& _ce
 
     try {
 
-        if (_ce < 0.0)  throw
+        if (_ce <= 0.0)  throw
                 IsoException    (   IST_LOC
                                 ,   className()
-                                ,   BadCeLTZero
+                                ,   BadCeLEZero
                                 );
 
     } catch (const IsoException& _isoExcept) {

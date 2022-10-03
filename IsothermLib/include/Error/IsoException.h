@@ -4,7 +4,7 @@
 // Version     : 1.0
 // Description : Classe para tratar as exceptions do programa
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -27,8 +27,8 @@
  *  \file	IsoException.h
  *  \author	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
- *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \date	2022
+ *  \bug	Nao ha bugs conhecidos
  */
 
 
@@ -75,6 +75,7 @@ enum IsoExceptionIndex {
     ,   BadK1LTOne
     ,   BadK2LEOne
     ,   BadK3GTOne                          
+    ,   BadK3GEOne                          
     ,   BadQmaxLEZero                
     ,   BadTempLEZero
     ,   BadRGasLEZero                

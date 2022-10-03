@@ -2,9 +2,9 @@
 // Name        : FritzSchlunderV.h
 // Author      : Luan Rodrigues Soares de Souza
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Fritz - Schlunder - V.
+// Description : Classe com as equacoes da isoterma de Fritz - Schlunder - V.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -23,12 +23,12 @@
 
 
 /*! \class	Fritz - Schlunder - V
- *  \brief	Classe com as equações da isoterma de Fritz - Schlunder - V.
+ *  \brief	Classe com as equacoes da isoterma de Fritz - Schlunder - V.
  *  \file	FritzSchlunderV.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
- *  \date	2021
- *  \bug	Não há bugs conhecidos
+ *  \date	2022
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __FRITZ_SCHLUNDER_V_H__
@@ -50,17 +50,17 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Fritz - Schlunder - V.
+/// Classe com as equacoes da isoterma de Fritz - Schlunder - V.
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$, \f$ K_3 \f$ e \f$ K_4 \f$, cujas fórmulas são as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$, \f$ K_3 \f$ e \f$ K_4 \f$, cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T) = \frac{q_{max}C_e^{K_3}}{K_1+K_2C_e^{K_4}}\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    João Flávio Vieira de Vasconcellos
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -74,7 +74,7 @@ class FritzSchlunderV :     public virtual FiveParameters,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
 
@@ -82,7 +82,7 @@ public:
 
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -96,7 +96,7 @@ public:
 ///     FritzSchlunderV  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     FritzSchlunderV() = default;
 
 /// <summary>
@@ -109,7 +109,7 @@ public:
 ///     FritzSchlunderV  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Fritz - Schlunder - V original.
+/// @param  _orig Variavel do tipo Fritz - Schlunder - V original.
     FritzSchlunderV (const FritzSchlunderV& _fritz_schlunder_v) = default;
 
 /// <summary>
@@ -118,7 +118,7 @@ public:
     virtual ~FritzSchlunderV() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de FritzSchlunderV.
+/// Construtora com os parametros que definem a isoterma de FritzSchlunderV.
 /// </summary>
 /// <example>
 /// Uso:
@@ -129,7 +129,7 @@ public:
 ///     Sips  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
-///  @param _qmax Capacidade maxima de adsorção.
+///  @param _qmax Capacidade maxima de adsorcao.
 ///  @param  _k1 Coeficiente da isortema de Fritz - Schlunder - V.
 ///  @param _k2 Coeficiente da isoterma de Fritz - Schlunder - V.
 ///  @param _k3 Expoente da isoterma de Fritz - Schlunder - V.
@@ -162,7 +162,7 @@ public:
 ///     FritzSchlunderV  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo FritzSchlunderV original.
+///  @param _orig Variavel do tipo FritzSchlunderV original.
 ///  @return Cópia de _orig.
     FritzSchlunderV& operator = (const FritzSchlunderV&) = default;
 
@@ -171,7 +171,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da capacidade maxima de adsorção.
+/// Funcao que informa o valor da capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -180,13 +180,13 @@ public:
 ///     double q1 = var1.Qmax();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor da  capacidade maxima de adsorção.
+///  @param " " Nao ha parametros.
+///  @return Valor da  capacidade maxima de adsorcao.
 inline Real Qmax () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Fritz - Schlunder - V.
+/// Funcao que retorna o coeficiente associado a constante de Fritz - Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -195,12 +195,12 @@ inline Real Qmax () const {return  Value(0);};
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Fritz - Schlunder - V.
 inline Real K1 () const {return  Value(1);};
 
 /// <summary>
-/// Função que retorna o parâmetro da equação de Fritz - Schlunder - V.
+/// Funcao que retorna o parametro da equacao de Fritz - Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -209,12 +209,12 @@ inline Real K1 () const {return  Value(1);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do parâmetro da equação de Fritz - Schlunder - V.
+///  @param " " Nao ha parametros.
+///  @return Valor do parametro da equacao de Fritz - Schlunder - V.
 inline Real K2 () const {return  Value(2);};
 
 /// <summary>
-/// Função que retorna o parâmetro da equação de Fritz - Schlunder - V.
+/// Funcao que retorna o parametro da equacao de Fritz - Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -223,12 +223,12 @@ inline Real K2 () const {return  Value(2);};
 ///     double k3 = var1.K3();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do parâmetro da equação de Fritz - Schlunder - V.
+///  @param " " Nao ha parametros.
+///  @return Valor do parametro da equacao de Fritz - Schlunder - V.
 inline Real K3 () const {return  Value(3);};
 
 /// <summary>
-/// Função que retorna o parâmetro da equação de Fritz - Schlunder - V.
+/// Funcao que retorna o parametro da equacao de Fritz - Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -237,8 +237,8 @@ inline Real K3 () const {return  Value(3);};
 ///     double k4 = var1.K4();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do parâmetro da equação de Fritz - Schlunder - V.
+///  @param " " Nao ha parametros.
+///  @return Valor do parametro da equacao de Fritz - Schlunder - V.
 inline Real K4 () const {return  Value(4);};
 
 //==============================================================================
@@ -246,7 +246,7 @@ inline Real K4 () const {return  Value(4);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a capacidade maxima de adsorção.
+/// Funcao para alterar  a capacidade maxima de adsorcao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -256,7 +256,7 @@ inline Real K4 () const {return  Value(4);};
 ///     var1.Qmax(q1);
 /// @endcode
 /// </example>
-///  @param _qmax Novo valor da capacidade maxima de adsorção.
+///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax < 0.
     void Qmax (const Real& _qmax)  {*this = FritzSchlunderV (   _qmax,
                                                                 Value(1),
@@ -265,7 +265,7 @@ inline Real K4 () const {return  Value(4);};
                                                                 Value(4));};
 
 /// <summary>
-/// Função que altera o coeficiente associado a constante da isoterma de Fritz – Schlunder - V.
+/// Funcao que altera o coeficiente associado a constante da isoterma de Fritz – Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -284,7 +284,7 @@ inline Real K4 () const {return  Value(4);};
                                                             Value(4));};
 
 /// <summary>
-/// Função para alterar o valor associado a constante da isoterma de Fritz – Schlunder - V.
+/// Funcao para alterar o valor associado a constante da isoterma de Fritz – Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -303,7 +303,7 @@ inline Real K4 () const {return  Value(4);};
                                                             Value(4));};
 
 /// <summary>
-/// Função para alterar o valor associado ao expoente da isoterma de Fritz – Schlunder - V.
+/// Funcao para alterar o valor associado ao expoente da isoterma de Fritz – Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -322,7 +322,7 @@ inline Real K4 () const {return  Value(4);};
                                                             Value(4));};
 
 /// <summary>
-/// Função para alterar o valor associado ao expoente da isoterma de Fritz – Schlunder - V.
+/// Funcao para alterar o valor associado ao expoente da isoterma de Fritz – Schlunder - V.
 /// </summary>
 /// <example>
 /// Uso:
@@ -342,11 +342,11 @@ inline Real K4 () const {return  Value(4);};
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -356,8 +356,8 @@ inline Real K4 () const {return  Value(4);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
     [[nodiscard]]  Real Qe (const Real&, const Real&) const;
 

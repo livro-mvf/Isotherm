@@ -2,10 +2,10 @@
 // Name        : FowlerGuggenheim.cpp
 // Author      : Iasmim Barboza Storck
 //               Lara Botelho Brum
-//               João Flávio Vasconcellos
+//               Joao Flavio Vasconcellos
 //
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de FowlerGuggenheim
+// Description : Classe com as equacoes da isoterma de FowlerGuggenheim
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -42,17 +42,17 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsFowlerGuggenheim
     {
             PairString  ( "Qmax"
-                        , "Capacidade máxima de adsorção")
+                        , "Capacidade maxima de adsorcao")
         ,   PairString  ( "K1"
-                        , "Constante de equilíbrio de FowlerGuggenheim")
+                        , "Constante de equilibrio de FowlerGuggenheim")
         ,   PairString  ( "K2"
-                        , "Constante de iteração entre as moléculas adsorvidas")
+                        , "Constante de iteracao entre as moleculas adsorvidas")
     };
 
 template<>
@@ -60,7 +60,7 @@ VecPairString IsothermTemplate < FowlerGuggenheim >::infoIsotherm = detailsFowle
 
 
 //==============================================================================
-// Construtora com três parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 
@@ -112,7 +112,7 @@ FowlerGuggenheim :: FowlerGuggenheim (  const Real& _qmax,
     }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

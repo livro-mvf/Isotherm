@@ -42,11 +42,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermUnilan {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorcao.")
+                                                    , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Unilan.")
                                     ,   PairString  ( "K2"
@@ -109,7 +109,7 @@ auto    val = exp(_k2);
 }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

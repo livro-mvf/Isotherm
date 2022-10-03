@@ -41,17 +41,17 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsKiselev
     {
             PairString  ( "Qmax"
-                        , "Capacidade máxima de adsorcao")
+                        , "Capacidade maxima de adsorcao")
         ,   PairString  ( "K1"
-                        , "Constante de equilíbrio de Kiselev")
+                        , "Constante de equilibrio de Kiselev")
         ,   PairString  ( "K2"
-                        , "Constante de iteracao entre as moléculas adsorvidas")
+                        , "Constante de iteracao entre as moleculas adsorvidas")
     };
 
 template<>
@@ -59,7 +59,7 @@ VecPairString IsothermTemplate < Kiselev >::infoIsotherm = detailsKiselev;
 
 
 //==============================================================================
-// Construtora com três parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -96,7 +96,8 @@ Kiselev :: Kiselev  (   const Real&     _qmax
     } catch (const IsoException& _isoExcept) {
 
         std::cout   << _isoExcept 
-                    << "\n" << std::flush;
+                    << "\n" 
+                    << std::flush;
         exit(EXIT_FAILURE);
 
     };
@@ -108,7 +109,7 @@ Kiselev :: Kiselev  (   const Real&     _qmax
     }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

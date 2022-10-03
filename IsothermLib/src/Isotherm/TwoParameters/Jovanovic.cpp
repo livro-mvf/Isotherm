@@ -95,7 +95,7 @@ Jovanovic :: Jovanovic  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentracao de Equili­brio Q
+// Concentracao de equilibrio Q
 //==============================================================================
 
 #undef  __FUNCT__

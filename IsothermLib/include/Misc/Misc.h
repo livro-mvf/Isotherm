@@ -1,6 +1,6 @@
-/** @defgroup Misc Miscelânea
- *  @ingroup Miscelânea
- *  Programas com funções acessórias da classe.
+/** @defgroup Misc Misceli�nea
+ *  @ingroup Misceli�nea
+ *  Programas com funcoes acessórias da classe.
  *  @{
  */
 
@@ -16,7 +16,7 @@
 #include <Misc/Configure.h>
 
 //============================================================================
-// include das funções que não são de classe alguma
+// include das funcoes que nao sao de classe alguma
 //============================================================================
 
 void            PrintLine(std::ostream&, const UInt& = ist::LSIZE);

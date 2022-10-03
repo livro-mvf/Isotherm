@@ -42,11 +42,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsRadkePrausnitsIII {   PairString  ( "Qmax"
-                                                           , "Capacidade máxima de adsorcao")
+                                                           , "Capacidade maxima de adsorcao")
                                             ,   PairString  ( "K1"
                                                            , "Constante de Radke-Prausnits III")
                                             ,   PairString  ( "K2"
@@ -98,7 +98,7 @@ RadkePrausnitsIII :: RadkePrausnitsIII  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

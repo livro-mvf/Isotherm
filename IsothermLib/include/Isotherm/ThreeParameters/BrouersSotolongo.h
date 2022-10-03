@@ -7,7 +7,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Brouers - Sotolongo.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -51,7 +51,7 @@ IST_NAMESPACE_OPEN
 ///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1177/0263617416670909).
 ///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
@@ -127,7 +127,10 @@ public:
 ///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
-    BrouersSotolongo (const Real&, const Real&, const Real&);
+    BrouersSotolongo    (   const Real&
+                        ,   const Real&
+                        ,   const Real&
+                        );
 
 //==============================================================================
 // Sobrecarga de operadores
@@ -166,6 +169,7 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor da  capacidade maxima de adsorcao.
+    
 [[nodiscard]]    
 inline Real Qmax () const {return  Value(0);};
 
@@ -182,6 +186,7 @@ inline Real Qmax () const {return  Value(0);};
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Brouers - Sotolongo.
+
 [[nodiscard]]
 inline Real K1 () const {return  Value(1);};
 
@@ -197,6 +202,7 @@ inline Real K1 () const {return  Value(1);};
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do parametro da equacao de Brouers - Sotolongo.
+
 [[nodiscard]]
 inline Real K2 () const {return  Value(2);};
 
@@ -217,7 +223,12 @@ inline Real K2 () const {return  Value(2);};
 /// </example>
 ///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax <= 0.
-    void Qmax (const Real& _qmax)  {*this = BrouersSotolongo (_qmax, Value(1), Value(2));};
+
+void Qmax (const Real& _qmax)   {   *this = BrouersSotolongo    (  _qmax
+                                                                ,   Value(1)
+                                                                ,   Value(2)
+                                                                );
+                                };
 
 /// <summary>
 /// Funcao que altera o coeficiente associado a constante da isoterma de Brouers - Sotolongo.
@@ -232,7 +243,12 @@ inline Real K2 () const {return  Value(2);};
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a constante da isoterma de Brouers - Sotolongo.
 ///  @exception _k1 <= 0.
-    void K1 (const Real& _k1)  {*this = BrouersSotolongo (Value(0), _k1, Value(2));};
+    
+void K1 (const Real& _k1)   {   *this = BrouersSotolongo    (   Value(0)
+                                                            ,   _k1
+                                                            ,   Value(2)
+                                                            );
+                            };
 
 /// <summary>
 /// Funcao para alterar o valor associado a constante da isoterma de Brouers - Sotolongo.
@@ -247,15 +263,20 @@ inline Real K2 () const {return  Value(2);};
 /// </example>
 ///  @param _k2 Novo valor associado a constante da isoterma de Brouers - Sotolongo.
 ///  @exception _k2 <= 0.
-    void K2 (const Real& _k2)  {*this = BrouersSotolongo(Value(0), Value(1), _k2);};
+    
+void K2 (const Real& _k2)   {   *this = BrouersSotolongo    (   Value(0)
+                                                            ,   Value(1)
+                                                            ,   _k2
+                                                            );
+                            };
 
-
+ 
 //==============================================================================
 // Funcoes virtuais
 //==============================================================================
 
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -266,23 +287,23 @@ inline Real K2 () const {return  Value(2);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
-    [[nodiscard]]  
-    Real Qe (const Real&, const Real&) const;
+[[nodiscard]]  
+Real Qe (const Real&, const Real&) const;
 
-    [[nodiscard]] 
-    inline Real Qe   (   const Real& _c
-    ) const override
-    {
-        return Qe(_c, 0);
-    }
+[[nodiscard]] 
+inline Real Qe   (   const Real& _c
+) const override
+{
+    return Qe(_c, 0);
+}
 
-    [[nodiscard]]
-    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
-    {
-        return std::make_unique<BrouersSotolongo>(*this);
-    }
+[[nodiscard]]
+virtual std::unique_ptr<Isotherm> CloneImplementation() const override
+{
+    return std::make_unique<BrouersSotolongo>(*this);
+}
 
 
 

@@ -1,6 +1,6 @@
-/** @defgroup Type Tipo de Variáveis
- *  @ingroup Miscelânea
- *  Definição do padrão das variáveis inteiras e reais
+/** @defgroup Type Tipo de Variaveis
+ *  @ingroup Misceli�nea
+ *  Definicao do padrao das variaveis inteiras e reais
  *  @{
  */
 

@@ -26,25 +26,25 @@
 
 /** @defgroup Henry  Henry
  *  @ingroup One_Parameter
- *  Classe Henry é uma classe de um parâmetro
+ *  Classe Henry e uma classe de um parametro
  *  @{
  */
 
 
 /// <summary>
-/// Classe com as equações da isoterma de Henry.
+/// Classe com as equacoes da isoterma de Henry.
 /// </summary>
-///  Isoterma com um parâmetro, \f$ K_1 > 0 \f$, cuja fórmula é a seguinte:
+///  Isoterma com um parametro, \f$ K_1 > 0 \f$, cuja fórmula e a seguinte:
 ///\begin{align}
 ///     Q_e(C_e) = K_1 C_e
 ///\end{align}
 ///  O artigo em que esta isoterma foi definida pode ser encontrado [aqui](https://doi.org/10.1098/rstl.1803.0004).
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
 
@@ -74,7 +74,7 @@ class Henry :   public virtual OneParameter,
 public:
 
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
     DefineIdentity  (   "Henry"
                     ,   ID::Henry
@@ -82,7 +82,7 @@ public:
 
 
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
 
 public:
@@ -96,7 +96,7 @@ public:
 ///     Henry  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     Henry() = default;
 
 /// <summary>
@@ -109,7 +109,7 @@ public:
 ///     Henry  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo Henry original.
+/// @param  _orig Variavel do tipo Henry original.
     Henry(const Henry& _orig) = default;
 
 /// <summary>
@@ -118,7 +118,7 @@ public:
     virtual ~Henry() = default;
 
 /// <summary>
-/// Construtora com o parâmetros que define a isoterma de Henry.
+/// Construtora com o parametros que define a isoterma de Henry.
 /// </summary>
 /// <example>
 /// Uso:
@@ -127,7 +127,7 @@ public:
 ///     Henry  var1(k1);
 /// @endcode
 /// </example>
-///  @param _k1 Coeficiente de distribuição.
+///  @param _k1 Coeficiente de distribuicao.
 ///  @exception _k1 <= 0.
     Henry (const Real& _k1);
 
@@ -146,7 +146,7 @@ public:
 ///     Henry  var1(k1);
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo Henry original.
+///  @param _orig Variavel do tipo Henry original.
 ///  @return Cópia de _orig.
     Henry& operator = (const Henry& _orig) = default;
 
@@ -155,7 +155,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor do coeficiente de distribuição.
+/// Funcao que informa o valor do coeficiente de distribuicao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -164,8 +164,8 @@ public:
 ///     Real   k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
-///  @return Valor do coeficiente de distribuição.
+///  @param " " Nao ha parametros.
+///  @return Valor do coeficiente de distribuicao.
 inline Real K1 () const
 {
     return  Value(0);
@@ -176,7 +176,7 @@ inline Real K1 () const
 //==============================================================================
 
 /// <summary>
-/// Função para alterar o valor do coeficiente de distribuição.
+/// Funcao para alterar o valor do coeficiente de distribuicao.
 /// </summary>
 /// <example>
 /// Uso:
@@ -186,7 +186,7 @@ inline Real K1 () const
 ///     var1.K1(k11);
 /// @endcode
 /// </example>
-///  @param _k1 Novo valor do coeficiente de distribuição.
+///  @param _k1 Novo valor do coeficiente de distribuicao.
 ///  @exception _k1 <= 0.
 inline void K1 (const Real& _k1)
 {
@@ -200,7 +200,7 @@ inline void K1 (const Real& _k1)
 public:
 
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -210,8 +210,8 @@ public:
 ///     Real qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
     virtual Real Qe    (   const Real&  _c
                     ,   const Real&  = 0) const ;
@@ -226,7 +226,7 @@ public:
 
 /**
  *  @example TesteHenry.cpp
- *  Exemplo de utilização da classe Henry
+ *  Exemplo de utilizacao da classe Henry
  */
 
 

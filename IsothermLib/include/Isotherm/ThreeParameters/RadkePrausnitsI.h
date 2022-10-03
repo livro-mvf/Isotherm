@@ -27,7 +27,7 @@
  *  \file	RadkePrausnitsI.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Nao ha bugs conhecidos
  */
 
@@ -61,7 +61,7 @@ IST_NAMESPACE_OPEN
 ///  Um artigo de referancia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///
 ///  \copyright GNU Public License.
@@ -265,7 +265,7 @@ inline Real K2 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -276,7 +276,7 @@ inline Real K2 () const {return  Value(2);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.
+///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
     [[nodiscard]] Real Qe (const Real&, const Real&) const;
  

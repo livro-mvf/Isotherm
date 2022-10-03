@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equacoµes da isoterma de Baudu.
+// Description : Classe com as equacoes da isoterma de Baudu.
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -25,23 +25,23 @@
 
 /** @defgroup Baudu  Baudu
  *  @ingroup Four_Parameters
- *  Classe Baudu contÃ©m a equacao da isoterma de Baudu.
+ *  Classe Baudu contem a equacao da isoterma de Baudu.
  *  @{
  */        
 
 /// <summary>
-/// Classe com as equacoµes da isoterma de Baudu.
+/// Classe com as equacoes da isoterma de Baudu.
 /// </summary>
 ///  Isoterma com quatro parametros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$ e \f$ K_3 \f$ cujas formulas sao as seguintes:
 ///\begin{align}
-///  Q_e(C_e, T) = \frac{q_{max}C_e^{K_3}}{1 + K_1C_e^{K_3}}
+///  Q_e(C_e) = \frac{q_{max}C_e^{K_3}}{1 + K_1C_e^{K_3}}
 ///\end{align}
-///  Um artigo de referÃªncia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   Joao Fli¡vio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
@@ -66,15 +66,15 @@
 
 IST_NAMESPACE_OPEN
 
-class Baudu :    public virtual FourParameters,
-                            public IsothermTemplate < Baudu > {
+class Baudu :   public virtual FourParameters,
+                public IsothermTemplate < Baudu > {
     
     
 //==============================================================================
 // ID da classe
 //==============================================================================
 
-public:    
+private:    
     
 /// <summary>
 /// Definicao de ID para esta classe para fins de identificacao de erros.
@@ -130,7 +130,7 @@ public:
 ///     double QMAX(1.0);
 ///     double K1(1.0);    
 ///     double K2(1.0);
-///     double K3(1.0);
+///     double K3(0.5);
 ///     Baudu  var1(Q1, K1, K2, K3);
 /// @endcode
 /// </example>
@@ -138,14 +138,15 @@ public:
 ///  @param _k1 Coeficiente da isortema de Baudu.    
 ///  @param _k2 Coeficiente da isoterma de Baudu.
 ///  @param _k3 Expoente da isoterma de Baudu.    
-///  @exception _qmax < 0.
+///  @exception _qmax <= 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
-///  @exception 0 < _k3 < 1.
-    Baudu   (   const Real& 
-            ,   const Real& 
-            ,   const Real& 
-            ,   const Real&
+///  @exception _k3 <= 0.
+///  @exception _k3 >= 1.
+    Baudu   (   const Real&     _qmax 
+            ,   const Real&     _k1
+            ,   const Real&     _k2
+            ,   const Real&     _k3
             );
 
 //==============================================================================
@@ -167,7 +168,8 @@ public:
 /// </example>
 ///  @param _orig Variavel do tipo Baudu.
 ///  @return Copia de _orig.    
-    Baudu& operator = (const Baudu&) = default;
+    Baudu& operator = (const Baudu& _orig) = default;
+    
     
 //==============================================================================
 // Acesso as constantes da classe
@@ -219,8 +221,10 @@ inline Real K1 () const {return  Value(1);};
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do parametro da equacao de Baudu.    
+
 [[nodiscard]] 
 inline Real K2 () const {return  Value(2);};
+
 
 /// <summary>
 /// Funcao que retorna o parametro da equacao de Baudu.
@@ -234,6 +238,7 @@ inline Real K2 () const {return  Value(2);};
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do parametro da equacao de Baudu.  
+
 [[nodiscard]] 
 inline Real K3 () const {return  Value(3);};
 
@@ -253,13 +258,14 @@ inline Real K3 () const {return  Value(3);};
 /// @endcode
 /// </example>
 ///  @param _qmax Novo valor da capacidade maxima de adsorcao.
-///  @exception _qmax < 0.
-    void Qmax (const Real& _qmax)   {   *this = Baudu    (       _qmax 
-                                                                    ,       Value(1) 
-                                                                    ,       Value(2)
-                                                                    ,       Value(3)
-                                                                    );
-                                    };
+///  @exception _qmax <= 0.
+
+void Qmax (const Real& _qmax)   {   *this = Baudu   (       _qmax 
+                                                    ,       Value(1) 
+                                                    ,       Value(2)
+                                                    ,       Value(3)
+                                                    );
+                                };
 
 /// <summary>
 /// Funcao que altera o coeficiente associado a constante da isoterma de Baudu.
@@ -274,12 +280,13 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _k1 Novo valor do coeficiente associado a constante da isoterma de Baudu. 
 ///  @exception _k1 <= 0.
-    void K1 (const Real& _k1)   {   *this = Baudu    (   Value(0) 
-                                                                ,   _k1 
-                                                                ,   Value(2) 
-                                                                ,   Value(3)
-                                                                );
-                                };
+                                
+void K1 (const Real& _k1)   {   *this = Baudu   (   Value(0) 
+                                                ,   _k1 
+                                                ,   Value(2) 
+                                                ,   Value(3)
+                                                );
+                            };
 
 /// <summary>
 /// Funcao para alterar o valor associado a constante da isoterma de Baudu.
@@ -294,12 +301,13 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _k2 Novo valor associado a constante da isoterma de Baudu.
 ///  @exception _k2 <= 0.    
-    void K2 (const Real& _k2)   {   *this = Baudu    (   Value(0) 
-                                                                ,   Value(1) 
-                                                                ,   _k2     
-                                                                ,   Value(3)
-                                                                );
-                                };
+                            
+void K2 (const Real& _k2)   {   *this = Baudu   (   Value(0) 
+                                                ,   Value(1) 
+                                                ,   _k2     
+                                                ,   Value(3)
+                                                );
+                            };
 
 /// <summary>
 /// Funcao para alterar o valor associado ao expoente da isoterma de Baudu.
@@ -308,26 +316,28 @@ inline Real K3 () const {return  Value(3);};
 /// Uso:
 /// @code
 ///     Baudu  var1(QMAX, K1, K2, K3);              
-///     double k3(3.0);
+///     double k3(0.3);
 ///     var1.K3(k3);
 /// @endcode
 /// </example>
 ///  @param _k3 Novo valor associado ao expoente da isoterma de Baudu.
-///  @exception 0 < _k3 < 1.    
-    void K3 (const Real& _k3)  {    *this = Baudu    (   Value(0) 
-                                                                ,   Value(1) 
-                                                                ,   Value(2) 
-                                                                ,   _k3
-                                                                );
-                                };
+///  @exception _k3 <= 0.    
+///  @exception _k3 >= 1.    
+                            
+void K3 (const Real& _k3)   {   *this = Baudu   (   Value(0) 
+                                                ,   Value(1) 
+                                                ,   Value(2) 
+                                                ,   _k3
+                                                );
+                            };
 
     
 //==============================================================================
-// Funcoµes virtuais
+//  Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equili­brio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -338,24 +348,31 @@ inline Real K3 () const {return  Value(3);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equili­brio.    
-///  @exception _c < 0.    
-    [[nodiscard]]  Real Qe (const Real&, const Real&) const;
-
+///  @return Valor da quantidade de sorcao no equilibrio.    
+///  @exception _ce <= 0.   
+                            
     [[nodiscard]] 
-    inline Real Qe   (   const Real& _c
+    inline Real Qe   (   const Real& _ce
     ) const override
     {
-        return Qe(_c, 0);
-    }
+        return Qe(_ce, 0);
+    }                            
+                            
+
+
+private:
+    
+
+[[maybe_unused]]  [[nodiscard]]  
+Real Qe (const Real&, [[maybe_unused]] const Real&) const;
 
 
 
-    [[nodiscard]]
-    virtual std::unique_ptr<Isotherm> CloneImplementation() const override
-    {
-        return std::make_unique<Baudu>(*this);
-    }
+[[nodiscard]]
+virtual std::unique_ptr<Isotherm> CloneImplementation() const override
+{
+    return std::make_unique<Baudu>(*this);
+}
     
 
     

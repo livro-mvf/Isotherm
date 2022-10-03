@@ -16,11 +16,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermViethSladek     {   PairString  ( "Qmax"
-                                                            , "Capacidade máxima de adsorcao")
+                                                            , "Capacidade maxima de adsorcao")
                                             ,   PairString  ( "K1"
                                                             , "Constante de ViethSladek")
                                             ,   PairString  ( "K2"
@@ -76,7 +76,7 @@ ViethSladek :: ViethSladek  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

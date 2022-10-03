@@ -40,11 +40,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermValenzuelaMyers {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorcao.")
+                                                    , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Valenzuela - Myers.")
                                     ,   PairString  ( "K2"
@@ -103,7 +103,7 @@ ValenzuelaMyers :: ValenzuelaMyers  (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentracao de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

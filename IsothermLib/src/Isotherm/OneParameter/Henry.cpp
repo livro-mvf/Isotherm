@@ -39,7 +39,7 @@
 #include <Isotherm/OneParameter/Henry.h>
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 IST_NAMESPACE_OPEN
@@ -47,7 +47,7 @@ IST_NAMESPACE_OPEN
 VecPairString       detailsHenry
     {
         PairString  ( "K1"
-                    , "Coeficiente de distribuição")
+                    , "Coeficiente de distribuicao")
     };
 
 template<>
@@ -55,7 +55,7 @@ VecPairString IsothermTemplate < Henry >::infoIsotherm = detailsHenry;
 
 
 //==============================================================================
-// Construtora com um parâmetro
+// Construtora com um parametro
 //==============================================================================
 
 #undef  __FUNCT__
@@ -82,7 +82,7 @@ Henry :: Henry  (   const Real&     _k1)
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

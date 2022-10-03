@@ -4,7 +4,7 @@
 // Version     : 1.0
 // Description : Classe com as equacoes da isoterma de Valenzuela - Myers.
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos 
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -23,11 +23,11 @@
 
 
 /*! \class	Valenzuela - Myers
- *  \brief	Classe com as equações da isoterma de Valenzuela - Myers.
+ *  \brief	Classe com as equacoes da isoterma de Valenzuela - Myers.
  *  \file	ValenzuelaMyers.h
  *  \author	Luan Rodrigues Soares de Souza
  *  \version	1.0
- *  \date	2021
+ *  \date	2022
  *  \bug	Nao ha bugs conhecidos
  */
 
@@ -51,16 +51,16 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de ValenzuelaMyers.
+/// Classe com as equacoes da isoterma de ValenzuelaMyers.
 /// </summary>
-///  Isoterma com três parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas sao as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T)= \frac{q_{max}}{2K_2}ln(\frac{K_1+C_ee^{K_2}}{K_1+C_ee^{-K_2}})\]
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
-///  \authors    Joao Flávio Vieira de Vasconcellos
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
@@ -83,7 +83,7 @@ public:
     
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -110,7 +110,7 @@ public:
 ///     ValenzuelaMyers  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo ValenzuelaMyers original. 
+/// @param  _orig Variavel do tipo ValenzuelaMyers original. 
     ValenzuelaMyers (const ValenzuelaMyers& _valenzuela_myers) = default;
   
 /// <summary>
@@ -155,7 +155,7 @@ public:
 ///     ValenzuelaMyers  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo ValenzuelaMyers original.
+///  @param _orig Variavel do tipo ValenzuelaMyers original.
 ///  @return Cópia de _orig.    
     ValenzuelaMyers& operator = (const ValenzuelaMyers&) = default;
     
@@ -260,11 +260,11 @@ inline Real K2 () const {return  Value(2);};
     
     
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -275,7 +275,7 @@ inline Real K2 () const {return  Value(2);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equilíbrio.    
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
   
     

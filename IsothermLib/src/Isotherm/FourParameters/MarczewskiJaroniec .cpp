@@ -27,7 +27,7 @@
 
 #include <cmath>
 #include <iostream>
-#include <iomanip>
+//#include <iomanip>
 
 //==============================================================================
 // includes da lib Isotherm++
@@ -118,7 +118,7 @@ MarczewskiJaroniec :: MarczewskiJaroniec  (   const Real&     _qmax
 }
     
 //==============================================================================
-// Concentracao de Equili­brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
    
 

@@ -4,7 +4,7 @@
 //               Lara Botelho Brum
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe com as equações da isoterma de Khan
+// Description : Classe com as equacoes da isoterma de Khan
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
@@ -43,11 +43,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas                                                              *EDITAR, CASO HAJA NECESSIDADE*
+// Variaveis estaticas                                                              *EDITAR, CASO HAJA NECESSIDADE*
 //==============================================================================
 
 VecPairString       detailsKhan {       PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção")
+                                                    , "Capacidade maxima de adsorcao")
                                     ,   PairString  ( "K1"
                                                     , "Constante de Khan")
                                     ,   PairString  ( "K2"
@@ -59,7 +59,7 @@ VecPairString IsothermTemplate < Khan >::infoIsotherm = detailsKhan;
 
 
 //==============================================================================
-// Construtora com tres parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -104,7 +104,7 @@ Khan :: Khan    (   const Real&     _qmax
  }
 
 //==============================================================================
-// Concentração de Equilíbrio Q
+// Concentracao de equilibrio Q
 //==============================================================================
 
 #undef  __FUNCT__

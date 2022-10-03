@@ -39,11 +39,11 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       isothermFritzSchlunderV {   PairString  ( "Qmax"
-                                                    , "Capacidade máxima de adsorção.")
+                                                    , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Coeficiente da isoterma de Fritz – Schlunder - V.")
                                     ,   PairString  ( "K2"
@@ -58,37 +58,55 @@ VecPairString IsothermTemplate < FritzSchlunderV >::infoIsotherm = isothermFritz
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com dois parametros
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "FritzSchlunderV :: FritzSchlunderV (const Real&, const Real&, const Real&, const Real&, const Real&)"
-FritzSchlunderV :: FritzSchlunderV (  const Real& _qmax,
-                const Real& _k1,
-                const Real& _k2,
-                const Real& _k3,
-                const Real& _k4) : FiveParameters(_qmax, _k1, _k2, _k3, _k4) {
+FritzSchlunderV :: FritzSchlunderV  (   const Real&     _qmax
+                                    ,   const Real&     _k1
+                                    ,   const Real&     _k2
+                                    ,   const Real&     _k3
+                                    ,   const Real&     _k4
+                                    ) 
+                                    : FiveParameters(_qmax, _k1, _k2, _k3, _k4) {
 
     try {
 
-            if (_qmax < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadQmaxLEZero);
+            if (_qmax <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadQmaxLEZero
+                                    );
 
-            if (_k1 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK1LEZero);
+            if (_k1 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK1LEZero
+                                    );
 
-            if (_k2 < 0.0)  throw
-                    IsoException (IST_LOC, className(), BadK2LEZero);
+            if (_k2 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK2LEZero
+                                    );
 
-//            if (_k3 > 1.0 || _k3 < 0)  throw
-//                    IsoException (IST_LOC, className(), BadK3Between01);
-//
-//            if (_k4 > 1.0 || _k4 < 0.0)  throw
-//                    IsoException (IST_LOC, className(), BadK4Between01);
+            if (_k3 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK3LEZero
+                                    );
+
+            if (_k4 <= 0.0)  throw
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK4LEZero
+                                    );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     };
@@ -98,13 +116,14 @@ FritzSchlunderV :: FritzSchlunderV (  const Real& _qmax,
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
 #define __FUNCT__ "FritzSchlunderV ::  Qe (const Real&, const Real&) const "
 Real
-FritzSchlunderV ::  Qe (const Real& _ce, const Real&) const {
+FritzSchlunderV ::  Qe  (   const Real& _ce
+                        ,   const Real&) const {
 
     try {
         if (!setup) throw
@@ -113,21 +132,26 @@ FritzSchlunderV ::  Qe (const Real& _ce, const Real&) const {
                                 ,   BadCoefficient);
 
         if (_ce <= 0.0)  throw
-                IsoException (IST_LOC, className(), BadCeLTZero);
+                IsoException    (   IST_LOC
+                                ,   className()
+                                ,   BadCeLTZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
+        
     }
 
 auto    ptrValue = std::begin(coeffValue);
-auto    auxi = (*ptrValue) * (pow(_ce, (*(ptrValue + 3))));
+auto    auxi  = (*ptrValue) * (pow(_ce, (*(ptrValue + 3))));
 auto    auxi1 = (*(ptrValue + 2)) * (pow(_ce, (*(ptrValue + 4))));
-
-
-
-        return ( auxi / ((*(ptrValue + 1)) + auxi1) );
+auto    value = ( auxi / ((*(ptrValue + 1)) + auxi1) );
+    
+    return  (value >= ZERO ? value : 0.0);
+ 
 }
 
 IST_NAMESPACE_CLOSE

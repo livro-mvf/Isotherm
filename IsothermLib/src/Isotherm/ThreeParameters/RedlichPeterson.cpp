@@ -5,7 +5,7 @@
 // Version     : 1.0
 // Description : Classe da isoterma de Redlich - Peterson
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -40,7 +40,7 @@
 IST_NAMESPACE_OPEN
 
 //==============================================================================
-// Variaveis estáticas
+// Variaveis estaticas
 //==============================================================================
 
 VecPairString       detailsRedlichPeterson
@@ -58,7 +58,7 @@ VecPairString IsothermTemplate < RedlichPeterson >::infoIsotherm = detailsRedlic
 
 
 //==============================================================================
-// Construtora com dois parâmetros
+// Construtora com tres parametros
 //==============================================================================
 
 #undef  __FUNCT__
@@ -92,7 +92,7 @@ RedlichPeterson :: RedlichPeterson  (   const Real&     _k1
             if (_k3 >= 1.0)  throw
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK3GTOne
+                                    ,   BadK3GEOne
                                     );
 
     } catch (const IsoException& _isoExcept) {
@@ -110,7 +110,7 @@ RedlichPeterson :: RedlichPeterson  (   const Real&     _k1
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__

@@ -44,7 +44,7 @@ IST_NAMESPACE_OPEN
 // Variaveis estaticas
 //==============================================================================
 
-VecPairString       detailsDubininRadushkevich                      /* NOLINT */
+VecPairString       detailsDubininRadushkevich                      
     {
         PairString  ( "Qmax"
                     , "Constante de equiibrio de Dubinin-Radushkevich")
@@ -52,8 +52,7 @@ VecPairString       detailsDubininRadushkevich                      /* NOLINT */
                     , "Coeficiente associado a energia de adsorcao")};
 
 template<>
-VecPairString IsothermTemplate < DubininRadushkevich >::infoIsotherm = detailsDubininRadushkevich; /* NOLINT */
-
+VecPairString IsothermTemplate < DubininRadushkevich >::infoIsotherm = detailsDubininRadushkevich; 
 
 //==============================================================================
 // Construtora com dois parametros

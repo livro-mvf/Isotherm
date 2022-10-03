@@ -25,7 +25,7 @@
 
 /** @defgroup MarczewskiJaroniec  MarczewskiJaroniec
  *  @ingroup Four_Parameters
- *  Classe MarczewskiJaroniec cont√©m a equacao da isoterma de MarczewskiJaroniec.
+ *  Classe MarczewskiJaroniec contem a equacao da isoterma de MarczewskiJaroniec.
  *  @{
  */        
 
@@ -39,9 +39,9 @@
 ///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   Joao Fli°vio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
+///  \date      2022
 ///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
@@ -327,7 +327,7 @@ inline Real K3 () const {return  Value(3);};
 //==============================================================================
     
 /// <summary>
-/// Funcao que calcula a quantidade de sorcao no equili≠brio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -338,7 +338,7 @@ inline Real K3 () const {return  Value(3);};
 /// @endcode
 /// </example>
 ///  @param _c Concentracao do soluto.
-///  @return Valor da quantidade de sorcao no equili≠brio.    
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
     [[nodiscard]]  Real Qe (const Real&, const Real&) const;
 

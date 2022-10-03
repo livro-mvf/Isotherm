@@ -4,7 +4,7 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com 1 parâmetro
+// Description : Classe base para as isotermas com 1 parametro
 //
 // Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos 
 //                                      (jflavio at iprj.uerj.br)
@@ -52,7 +52,7 @@ VecPairString IsothermTemplate < OneParameter >::infoIsotherm = detailsOneParame
 
 #undef  __FUNCT__
 #define __FUNCT__ "OneParameter :: OneParameter( const Real&)"
-OneParameter :: OneParameter( const Real& _par_0) // Primeiro parâmetro
+OneParameter :: OneParameter( const Real& _par_0) // Primeiro parametro
 {
     coeffValue    = VecReal({_par_0});
 

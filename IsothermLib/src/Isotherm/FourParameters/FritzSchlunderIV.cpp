@@ -27,7 +27,7 @@
 
 #include <cmath>
 #include <iostream>
-#include <iomanip>
+//#include <iomanip>
 
 //==============================================================================
 // includes da lib Isotherm++
@@ -102,8 +102,6 @@ FritzSchlunderIV :: FritzSchlunderIV    (   const Real&     _qmax
                                     ,   className()
                                     ,   BadK3GTOne
                                     );  
-//            if (_k3 > 1.0 || _k3 < 0)  throw  
-//                    IsoException (IST_LOC, className(), BadK3Between);   
             
     } catch (const IsoException& _isoExcept) {
             
@@ -118,7 +116,7 @@ FritzSchlunderIV :: FritzSchlunderIV    (   const Real&     _qmax
 }
     
 //==============================================================================
-// Concentracao de Equili­brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
    
 #undef  __FUNCT__

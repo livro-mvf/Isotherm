@@ -24,13 +24,13 @@
 
 
 /*! \class	Redlich - Peterson
- *  \brief	Classe com as equações da isoterma de Redlich - Peterson.
+ *  \brief	Classe com as equacoes da isoterma de Redlich - Peterson.
  *  \file	RedlichPeterson.h
  *  \authors	Luan Rodrigues Soares de Souza
  *  \authors	Joao Flavio Vieira de Vasconcellos
  *  \version	1.0
  *  \date	2022
- *  \bug	Não há bugs conhecidos
+ *  \bug	Nao ha bugs conhecidos
  */
 
 #ifndef __REDLICH_PETERSON_H__
@@ -46,18 +46,18 @@
 IST_NAMESPACE_OPEN
 
 /// <summary>
-/// Classe com as equações da isoterma de Redlich - Peterson
+/// Classe com as equacoes da isoterma de Redlich - Peterson
 /// </summary>
-///  Isoterma com três parâmetros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas fórmulas são as seguintes:
+///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
 ///  \[Q_e(C_e, T) = \frac{K_1C}{1+K_2C_e^{K_3}}
 ///\end{align}
-///  Um artigo de referência pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
 ///  \authors    Luan Rodrigues Soares de Souza
-///  \authors    João Flávio Vieira de Vasconcellos
+///  \authors    Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///  
 ///  \copyright GNU Public License.
 
@@ -71,14 +71,14 @@ class RedlichPeterson :  public virtual ThreeParameters,
 public:    
     
 /// <summary>
-/// Definição de ID para esta classe para fins de identificação de erros.
+/// Definicao de ID para esta classe para fins de identificacao de erros.
 /// </summary>
 /// <example>
 
     DefineIdentity("RedlichPeterson", ID::RedlichPeterson);  
     
 //==============================================================================
-// Funções Construtoras/Destrutora
+// Funcoes Construtoras/Destrutora
 //==============================================================================
     
 public:
@@ -92,7 +92,7 @@ public:
 ///     RedlichPeterson  var;
 /// @endcode
 /// </example>
-/// @param " " Não há parâmetros para esta função
+/// @param " " Nao ha parametros para esta funcao
     RedlichPeterson() = default;
     
 /// <summary>
@@ -105,7 +105,7 @@ public:
 ///     RedlichPeterson  var1(var);
 /// @endcode
 /// </example>
-/// @param  _orig Variável do tipo RedlichPeterson original.        
+/// @param  _orig Variavel do tipo RedlichPeterson original.        
     RedlichPeterson (const RedlichPeterson& _redlich_peterson) = default;
   
 /// <summary>
@@ -114,7 +114,7 @@ public:
     virtual ~RedlichPeterson() = default;
 
 /// <summary>
-/// Construtora com os parâmetros que definem a isoterma de Redlich - Peterson.
+/// Construtora com os parametros que definem a isoterma de Redlich - Peterson.
 /// </summary>
 /// <example>
 /// Uso:
@@ -150,7 +150,7 @@ public:
 ///     RedlichPeterson  var2 = var1;
 /// @endcode
 /// </example>
-///  @param _orig Variável do tipo RedlichPeterson original.
+///  @param _orig Variavel do tipo RedlichPeterson original.
 ///  @return Cópia de _orig.    
     RedlichPeterson& operator = (const RedlichPeterson&) = default;
 
@@ -159,7 +159,7 @@ public:
 //==============================================================================
 
 /// <summary>
-/// Função que informa o valor da constante de Redlich-Peterson.
+/// Funcao que informa o valor da constante de Redlich-Peterson.
 /// </summary>
 /// <example>
 /// Uso:
@@ -168,14 +168,14 @@ public:
 ///     double k1 = var1.K1();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor da constante de Redlich-Peterson.
     [[nodiscard]] 
 inline Real K1 () const {return  Value(0);};
 
 
 /// <summary>
-/// Função que retorna o coeficiente associado a constante de Redlich - Peterson.
+/// Funcao que retorna o coeficiente associado a constante de Redlich - Peterson.
 /// </summary>
 /// <example>
 /// Uso:
@@ -184,13 +184,13 @@ inline Real K1 () const {return  Value(0);};
 ///     double k2 = var1.K2();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente associado a constante de Redlich - Peterson.
 [[nodiscard]] 
 inline Real K2 () const {return  Value(1);};
     
 /// <summary>
-/// Função que retorna o valor do coeficiente que reflete a heterogeneidade do adsorvente.
+/// Funcao que retorna o valor do coeficiente que reflete a heterogeneidade do adsorvente.
 /// </summary>
 /// <example>
 /// Uso:
@@ -199,7 +199,7 @@ inline Real K2 () const {return  Value(1);};
 ///     double k3 = var1.K3();
 /// @endcode
 /// </example>
-///  @param " " Não há parâmetros.
+///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente que reflete a heterogeneidade do adsorvente.
 [[nodiscard]] 
 inline Real K3 () const {return  Value(2);};
@@ -209,7 +209,7 @@ inline Real K3 () const {return  Value(2);};
 //==============================================================================
 
 /// <summary>
-/// Função para alterar  a constante de Redlich-Peterson.
+/// Funcao para alterar  a constante de Redlich-Peterson.
 /// </summary>
 /// <example>
 /// Uso:
@@ -224,7 +224,7 @@ inline Real K3 () const {return  Value(2);};
      void K1 (const Real& _k1)  {*this = RedlichPeterson(_k1, Value(1), Value(2));};
      
 /// <summary>
-/// Função que altera o coeficiente associado a constante de Redlich - Peterson.
+/// Funcao que altera o coeficiente associado a constante de Redlich - Peterson.
 /// </summary>
 /// <example>
 /// Uso:
@@ -239,7 +239,7 @@ inline Real K3 () const {return  Value(2);};
     void K2 (const Real& _k2)  {*this = RedlichPeterson(Value(0), _k2, Value(2));};
     
 /// <summary>
-/// Função para alterar o valor do coeficiente que reflete a heterogeneidade do adsorvente.
+/// Funcao para alterar o valor do coeficiente que reflete a heterogeneidade do adsorvente.
 /// </summary>
 /// <example>
 /// Uso:
@@ -255,11 +255,11 @@ inline Real K3 () const {return  Value(2);};
 
 
 //==============================================================================
-// Funções virtuais
+// Funcoes virtuais
 //==============================================================================
     
 /// <summary>
-/// Função que calcula a quantidade de sorção no equilíbrio.
+/// Funcao que calcula a quantidade de sorcao no equilibrio.
 /// </summary>
 /// <example>
 /// Uso:
@@ -269,8 +269,8 @@ inline Real K3 () const {return  Value(2);};
 ///     double qe = var1.Qe(ce);
 /// @endcode
 /// </example>
-///  @param _c Concentração do soluto.
-///  @return Valor da quantidade de sorção no equilíbrio.    
+///  @param _c Concentracao do soluto.
+///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.   
     
     [[nodiscard]]  Real Qe (const Real&, const Real&) const;    

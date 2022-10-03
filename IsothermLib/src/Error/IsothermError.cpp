@@ -15,7 +15,7 @@ IST_NAMESPACE_OPEN
         
 
 static std::string IsoErrStr[] = {
-        "Coeficientes da equação não estão definidos.",
+        "Coeficientes da equacao nao estao definidos.",
 };
 
 
@@ -32,7 +32,7 @@ void ISOTHERM_Err   (   const SourceInfo&       _sloc
     std::stringstream sstr;
 
     sstr << "Classe: "   << _classe
-         << "\nFunção: " << _sloc.FunctionName()
+         << "\nFuncao: " << _sloc.FunctionName()
          << "\nErro: "   << IsoErrStr[_index]
          << "\n";   
     

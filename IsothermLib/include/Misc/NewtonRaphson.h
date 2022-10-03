@@ -1,6 +1,6 @@
-/** @defgroup NewtonRaphson Método de Newton-Rapshon
- *  @ingroup Miscelânea
- *  Programação do método Newton-Raphson para o cálculo de raízes de funções.
+/** @defgroup NewtonRaphson Metodo de Newton-Rapshon
+ *  @ingroup Misceli�nea
+ *  Programacao do metodo Newton-Raphson para o calculo de raizes de funcoes.
  *  @{
  */
 

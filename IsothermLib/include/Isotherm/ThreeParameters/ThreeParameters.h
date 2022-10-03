@@ -4,9 +4,9 @@
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
-// Description : Classe base para as isotermas com três parâmetros
+// Description : Classe base para as isotermas com tres parametros
 //
-// Copyright   : Copyright (C) <2021>  Joao Flavio Vasconcellos
+// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos
 //                                      (jflavio at iprj.uerj.br)
 //
 // This program is free software: you can redistribute it and/or modify
@@ -26,19 +26,19 @@
 
 /** @defgroup ThreeParameters
  *  @ingroup Base
- *  Classe base das isotermas com três parâmetro.
+ *  Classe base das isotermas com tres parametro.
  *  @{
  */
 
 ///  <summary>
-///  Classe base para todas as classes com três parâmetros.
+///  Classe base para todas as classes com tres parametros.
 /// </summary>
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
-///  \authors   João Flávio Vieira de Vasconcellos
+///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
-///  \date      2021
-///  \bug       Não há bugs conhecidos.
+///  \date      2022
+///  \bug       Nao ha bugs conhecidos.
 ///
 ///
 

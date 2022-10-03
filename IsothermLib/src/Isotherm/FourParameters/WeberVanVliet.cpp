@@ -27,7 +27,7 @@
 
 #include <cmath>
 #include <iostream>
-#include <iomanip>
+//#include <iomanip>
 
 //==============================================================================
 // includes da lib Isotherm++
@@ -62,22 +62,17 @@ VecPairString IsothermTemplate < WeberVanVliet >::infoIsotherm = detailsWeberVan
 
 #undef  __FUNCT__
 #define __FUNCT__ "WeberVanVliet :: WeberVanVliet (const Real&, const Real&, const Real&, const Real&)"
-WeberVanVliet :: WeberVanVliet  (   const Real&     _qmax 
-                ,   const Real&     _k1
-                ,   const Real&     _k2
-                ,   const Real&     _k3
-                ) 
-                : FourParameters(_qmax, _k1, _k2, _k3) {
+WeberVanVliet :: WeberVanVliet  (   const Real&     _k1 
+                                ,   const Real&     _k2
+                                ,   const Real&     _k3
+                                ,   const Real&     _k4
+                                ) 
+                                : FourParameters(_k1, _k2, _k3, _k4) {
   
 
 
     try {
         
-            if (_qmax <= 0.0)  throw  
-                    IsoException    (   IST_LOC
-                                    ,   className()
-                                    ,   BadQmaxLEZero
-                                    );             
             
             if (_k1 <= 0.0)  throw  
                     IsoException    (   IST_LOC
@@ -97,13 +92,18 @@ WeberVanVliet :: WeberVanVliet  (   const Real&     _qmax
                                     ,   BadK3LEZero
                                     );  
             
-            if (_k3 > 1.0)  throw  
+            if (_k3 >= 1.0)  throw  
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK3GTOne
+                                    ,   BadK3GEOne
                                     );  
-//            if (_k3 > 1.0 || _k3 < 0)  throw  
-//                    IsoException (IST_LOC, className(), BadK3Between);   
+
+            if (_k4 <= 0.0)  throw  
+                    IsoException    (   IST_LOC
+                                    ,   className()
+                                    ,   BadK4LEZero
+                                    );             
+
             
     } catch (const IsoException& _isoExcept) {
             
@@ -118,7 +118,7 @@ WeberVanVliet :: WeberVanVliet  (   const Real&     _qmax
 }
     
 //==============================================================================
-// Concentracao de Equili­brio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
    
 
@@ -126,8 +126,8 @@ WeberVanVliet :: WeberVanVliet  (   const Real&     _qmax
 #define __FUNCT__ "WeberVanVliet ::  Qe (const Real&, const Real&) const "
 Real 
 WeberVanVliet ::  Qe    (   const Real& _ce
-                ,   const Real&
-                ) const {
+                        ,   const Real&
+                        ) const {
     
     try {
         if (!setup) throw 
@@ -138,7 +138,7 @@ WeberVanVliet ::  Qe    (   const Real& _ce
         if (_ce <= 0.0)  throw 
                 IsoException    (   IST_LOC
                                 ,   className()
-                                ,   BadCeLTZero
+                                ,   BadCeLEZero
                                 ); 
 
     } catch (const IsoException& _isoExcept) {

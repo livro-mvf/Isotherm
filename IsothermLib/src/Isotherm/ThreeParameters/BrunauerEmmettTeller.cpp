@@ -46,7 +46,7 @@ IST_NAMESPACE_OPEN
 //==============================================================================
 
 VecPairString       isothermBrunauerEmmettTeller {   PairString  ( "Qmax"
-                                                    , "Capacidade maxima de adsorção.")
+                                                    , "Capacidade maxima de adsorcao.")
                                     ,   PairString  ( "K1"
                                                     , "Constante da isoterma de Brunauer - Emmett - Teller.")
                                     ,   PairString  ( "K2"
@@ -87,7 +87,8 @@ BrunauerEmmettTeller :: BrunauerEmmettTeller    (   const Real&     _qmax
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
 
     };
@@ -98,7 +99,7 @@ BrunauerEmmettTeller :: BrunauerEmmettTeller    (   const Real&     _qmax
 }
 
 //==============================================================================
-// Concentração de Equilíbrio Qe
+// Concentracao de equilibrio Qe
 //==============================================================================
 
 #undef  __FUNCT__
@@ -153,7 +154,6 @@ auto    ptrValue = std::begin(coeffValue);
 
 auto    auxi  = 1.0 + (*(ptrValue + 1) - 1) * _ce / *(ptrValue + 2);
 auto    value = *ptrValue * (*(ptrValue + 1) * _ce / ((*(ptrValue + 2) - _ce) * auxi));
-
 
    return  (value >= ZERO ? value : 0.0);
 
