@@ -1,0 +1,406 @@
+.TH "BrunauerEmmettTeller" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BrunauerEmmettTeller \- Classe com as equacoes da isoterma de Brunauer - Emmett - Teller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <BrunauerEmmettTeller\&.h>\fP
+.PP
+Subclasse de \fBThreeParameters\fP e \fBIsothermTemplate< BrunauerEmmettTeller >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('Brunauer \- Emmett \- Teller', ID::BrunauerEmmettTeller)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBBrunauerEmmettTeller\fP ()=default"
+.br
+.ti -1c
+.RI "\fBBrunauerEmmettTeller\fP (const \fBBrunauerEmmettTeller\fP &_brunauer_emmett_teller)=default"
+.br
+.RI "Construtora de cópia\&. "
+.ti -1c
+.RI "virtual \fB~BrunauerEmmettTeller\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBBrunauerEmmettTeller\fP (const Real &, const Real &, const Real &)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de \fBBrunauerEmmettTeller\fP\&. "
+.ti -1c
+.RI "\fBBrunauerEmmettTeller\fP & \fBoperator=\fP (const \fBBrunauerEmmettTeller\fP &)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBQmax\fP () const"
+.br
+.RI "Funcao que informa o valor da capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que retorna o coeficiente associado a constante de Brunauer - Emmett - Teller\&. "
+.ti -1c
+.RI "Real \fBK2\fP () const"
+.br
+.RI "Funcao que retorna o parametro da equacao de Brunauer - Emmett - Teller\&. "
+.ti -1c
+.RI "void \fBQmax\fP (const Real &_qmax)"
+.br
+.RI "Funcao para alterar a capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao que altera o coeficiente associado a constante da isoterma de Brunauer - Emmett - Teller\&. "
+.ti -1c
+.RI "void \fBK2\fP (const Real &_k2)"
+.br
+.RI "Funcao para alterar o valor associado a constante da isoterma de Brunauer - Emmett - Teller\&. "
+.ti -1c
+.RI "virtual Real \fBQe\fP (const Real &, const Real &) const"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c) const override"
+.br
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de Brunauer - Emmett - Teller\&. 
+
+Classe com as equacoes da isoterma de Brunauer - Emmett - Teller\&.
+.PP
+Isoterma com tres parametros, $ q_{max} $, $ K_1 $ e $ K_2 $, cujas formulas sao as seguintes: \\begin{align} [Q_e(C_e,T)= \\frac{q_{max}K_1C}{(K_1-C)[1+(K_1-1)(\\frac{C}{K_2})]}] \\end{align} Um artigo de referencia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2020 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "BrunauerEmmettTeller::BrunauerEmmettTeller ()\fC [default]\fP"
+
+.PP
+Construtora default\&. 
+.PP
+Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funcao 
+.RE
+.PP
+
+.SS "BrunauerEmmettTeller::BrunauerEmmettTeller (const \fBBrunauerEmmettTeller\fP & _brunauer_emmett_teller)\fC [default]\fP"
+
+.PP
+Construtora de cópia\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var;
+BrunauerEmmettTeller  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo Brunauer - Emmett - Teller original\&. 
+.RE
+.PP
+
+.SS "BrunauerEmmettTeller::BrunauerEmmettTeller (const Real & _qmax, const Real & _k1, const Real & _k2)"
+
+.PP
+Construtora com os parametros que definem a isoterma de \fBBrunauerEmmettTeller\fP\&. Uso: 
+.PP
+.nf
+double QMAX(1\&.0);
+double K1(1\&.0);
+double K2(1\&.0);
+Sips  var1(Q1, K1, K2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Capacidade maxima de adsorcao\&. 
+.br
+\fI_k1\fP Constante da isortema de Brunauer - Emmett - Teller\&. 
+.br
+\fI_k2\fP Constante da isoterma de Brunauer - Emmett - Teller\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.br
+\fI_k1\fP <= 0\&. 
+.br
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "virtual std::unique_ptr< \fBIsotherm\fP > BrunauerEmmettTeller::CloneImplementation () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "BrunauerEmmettTeller::DefineIdentity ('Brunauer \- Emmett \- Teller', ID::BrunauerEmmettTeller)"
+
+.PP
+Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. 
+.SS "Real BrunauerEmmettTeller::K1 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o coeficiente associado a constante de Brunauer - Emmett - Teller\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+double k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do coeficiente associado a constante de Brunauer - Emmett - Teller\&. 
+.RE
+.PP
+
+.SS "void BrunauerEmmettTeller::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funcao que altera o coeficiente associado a constante da isoterma de Brunauer - Emmett - Teller\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+double k1(2\&.0);
+var1\&.K1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor do coeficiente associado a constante da isoterma de Brunauer - Emmett - Teller\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "Real BrunauerEmmettTeller::K2 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o parametro da equacao de Brunauer - Emmett - Teller\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+double k2 = var1\&.K2();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do parametro da equacao de Brunauer - Emmett - Teller\&. 
+.RE
+.PP
+
+.SS "void BrunauerEmmettTeller::K2 (const Real & _k2)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor associado a constante da isoterma de Brunauer - Emmett - Teller\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+double k2(3\&.0);
+var1\&.K2(k2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k2\fP Novo valor associado a constante da isoterma de Brunauer - Emmett - Teller\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SS "\fBBrunauerEmmettTeller\fP & BrunauerEmmettTeller::operator= (const \fBBrunauerEmmettTeller\fP &)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+BrunauerEmmettTeller  var2 = var1;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBBrunauerEmmettTeller\fP original\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Cópia de _orig\&. 
+.RE
+.PP
+
+.SS "Real BrunauerEmmettTeller::Qe (const Real & _ce, const Real &) const\fC [virtual]\fP"
+
+.PP
+Funcao que calcula a quantidade de sorcao no equilibrio\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+double ce(1\&.0);
+double qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_c\fP Concentracao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorcao no equilibrio\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_c\fP < 0\&. 
+.RE
+.PP
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Real BrunauerEmmettTeller::Qe (const Real & _c) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplementa \fBIsotherm\fP\&.
+.SS "Real BrunauerEmmettTeller::Qmax () const\fC [inline]\fP"
+
+.PP
+Funcao que informa o valor da capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+BrunauerEmmettTeller  var1(QMAX, K1, K2);
+double q1 = var1\&.Qmax();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+
+.SS "void BrunauerEmmettTeller::Qmax (const Real & _qmax)\fC [inline]\fP"
+
+.PP
+Funcao para alterar a capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+Kilselev  var1(QMAX, K1, K2);
+double q1(3\&.0);
+var1\&.Qmax(q1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Novo valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

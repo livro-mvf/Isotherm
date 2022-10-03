@@ -1,0 +1,408 @@
+.TH "RadkePrausnitsIII" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RadkePrausnitsIII \- Classe com as equacoes da isoterma de Radke-Prausnits III  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <RadkePrausnitsIII\&.h>\fP
+.PP
+Subclasse de \fBThreeParameters\fP e \fBIsothermTemplate< RadkePrausnitsIII >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('RadkePrausnitsIII', ID::RadkePrausnitsIII)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBRadkePrausnitsIII\fP ()=default"
+.br
+.ti -1c
+.RI "\fBRadkePrausnitsIII\fP (const \fBRadkePrausnitsIII\fP &radkeprausnitsiii)=default"
+.br
+.RI "Construtora de copia\&. "
+.ti -1c
+.RI "virtual \fB~RadkePrausnitsIII\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBRadkePrausnitsIII\fP (const Real &, const Real &, const Real &)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de Radke-PrausnitsIII\&. "
+.ti -1c
+.RI "\fBRadkePrausnitsIII\fP & \fBoperator=\fP (const \fBRadkePrausnitsIII\fP &)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBQmax\fP () const"
+.br
+.RI "Funcao que informa o valor da capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que retorna o coeficiente associado a constante de \fBRadkePrausnitsIII\fP\&. "
+.ti -1c
+.RI "Real \fBK2\fP () const"
+.br
+.RI "Funcao que retorna o valor do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. "
+.ti -1c
+.RI "void \fBQmax\fP (const Real &_qmax)"
+.br
+.RI "Funcao para alterar a capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao que altera o coeficiente associado a constante de \fBRadkePrausnitsIII\fP\&. "
+.ti -1c
+.RI "void \fBK2\fP (const Real &_k2)"
+.br
+.RI "Funcao para alterar o valor do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &, const Real &) const"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c) const override"
+.br
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de Radke-Prausnits III 
+
+Classe com as equacoes da isoterma de Radke-Prausnits III\&.
+.PP
+Isoterma com tras parametros, $ q_{max} $, $ K_1 $ e $ K_2 $, cujas formulas sao as seguintes: \\begin{align} [Q_e(C_e, T) = q_{max}\\frac{K_1 * (C^{{K_2}})}{1 + K_1 * C^{{K_2 - 1}}}] \\end{align} Um artigo de referancia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Lara Botelho Brum 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "RadkePrausnitsIII::RadkePrausnitsIII ()\fC [default]\fP"
+
+.PP
+Construtora default\&. 
+.PP
+Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funcao 
+.RE
+.PP
+
+.SS "RadkePrausnitsIII::RadkePrausnitsIII (const \fBRadkePrausnitsIII\fP & radkeprausnitsiii)\fC [default]\fP"
+
+.PP
+Construtora de copia\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var;
+RadkePrausnitsIII  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBRadkePrausnitsI\fP original\&. 
+.RE
+.PP
+
+.SS "RadkePrausnitsIII::RadkePrausnitsIII (const Real & _qmax, const Real & _k1, const Real & _k2)"
+
+.PP
+Construtora com os parametros que definem a isoterma de Radke-PrausnitsIII\&. Uso: 
+.PP
+.nf
+double QMAX(1\&.0);
+double K1(1\&.0);
+double K2(1\&.0);
+RadkePrausnitsIII  var1(Q1, K1, K2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Capacidade maxima de adsorcao\&. 
+.br
+\fI_k1\fP Constante da isortema de \fBRadkePrausnitsIII\fP\&. 
+.br
+\fI_k2\fP Constante do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.br
+\fI_k1\fP <= 0\&. 
+.br
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "virtual std::unique_ptr< \fBIsotherm\fP > RadkePrausnitsIII::CloneImplementation () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "RadkePrausnitsIII::DefineIdentity ('RadkePrausnitsIII', ID::RadkePrausnitsIII)"
+
+.PP
+Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. 
+.SS "Real RadkePrausnitsIII::K1 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o coeficiente associado a constante de \fBRadkePrausnitsIII\fP\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do coeficiente associado a constante de \fBRadkePrausnitsIII\fP\&. 
+.RE
+.PP
+
+.SS "void RadkePrausnitsIII::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funcao que altera o coeficiente associado a constante de \fBRadkePrausnitsIII\fP\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double k1(2\&.0);
+var1\&.K1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor do coeficiente associado a constante de \fBRadkePrausnitsIII\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "Real RadkePrausnitsIII::K2 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o valor do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double k2 = var1\&.K2();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. 
+.RE
+.PP
+
+.SS "void RadkePrausnitsIII::K2 (const Real & _k2)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double k2(3\&.0);
+var1\&.K2(k2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k2\fP Novo valor do expoente da isoterma de \fBRadkePrausnitsIII\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SS "\fBRadkePrausnitsIII\fP & RadkePrausnitsIII::operator= (const \fBRadkePrausnitsIII\fP &)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+RadkePrausnitsIII  var2 = var1;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBRadkePrausnitsII\fP original\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Copia de _orig\&. 
+.RE
+.PP
+
+.SS "Real RadkePrausnitsIII::Qe (const Real & _ce, const Real &) const\fC [virtual]\fP"
+
+.PP
+Funcao que calcula a quantidade de sorcao no equilibrio\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double ce(1\&.0);
+double qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_c\fP Concentracao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorcao no equilibrio\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_c\fP < 0\&. 
+.RE
+.PP
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Real RadkePrausnitsIII::Qe (const Real & _c) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplementa \fBIsotherm\fP\&.
+.SS "Real RadkePrausnitsIII::Qmax () const\fC [inline]\fP"
+
+.PP
+Funcao que informa o valor da capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double q1 = var1\&.Qmax();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+
+.SS "void RadkePrausnitsIII::Qmax (const Real & _qmax)\fC [inline]\fP"
+
+.PP
+Funcao para alterar a capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+RadkePrausnitsIII  var1(QMAX, K1, K2);
+double q1(3\&.0);
+var1\&.Qmax(q1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Novo valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

@@ -1,0 +1,271 @@
+.TH "Henry" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Henry \- Classe com as equacoes da isoterma de \fBHenry\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Henry\&.h>\fP
+.PP
+Subclasse de \fBOneParameter\fP e \fBIsothermTemplate< Henry >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('Henry', ID::Henry)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBHenry\fP ()=default"
+.br
+.RI "Construtora default\&. "
+.ti -1c
+.RI "\fBHenry\fP (const \fBHenry\fP &_orig)=default"
+.br
+.RI "Construtora de cópia\&. "
+.ti -1c
+.RI "virtual \fB~Henry\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBHenry\fP (const Real &_k1)"
+.br
+.RI "Construtora com o parametros que define a isoterma de \fBHenry\fP\&. "
+.ti -1c
+.RI "\fBHenry\fP & \fBoperator=\fP (const \fBHenry\fP &_orig)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que informa o valor do coeficiente de distribuicao\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao para alterar o valor do coeficiente de distribuicao\&. "
+.ti -1c
+.RI "virtual Real \fBQe\fP (const Real &_c, const Real &=0) const"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de \fBHenry\fP\&. 
+
+Isoterma com um parametro, $ K_1 > 0 $, cuja fórmula e a seguinte: \\begin{align} Q_e(C_e) = K_1 C_e \\end{align} O artigo em que esta isoterma foi definida pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Lara Botelho Brum 
+.PP
+Luan Rodrigues Soares de Souza 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "Henry::Henry ()\fC [default]\fP"
+
+.PP
+Construtora default\&. Uso: 
+.PP
+.nf
+Henry  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funcao 
+.RE
+.PP
+
+.SS "Henry::Henry (const \fBHenry\fP & _orig)\fC [default]\fP"
+
+.PP
+Construtora de cópia\&. Uso: 
+.PP
+.nf
+Henry  var;
+Henry  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBHenry\fP original\&. 
+.RE
+.PP
+
+.SS "Henry::Henry (const Real & _k1)"
+
+.PP
+Construtora com o parametros que define a isoterma de \fBHenry\fP\&. Uso: 
+.PP
+.nf
+Real k1(1\&.0);
+Henry  var1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Coeficiente de distribuicao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "virtual std::unique_ptr< \fBIsotherm\fP > Henry::CloneImplementation () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Real Henry::K1 () const\fC [inline]\fP"
+
+.PP
+Funcao que informa o valor do coeficiente de distribuicao\&. Uso: 
+.PP
+.nf
+Henry  var1(k1);
+Real   k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do coeficiente de distribuicao\&. 
+.RE
+.PP
+
+.SS "void Henry::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor do coeficiente de distribuicao\&. Uso: 
+.PP
+.nf
+Henry  var1(_k1);
+Real   k11(3\&.0);
+var1\&.K1(k11);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor do coeficiente de distribuicao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "\fBHenry\fP & Henry::operator= (const \fBHenry\fP & _orig)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+Henry  var1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBHenry\fP original\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Cópia de _orig\&. 
+.RE
+.PP
+
+.SS "Real Henry::Qe (const Real & _c, const Real & = \fC0\fP) const\fC [virtual]\fP"
+
+.PP
+Funcao que calcula a quantidade de sorcao no equilibrio\&. Uso: 
+.PP
+.nf
+Henry  var1(k);
+Real ce(1\&.0);
+Real qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_c\fP Concentracao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorcao no equilibrio\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_c\fP < 0\&. 
+.RE
+.PP
+
+.PP
+Implementa \fBIsotherm\fP\&.
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

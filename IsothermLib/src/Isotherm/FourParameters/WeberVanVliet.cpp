@@ -27,7 +27,6 @@
 
 #include <cmath>
 #include <iostream>
-//#include <iomanip>
 
 //==============================================================================
 // includes da lib Isotherm++
@@ -43,15 +42,21 @@ IST_NAMESPACE_OPEN
 // Variaveis estaticas
 //==============================================================================
 
-VecPairString       detailsWeberVanVliet    {   PairString  ( "Qmax"
-                                                    , "Capacidade maxima de adsorcao.")
+VecPairString       detailsWeberVanVliet    {   
+                                        PairString  ( "Qmax"
+                                                    , "Capacidade maxima de adsorcao."
+                                                    )
                                     ,   PairString  ( "K1"
-                                                    , "Coeficiente da isoterma de WeberVanVliet.")
+                                                    , "Coeficiente da isoterma de WeberVanVliet."
+                                                    )
                                     ,   PairString  ( "K2"
-                                                    , "Coeficiente da isoterma de WeberVanVliet.")        
+                                                    , "Coeficiente da isoterma de WeberVanVliet."
+                                                    )        
                                     ,   PairString  ( "K3"
-                                                    , "Expoente da isoterma de WeberVanVliet.")};
-
+                                                    , "Expoente da isoterma de WeberVanVliet."
+                                                    )
+                                            };
+                                           
 template<>
 VecPairString IsothermTemplate < WeberVanVliet >::infoIsotherm = detailsWeberVanVliet;
 
@@ -91,20 +96,7 @@ WeberVanVliet :: WeberVanVliet  (   const Real&     _k1
                                     ,   className()
                                     ,   BadK3LEZero
                                     );  
-            
-            if (_k3 >= 1.0)  throw  
-                    IsoException    (   IST_LOC
-                                    ,   className()
-                                    ,   BadK3GEOne
-                                    );  
-
-            if (_k4 <= 0.0)  throw  
-                    IsoException    (   IST_LOC
-                                    ,   className()
-                                    ,   BadK4LEZero
-                                    );             
-
-            
+                        
     } catch (const IsoException& _isoExcept) {
             
         std::cout   << _isoExcept 
@@ -153,7 +145,7 @@ WeberVanVliet ::  Qe    (   const Real& _ce
     const_cast<Real&>(auxiCe) = _ce / this->K1();
     
 auto fp    = std::bind(&WeberVanVliet::FQe, *this, _1);
-auto value = NewtonRaphson (fp, 0.95);
+auto value = NewtonRaphson (fp, 0.5);
 
     return (value >= ZERO ? value : 0.0);
  
@@ -166,9 +158,8 @@ Real
 WeberVanVliet ::  FQe (const Real& _q) const {
 
 auto    ptrValue = std::begin(coeffValue);    
-auto    auxi  = pow(_q, *(ptrValue + 2) + *(ptrValue + 3));
-    
-    return auxiCe - pow(_q, *(ptrValue + 1) * auxi);
+auto    auxi  =  *(ptrValue + 1) * pow(_q, *(ptrValue + 2)) + *(ptrValue + 3) ;    
+    return auxiCe - pow(_q, auxi);
 
 }
 

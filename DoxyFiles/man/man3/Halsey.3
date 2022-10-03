@@ -1,0 +1,347 @@
+.TH "Halsey" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Halsey \- Classe com as equacoes da isoterma de \fBHalsey\fP  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Halsey\&.h>\fP
+.PP
+Subclasse de \fBTwoParameters\fP e \fBIsothermTemplate< Halsey >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('Halsey', ID::Halsey)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBHalsey\fP ()=default"
+.br
+.RI "Construtora default\&. "
+.ti -1c
+.RI "\fBHalsey\fP (const \fBHalsey\fP &_orig)=default"
+.br
+.RI "Construtora de copia\&. "
+.ti -1c
+.RI "virtual \fB~Halsey\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBHalsey\fP (const Real &_k1, const Real &_k2)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de \fBHalsey\fP\&. "
+.ti -1c
+.RI "\fBHalsey\fP & \fBoperator=\fP (const \fBHalsey\fP &_orig)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que informa o valor da constante da isoterma de \fBHalsey\fP\&. "
+.ti -1c
+.RI "Real \fBK2\fP () const"
+.br
+.RI "Funcao que retorna o valor da constante de ligacao de equilibrio isotermica\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao para alterar o valor da constante da isoterma de \fBHalsey\fP\&. "
+.ti -1c
+.RI "void \fBK2\fP (const Real &_k2)"
+.br
+.RI "Funcao que altera o valor da constante de ligacao de equilibrio isotermica\&. "
+.ti -1c
+.RI "virtual Real \fBQe\fP (const Real &_c, const Real &_temp) const"
+.br
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c) const override"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de \fBHalsey\fP 
+
+Isoterma com dois parametros, $ K_1 $ e $ K_2 $, cujas formulas sao as seguintes: \\begin{align} ln(Q_e(C_e)) = \\frac{1}{K_2}ln\\left(\\frac{K_1}{C_e}\\right) \\end{align} Um artigo de referencia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Iasmim Barboza Storck 
+.PP
+Lara Botelho Brum 
+.PP
+Luan Rodrigues Soares de Souza 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "Halsey::Halsey ()\fC [default]\fP"
+
+.PP
+Construtora default\&. Uso: 
+.PP
+.nf
+Halsey  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funcao 
+.RE
+.PP
+
+.SS "Halsey::Halsey (const \fBHalsey\fP & _orig)\fC [default]\fP"
+
+.PP
+Construtora de copia\&. Uso: 
+.PP
+.nf
+Halsey  var;
+Halsey  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBHalsey\fP original\&. 
+.RE
+.PP
+
+.SS "Halsey::Halsey (const Real & _k1, const Real & _k2)"
+
+.PP
+Construtora com os parametros que definem a isoterma de \fBHalsey\fP\&. Uso: 
+.PP
+.nf
+Real k1(1\&.0);
+Real k2(1\&.0);
+Halsey  var1(k1, k2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Constante da isoterma de \fBHalsey\fP\&. 
+.br
+\fI_k2\fP Constante de ligacao de equilibrio isotermica\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.br
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "virtual std::unique_ptr< \fBIsotherm\fP > Halsey::CloneImplementation () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Halsey::DefineIdentity ('Halsey', ID::Halsey)"
+
+.PP
+Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. 
+.SS "Real Halsey::K1 () const\fC [inline]\fP"
+
+.PP
+Funcao que informa o valor da constante da isoterma de \fBHalsey\fP\&. Uso: 
+.PP
+.nf
+Halsey  var1(k1, k2);
+Real _k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da constante da isoterma de \fBHalsey\fP\&. 
+.RE
+.PP
+
+.SS "void Halsey::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor da constante da isoterma de \fBHalsey\fP\&. Uso: 
+.PP
+.nf
+Halsey  var1(k1, k2);
+Real k11(3\&.0);
+var1\&.K1(k11);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor da constante da isoterma de \fBHalsey\fP\&.\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "Real Halsey::K2 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o valor da constante de ligacao de equilibrio isotermica\&. Uso: 
+.PP
+.nf
+Halsey  var1(k1, k2);
+Real _k2 = var1\&.K2();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da constante de ligacao de equilibrio isotermica\&. 
+.RE
+.PP
+
+.SS "void Halsey::K2 (const Real & _k2)\fC [inline]\fP"
+
+.PP
+Funcao que altera o valor da constante de ligacao de equilibrio isotermica\&. Uso: 
+.PP
+.nf
+Halsey  var1(k1, k2);
+Real _k22(2\&.0);
+var1\&.K2(_k22);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k2\fP Novo valor da constante de ligacao de equilibrio isotermica\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SS "\fBHalsey\fP & Halsey::operator= (const \fBHalsey\fP & _orig)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+Halsey  var1(k1, k2);
+Halsey  var2 = var1;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBHalsey\fP original\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Copia de _orig\&. 
+.RE
+.PP
+
+.SS "Real Halsey::Qe (const Real & _c) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Funcao que calcula a quantidade de sorcao no equilibrio\&. Uso: 
+.PP
+.nf
+Halsey  var1(k1, k2);
+Real ce(1\&.0);
+Real qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_ce\fP Concentracao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorcao no equilibrio\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_ce\fP < 0\&. 
+.RE
+.PP
+
+.PP
+Reimplementa \fBIsotherm\fP\&.
+.SS "Real Halsey::Qe (const Real & _c, const Real & _temp) const\fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

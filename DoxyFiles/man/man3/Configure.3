@@ -1,0 +1,42 @@
+.TH "Configure" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Configure \- Configuracoes da Biblioteca
+.SH SYNOPSIS
+.br
+.PP
+.SS "Definições e Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIST_NAMESPACE_OPEN\fP   namespace ist {"
+.br
+.RI "Definicao do inicio namespace da biblioteca Isotherm++ "
+.ti -1c
+.RI "#define \fBIST_NAMESPACE_CLOSE\fP   }"
+.br
+.RI "Definicao do fim namespace da biblioteca Isotherm++ "
+.in -1c
+.SS "Funções"
+
+.in +1c
+.ti -1c
+.RI "\fBIST_NAMESPACE_OPEN\fP const Real \fBZERO\fP (1e250 *std::numeric_limits< Real >::min())"
+.br
+.ti -1c
+.RI "const UInt \fBLSIZE\fP (0x50)"
+.br
+.in -1c
+.SH "Descrição detalhada"
+.PP 
+Algumas configuracoes que serao utilizadas por diversas classes e funcoes da biblioteca Isotherm++\&. 
+.SH "Funções"
+.PP 
+.SS "const UInt LSIZE (0x50)"
+Tamanho default da linha que sera utilizada pela funcao PrintLine 
+.SS "\fBIST_NAMESPACE_OPEN\fP const Real ZERO (1e250 *std::numeric_limits< Real > ::min())"
+Valor para zero nos processos iterativos 
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

@@ -43,14 +43,20 @@ IST_NAMESPACE_OPEN
 // Variaveis estaticas
 //==============================================================================
 
-VecPairString       detailsMarczewskiJaroniec    {   PairString  ( "Qmax"
-                                                    , "Capacidade maxima de adsorcao.")
+VecPairString       detailsMarczewskiJaroniec    {   
+                                        PairString  ( "Qmax"
+                                                    , "Capacidade maxima de adsorcao."
+                                                    )
                                     ,   PairString  ( "K1"
-                                                    , "Coeficiente da isoterma de MarczewskiJaroniec.")
+                                                    , "Coeficiente da isoterma de MarczewskiJaroniec."
+                                                    )
                                     ,   PairString  ( "K2"
-                                                    , "Coeficiente da isoterma de MarczewskiJaroniec.")        
+                                                    , "Coeficiente da isoterma de MarczewskiJaroniec."
+                                                    )        
                                     ,   PairString  ( "K3"
-                                                    , "Expoente da isoterma de MarczewskiJaroniec.")};
+                                                    , "Coeficiente da isoterma de MarczewskiJaroniec."
+                                                    )
+                                                };
 
 template<>
 VecPairString IsothermTemplate < MarczewskiJaroniec >::infoIsotherm = detailsMarczewskiJaroniec;
@@ -62,13 +68,13 @@ VecPairString IsothermTemplate < MarczewskiJaroniec >::infoIsotherm = detailsMar
 
 #undef  __FUNCT__
 #define __FUNCT__ "MarczewskiJaroniec :: MarczewskiJaroniec (const Real&, const Real&, const Real&, const Real&)"
-MarczewskiJaroniec :: MarczewskiJaroniec  (   const Real&     _qmax 
-                ,   const Real&     _k1
-                ,   const Real&     _k2
-                ,   const Real&     _k3
-                ) 
-                : FourParameters(_qmax, _k1, _k2, _k3) {
-  
+MarczewskiJaroniec :: MarczewskiJaroniec    (   const Real&     _qmax 
+                                            ,   const Real&     _k1
+                                            ,   const Real&     _k2
+                                            ,   const Real&     _k3
+                                            ) 
+                                            : FourParameters(_qmax, _k1, _k2, _k3) {
+
 
 
     try {
@@ -97,13 +103,11 @@ MarczewskiJaroniec :: MarczewskiJaroniec  (   const Real&     _qmax
                                     ,   BadK3LEZero
                                     );  
             
-            if (_k3 > 1.0)  throw  
+            if (_k3 >= 1.0)  throw  
                     IsoException    (   IST_LOC
                                     ,   className()
-                                    ,   BadK3GTOne
+                                    ,   BadK3GEOne
                                     );  
-//            if (_k3 > 1.0 || _k3 < 0)  throw  
-//                    IsoException (IST_LOC, className(), BadK3Between);   
             
     } catch (const IsoException& _isoExcept) {
             

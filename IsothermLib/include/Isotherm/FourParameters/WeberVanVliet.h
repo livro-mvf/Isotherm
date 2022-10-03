@@ -34,7 +34,7 @@
 /// </summary>
 ///  Isoterma com quatro parametros,  \f$ K_1 \f$, \f$ K_2 \f$ , \f$ K_3 \f$  e \f$ K_4 \f$, cuja formula e a seguinte:
 ///\begin{align}
-/// C_e = K_1 Q(C_e)^{K_2 Q(C_e)^{K_3 + K_4}}
+/// C_e = K_1 Q(C_e)^{K_2 Q(C_e)^{K_3}+ K_4}
 ///\end{align}
 ///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/0043-1354(80)90107-4).
 ///  \authors   Lara Botelho Brum
@@ -140,7 +140,7 @@ public:
 ///  @param _k4 Expoente da isoterma de WeberVanVliet.    
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
-///  @exception 0 < _k3 < 1.
+///  @exception _k3 <= 0.
     WeberVanVliet   (   const Real&     _k1 
                     ,   const Real&     _k2
                     ,   const Real&     _k3
@@ -314,7 +314,6 @@ inline Real K4 () const {return  Value(3);};
 /// @endcode
 /// </example>
 ///  @param _k4 Novo valor associado ao expoente da isoterma de WeberVanVliet.
-///  @exception  _k3 < 1.    
     void K4 (const Real& _k4)  {    *this = WeberVanVliet   (   Value(0) 
                                                             ,   Value(1) 
                                                             ,   Value(2) 
@@ -349,6 +348,10 @@ inline Real K4 () const {return  Value(3);};
         return Qe(_c, 0);
     }
 
+//==============================================================================
+// Funcoes privadas da classe
+//==============================================================================
+    
 private:
         
     [[maybe_unused]]  [[nodiscard]]  
@@ -359,20 +362,18 @@ private:
     {
         return std::make_unique<WeberVanVliet>(*this);
     }
+
+    [[nodiscard]]
+    Real  FQe (const Real&) const;
     
 //==============================================================================
 // Dados da classe
 //==============================================================================
 
-    
- 
 private:
 
     Real                auxiCe = 0;
-    
-    [[nodiscard]]
-    Real  FQe (const Real&) const;
-    
+        
 };
 
 IST_NAMESPACE_CLOSE

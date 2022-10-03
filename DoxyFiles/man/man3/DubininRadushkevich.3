@@ -1,0 +1,121 @@
+.TH "DubininRadushkevich" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DubininRadushkevich \- Classe com as equacoes da isoterma de Dubinin-Radushkevich  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DubininRadushkevich\&.h>\fP
+.PP
+Subclasse de \fBTwoParameters\fP e \fBIsothermTemplate< DubininRadushkevich >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('DubininRadushkevich', ID::DubininRadushkevich)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBDubininRadushkevich\fP ()=default"
+.br
+.RI "Construtora default\&. "
+.ti -1c
+.RI "\fBDubininRadushkevich\fP (const \fBDubininRadushkevich\fP &_orig)=default"
+.br
+.RI "Construtora de copia\&. "
+.ti -1c
+.RI "virtual \fB~DubininRadushkevich\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBDubininRadushkevich\fP (const Real &_qmax, const Real &_k1, const Real &_rgas=Isotherm::RGASCONST)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de \fBDubininRadushkevich\fP\&. "
+.ti -1c
+.RI "\fBDubininRadushkevich\fP & \fBoperator=\fP (const \fBDubininRadushkevich\fP &_orig)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBQmax\fP () const"
+.br
+.RI "Funcao que informa o valor da constante de equilibrio de Dubinin-Radushkevich\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que retorna o coeficiente associado a energia de adsorcao\&. "
+.ti -1c
+.RI "Real \fBRgas\fP () const"
+.br
+.RI "Funcao que retorna o valor da constante universal dos gases\&. "
+.ti -1c
+.RI "void \fBQmax\fP (const Real &_qmax)"
+.br
+.RI "Funcao para alterar a constante de equilibrio de Dubinin-Radushkevich\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao que altera o coeficiente associado a energia de adsorcao\&. "
+.ti -1c
+.RI "void \fBRgas\fP (const Real &_rgas)"
+.br
+.RI "Funcao para alterar o valor da constante universal dos gases\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c, const Real &_temp) const"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c) const override"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.RI "Funcao que faz o clone da classe virtual\&. "
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de Dubinin-Radushkevich 
+
+Isoterma com dois parametros, $ q_{max} $ e $ K_1 $, cujas formulas sao as seguintes: \\begin{align} Q_e (C_e, T) &= q_{max} \\exp( -K_1 \\epsilon^2 ) \\hfil \\\\ \\\\ \\epsilon &= R T \\ln \\left(1 + \\frac{1}{C_e} \\right) \\end{align} Um artigo de referencia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Iasmim Barboza Storck 
+.PP
+Lara Botelho Brum 
+.PP
+Luan Rodrigues Soares de Souza 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

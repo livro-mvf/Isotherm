@@ -42,11 +42,11 @@ class TestSuit : public ::testing::Test {
     
 protected: 
     
-const Real              CE          = 1.03711;
-const Real              K1          = 0.381568;   
-const Real              K2          = 0.615360;    
-const Real              K3          = 0.0659704;    
-const Real              K4          = 0.400834e-2;    
+const Real              CE          = 1.56792;
+const Real              K1          = 0.0870930;   
+const Real              K2          = 3.19814;    
+const Real              K3          = 0.0647897;    
+const Real              K4          = 0.769393;    
 const Real              QMAXNovo    = 34.548;    
 const Real              K1Novo      = 98.1e-03;    
 const Real              K2Novo      = 3.3;    
@@ -115,7 +115,7 @@ TEST_F(TestSuit, ConstrutoraDeCopia) {
 
 TEST_F(TestSuit, CalculoQe) {
 
-const Real                      QEANALIT1(4.333748802);
+const Real                      QEANALIT1(2.018186330);
 const TestIsotherm              iso1 (K1, K2, K3, K4);
 std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
 
@@ -130,7 +130,7 @@ std::unique_ptr<ist::Isotherm>  iso1c = iso1.Clone();
 TEST_F(TestSuit, DeathTest) {
     
     EXPECT_DEATH(TestIsotherm( - K1, K2, K3, K4);, ""); 
-    EXPECT_DEATH(TestIsotherm(    0, K2, K3, K4);, ""); 
+    EXPECT_DEATH(TestIsotherm(  0.0, K2, K3, K4);, ""); 
     EXPECT_DEATH(isotherm_2.K1(- K1);, "");
     EXPECT_DEATH(isotherm_2.K1( 0.0);, "");
 
@@ -143,12 +143,7 @@ TEST_F(TestSuit, DeathTest) {
     EXPECT_DEATH(TestIsotherm(   K1,   K2, 0.0, K4);, ""); 
     EXPECT_DEATH(isotherm_2.K3(- K3);, "");
     EXPECT_DEATH(isotherm_2.K3( 0.0);, "");
-    
-    EXPECT_DEATH(TestIsotherm(   K1,   K2,  K3, -K4);, ""); 
-    EXPECT_DEATH(TestIsotherm(   K1,   K2,  K3, 0.0);, ""); 
-    EXPECT_DEATH(isotherm_2.K4(- K4);, "");
-    EXPECT_DEATH(isotherm_2.K4( 0.0);, "");
-       
+           
     EXPECT_DEATH(auto value = isotherm_2.Qe(- CE);, "");
  
 }

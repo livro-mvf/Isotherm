@@ -32,11 +32,12 @@
 /// <summary>
 /// Classe com as equacoes da isoterma de MarczewskiJaroniec.
 /// </summary>
-///  Isoterma com quatro parametros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$ e \f$ K_3 \f$ cujas formulas sao as seguintes:
+///  Isoterma com quatro parametros, \f$ q_{max} \f$, \f$ K_1 \f$, \f$ K_2 \f$ e \f$ K_3 \f$ cuja formula e a seguinte:
 ///\begin{align}
-///  Q_e(C_e, T) = \frac{q_{max}C_e^{K_3}}{1 + K_1C_e^{K_3}}
+///  \frac{Q_e(C_e)}{q_{max}} = \left[ \frac{(K_1 C_e)^{K_2}}{1 + (K_1 C_e)^{K_2}}\right]^\frac{K_2}{K_3}
 ///\end{align}
-///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1016/B978-0-12-804609-8.00005-4).
+///  Um artigo de referencia pode ser encontrado [aqui]( https://doi.org/https://doi.org/10.1007/BF01134184 ).
+
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
 ///  \authors   Joao Flavio Vieira de Vasconcellos
@@ -74,7 +75,7 @@ class MarczewskiJaroniec :  public virtual FourParameters,
 // ID da classe
 //==============================================================================
 
-public:    
+private:    
     
 /// <summary>
 /// Definicao de ID para esta classe para fins de identificacao de erros.
@@ -137,16 +138,17 @@ public:
 ///  @param _qmax Capacidade maxima de adsorcao.    
 ///  @param _k1 Coeficiente da isortema de MarczewskiJaroniec.    
 ///  @param _k2 Coeficiente da isoterma de MarczewskiJaroniec.
-///  @param _k3 Expoente da isoterma de MarczewskiJaroniec.    
+///  @param _k3 Coeficiente da  isoterma de MarczewskiJaroniec.    
 ///  @exception _qmax < 0.
 ///  @exception _k1 <= 0.
 ///  @exception _k2 <= 0.
-///  @exception 0 < _k3 < 1.
-    MarczewskiJaroniec   (   const Real& 
-            ,   const Real& 
-            ,   const Real& 
-            ,   const Real&
-            );
+///  @exception _k3 <= 0.
+///  @exception _k3 >= 1.
+    MarczewskiJaroniec  (   const Real& _qmax
+                        ,   const Real&     _k1 
+                        ,   const Real&     _k2
+                        ,   const Real&     _k3
+                        );
 
 //==============================================================================
 // Sobrecarga de operadores
@@ -167,7 +169,7 @@ public:
 /// </example>
 ///  @param _orig Variavel do tipo MarczewskiJaroniec.
 ///  @return Copia de _orig.    
-    MarczewskiJaroniec& operator = (const MarczewskiJaroniec&) = default;
+    MarczewskiJaroniec& operator = (const MarczewskiJaroniec& _orig) = default;
     
 //==============================================================================
 // Acesso as constantes da classe
@@ -254,7 +256,7 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _qmax Novo valor da capacidade maxima de adsorcao.
 ///  @exception _qmax < 0.
-    void Qmax (const Real& _qmax)   {   *this = MarczewskiJaroniec    (       _qmax 
+    void Qmax (const Real& _qmax)   {   *this = MarczewskiJaroniec  (       _qmax 
                                                                     ,       Value(1) 
                                                                     ,       Value(2)
                                                                     ,       Value(3)
@@ -313,8 +315,9 @@ inline Real K3 () const {return  Value(3);};
 /// @endcode
 /// </example>
 ///  @param _k3 Novo valor associado ao expoente da isoterma de MarczewskiJaroniec.
-///  @exception 0 < _k3 < 1.    
-    void K3 (const Real& _k3)  {    *this = MarczewskiJaroniec    (   Value(0) 
+///  @exception _k3 <= 0    
+///  @exception _k3 >= 1    
+    void K3 (const Real& _k3)  {    *this = MarczewskiJaroniec  (   Value(0) 
                                                                 ,   Value(1) 
                                                                 ,   Value(2) 
                                                                 ,   _k3
@@ -339,9 +342,13 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilibrio.    
-///  @exception _c < 0.    
-    [[nodiscard]]  Real Qe (const Real&, const Real&) const;
+///  @exception _c <= 0.    
+    [[nodiscard]]  
+    Real Qe (const Real&, const Real&) const;
 
+    
+    
+    private:    
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c
     ) const override

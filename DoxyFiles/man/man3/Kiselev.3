@@ -1,0 +1,409 @@
+.TH "Kiselev" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Kiselev \- Classe com as equacoes da isoterma de \fBKiselev\fP  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Kiselev\&.h>\fP
+.PP
+Subclasse de \fBThreeParameters\fP e \fBIsothermTemplate< Kiselev >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('Kiselev', ID::Kiselev)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBKiselev\fP ()=default"
+.br
+.RI "Definiçao de \fBID\fP para esta classe para fins de identificaçao de erros\&. "
+.ti -1c
+.RI "\fBKiselev\fP (const \fBKiselev\fP &_orig)=default"
+.br
+.ti -1c
+.RI "\fB~Kiselev\fP () override=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBKiselev\fP (const Real &, const Real &, const Real &)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de \fBKiselev\fP\&. "
+.ti -1c
+.RI "\fBKiselev\fP & \fBoperator=\fP (const \fBKiselev\fP &_orig)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBQmax\fP () const"
+.br
+.RI "Funçao que informa o valor da capacidade maxima de adsorçao\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funçao que retorna o coeficiente associado a constante de equilibrio de \fBHill\fP - Deboer\&. "
+.ti -1c
+.RI "Real \fBK2\fP () const"
+.br
+.RI "Funçao que retorna o valor associado a constante de iteraçao entre as moleculas adsorvidas\&. "
+.ti -1c
+.RI "void \fBQmax\fP (const Real &_qmax)"
+.br
+.RI "Funçao para alterar a capacidade maxima de adsorçao\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funçao que altera o coeficiente associado a constante de equilibrio de \fBKiselev\fP\&. "
+.ti -1c
+.RI "void \fBK2\fP (const Real &_k2)"
+.br
+.RI "Funçao para alterar o valor associado a constante de iteraçao entre as moleculas adsorvidas\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &, const Real &) const override"
+.br
+.RI "Funçao que calcula a quantidade de sorçao no equilibrio\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c) const override"
+.br
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.ti -1c
+.RI "Real \fBFQe\fP (const Real &) const"
+.br
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de \fBKiselev\fP 
+
+Classe com as equacoes da isoterma de \fBKiselev\fP\&.
+.PP
+Isoterma com tres parametros, $ q_{max} $, $ K_1 $ e $ K_2 $, cujas formulas sao as seguintes: \\begin{align} [f(\\theta = K_1C-\\frac{\\theta}{1-\\theta}{1+K_2\\theta}] \\end{align} Um artigo de referencia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Lara Botelho Brum 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "Kiselev::Kiselev ()\fC [default]\fP"
+
+.PP
+Definiçao de \fBID\fP para esta classe para fins de identificaçao de erros\&. Construtora default\&. 
+.PP
+Uso: 
+.PP
+.nf
+Kiselev  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funçao 
+.RE
+.PP
+
+.SS "Kiselev::Kiselev (const \fBKiselev\fP & _orig)\fC [default]\fP"
+
+.PP
+Construtora de copia\&. 
+.PP
+Uso: 
+.PP
+.nf
+Kilselev  var;
+Kilselev  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo Kilselev original\&. 
+.RE
+.PP
+
+.SS "Kiselev::Kiselev (const Real & _qmax, const Real & _k1, const Real & _k2)"
+
+.PP
+Construtora com os parametros que definem a isoterma de \fBKiselev\fP\&. Uso: 
+.PP
+.nf
+double QMAX(1\&.0);
+double K1(1\&.0);
+double K2(1\&.0);
+Kiselev  var1(Q1, K1, K2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Capacidade maxima de adsorçao\&. 
+.br
+\fI_k1\fP Constante de equilibrio de \fBKiselev\fP\&. 
+.br
+\fI_k2\fP Constante de iteraçao entre as moleculas adsorvidas\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.br
+\fI_k1\fP <= 0\&. 
+.br
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "virtual std::unique_ptr< \fBIsotherm\fP > Kiselev::CloneImplementation () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Real Kiselev::K1 () const\fC [inline]\fP"
+
+.PP
+Funçao que retorna o coeficiente associado a constante de equilibrio de \fBHill\fP - Deboer\&. Uso: 
+.PP
+.nf
+Kiselev  var1(QMAX, K1, K2);
+double k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do coeficiente associado a constante de equilibrio de \fBKiselev\fP\&. 
+.RE
+.PP
+
+.SS "void Kiselev::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funçao que altera o coeficiente associado a constante de equilibrio de \fBKiselev\fP\&. Uso: 
+.PP
+.nf
+Kiselev  var1(QMAX, K1, K2);
+double k1(2\&.0);
+var1\&.K1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor do coeficiente associado a constante de equilibrio de \fBKiselev\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "Real Kiselev::K2 () const\fC [inline]\fP"
+
+.PP
+Funçao que retorna o valor associado a constante de iteraçao entre as moleculas adsorvidas\&. Uso: 
+.PP
+.nf
+Kiselev  var1(QMAX, K1, K2);
+double k2 = var1\&.K2();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor associado a constante de iteraçao entre as moleculas adsorvidas\&. 
+.RE
+.PP
+
+.SS "void Kiselev::K2 (const Real & _k2)\fC [inline]\fP"
+
+.PP
+Funçao para alterar o valor associado a constante de iteraçao entre as moleculas adsorvidas\&. Uso: 
+.PP
+.nf
+Kiselev  var1(QMAX, K1, K2);
+double k2(3\&.0);
+var1\&.K2(k2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k2\fP Novo valor associado a constante de iteraçao entre as moleculas adsorvidas\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SS "\fBKiselev\fP & Kiselev::operator= (const \fBKiselev\fP & _orig)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+Kiselev  var1(QMAX, K1, K2);
+Kiselev  var2 = var1;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBKiselev\fP original\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Copia de _orig\&. 
+.RE
+.PP
+
+.SS "Real Kiselev::Qe (const Real & _ce, const Real &) const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Funçao que calcula a quantidade de sorçao no equilibrio\&. Uso: 
+.PP
+.nf
+Kiselev  var1(QMAX, K1, K2);
+double ce(1\&.0);
+double qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_c\fP Concentraçao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorçao no equilibrio\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_c\fP < 0\&. 
+.RE
+.PP
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Real Kiselev::Qe (const Real & _c) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplementa \fBIsotherm\fP\&.
+.SS "Real Kiselev::Qmax () const\fC [inline]\fP"
+
+.PP
+Funçao que informa o valor da capacidade maxima de adsorçao\&. Uso: 
+.PP
+.nf
+HillDeBoer  var1(QMAX, K1, K2);
+double q1 = var1\&.Qmax();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da capacidade maxima de adsorçao\&. 
+.RE
+.PP
+
+.SS "void Kiselev::Qmax (const Real & _qmax)\fC [inline]\fP"
+
+.PP
+Funçao para alterar a capacidade maxima de adsorçao\&. Uso: 
+.PP
+.nf
+Kilselev  var1(QMAX, K1, K2);
+double q1(3\&.0);
+var1\&.Qmax(q1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Novo valor da capacidade maxima de adsorçao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

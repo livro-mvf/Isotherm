@@ -1,0 +1,36 @@
+.TH "Misceliea" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Misceliea \- Classes e Programas Acess贸rios
+.SH SYNOPSIS
+.br
+.PP
+.SS "M贸dulos"
+
+.in +1c
+.ti -1c
+.RI "\fBConfiguracoes da Biblioteca\fP"
+.br
+.ti -1c
+.RI "\fBIdentificacao da Classe\fP"
+.br
+.ti -1c
+.RI "\fBMisceliea\fP"
+.br
+.ti -1c
+.RI "\fBMetodo de Newton\-Rapshon\fP"
+.br
+.ti -1c
+.RI "\fBInformacoes sobre as classes\fP"
+.br
+.ti -1c
+.RI "\fBTipo de Variaveis\fP"
+.br
+.in -1c
+.SH "Descri莽茫o detalhada"
+.PP 
+Classes e programas com funcoes acess贸rias da classe Isotherm++\&. 
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do c贸digo-fonte\&.

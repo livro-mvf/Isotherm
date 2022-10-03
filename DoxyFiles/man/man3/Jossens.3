@@ -1,0 +1,428 @@
+.TH "Jossens" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Jossens \- Classe com as equacoes da isoterma de \fBJossens\fP  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Jossens\&.h>\fP
+.PP
+Subclasse de \fBThreeParameters\fP e \fBIsothermTemplate< Jossens >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentity\fP ('Jossens', ID::Jossens)"
+.br
+.RI "Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. "
+.ti -1c
+.RI "\fBJossens\fP ()=default"
+.br
+.ti -1c
+.RI "\fBJossens\fP (const \fBJossens\fP &_jossens)=default"
+.br
+.RI "Construtora de copia\&. "
+.ti -1c
+.RI "virtual \fB~Jossens\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBJossens\fP (const Real &, const Real &, const Real &)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de \fBJossens\fP\&. "
+.ti -1c
+.RI "\fBJossens\fP & \fBoperator=\fP (const \fBJossens\fP &)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBQmax\fP () const"
+.br
+.RI "Funcao que informa o valor da capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que retorna o coeficiente associado a constante de \fBJossens\fP\&. "
+.ti -1c
+.RI "Real \fBK2\fP () const"
+.br
+.RI "Funcao que retorna o valor do expoente da isoterma de \fBJossens\fP\&. "
+.ti -1c
+.RI "void \fBQmax\fP (const Real &_qmax)"
+.br
+.RI "Funcao para alterar a capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao que altera o coeficiente associado a constante de \fBJossens\fP\&. "
+.ti -1c
+.RI "void \fBK2\fP (const Real &_k2)"
+.br
+.RI "Funcao para alterar o valor do expoente da isoterma de \fBJossens\fP\&. "
+.ti -1c
+.RI "virtual Real \fBQe\fP (const Real &, const Real &) const"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_c) const override"
+.br
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const override"
+.br
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de \fBJossens\fP 
+
+Classe com as equacoes da isoterma de \fBJossens\fP\&.
+.PP
+Isoterma com tres parametros, $ q_{max} $, $ K_1 $ e $ K_2 $, cujas formulas sao as seguintes: 
+.br
+ \\begin{align} [Q_e(C_e, T) = q_{max}\\frac{C}{1+K_1(C^{K_2})}] \\end{align} Um artigo de referencia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Lara Botelho Brum 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "Jossens::Jossens ()\fC [default]\fP"
+
+.PP
+Construtora default\&. 
+.PP
+Uso: 
+.PP
+.nf
+Jossens  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funcao 
+.RE
+.PP
+
+.SS "Jossens::Jossens (const \fBJossens\fP & _jossens)\fC [default]\fP"
+
+.PP
+Construtora de copia\&. Uso: 
+.PP
+.nf
+Jossens  var;
+Jossens  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBJossens\fP original\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "Jossens::Jossens (const Real & _qmax, const Real & _k1, const Real & _k2)"
+
+.PP
+Construtora com os parametros que definem a isoterma de \fBJossens\fP\&. Uso: 
+.PP
+.nf
+double QMAX(1\&.0);                                                            
+double K1(1\&.0);                                                              
+double K2(1\&.0);                                                              
+HollKrich  var1(Q1, K1, K2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Capacidade maxima de adsorcao\&. 
+.br
+ 
+.br
+\fI_k1\fP Constante da isortema de \fBJossens\fP\&. 
+.br
+ 
+.br
+\fI_k2\fP Constante do expoente da isoterma de \fBJossens\fP\&. 
+.br
+ 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.br
+\fI_k1\fP <= 0\&. 
+.br
+\fI_k2\fP <= 0\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "virtual std::unique_ptr< \fBIsotherm\fP > Jossens::CloneImplementation () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Jossens::DefineIdentity ('Jossens', ID::Jossens)"
+
+.PP
+Definicao de \fBID\fP para esta classe para fins de identificacao de erros\&. 
+.SS "Real Jossens::K1 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o coeficiente associado a constante de \fBJossens\fP\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do coeficiente associado a constante de \fBJossens\fP\&. 
+.RE
+.PP
+
+.SS "void Jossens::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funcao que altera o coeficiente associado a constante de \fBJossens\fP\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double k1(2\&.0);
+var1\&.K1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor do coeficiente associado a constante de \fBJossens\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "Real Jossens::K2 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o valor do expoente da isoterma de \fBJossens\fP\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double k2 = var1\&.K2();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do expoente da isoterma de \fBJossens\fP\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "void Jossens::K2 (const Real & _k2)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor do expoente da isoterma de \fBJossens\fP\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double k2(3\&.0);
+var1\&.K2(k2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k2\fP Novo valor do expoente da isoterma de \fBJossens\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k2\fP <= 0\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "\fBJossens\fP & Jossens::operator= (const \fBJossens\fP &)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);                                                 
+Jossens  var2 = var1;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBJossens\fP original\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Copia de _orig\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "Real Jossens::Qe (const Real & _ce, const Real &) const\fC [virtual]\fP"
+
+.PP
+Funcao que calcula a quantidade de sorcao no equilibrio\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double ce(1\&.0);
+double qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_c\fP Concentracao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorcao no equilibrio\&. 
+.br
+ 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_c\fP < 0\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Implementa \fBIsotherm\fP\&.
+.SS "Real Jossens::Qe (const Real & _c) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplementa \fBIsotherm\fP\&.
+.SS "Real Jossens::Qmax () const\fC [inline]\fP"
+
+.PP
+Funcao que informa o valor da capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double q1 = var1\&.Qmax();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+
+.SS "void Jossens::Qmax (const Real & _qmax)\fC [inline]\fP"
+
+.PP
+Funcao para alterar a capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+Jossens  var1(QMAX, K1, K2);              
+double q1(3\&.0);
+var1\&.Qmax(q1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Novo valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

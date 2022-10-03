@@ -1,0 +1,142 @@
+.TH "Isotherm" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Isotherm
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Superclasse de \fBIsothermTemplate< Baudu >\fP\fC [virtual]\fP, \fBIsothermTemplate< BrouersSotolongo >\fP\fC [virtual]\fP, \fBIsothermTemplate< BrunauerEmmettTeller >\fP\fC [virtual]\fP, \fBIsothermTemplate< DubininRadushkevich >\fP\fC [virtual]\fP, \fBIsothermTemplate< Elovich >\fP\fC [virtual]\fP, \fBIsothermTemplate< FowlerGuggenheim >\fP\fC [virtual]\fP, \fBIsothermTemplate< FrenkelHalseyHill >\fP\fC [virtual]\fP, \fBIsothermTemplate< Freundlich >\fP\fC [virtual]\fP, \fBIsothermTemplate< FritzSchlunder >\fP\fC [virtual]\fP, \fBIsothermTemplate< FritzSchlunderIV >\fP\fC [virtual]\fP, \fBIsothermTemplate< FritzSchlunderV >\fP\fC [virtual]\fP, \fBIsothermTemplate< Halsey >\fP\fC [virtual]\fP, \fBIsothermTemplate< HarkinJura >\fP\fC [virtual]\fP, \fBIsothermTemplate< Henry >\fP\fC [virtual]\fP, \fBIsothermTemplate< Hill >\fP\fC [virtual]\fP, \fBIsothermTemplate< HillDeboer >\fP\fC [virtual]\fP, \fBIsothermTemplate< HollKrich >\fP\fC [virtual]\fP, \fBIsothermTemplate< Jossens >\fP\fC [virtual]\fP, \fBIsothermTemplate< Jovanovic >\fP\fC [virtual]\fP, \fBIsothermTemplate< Khan >\fP\fC [virtual]\fP, \fBIsothermTemplate< Kiselev >\fP\fC [virtual]\fP, \fBIsothermTemplate< KobleCorrigan >\fP\fC [virtual]\fP, \fBIsothermTemplate< Langmuir >\fP\fC [virtual]\fP, \fBIsothermTemplate< LangmuirFreundlich >\fP\fC [virtual]\fP, \fBIsothermTemplate< MacMillanTeller >\fP\fC [virtual]\fP, \fBIsothermTemplate< MarczewskiJaroniec >\fP\fC [virtual]\fP, \fBIsothermTemplate< RadkePrausnitsI >\fP\fC [virtual]\fP, \fBIsothermTemplate< RadkePrausnitsII >\fP\fC [virtual]\fP, \fBIsothermTemplate< RadkePrausnitsIII >\fP\fC [virtual]\fP, \fBIsothermTemplate< RedlichPeterson >\fP\fC [virtual]\fP, \fBIsothermTemplate< Sips >\fP\fC [virtual]\fP, \fBIsothermTemplate< Temkin >\fP\fC [virtual]\fP, \fBIsothermTemplate< Toth >\fP\fC [virtual]\fP, \fBIsothermTemplate< Unilan >\fP\fC [virtual]\fP, \fBIsothermTemplate< ValenzuelaMyers >\fP\fC [virtual]\fP, \fBIsothermTemplate< ViethSladek >\fP\fC [virtual]\fP, \fBIsothermTemplate< WeberVanVliet >\fP\fC [virtual]\fP, \fBFiveParameters\fP\fC [virtual]\fP, \fBFourParameters\fP\fC [virtual]\fP, \fBIsothermTemplate< T >\fP\fC [virtual]\fP, \fBOneParameter\fP\fC [virtual]\fP, \fBThreeParameters\fP\fC [virtual]\fP e \fBTwoParameters\fP\fC [virtual]\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBDefineIdentityBase\fP ('Isotherm', ID::Isotherm)"
+.br
+.ti -1c
+.RI "\fBIsotherm\fP (const \fBIsotherm\fP &)=default"
+.br
+.ti -1c
+.RI "Real \fBDQDC\fP (const Real &_ce, const Real &_temperature=0) const"
+.br
+.ti -1c
+.RI "void \fBPlotGraph\fP (const std::string &, FunctionEscala &, FunctionEscala &, const UInt &, const Real &, const Real &, const Real &=0) const"
+.br
+.ti -1c
+.RI "virtual Real \fBQe\fP (const Real &, const Real &) const =0"
+.br
+.ti -1c
+.RI "virtual std::string \fBCodeString\fP (const UInt &) const"
+.br
+.ti -1c
+.RI "virtual std::string \fBNameString\fP (const UInt &) const"
+.br
+.ti -1c
+.RI "virtual Real \fBQe\fP (const Real &_x) const"
+.br
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBClone\fP () const"
+.br
+.ti -1c
+.RI "virtual std::unique_ptr< \fBIsotherm\fP > \fBCloneImplementation\fP () const =0"
+.br
+.ti -1c
+.RI "auto \fBbegin\fP () const"
+.br
+.RI "Sobrecarga do operador begin()\&. "
+.ti -1c
+.RI "auto \fBend\fP () const"
+.br
+.RI "Sobrecarga do operador \fBend()\fP\&. "
+.ti -1c
+.RI "auto \fBcbegin\fP () const"
+.br
+.ti -1c
+.RI "auto \fBcend\fP () const"
+.br
+.RI "Sobrecarga do operador \fBcend()\fP\&. "
+.ti -1c
+.RI "auto \fBrbegin\fP () const"
+.br
+.ti -1c
+.RI "auto \fBrend\fP () const"
+.br
+.RI "Sobrecarga do operador \fBrend()\fP\&. "
+.ti -1c
+.RI "auto \fBcrbegin\fP () const"
+.br
+.ti -1c
+.RI "auto \fBcrend\fP () const"
+.br
+.RI "Sobrecarga do operador \fBcrend()\fP\&. "
+.ti -1c
+.RI "size_t \fBNumberConst\fP () const"
+.br
+.RI "Funçao que retorna o número de constantes de uma isoterma\&. "
+.in -1c
+.SS "Membros Protegidos"
+
+.in +1c
+.ti -1c
+.RI "\fBIsotherm\fP & \fBoperator=\fP (const \fBIsotherm\fP &)=default"
+.br
+.ti -1c
+.RI "virtual const VecPairString & \fBInfoIsotherm\fP () const =0"
+.br
+.ti -1c
+.RI "auto \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "auto \fBend\fP ()"
+.br
+.RI "Sobrecarga do operador \fBend()\fP\&. "
+.ti -1c
+.RI "auto \fBrbegin\fP ()"
+.br
+.ti -1c
+.RI "auto \fBrend\fP ()"
+.br
+.RI "Sobrecarga do operador \fBrend()\fP\&. "
+.ti -1c
+.RI "const VecReal \fBValue\fP () const"
+.br
+.RI "Vetor com os coeficientes de qualquer isoterma\&. "
+.ti -1c
+.RI "Real \fBValue\fP (const UInt &_i) const"
+.br
+.ti -1c
+.RI "Real \fBValue\fP (const UInt &_i)"
+.br
+.ti -1c
+.RI "void \fBValue\fP (const UInt &_i, const Real &_val)"
+.br
+.in -1c
+.SS "Atributos Protegidos"
+
+.in +1c
+.ti -1c
+.RI "VecReal \fBcoeffValue\fP"
+.br
+.ti -1c
+.RI "bool \fBsetup\fP = false"
+.br
+.in -1c
+.SS "Atributos Estáticos Protegidos"
+
+.in +1c
+.ti -1c
+.RI "static const Real \fBRGASCONST\fP = 8\&.31446261815324L"
+.br
+.in -1c
+.SS "Amigas"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &, const \fBIsotherm\fP &)"
+.br
+.in -1c
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.

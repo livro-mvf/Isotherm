@@ -1,0 +1,476 @@
+.TH "Baudu" 3 "Segunda, 3 de Outubro de 2022" "Version 1.0.0" "Isotherm++" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Baudu \- Classe com as equacoes da isoterma de \fBBaudu\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Baudu\&.h>\fP
+.PP
+Subclasse de \fBFourParameters\fP e \fBIsothermTemplate< Baudu >\fP\&.
+.SS "Membros Públicos"
+
+.in +1c
+.ti -1c
+.RI "\fBBaudu\fP ()=default"
+.br
+.ti -1c
+.RI "\fBBaudu\fP (const \fBBaudu\fP &_orig)=default"
+.br
+.RI "Construtora de copia\&. "
+.ti -1c
+.RI "virtual \fB~Baudu\fP ()=default"
+.br
+.RI "Destrutora\&. "
+.ti -1c
+.RI "\fBBaudu\fP (const Real &_qmax, const Real &_k1, const Real &_k2, const Real &_k3)"
+.br
+.RI "Construtora com os parametros que definem a isoterma de \fBBaudu\fP\&. "
+.ti -1c
+.RI "\fBBaudu\fP & \fBoperator=\fP (const \fBBaudu\fP &_orig)=default"
+.br
+.RI "Sobrecarga do operador =\&. "
+.ti -1c
+.RI "Real \fBQmax\fP () const"
+.br
+.RI "Funcao que informa o valor da capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "Real \fBK1\fP () const"
+.br
+.RI "Funcao que retorna o coeficiente associado a constante de \fBBaudu\fP\&. "
+.ti -1c
+.RI "Real \fBK2\fP () const"
+.br
+.RI "Funcao que retorna o parametro da equacao de \fBBaudu\fP\&. "
+.ti -1c
+.RI "Real \fBK3\fP () const"
+.br
+.RI "Funcao que retorna o parametro da equacao de \fBBaudu\fP\&. "
+.ti -1c
+.RI "void \fBQmax\fP (const Real &_qmax)"
+.br
+.RI "Funcao para alterar a capacidade maxima de adsorcao\&. "
+.ti -1c
+.RI "void \fBK1\fP (const Real &_k1)"
+.br
+.RI "Funcao que altera o coeficiente associado a constante da isoterma de \fBBaudu\fP\&. "
+.ti -1c
+.RI "void \fBK2\fP (const Real &_k2)"
+.br
+.RI "Funcao para alterar o valor associado a constante da isoterma de \fBBaudu\fP\&. "
+.ti -1c
+.RI "void \fBK3\fP (const Real &_k3)"
+.br
+.RI "Funcao para alterar o valor associado ao expoente da isoterma de \fBBaudu\fP\&. "
+.ti -1c
+.RI "Real \fBQe\fP (const Real &_ce) const override"
+.br
+.RI "Funcao que calcula a quantidade de sorcao no equilibrio\&. "
+.in -1c
+.SS "Outros membros herdados"
+.SH "Descrição detalhada"
+.PP 
+Classe com as equacoes da isoterma de \fBBaudu\fP\&. 
+
+Isoterma com quatro parametros, $ q_{max} $, $ K_1 $, $ K_2 $ e $ K_3 $ cujas formulas sao as seguintes: \\begin{align} Q_e(C_e) = \\frac{q_{max}C_e^{K_3}}{1 + K_1C_e^{K_3}} \\end{align} Um artigo de referencia pode ser encontrado \fCaqui\fP\&. 
+.PP
+\fBAutores\fP
+.RS 4
+Lara Botelho Brum 
+.PP
+Luan Rodrigues Soares de Souza 
+.PP
+Joao Flavio Vieira de Vasconcellos 
+.RE
+.PP
+\fBVersão\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBData\fP
+.RS 4
+2022 
+.RE
+.PP
+\fBBug\fP
+.RS 4
+Nao ha bugs conhecidos\&.
+.RE
+.PP
+.PP
+\fBCopyright\fP
+.RS 4
+GNU Public License\&. 
+.RE
+.PP
+
+.SH "Construtores e Destrutores"
+.PP 
+.SS "Baudu::Baudu ()\fC [default]\fP"
+
+.PP
+Construtora default\&. 
+.PP
+Uso: 
+.PP
+.nf
+Baudu  var;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros para esta funcao 
+.RE
+.PP
+
+.SS "Baudu::Baudu (const \fBBaudu\fP & _orig)\fC [default]\fP"
+
+.PP
+Construtora de copia\&. Uso: 
+.PP
+.nf
+Baudu  var;
+Baudu  var1(var);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBBaudu\fP original\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "Baudu::Baudu (const Real & _qmax, const Real & _k1, const Real & _k2, const Real & _k3)"
+
+.PP
+Construtora com os parametros que definem a isoterma de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+double QMAX(1\&.0);
+double K1(1\&.0);    
+double K2(1\&.0);
+double K3(0\&.5);
+Baudu  var1(Q1, K1, K2, K3);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Capacidade maxima de adsorcao\&. 
+.br
+ 
+.br
+\fI_k1\fP Coeficiente da isortema de \fBBaudu\fP\&. 
+.br
+ 
+.br
+\fI_k2\fP Coeficiente da isoterma de \fBBaudu\fP\&. 
+.br
+\fI_k3\fP Expoente da isoterma de \fBBaudu\fP\&. 
+.br
+ 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.br
+\fI_k1\fP <= 0\&. 
+.br
+\fI_k2\fP <= 0\&. 
+.br
+\fI_k3\fP <= 0\&. 
+.br
+\fI_k3\fP >= 1\&. 
+.RE
+.PP
+
+.SH "Funções membros"
+.PP 
+.SS "Real Baudu::K1 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o coeficiente associado a constante de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double k1 = var1\&.K1();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do coeficiente associado a constante de \fBBaudu\fP\&. 
+.RE
+.PP
+
+.SS "void Baudu::K1 (const Real & _k1)\fC [inline]\fP"
+
+.PP
+Funcao que altera o coeficiente associado a constante da isoterma de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double k1(2\&.0);
+var1\&.K1(k1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k1\fP Novo valor do coeficiente associado a constante da isoterma de \fBBaudu\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k1\fP <= 0\&. 
+.RE
+.PP
+
+.SS "Real Baudu::K2 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o parametro da equacao de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double k2 = var1\&.K2();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do parametro da equacao de \fBBaudu\fP\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "void Baudu::K2 (const Real & _k2)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor associado a constante da isoterma de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double k2(3\&.0);
+var1\&.K2(k2);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k2\fP Novo valor associado a constante da isoterma de \fBBaudu\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k2\fP <= 0\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "Real Baudu::K3 () const\fC [inline]\fP"
+
+.PP
+Funcao que retorna o parametro da equacao de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double k3 = var1\&.K3();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor do parametro da equacao de \fBBaudu\fP\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "void Baudu::K3 (const Real & _k3)\fC [inline]\fP"
+
+.PP
+Funcao para alterar o valor associado ao expoente da isoterma de \fBBaudu\fP\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double k3(0\&.3);
+var1\&.K3(k3);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_k3\fP Novo valor associado ao expoente da isoterma de \fBBaudu\fP\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_k3\fP <= 0\&. 
+.br
+ 
+.br
+\fI_k3\fP >= 1\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "\fBBaudu\fP & Baudu::operator= (const \fBBaudu\fP & _orig)\fC [default]\fP"
+
+.PP
+Sobrecarga do operador =\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+Baudu  var2 = var1;
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_orig\fP Variavel do tipo \fBBaudu\fP\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Copia de _orig\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "Real Baudu::Qe (const Real & _ce) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Funcao que calcula a quantidade de sorcao no equilibrio\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double ce(1\&.0);
+double qe = var1\&.Qe(ce);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_c\fP Concentracao do soluto\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da quantidade de sorcao no equilibrio\&. 
+.br
+ 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_ce\fP <= 0\&. 
+.br
+ 
+.RE
+.PP
+
+.PP
+Reimplementa \fBIsotherm\fP\&.
+.SS "Real Baudu::Qmax () const\fC [inline]\fP"
+
+.PP
+Funcao que informa o valor da capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double q1 = var1\&.Qmax();
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI \fP Nao ha parametros\&. 
+.RE
+.PP
+\fBRetorna\fP
+.RS 4
+Valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+
+.SS "void Baudu::Qmax (const Real & _qmax)\fC [inline]\fP"
+
+.PP
+Funcao para alterar a capacidade maxima de adsorcao\&. Uso: 
+.PP
+.nf
+Baudu  var1(QMAX, K1, K2, K3);              
+double q1(3\&.0);
+var1\&.Qmax(q1);
+
+.fi
+.PP
+ 
+.PP
+\fBParâmetros\fP
+.RS 4
+\fI_qmax\fP Novo valor da capacidade maxima de adsorcao\&. 
+.RE
+.PP
+\fBExceções\fP
+.RS 4
+\fI_qmax\fP <= 0\&. 
+.RE
+.PP
+
+
+.SH "Autor"
+.PP 
+Gerado automaticamente por Doxygen para Isotherm++ a partir do código-fonte\&.
