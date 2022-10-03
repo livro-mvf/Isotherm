@@ -293,4 +293,4 @@ public:
 
 IST_NAMESPACE_CLOSE
 
-#endif /* __SIPS_H__ */
+#endif /* __TOTH_H__ */

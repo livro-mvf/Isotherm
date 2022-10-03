@@ -129,7 +129,7 @@ public:
 ///     double QMAX(1.0);
 ///     double K1(1.0);    
 ///     double K2(1.0);        
-///     Sips  var1(Q1, K1, K2);
+///     Unilan  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
 ///  @param _qmax Capacidade maxima de adsorcao.    

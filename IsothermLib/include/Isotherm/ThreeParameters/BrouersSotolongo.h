@@ -46,7 +46,7 @@ IST_NAMESPACE_OPEN
 /// </summary>
 ///  Isoterma com tres parametros, \f$ q_{max} \f$, \f$ K_1 \f$ e \f$ K_2 \f$,  cujas formulas sao as seguintes:
 ///\begin{align}
-/// Q_e(C_e) = q_{max}[1-e^{-K_1C_e^{K_2}}]
+/// Q_e(C_e) = q_{max} \left[1-e^{-K_1C_e^{K_2}}\right]
 ///\end{align}
 ///  Um artigo de referencia pode ser encontrado [aqui](https://doi.org/10.1177/0263617416670909).
 ///  \authors    Joao Flavio Vieira de Vasconcellos
@@ -118,7 +118,7 @@ public:
 ///     double QMAX(1.0);
 ///     double K1(1.0);
 ///     double K2(1.0);
-///     Sips  var1(Q1, K1, K2);
+///     BrouersSotolongo  var1(Q1, K1, K2);
 /// @endcode
 /// </example>
 ///  @param _qmax Capacidade maxima de adsorcao.
