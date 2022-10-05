@@ -69,7 +69,7 @@ class HarkinJura :  public virtual TwoParameters,
 // ID da classe
 //==============================================================================
 
-public:    
+private:    
     
  
 /// <summary>
@@ -238,6 +238,8 @@ inline Real K2 () const {return  Value(1);};
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.
+    
+    private: 
     [[nodiscard]] 
     Real Qe (const Real&_c, const Real& _temp = 0) const override;
     
