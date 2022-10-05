@@ -129,7 +129,7 @@ public:
 ///     double QMAX(1.0);
 ///     double K1(1.0);    
 ///     double K2(1.0);        
-///     KobleCorrigan  var1(Q1, K1, K2);
+///     KobleCorrigan  var1(QMAX, K1, K2);
 /// @endcode
 /// </example>
 ///  @param _qmax Capacidade maxima de adsorcao.    
@@ -279,14 +279,19 @@ inline Real K2 () const {return  Value(2);};
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.    
-[[nodiscard]] Real Qe (const Real&, const Real&) const;
-    
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c
     ) const override
     {
         return Qe(_c, 0);
-    }
+    }    
+    
+private:
+        
+    [[nodiscard]] 
+    Real Qe (const Real&, const Real&) const;
+    
+
 
     [[nodiscard]]
     virtual std::unique_ptr<Isotherm> CloneImplementation() const override
