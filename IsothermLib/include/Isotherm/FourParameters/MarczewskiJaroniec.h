@@ -342,21 +342,21 @@ inline Real K3 () const {return  Value(3);};
 /// </example>
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilibrio.    
-///  @exception _c <= 0.    
-    [[nodiscard]]  
-    Real Qe (const Real&, const Real&) const;
-
+///  @exception _c <= 0. 
     
+public:
     
-    private:    
     [[nodiscard]] 
     inline Real Qe   (   const Real& _c
     ) const override
     {
         return Qe(_c, 0);
     }
-
-
+                              
+                                
+private:                                  
+    [[nodiscard]]  
+    Real Qe (const Real&, const Real&) const;
 
     [[nodiscard]]
     virtual std::unique_ptr<Isotherm> CloneImplementation() const override

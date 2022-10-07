@@ -1,0 +1,463 @@
+\hypertarget{class_weber_van_vliet}{}\doxysection{Referência da Classe Weber\+Van\+Vliet}
+\label{class_weber_van_vliet}\index{WeberVanVliet@{WeberVanVliet}}
+
+
+Classe com as equacoes da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.   
+
+
+
+
+{\ttfamily \#include $<$Weber\+Van\+Vliet.\+h$>$}
+
+Diagrama de hierarquia para Weber\+Van\+Vliet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_weber_van_vliet}
+\end{center}
+\end{figure}
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_weber_van_vliet_a4c2aaa757f761c0a2c641bf634dde96d}{Weber\+Van\+Vliet}} ()=default
+\item 
+\mbox{\hyperlink{class_weber_van_vliet_ae61f4d1d352a622f16a6cc07676c7def}{Weber\+Van\+Vliet}} (const \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} \&\+\_\+orig)=default
+\begin{DoxyCompactList}\small\item\em Construtora de copia.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_weber_van_vliet_a9f21e44e2e47d555be1f2c552e9b0689}\label{class_weber_van_vliet_a9f21e44e2e47d555be1f2c552e9b0689}} 
+virtual {\bfseries $\sim$\+Weber\+Van\+Vliet} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutora.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_weber_van_vliet_a132722d19432c34d9c9030803da02d80}{Weber\+Van\+Vliet}} (const Real \&\+\_\+k1, const Real \&\+\_\+k2, const Real \&\+\_\+k3, const Real \&\+\_\+k4)
+\begin{DoxyCompactList}\small\item\em Construtora com os parametros que definem a isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} \& \mbox{\hyperlink{class_weber_van_vliet_a2aa0e60dfa3e72764ceba67e710e448e}{operator=}} (const \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} \&\+\_\+orig)=default
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador =.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o coeficiente associado a constante de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weber_van_vliet_a45f086145f1f55e4867e4192536f9f5e}{K1}} (const Real \&\+\_\+k1)
+\begin{DoxyCompactList}\small\item\em Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weber_van_vliet_a2d21f53065d0460c5cb752a7a37b13e2}{K2}} (const Real \&\+\_\+k2)
+\begin{DoxyCompactList}\small\item\em Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weber_van_vliet_ac7868f0fbe9cada2baa1ed18647bfbb0}{K3}} (const Real \&\+\_\+k3)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar o valor associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_weber_van_vliet_a2a34632baa7b4d3edb1a6ae4471fb68b}{K4}} (const Real \&\+\_\+k4)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar o valor associado ao expoente da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_weber_van_vliet_a5b60f531b7e97edb60006a536bb11a6e}{Qe}} (const Real \&\+\_\+c) const override
+\begin{DoxyCompactList}\small\item\em Funcao que calcula a quantidade de sorcao no equilibrio.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Outros membros herdados}
+
+
+\doxysubsection{Descrição detalhada}
+Classe com as equacoes da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Isoterma com quatro parametros, $ K_1 $, $ K_2 $ , $ K_3 $ e $ K_4 $, cuja formula e a seguinte\+: \textbackslash{}begin\{align\} C\+\_\+e = K\+\_\+1 Q(\+C\+\_\+e)$^\wedge$\{K\+\_\+2 Q(\+C\+\_\+e)$^\wedge$\{K\+\_\+3\}+ K\+\_\+4\} \textbackslash{}end\{align\} Um artigo de referencia pode ser encontrado \href{https://doi.org/10.1016/0043-1354(80)90107-4}{\texttt{ aqui}}. \begin{DoxyAuthor}{Autores}
+Lara Botelho Brum 
+
+Luan Rodrigues Soares de Souza 
+
+Joao Flavio Vieira de Vasconcellos 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000013}{Bug}}]Nao ha bugs conhecidos.\end{DoxyRefDesc}
+
+
+\begin{DoxyCopyright}{Copyright}
+GNU Public License. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_weber_van_vliet_a4c2aaa757f761c0a2c641bf634dde96d}\label{class_weber_van_vliet_a4c2aaa757f761c0a2c641bf634dde96d}} 
+\index{WeberVanVliet@{WeberVanVliet}!WeberVanVliet@{WeberVanVliet}}
+\index{WeberVanVliet@{WeberVanVliet}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{WeberVanVliet()}{WeberVanVliet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Weber\+Van\+Vliet\+::\+Weber\+Van\+Vliet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+
+
+Construtora default.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var;}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros para esta funcao \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_weber_van_vliet_ae61f4d1d352a622f16a6cc07676c7def}\label{class_weber_van_vliet_ae61f4d1d352a622f16a6cc07676c7def}} 
+\index{WeberVanVliet@{WeberVanVliet}!WeberVanVliet@{WeberVanVliet}}
+\index{WeberVanVliet@{WeberVanVliet}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{WeberVanVliet()}{WeberVanVliet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Weber\+Van\+Vliet\+::\+Weber\+Van\+Vliet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} \&}]{\+\_\+orig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construtora de copia.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var;}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(var);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+orig} & Variavel do tipo \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} original. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_weber_van_vliet_a132722d19432c34d9c9030803da02d80}\label{class_weber_van_vliet_a132722d19432c34d9c9030803da02d80}} 
+\index{WeberVanVliet@{WeberVanVliet}!WeberVanVliet@{WeberVanVliet}}
+\index{WeberVanVliet@{WeberVanVliet}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{WeberVanVliet()}{WeberVanVliet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Weber\+Van\+Vliet\+::\+Weber\+Van\+Vliet (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k1,  }\item[{const Real \&}]{\+\_\+k2,  }\item[{const Real \&}]{\+\_\+k3,  }\item[{const Real \&}]{\+\_\+k4 }\end{DoxyParamCaption})}
+
+
+
+Construtora com os parametros que definem a isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}(1.0);    }
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}(0.5);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}}(0.5);}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k1} & Coeficiente da isortema de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. ~\newline
+ \\
+\hline
+{\em \+\_\+k2} & Coeficiente da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. \\
+\hline
+{\em \+\_\+k3} & Expoente da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. ~\newline
+ \\
+\hline
+{\em \+\_\+k4} & Expoente da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k1} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k2} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}\label{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}} 
+\index{WeberVanVliet@{WeberVanVliet}!K1@{K1}}
+\index{K1@{K1}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K1()}{K1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Weber\+Van\+Vliet\+::\+K1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o coeficiente associado a constante de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k1 = var1.K1();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do coeficiente associado a constante de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_weber_van_vliet_a45f086145f1f55e4867e4192536f9f5e}\label{class_weber_van_vliet_a45f086145f1f55e4867e4192536f9f5e}} 
+\index{WeberVanVliet@{WeberVanVliet}!K1@{K1}}
+\index{K1@{K1}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K1()}{K1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Weber\+Van\+Vliet\+::\+K1 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k1(2.0);}
+\DoxyCodeLine{var1.K1(k1);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k1} & Novo valor do coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k1} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}\label{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}} 
+\index{WeberVanVliet@{WeberVanVliet}!K2@{K2}}
+\index{K2@{K2}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K2()}{K2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Weber\+Van\+Vliet\+::\+K2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k2 = var1.K2();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_weber_van_vliet_a2d21f53065d0460c5cb752a7a37b13e2}\label{class_weber_van_vliet_a2d21f53065d0460c5cb752a7a37b13e2}} 
+\index{WeberVanVliet@{WeberVanVliet}!K2@{K2}}
+\index{K2@{K2}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K2()}{K2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Weber\+Van\+Vliet\+::\+K2 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k2(2.0);}
+\DoxyCodeLine{var1.K2(k2);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k2} & Novo valor do coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k2} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}\label{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}} 
+\index{WeberVanVliet@{WeberVanVliet}!K3@{K3}}
+\index{K3@{K3}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K3()}{K3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Weber\+Van\+Vliet\+::\+K3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k3 = var1.K3();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_weber_van_vliet_ac7868f0fbe9cada2baa1ed18647bfbb0}\label{class_weber_van_vliet_ac7868f0fbe9cada2baa1ed18647bfbb0}} 
+\index{WeberVanVliet@{WeberVanVliet}!K3@{K3}}
+\index{K3@{K3}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K3()}{K3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Weber\+Van\+Vliet\+::\+K3 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar o valor associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k3(0.5);}
+\DoxyCodeLine{var1.K3(k2);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k3} & Novo valor associado a constante da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k3} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}\label{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}} 
+\index{WeberVanVliet@{WeberVanVliet}!K4@{K4}}
+\index{K4@{K4}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K4()}{K4()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Weber\+Van\+Vliet\+::\+K4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k4 = var1.K4();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_weber_van_vliet_a2a34632baa7b4d3edb1a6ae4471fb68b}\label{class_weber_van_vliet_a2a34632baa7b4d3edb1a6ae4471fb68b}} 
+\index{WeberVanVliet@{WeberVanVliet}!K4@{K4}}
+\index{K4@{K4}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{K4()}{K4()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Weber\+Van\+Vliet\+::\+K4 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar o valor associado ao expoente da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k4(0.5);}
+\DoxyCodeLine{var1.K4(k4);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k4} & Novo valor associado ao expoente da isoterma de \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_weber_van_vliet_a2aa0e60dfa3e72764ceba67e710e448e}\label{class_weber_van_vliet_a2aa0e60dfa3e72764ceba67e710e448e}} 
+\index{WeberVanVliet@{WeberVanVliet}!operator=@{operator=}}
+\index{operator=@{operator=}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} \& Weber\+Van\+Vliet\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}} \&}]{\+\_\+orig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Sobrecarga do operador =.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1( \mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var2 = var1;}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+orig} & Variavel do tipo \mbox{\hyperlink{class_weber_van_vliet}{Weber\+Van\+Vliet}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Copia de \+\_\+orig. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_weber_van_vliet_a5b60f531b7e97edb60006a536bb11a6e}\label{class_weber_van_vliet_a5b60f531b7e97edb60006a536bb11a6e}} 
+\index{WeberVanVliet@{WeberVanVliet}!Qe@{Qe}}
+\index{Qe@{Qe}!WeberVanVliet@{WeberVanVliet}}
+\doxysubsubsection{\texorpdfstring{Qe()}{Qe()}}
+{\footnotesize\ttfamily Real Weber\+Van\+Vliet\+::\+Qe (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Funcao que calcula a quantidade de sorcao no equilibrio.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_weber_van_vliet}{WeberVanVliet}}  var1(\mbox{\hyperlink{class_weber_van_vliet_ab66fd07c95ca0e9cca582b9679b6aadf}{K1}}, \mbox{\hyperlink{class_weber_van_vliet_aa6d837e97fadb8665af048a693af6727}{K2}}, \mbox{\hyperlink{class_weber_van_vliet_a4ae7b427da901e19def2a7c4c90efa6e}{K3}}, \mbox{\hyperlink{class_weber_van_vliet_aecd38f02da068bc889867dc36ed0a771}{K4}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} ce(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} qe = var1.Qe(ce);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+c} & Concentracao do soluto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor da quantidade de sorcao no equilibrio. ~\newline
+ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+c} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementa \mbox{\hyperlink{class_isotherm}{Isotherm}}.
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/jf\+\_\+va/\+Documents/\+Desenvolvimento/\+Isotherm/\+Isotherm\+Lib/include/\+Isotherm/\+Four\+Parameters/Weber\+Van\+Vliet.\+h\item 
+/mnt/c/\+Users/jf\+\_\+va/\+Documents/\+Desenvolvimento/\+Isotherm/\+Isotherm\+Lib/src/\+Isotherm/\+Four\+Parameters/Weber\+Van\+Vliet.\+cpp\end{DoxyCompactItemize}

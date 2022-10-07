@@ -34,11 +34,12 @@
 /// <summary>
 /// Classe com as equacoes da isoterma de Henry.
 /// </summary>
-///  Isoterma com um parametro, \f$ K_1 > 0 \f$, cuja fórmula e a seguinte:
+///  Isoterma com um parametro, \f$ K_1 > 0 \f$, cuja formula e a seguinte:
 ///\begin{align}
 ///     Q_e(C_e) = K_1 C_e
 ///\end{align}
-///  O artigo em que esta isoterma foi definida pode ser encontrado [aqui](https://doi.org/10.1098/rstl.1803.0004).
+///  O artigo em que esta isoterma foi definida pode ser encontrado [aqui](https://doi.org/10.1098/rstl.1803.0004 ).
+///  \authors   Iasmim Barboza Storck
 ///  \authors   Lara Botelho Brum
 ///  \authors   Luan Rodrigues Soares de Souza
 ///  \authors   Joao Flavio Vieira de Vasconcellos
@@ -100,7 +101,7 @@ public:
     Henry() = default;
 
 /// <summary>
-/// Construtora de cópia.
+/// Construtora de copia.
 /// </summary>
 /// <example>
 /// Uso:
@@ -147,7 +148,7 @@ public:
 /// @endcode
 /// </example>
 ///  @param _orig Variavel do tipo Henry original.
-///  @return Cópia de _orig.
+///  @return Copia de _orig.
     Henry& operator = (const Henry& _orig) = default;
 
 //==============================================================================
@@ -166,10 +167,11 @@ public:
 /// </example>
 ///  @param " " Nao ha parametros.
 ///  @return Valor do coeficiente de distribuicao.
-inline Real K1 () const
-{
-    return  Value(0);
-};
+    [[nodiscard]]
+    inline Real K1 () const
+    {
+        return  Value(0);
+    };
 
 //==============================================================================
 // Alterando as constantes da classe
@@ -188,10 +190,10 @@ inline Real K1 () const
 /// </example>
 ///  @param _k1 Novo valor do coeficiente de distribuicao.
 ///  @exception _k1 <= 0.
-inline void K1 (const Real& _k1)
-{
-    *this = Henry(_k1);
-};
+    inline void K1 (const Real& _k1)
+    {
+        *this = Henry(_k1);
+    };
 
 //==============================================================================
 // Funcoes virtuais
@@ -213,8 +215,22 @@ public:
 ///  @param _c Concentracao do soluto.
 ///  @return Valor da quantidade de sorcao no equilibrio.
 ///  @exception _c < 0.
-    virtual Real Qe    (   const Real&  _c
-                    ,   const Real&  = 0) const ;
+    
+public:
+    
+    [[nodiscard]] 
+    inline Real Qe   (   const Real& _c
+    ) const override
+    {
+        return Qe(_c, 0);
+    }
+      
+    
+protected:
+
+    [[nodiscard]]
+    virtual Real Qe     (   const Real&  _c
+                        ,   const Real&) const ;
 
     [[nodiscard]]
     virtual std::unique_ptr<Isotherm> CloneImplementation() const override

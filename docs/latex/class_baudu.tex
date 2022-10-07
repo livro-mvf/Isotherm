@@ -1,0 +1,475 @@
+\hypertarget{class_baudu}{}\doxysection{Referência da Classe Baudu}
+\label{class_baudu}\index{Baudu@{Baudu}}
+
+
+Classe com as equacoes da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.   
+
+
+
+
+{\ttfamily \#include $<$Baudu.\+h$>$}
+
+Diagrama de hierarquia para Baudu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_baudu}
+\end{center}
+\end{figure}
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}} ()=default
+\item 
+\mbox{\hyperlink{class_baudu_a4850ca67093fcd0a6dd4cad638aaf7dc}{Baudu}} (const \mbox{\hyperlink{class_baudu}{Baudu}} \&\+\_\+orig)=default
+\begin{DoxyCompactList}\small\item\em Construtora de copia.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_baudu_a93ed964d1f6e9f842a668822c04cab67}\label{class_baudu_a93ed964d1f6e9f842a668822c04cab67}} 
+virtual {\bfseries $\sim$\+Baudu} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutora.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_baudu_a4e7b93cb6c499aa009a017e389ee3aec}{Baudu}} (const Real \&\+\_\+qmax, const Real \&\+\_\+k1, const Real \&\+\_\+k2, const Real \&\+\_\+k3)
+\begin{DoxyCompactList}\small\item\em Construtora com os parametros que definem a isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_baudu}{Baudu}} \& \mbox{\hyperlink{class_baudu_a1df6a5bcb7a0b117e9356bec407edb4c}{operator=}} (const \mbox{\hyperlink{class_baudu}{Baudu}} \&\+\_\+orig)=default
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador =.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_baudu_af87555a23aeb83e2883f6c6bca93c7db}{Qmax}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que informa o valor da capacidade maxima de adsorcao.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o coeficiente associado a constante de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_baudu_abc215423b451ba3212e2a605f45b3f75}{Qmax}} (const Real \&\+\_\+qmax)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar a capacidade maxima de adsorcao.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_baudu_ac5f841face13c1b59092141593d798fa}{K1}} (const Real \&\+\_\+k1)
+\begin{DoxyCompactList}\small\item\em Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_baudu_ab7a89203ab1a15d473ff7fe6032af229}{K2}} (const Real \&\+\_\+k2)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar o valor associado a constante da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_baudu_a05ef596fea2065abd2971e048a73034e}{K3}} (const Real \&\+\_\+k3)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar o valor associado ao expoente da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_baudu_a9d884192418ad65bd7e3279cf4bf2132}{Qe}} (const Real \&\+\_\+ce) const override
+\begin{DoxyCompactList}\small\item\em Funcao que calcula a quantidade de sorcao no equilibrio.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Outros membros herdados}
+
+
+\doxysubsection{Descrição detalhada}
+Classe com as equacoes da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Isoterma com quatro parametros, $ q_{max} $, $ K_1 $, $ K_2 $ e $ K_3 $ cujas formulas sao as seguintes\+: \textbackslash{}begin\{align\} Q\+\_\+e(\+C\+\_\+e) = \textbackslash{}frac\{q\+\_\+\{max\}C\+\_\+e$^\wedge$\{K\+\_\+3\}\}\{1 + K\+\_\+1\+C\+\_\+e$^\wedge$\{K\+\_\+3\}\} \textbackslash{}end\{align\} Um artigo de referencia pode ser encontrado \href{https://doi.org/10.1016/B978-0-12-804609-8.00005-4}{\texttt{ aqui}}. \begin{DoxyAuthor}{Autores}
+Lara Botelho Brum 
+
+Luan Rodrigues Soares de Souza 
+
+Joao Flavio Vieira de Vasconcellos 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000009}{Bug}}]Nao ha bugs conhecidos.\end{DoxyRefDesc}
+
+
+\begin{DoxyCopyright}{Copyright}
+GNU Public License. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_baudu_a7b15647e98953252286abd3b93f48dbb}\label{class_baudu_a7b15647e98953252286abd3b93f48dbb}} 
+\index{Baudu@{Baudu}!Baudu@{Baudu}}
+\index{Baudu@{Baudu}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{Baudu()}{Baudu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Baudu\+::\+Baudu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+
+
+Construtora default.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var;}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros para esta funcao \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_baudu_a4850ca67093fcd0a6dd4cad638aaf7dc}\label{class_baudu_a4850ca67093fcd0a6dd4cad638aaf7dc}} 
+\index{Baudu@{Baudu}!Baudu@{Baudu}}
+\index{Baudu@{Baudu}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{Baudu()}{Baudu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Baudu\+::\+Baudu (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_baudu}{Baudu}} \&}]{\+\_\+orig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construtora de copia.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var;}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(var);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+orig} & Variavel do tipo \mbox{\hyperlink{class_baudu}{Baudu}} original. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_baudu_a4e7b93cb6c499aa009a017e389ee3aec}\label{class_baudu_a4e7b93cb6c499aa009a017e389ee3aec}} 
+\index{Baudu@{Baudu}!Baudu@{Baudu}}
+\index{Baudu@{Baudu}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{Baudu()}{Baudu()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Baudu\+::\+Baudu (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+qmax,  }\item[{const Real \&}]{\+\_\+k1,  }\item[{const Real \&}]{\+\_\+k2,  }\item[{const Real \&}]{\+\_\+k3 }\end{DoxyParamCaption})}
+
+
+
+Construtora com os parametros que definem a isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} QMAX(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}(1.0);    }
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}}(0.5);}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(Q1, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+qmax} & Capacidade maxima de adsorcao. ~\newline
+ \\
+\hline
+{\em \+\_\+k1} & Coeficiente da isortema de \mbox{\hyperlink{class_baudu}{Baudu}}. ~\newline
+ \\
+\hline
+{\em \+\_\+k2} & Coeficiente da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}. \\
+\hline
+{\em \+\_\+k3} & Expoente da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+qmax} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k1} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k2} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$>$}{>}= 1. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}\label{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}} 
+\index{Baudu@{Baudu}!K1@{K1}}
+\index{K1@{K1}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{K1()}{K1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Baudu\+::\+K1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o coeficiente associado a constante de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k1 = var1.K1();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do coeficiente associado a constante de \mbox{\hyperlink{class_baudu}{Baudu}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_baudu_ac5f841face13c1b59092141593d798fa}\label{class_baudu_ac5f841face13c1b59092141593d798fa}} 
+\index{Baudu@{Baudu}!K1@{K1}}
+\index{K1@{K1}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{K1()}{K1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Baudu\+::\+K1 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k1(2.0);}
+\DoxyCodeLine{var1.K1(k1);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k1} & Novo valor do coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k1} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}\label{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}} 
+\index{Baudu@{Baudu}!K2@{K2}}
+\index{K2@{K2}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{K2()}{K2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Baudu\+::\+K2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k2 = var1.K2();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_baudu}{Baudu}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_baudu_ab7a89203ab1a15d473ff7fe6032af229}\label{class_baudu_ab7a89203ab1a15d473ff7fe6032af229}} 
+\index{Baudu@{Baudu}!K2@{K2}}
+\index{K2@{K2}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{K2()}{K2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Baudu\+::\+K2 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar o valor associado a constante da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k2(3.0);}
+\DoxyCodeLine{var1.K2(k2);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k2} & Novo valor associado a constante da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k2} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_baudu_a82a3967daa73863a8d39411532bb3ff4}\label{class_baudu_a82a3967daa73863a8d39411532bb3ff4}} 
+\index{Baudu@{Baudu}!K3@{K3}}
+\index{K3@{K3}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{K3()}{K3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Baudu\+::\+K3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k3 = var1.K3();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_baudu}{Baudu}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_baudu_a05ef596fea2065abd2971e048a73034e}\label{class_baudu_a05ef596fea2065abd2971e048a73034e}} 
+\index{Baudu@{Baudu}!K3@{K3}}
+\index{K3@{K3}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{K3()}{K3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Baudu\+::\+K3 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar o valor associado ao expoente da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k3(0.3);}
+\DoxyCodeLine{var1.K3(k3);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k3} & Novo valor associado ao expoente da isoterma de \mbox{\hyperlink{class_baudu}{Baudu}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k3} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$>$}{>}= 1. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_baudu_a1df6a5bcb7a0b117e9356bec407edb4c}\label{class_baudu_a1df6a5bcb7a0b117e9356bec407edb4c}} 
+\index{Baudu@{Baudu}!operator=@{operator=}}
+\index{operator=@{operator=}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_baudu}{Baudu}} \& Baudu\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_baudu}{Baudu}} \&}]{\+\_\+orig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Sobrecarga do operador =.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var2 = var1;}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+orig} & Variavel do tipo \mbox{\hyperlink{class_baudu}{Baudu}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Copia de \+\_\+orig. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_baudu_a9d884192418ad65bd7e3279cf4bf2132}\label{class_baudu_a9d884192418ad65bd7e3279cf4bf2132}} 
+\index{Baudu@{Baudu}!Qe@{Qe}}
+\index{Qe@{Qe}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{Qe()}{Qe()}}
+{\footnotesize\ttfamily Real Baudu\+::\+Qe (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+ce }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Funcao que calcula a quantidade de sorcao no equilibrio.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} ce(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} qe = var1.Qe(ce);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+c} & Concentracao do soluto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor da quantidade de sorcao no equilibrio. ~\newline
+ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+ce} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementa \mbox{\hyperlink{class_isotherm}{Isotherm}}.
+
+\mbox{\Hypertarget{class_baudu_af87555a23aeb83e2883f6c6bca93c7db}\label{class_baudu_af87555a23aeb83e2883f6c6bca93c7db}} 
+\index{Baudu@{Baudu}!Qmax@{Qmax}}
+\index{Qmax@{Qmax}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{Qmax()}{Qmax()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Baudu\+::\+Qmax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que informa o valor da capacidade maxima de adsorcao.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} q1 = var1.Qmax();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor da capacidade maxima de adsorcao. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_baudu_abc215423b451ba3212e2a605f45b3f75}\label{class_baudu_abc215423b451ba3212e2a605f45b3f75}} 
+\index{Baudu@{Baudu}!Qmax@{Qmax}}
+\index{Qmax@{Qmax}!Baudu@{Baudu}}
+\doxysubsubsection{\texorpdfstring{Qmax()}{Qmax()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Baudu\+::\+Qmax (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+qmax }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar a capacidade maxima de adsorcao.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_baudu}{Baudu}}  var1(QMAX, \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}}, \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}}, \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} q1(3.0);}
+\DoxyCodeLine{var1.Qmax(q1);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+qmax} & Novo valor da capacidade maxima de adsorcao. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+qmax} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+\end{DoxyExceptions}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/jf\+\_\+va/\+Documents/\+Desenvolvimento/\+Isotherm/\+Isotherm\+Lib/include/\+Isotherm/\+Four\+Parameters/Baudu.\+h\item 
+/mnt/c/\+Users/jf\+\_\+va/\+Documents/\+Desenvolvimento/\+Isotherm/\+Isotherm\+Lib/src/\+Isotherm/\+Four\+Parameters/Baudu.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,475 @@
+\hypertarget{class_marczewski_jaroniec}{}\doxysection{Referência da Classe Marczewski\+Jaroniec}
+\label{class_marczewski_jaroniec}\index{MarczewskiJaroniec@{MarczewskiJaroniec}}
+
+
+Classe com as equacoes da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.   
+
+
+
+
+{\ttfamily \#include $<$Marczewski\+Jaroniec.\+h$>$}
+
+Diagrama de hierarquia para Marczewski\+Jaroniec\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_marczewski_jaroniec}
+\end{center}
+\end{figure}
+\doxysubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_marczewski_jaroniec_a2ab4f26f60971ac00f17909fa63530b0}{Marczewski\+Jaroniec}} ()=default
+\item 
+\mbox{\hyperlink{class_marczewski_jaroniec_a2c939c5ec1ce73fa0fc37bc15ca5a9e3}{Marczewski\+Jaroniec}} (const \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} \&\+\_\+orig)=default
+\begin{DoxyCompactList}\small\item\em Construtora de copia.  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_marczewski_jaroniec_a5a1407e27b1387da9bc5adcb95000a3a}\label{class_marczewski_jaroniec_a5a1407e27b1387da9bc5adcb95000a3a}} 
+virtual {\bfseries $\sim$\+Marczewski\+Jaroniec} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutora.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_marczewski_jaroniec_a4ac5660bd5fab79e316d0f2b431b1c69}{Marczewski\+Jaroniec}} (const Real \&\+\_\+qmax, const Real \&\+\_\+k1, const Real \&\+\_\+k2, const Real \&\+\_\+k3)
+\begin{DoxyCompactList}\small\item\em Construtora com os parametros que definem a isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} \& \mbox{\hyperlink{class_marczewski_jaroniec_a456572fb777b2d495c3e4d2ca9ccdf87}{operator=}} (const \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} \&\+\_\+orig)=default
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador =.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_marczewski_jaroniec_ad8da47058855a9ecccf640c08477f9ca}{Qmax}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que informa o valor da capacidade maxima de adsorcao.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o coeficiente associado a constante de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}} () const
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_marczewski_jaroniec_a4351770698bc88234b44a46f02e93113}{Qmax}} (const Real \&\+\_\+qmax)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar a capacidade maxima de adsorcao.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_marczewski_jaroniec_a6607fdd38cd1d98ffc9a5c8c66fedbcc}{K1}} (const Real \&\+\_\+k1)
+\begin{DoxyCompactList}\small\item\em Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_marczewski_jaroniec_a2ef0f4a5d82726371b34404bdfd791cf}{K2}} (const Real \&\+\_\+k2)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar o valor associado a constante da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_marczewski_jaroniec_a8107db168dde4776eb1e3d80ca90911b}{K3}} (const Real \&\+\_\+k3)
+\begin{DoxyCompactList}\small\item\em Funcao para alterar o valor associado ao expoente da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  \end{DoxyCompactList}\item 
+Real \mbox{\hyperlink{class_marczewski_jaroniec_a1df88fceba5d21168d8ddaacfab7fbba}{Qe}} (const Real \&\+\_\+c) const override
+\begin{DoxyCompactList}\small\item\em Funcao que calcula a quantidade de sorcao no equilibrio.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Outros membros herdados}
+
+
+\doxysubsection{Descrição detalhada}
+Classe com as equacoes da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Isoterma com quatro parametros, $ q_{max} $, $ K_1 $, $ K_2 $ e $ K_3 $ cuja formula e a seguinte\+: \textbackslash{}begin\{align\} \textbackslash{}frac\{Q\+\_\+e(\+C\+\_\+e)\}\{q\+\_\+\{max\}\} = \textbackslash{}left\mbox{[} \textbackslash{}frac\{(K\+\_\+1 C\+\_\+e)$^\wedge$\{K\+\_\+2\}\}\{1 + (K\+\_\+1 C\+\_\+e)$^\wedge$\{K\+\_\+2\}\}\textbackslash{}right\mbox{]}$^\wedge$\textbackslash{}frac\{K\+\_\+2\}\{K\+\_\+3\} \textbackslash{}end\{align\} Um artigo de referencia pode ser encontrado \href{https://doi.org/https://doi.org/10.1007/BF01134184}{\texttt{ aqui}}. \begin{DoxyAuthor}{Autores}
+Lara Botelho Brum 
+
+Luan Rodrigues Soares de Souza 
+
+Joao Flavio Vieira de Vasconcellos 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2022 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000012}{Bug}}]Nao ha bugs conhecidos.\end{DoxyRefDesc}
+
+
+\begin{DoxyCopyright}{Copyright}
+GNU Public License. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a2ab4f26f60971ac00f17909fa63530b0}\label{class_marczewski_jaroniec_a2ab4f26f60971ac00f17909fa63530b0}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{MarczewskiJaroniec()}{MarczewskiJaroniec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Marczewski\+Jaroniec\+::\+Marczewski\+Jaroniec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+
+
+Construtora default.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var;}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros para esta funcao \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a2c939c5ec1ce73fa0fc37bc15ca5a9e3}\label{class_marczewski_jaroniec_a2c939c5ec1ce73fa0fc37bc15ca5a9e3}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{MarczewskiJaroniec()}{MarczewskiJaroniec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Marczewski\+Jaroniec\+::\+Marczewski\+Jaroniec (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} \&}]{\+\_\+orig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construtora de copia.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var;}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(var);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+orig} & Variavel do tipo \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} original. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a4ac5660bd5fab79e316d0f2b431b1c69}\label{class_marczewski_jaroniec_a4ac5660bd5fab79e316d0f2b431b1c69}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{MarczewskiJaroniec()}{MarczewskiJaroniec()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Marczewski\+Jaroniec\+::\+Marczewski\+Jaroniec (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+qmax,  }\item[{const Real \&}]{\+\_\+k1,  }\item[{const Real \&}]{\+\_\+k2,  }\item[{const Real \&}]{\+\_\+k3 }\end{DoxyParamCaption})}
+
+
+
+Construtora com os parametros que definem a isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} QMAX(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}(1.0);    }
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}}(1.0);}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(Q1, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+qmax} & Capacidade maxima de adsorcao. ~\newline
+ \\
+\hline
+{\em \+\_\+k1} & Coeficiente da isortema de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. ~\newline
+ \\
+\hline
+{\em \+\_\+k2} & Coeficiente da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. \\
+\hline
+{\em \+\_\+k3} & Coeficiente da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+qmax} & \texorpdfstring{$<$}{<} 0. \\
+\hline
+{\em \+\_\+k1} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k2} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$>$}{>}= 1. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}\label{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!K1@{K1}}
+\index{K1@{K1}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{K1()}{K1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Marczewski\+Jaroniec\+::\+K1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o coeficiente associado a constante de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k1 = var1.K1();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do coeficiente associado a constante de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a6607fdd38cd1d98ffc9a5c8c66fedbcc}\label{class_marczewski_jaroniec_a6607fdd38cd1d98ffc9a5c8c66fedbcc}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!K1@{K1}}
+\index{K1@{K1}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{K1()}{K1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Marczewski\+Jaroniec\+::\+K1 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que altera o coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k1(2.0);}
+\DoxyCodeLine{var1.K1(k1);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k1} & Novo valor do coeficiente associado a constante da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k1} & \texorpdfstring{$<$}{<}= 0. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}\label{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!K2@{K2}}
+\index{K2@{K2}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{K2()}{K2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Marczewski\+Jaroniec\+::\+K2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k2 = var1.K2();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a2ef0f4a5d82726371b34404bdfd791cf}\label{class_marczewski_jaroniec_a2ef0f4a5d82726371b34404bdfd791cf}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!K2@{K2}}
+\index{K2@{K2}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{K2()}{K2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Marczewski\+Jaroniec\+::\+K2 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar o valor associado a constante da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k2(3.0);}
+\DoxyCodeLine{var1.K2(k2);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k2} & Novo valor associado a constante da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k2} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}\label{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!K3@{K3}}
+\index{K3@{K3}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{K3()}{K3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Marczewski\+Jaroniec\+::\+K3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que retorna o parametro da equacao de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k3 = var1.K3();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor do parametro da equacao de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a8107db168dde4776eb1e3d80ca90911b}\label{class_marczewski_jaroniec_a8107db168dde4776eb1e3d80ca90911b}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!K3@{K3}}
+\index{K3@{K3}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{K3()}{K3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Marczewski\+Jaroniec\+::\+K3 (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+k3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar o valor associado ao expoente da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} k3(3.0);}
+\DoxyCodeLine{var1.K3(k3);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+k3} & Novo valor associado ao expoente da isoterma de \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+k3} & \texorpdfstring{$<$}{<}= 0 ~\newline
+ \\
+\hline
+{\em \+\_\+k3} & \texorpdfstring{$>$}{>}= 1 ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a456572fb777b2d495c3e4d2ca9ccdf87}\label{class_marczewski_jaroniec_a456572fb777b2d495c3e4d2ca9ccdf87}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!operator=@{operator=}}
+\index{operator=@{operator=}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} \& Marczewski\+Jaroniec\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}} \&}]{\+\_\+orig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Sobrecarga do operador =.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var2 = var1;}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+orig} & Variavel do tipo \mbox{\hyperlink{class_marczewski_jaroniec}{Marczewski\+Jaroniec}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Copia de \+\_\+orig. ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a1df88fceba5d21168d8ddaacfab7fbba}\label{class_marczewski_jaroniec_a1df88fceba5d21168d8ddaacfab7fbba}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!Qe@{Qe}}
+\index{Qe@{Qe}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{Qe()}{Qe()}}
+{\footnotesize\ttfamily Real Marczewski\+Jaroniec\+::\+Qe (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Funcao que calcula a quantidade de sorcao no equilibrio.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} ce(1.0);}
+\DoxyCodeLine{\textcolor{keywordtype}{double} qe = var1.Qe(ce);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+c} & Concentracao do soluto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor da quantidade de sorcao no equilibrio. ~\newline
+ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+c} & \texorpdfstring{$<$}{<}= 0. ~\newline
+ \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementa \mbox{\hyperlink{class_isotherm}{Isotherm}}.
+
+\mbox{\Hypertarget{class_marczewski_jaroniec_ad8da47058855a9ecccf640c08477f9ca}\label{class_marczewski_jaroniec_ad8da47058855a9ecccf640c08477f9ca}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!Qmax@{Qmax}}
+\index{Qmax@{Qmax}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{Qmax()}{Qmax()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Real Marczewski\+Jaroniec\+::\+Qmax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao que informa o valor da capacidade maxima de adsorcao.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} q1 = var1.Qmax();}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em  } & Nao ha parametros. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Valor da capacidade maxima de adsorcao. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_marczewski_jaroniec_a4351770698bc88234b44a46f02e93113}\label{class_marczewski_jaroniec_a4351770698bc88234b44a46f02e93113}} 
+\index{MarczewskiJaroniec@{MarczewskiJaroniec}!Qmax@{Qmax}}
+\index{Qmax@{Qmax}!MarczewskiJaroniec@{MarczewskiJaroniec}}
+\doxysubsubsection{\texorpdfstring{Qmax()}{Qmax()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Marczewski\+Jaroniec\+::\+Qmax (\begin{DoxyParamCaption}\item[{const Real \&}]{\+\_\+qmax }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Funcao para alterar a capacidade maxima de adsorcao.  
+
+Uso\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_marczewski_jaroniec}{MarczewskiJaroniec}}  var1(QMAX, \mbox{\hyperlink{class_marczewski_jaroniec_a3a7771a8bdbb3e92798330f4a92719f3}{K1}}, \mbox{\hyperlink{class_marczewski_jaroniec_a22a07a61f91b68d988b288cb986a2be2}{K2}}, \mbox{\hyperlink{class_marczewski_jaroniec_a2ac3dbe60550adcce3a891faed8942f4}{K3}});              }
+\DoxyCodeLine{\textcolor{keywordtype}{double} q1(3.0);}
+\DoxyCodeLine{var1.Qmax(q1);}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+qmax} & Novo valor da capacidade maxima de adsorcao. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \+\_\+qmax} & \texorpdfstring{$<$}{<} 0. \\
+\hline
+\end{DoxyExceptions}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Users/jf\+\_\+va/\+Documents/\+Desenvolvimento/\+Isotherm/\+Isotherm\+Lib/include/\+Isotherm/\+Four\+Parameters/Marczewski\+Jaroniec.\+h\item 
+/mnt/c/\+Users/jf\+\_\+va/\+Documents/\+Desenvolvimento/\+Isotherm/\+Isotherm\+Lib/src/\+Isotherm/\+Four\+Parameters/Marczewski\+Jaroniec .\+cpp\end{DoxyCompactItemize}

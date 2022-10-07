@@ -1,0 +1,193 @@
+\hypertarget{_baudu_8h_source}{}\doxysection{Baudu.\+h}
+\label{_baudu_8h_source}\index{/mnt/c/Users/jf\_va/Documents/Desenvolvimento/Isotherm/IsothermLib/include/Isotherm/FourParameters/Baudu.h@{/mnt/c/Users/jf\_va/Documents/Desenvolvimento/Isotherm/IsothermLib/include/Isotherm/FourParameters/Baudu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{2 \textcolor{comment}{// Name        : Baudu.h}}
+\DoxyCodeLine{3 \textcolor{comment}{// Authors     : Lara Botelho Brum}}
+\DoxyCodeLine{4 \textcolor{comment}{//               Luan Rodrigues Soares de Souza}}
+\DoxyCodeLine{5 \textcolor{comment}{//               Joao Flavio Vieira de Vasconcellos}}
+\DoxyCodeLine{6 \textcolor{comment}{// Version     : 1.0}}
+\DoxyCodeLine{7 \textcolor{comment}{// Description : Classe com as equacoes da isoterma de Baudu.}}
+\DoxyCodeLine{8 \textcolor{comment}{//}}
+\DoxyCodeLine{9 \textcolor{comment}{// Copyright   : Copyright (C) <2022>  Joao Flavio Vasconcellos }}
+\DoxyCodeLine{10 \textcolor{comment}{//                                      (jflavio at iprj.uerj.br)}}
+\DoxyCodeLine{11 \textcolor{comment}{//}}
+\DoxyCodeLine{12 \textcolor{comment}{// This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{13 \textcolor{comment}{// it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{14 \textcolor{comment}{// the Free Software Foundation, either version 3 of the License.}}
+\DoxyCodeLine{15 \textcolor{comment}{//}}
+\DoxyCodeLine{16 \textcolor{comment}{// This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{17 \textcolor{comment}{// but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{18 \textcolor{comment}{// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{19 \textcolor{comment}{// GNU General Public License for more details.}}
+\DoxyCodeLine{20 \textcolor{comment}{//}}
+\DoxyCodeLine{21 \textcolor{comment}{// You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{22 \textcolor{comment}{// along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{23 \textcolor{comment}{//}}
+\DoxyCodeLine{24 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifndef \_\_BAUDU\_H\_\_}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define \_\_BAUDU\_H\_\_}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{56 \textcolor{comment}{// include da biblioteca c++}}
+\DoxyCodeLine{57 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{62 \textcolor{comment}{// include da isotherm++}}
+\DoxyCodeLine{63 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#include <Isotherm/FourParameters/FourParameters.h>}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \mbox{\hyperlink{group___configure_ga1e3e0e0eca304ffc8364100b22724d21}{IST\_NAMESPACE\_OPEN}}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{class }\mbox{\hyperlink{class_baudu}{Baudu}} :   \textcolor{keyword}{public} \textcolor{keyword}{virtual} \mbox{\hyperlink{class_four_parameters}{FourParameters}},}
+\DoxyCodeLine{70                 \textcolor{keyword}{public} \mbox{\hyperlink{class_isotherm_template}{IsothermTemplate}} < Baudu > \{}
+\DoxyCodeLine{71     }
+\DoxyCodeLine{72     }
+\DoxyCodeLine{73 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{74 \textcolor{comment}{// ID da classe}}
+\DoxyCodeLine{75 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{private}:    }
+\DoxyCodeLine{78     }
+\DoxyCodeLine{82     }
+\DoxyCodeLine{83     DefineIdentity  (   \textcolor{stringliteral}{"{}Baudu"{}}}
+\DoxyCodeLine{84                     ,   ID::Baudu}
+\DoxyCodeLine{85                     );  }
+\DoxyCodeLine{86     }
+\DoxyCodeLine{87     }
+\DoxyCodeLine{88 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{89 \textcolor{comment}{// Funcoes Construtoras/Destrutora}}
+\DoxyCodeLine{90 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{91     }
+\DoxyCodeLine{92 \textcolor{keyword}{public}:}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{104     \mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{105     }
+\DoxyCodeLine{117     \mbox{\hyperlink{class_baudu_a4850ca67093fcd0a6dd4cad638aaf7dc}{Baudu}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_baudu}{Baudu}}\& \_orig) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{118   }
+\DoxyCodeLine{122     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_baudu_a93ed964d1f6e9f842a668822c04cab67}{\string~Baudu}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{146     \mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}}   (   \textcolor{keyword}{const} Real\&     \_qmax }
+\DoxyCodeLine{147             ,   \textcolor{keyword}{const} Real\&     \_k1}
+\DoxyCodeLine{148             ,   \textcolor{keyword}{const} Real\&     \_k2}
+\DoxyCodeLine{149             ,   \textcolor{keyword}{const} Real\&     \_k3}
+\DoxyCodeLine{150             );}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{153 \textcolor{comment}{// Sobrecarga de operadores}}
+\DoxyCodeLine{154 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{keyword}{public}:}
+\DoxyCodeLine{157     }
+\DoxyCodeLine{158 }
+\DoxyCodeLine{171     \mbox{\hyperlink{class_baudu}{Baudu}}\& \mbox{\hyperlink{class_baudu_a1df6a5bcb7a0b117e9356bec407edb4c}{operator = }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_baudu}{Baudu}}\& \_orig) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{172     }
+\DoxyCodeLine{173     }
+\DoxyCodeLine{174 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{175 \textcolor{comment}{// Acesso as constantes da classe}}
+\DoxyCodeLine{176 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{190     }
+\DoxyCodeLine{191 [[nodiscard]] }
+\DoxyCodeLine{192 \textcolor{keyword}{inline} Real \mbox{\hyperlink{class_baudu_af87555a23aeb83e2883f6c6bca93c7db}{Qmax}} ()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(0);\};}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 [[nodiscard]] }
+\DoxyCodeLine{210 \textcolor{keyword}{inline} Real \mbox{\hyperlink{class_baudu_aee65fb13ff4b65474d5f42d62f2df15c}{K1}} ()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(1);\};}
+\DoxyCodeLine{211     }
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 [[nodiscard]] }
+\DoxyCodeLine{226 \textcolor{keyword}{inline} Real \mbox{\hyperlink{class_baudu_a2aa7f0b383df527f1f8607794c2b9973}{K2}} ()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(2);\};}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 }
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 [[nodiscard]] }
+\DoxyCodeLine{243 \textcolor{keyword}{inline} Real \mbox{\hyperlink{class_baudu_a82a3967daa73863a8d39411532bb3ff4}{K3}} ()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return}  \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(3);\};}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{246 \textcolor{comment}{// Alterando as constantes da classe}}
+\DoxyCodeLine{247 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_baudu_abc215423b451ba3212e2a605f45b3f75}{Qmax}} (\textcolor{keyword}{const} Real\& \_qmax)   \{   *\textcolor{keyword}{this} = \mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}}   (       \_qmax }
+\DoxyCodeLine{264                                                     ,       \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(1) }
+\DoxyCodeLine{265                                                     ,       \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(2)}
+\DoxyCodeLine{266                                                     ,       \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(3)}
+\DoxyCodeLine{267                                                     );}
+\DoxyCodeLine{268                                 \};}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{283                                 }
+\DoxyCodeLine{284 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_baudu_ac5f841face13c1b59092141593d798fa}{K1}} (\textcolor{keyword}{const} Real\& \_k1)   \{   *\textcolor{keyword}{this} = \mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}}   (   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(0) }
+\DoxyCodeLine{285                                                 ,   \_k1 }
+\DoxyCodeLine{286                                                 ,   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(2) }
+\DoxyCodeLine{287                                                 ,   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(3)}
+\DoxyCodeLine{288                                                 );}
+\DoxyCodeLine{289                             \};}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{304                             }
+\DoxyCodeLine{305 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_baudu_ab7a89203ab1a15d473ff7fe6032af229}{K2}} (\textcolor{keyword}{const} Real\& \_k2)   \{   *\textcolor{keyword}{this} = \mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}}   (   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(0) }
+\DoxyCodeLine{306                                                 ,   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(1) }
+\DoxyCodeLine{307                                                 ,   \_k2     }
+\DoxyCodeLine{308                                                 ,   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(3)}
+\DoxyCodeLine{309                                                 );}
+\DoxyCodeLine{310                             \};}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{326                             }
+\DoxyCodeLine{327 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_baudu_a05ef596fea2065abd2971e048a73034e}{K3}} (\textcolor{keyword}{const} Real\& \_k3)   \{   *\textcolor{keyword}{this} = \mbox{\hyperlink{class_baudu_a7b15647e98953252286abd3b93f48dbb}{Baudu}}   (   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(0) }
+\DoxyCodeLine{328                                                 ,   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(1) }
+\DoxyCodeLine{329                                                 ,   \mbox{\hyperlink{group___isotherm_template_ga66905e5e5db160c8a6d803aed0d6d85c}{Value}}(2) }
+\DoxyCodeLine{330                                                 ,   \_k3}
+\DoxyCodeLine{331                                                 );}
+\DoxyCodeLine{332                             \};}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334     }
+\DoxyCodeLine{335 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{336 \textcolor{comment}{//  Funcoes virtuais}}
+\DoxyCodeLine{337 \textcolor{comment}{//==============================================================================}}
+\DoxyCodeLine{338     }
+\DoxyCodeLine{353                             }
+\DoxyCodeLine{354     [[nodiscard]] }
+\DoxyCodeLine{355     \textcolor{keyword}{inline} Real \mbox{\hyperlink{class_baudu_a9d884192418ad65bd7e3279cf4bf2132}{Qe}}   (   \textcolor{keyword}{const} Real\& \_ce}
+\DoxyCodeLine{356     )\textcolor{keyword}{ const override}}
+\DoxyCodeLine{357 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{358         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_baudu_a9d884192418ad65bd7e3279cf4bf2132}{Qe}}(\_ce, 0);}
+\DoxyCodeLine{359     \}                            }
+\DoxyCodeLine{360                             }
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363 \textcolor{keyword}{private}:}
+\DoxyCodeLine{364     }
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366 [[maybe\_unused]]  [[nodiscard]]  }
+\DoxyCodeLine{367 Real \mbox{\hyperlink{class_baudu_a9d884192418ad65bd7e3279cf4bf2132}{Qe}} (\textcolor{keyword}{const} Real\&, [[maybe\_unused]] \textcolor{keyword}{const} Real\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371 [[nodiscard]]}
+\DoxyCodeLine{372 \textcolor{keyword}{virtual} std::unique\_ptr<Isotherm> CloneImplementation()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{373 \textcolor{keyword}{}\{}
+\DoxyCodeLine{374     \textcolor{keywordflow}{return} std::make\_unique<Baudu>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{375 \}}
+\DoxyCodeLine{376     }
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378     }
+\DoxyCodeLine{379 \};}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 \mbox{\hyperlink{group___configure_ga9804ef63a551808d389310b891356c2a}{IST\_NAMESPACE\_CLOSE}}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_BAUDU\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{384         }
+\DoxyCodeLine{385          }
+
+\end{DoxyCode}

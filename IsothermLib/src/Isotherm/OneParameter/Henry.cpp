@@ -96,14 +96,16 @@ Henry ::  Qe    (   const Real& _ce
         if (!setup) throw
             IsoException (IST_LOC, className(), BadCoefficient);
 
-        if (_ce < 0.0)  throw
+        if (_ce <= 0.0)  throw
                 IsoException    (   IST_LOC
                                 ,   className()
-                                ,   BadCeLTZero);
+                                ,   BadCeLEZero
+                                );
 
     } catch (const IsoException& _isoExcept) {
 
-        std::cout << _isoExcept << "\n";
+        std::cout   << _isoExcept 
+                    << "\n";
         exit(EXIT_FAILURE);
     }
 

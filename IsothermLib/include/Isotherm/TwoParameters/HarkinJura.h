@@ -188,7 +188,8 @@ inline Real K2 () const {return  Value(1);};
 //==============================================================================
 // Alterando as constantes da classe
 //==============================================================================
-
+public:
+    
 /// <summary>
 /// Funcao para alterar o valor da constante da isoterma de Harkin-Jura.
 /// </summary>
@@ -223,6 +224,8 @@ inline Real K2 () const {return  Value(1);};
 //==============================================================================
 // Funcoes virtuais
 //==============================================================================
+   
+    public:
     
 /// <summary>
 /// Funcao que calcula a quantidade de sorcao no equilibrio.
@@ -239,9 +242,16 @@ inline Real K2 () const {return  Value(1);};
 ///  @return Valor da quantidade de sorcao no equilibrio.    
 ///  @exception _c < 0.
     
+    [[nodiscard]] 
+    inline Real Qe   (   const Real& _c
+    ) const override
+    {
+        return Qe(_c, 0);
+    }    
+    
     private: 
     [[nodiscard]] 
-    Real Qe (const Real&_c, const Real& _temp = 0) const override;
+    Real Qe (const Real&_c, const Real& _temp) const override;
     
     [[nodiscard]]
     virtual std::unique_ptr<Isotherm> CloneImplementation() const override
