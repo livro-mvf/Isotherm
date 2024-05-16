@@ -35,7 +35,7 @@
 /// Classe base de todas as outras classes de isotermas.
 /// </summary>
 ///  \authors   Lara Botelho Brum
-/// \authors Aline de Lurdes Zuliani Lunkes
+///  \authors   Aline de Lurdes Zuliani Lunkes
 ///  \authors   Luan Rodrigues Soares de Souza
 ///  \authors   Joao Flavio Vieira de Vasconcellos
 ///  \version   1.0
