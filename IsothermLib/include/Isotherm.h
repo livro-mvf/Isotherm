@@ -1,6 +1,7 @@
 //==============================================================================
 // Name        : Isotherm.h
 // Authors     : Lara Botelho Brum
+//               Aline de Lurdes Zuliani Lunkes
 //               Luan Rodrigues Soares de Souza
 //               Joao Flavio Vieira de Vasconcellos
 // Version     : 1.0
